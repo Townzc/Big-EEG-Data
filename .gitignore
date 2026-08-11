@@ -43,3 +43,13 @@ node.*.log
 /.wrangler/
 /outputs/
 /work/
+
+# generated audit/deployment artifacts
+/*.inspect.ndjson
+/.openai/*.tar.gz
+
+# raw EEG downloads must never be committed
+/downloads/
+/raw_data/
+/data_downloads/
+/ds00*/

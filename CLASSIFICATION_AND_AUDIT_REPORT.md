@@ -4,7 +4,7 @@
 
 ## 结论
 
-总目录由 537 个唯一下载单元扩展到 548 个，本轮新增 11 个。Healthcare/Disease 重点视图包含 137 个单元。
+总目录由 537 个唯一下载单元扩展到 556 个，本轮新增 19 个。Healthcare/Disease 重点视图包含 146 个单元。
 
 当前已下载且确认存在 raw EEG signal 的主口径为：
 
@@ -14,7 +14,7 @@
 | 受试者行计数 | 21,818 | 332 | 22,150 |
 | raw EEG 时长 | 43,396.3 h | 231.5 h | 43,627.8 h |
 
-11 个新增资源提供约 20,083 个受试者行计数，其中疾病/临床约 3,511、健康/人群约 16,572。加入后预计为约 42,233；可证实的总时长下界为 43,765.8 h。新增资源中只有 EEG-Bench 的 4 项提供数据集总时长，共 138 h；其余大型 PSG 队列未做“人数 × 8 小时”等假设。
+19 个新增资源提供约 22,139 个受试者行计数，其中疾病/临床约 3,511、健康/人群约 18,628。加入后预计为约 44,289；按本地审计与新增行直接相加的可证实总时长下界为 45,062.6 h。新增资源中 EEG-Bench 的 4 项提供 138 h，HBN 的 7 个有可靠时长发布版提供 1,296.8 h；HBN Release 7 及其余大型 PSG 队列不以“人数 × 假设时长”估算。
 
 直接从已下载内容观察到的受试者下界为 21,132。22,150 是文件观察与可信目录/论文回退后的 `participant-row count`；独立数据集之间是否包含同一参与者无法全面判定，所以不能称为全球唯一人数。
 
@@ -57,7 +57,7 @@ WHO 将 depressive disorder 描述为常见精神障碍：<https://www.who.int/n
 - bigP3BCI 改为 20 项研究内共 336 个 study-participant 条目；官方页未声明跨研究全局唯一人数。
 - ALS EEG/eye-tracking 数据改为 176 人（6 ALS + 170 healthy）。
 
-## 新增 11 项
+## 新增 19 项
 
 | ID | 数据集 | 分类 | 受试者口径 | 文献总时长 |
 |---|---|---|---:|---:|
@@ -72,6 +72,14 @@ WHO 将 depressive disorder 描述为常见精神障碍：<https://www.who.int/n
 | EEG-0591 | MNC | 疾病/临床 | 约 3,000 | 待 EDF 审计 |
 | EEG-0592 | CPS | 疾病/临床 | 113 | 待 WFDB 审计 |
 | EEG-0593 | LOFT-HF | 疾病/临床 | 161 baseline | 待 EDF 审计 |
+| EEG-0594 | HBN-EEG Release 2 / ds005506 | 健康/人群 | 150 | 127.5 h |
+| EEG-0595 | HBN-EEG Release 3 / ds005507 | 健康/人群 | 184 | 158.8 h |
+| EEG-0596 | HBN-EEG Release 4 / ds005508 | 健康/人群 | 324 | 261.8 h |
+| EEG-0597 | HBN-EEG Release 5 / ds005509 | 健康/人群 | 330 | 255.3 h |
+| EEG-0598 | HBN-EEG Release 6 / ds005510 | 健康/人群 | 135 | 103.5 h |
+| EEG-0599 | HBN-EEG Release 7 / ds005511 | 健康/人群 | 381 | 官方未给总时长 |
+| EEG-0600 | HBN-EEG Release 8 / ds005512 | 健康/人群 | 257 | 179.1 h |
+| EEG-0601 | HBN-EEG Release 9 / ds005514 | 健康/人群 | 295 | 210.8 h |
 
 ## TUEG 版本与重复口径
 
@@ -82,7 +90,7 @@ TUEG 是父库。TUAB、TUAR、TUEP、TUEV、TUSZ 和 TUSL 仍可单独展示任
 ## 复现
 
 - `scripts/prepare_catalog.mjs`：加载旧总表与 2026-07-31 疾病下载审计，应用分类/人数修订，生成网页数据。
-- `scripts/verify_metrics.mjs`：断言 548 个唯一 ID、57 个 raw signal 单元、TUEG 文件数、受试者和时长总数。
+- `scripts/verify_metrics.mjs`：断言 556 个唯一 ID、57 个 raw signal 单元、TUEG 文件数、受试者和时长总数。
 - `work_spreadsheet/build_final_workbook.mjs`：使用 artifact-tool 生成最终 XLSX。
 - `work_spreadsheet/verify_final_workbook.mjs`：逐表检查、8 张渲染图和公式错误扫描。
 

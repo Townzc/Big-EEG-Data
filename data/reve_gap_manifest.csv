@@ -1,0 +1,9 @@
+accession,release,catalog_id,large_category,small_category,subjects,recordings,documented_hours,access_url,access,license,download_status
+ds005506,HBN-EEG Release 2,EEG-0594,08_Health_and_Population,Developmental_Clinical_Cohort,150,1405,127.5,https://openneuro.org/datasets/ds005506,DOWNLOAD_PUBLIC,CC BY-SA 4.0,not_downloaded
+ds005507,HBN-EEG Release 3,EEG-0595,08_Health_and_Population,Developmental_Clinical_Cohort,184,1812,158.8,https://openneuro.org/datasets/ds005507,DOWNLOAD_PUBLIC,CC BY-SA 4.0,not_downloaded
+ds005508,HBN-EEG Release 4,EEG-0596,08_Health_and_Population,Developmental_Clinical_Cohort,324,3342,261.8,https://openneuro.org/datasets/ds005508,DOWNLOAD_PUBLIC,CC BY-SA 4.0,not_downloaded
+ds005509,HBN-EEG Release 5,EEG-0597,08_Health_and_Population,Developmental_Clinical_Cohort,330,3326,255.3,https://openneuro.org/datasets/ds005509,DOWNLOAD_PUBLIC,CC BY-SA 4.0,not_downloaded
+ds005510,HBN-EEG Release 6,EEG-0598,08_Health_and_Population,Developmental_Clinical_Cohort,135,1227,103.5,https://openneuro.org/datasets/ds005510,DOWNLOAD_PUBLIC,CC BY-SA 4.0,not_downloaded
+ds005511,HBN-EEG Release 7,EEG-0599,08_Health_and_Population,Developmental_Clinical_Cohort,381,3100,,https://openneuro.org/datasets/ds005511,DOWNLOAD_PUBLIC,CC BY-SA 4.0,not_downloaded
+ds005512,HBN-EEG Release 8,EEG-0600,08_Health_and_Population,Developmental_Clinical_Cohort,257,2320,179.1,https://openneuro.org/datasets/ds005512,DOWNLOAD_PUBLIC,CC BY-SA 4.0,not_downloaded
+ds005514,HBN-EEG Release 9,EEG-0601,08_Health_and_Population,Developmental_Clinical_Cohort,295,2885,210.8,https://openneuro.org/datasets/ds005514,DOWNLOAD_PUBLIC,CC BY-SA 4.0,not_downloaded
