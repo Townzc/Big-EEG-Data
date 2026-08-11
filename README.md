@@ -58,5 +58,6 @@ $env:NODE_PATH = 'C:\Users\tangzhice\.cache\codex-runtimes\codex-primary-runtime
 ## 协作与部署
 
 - GitHub：<https://github.com/Townzc/Big-EEG-Data>
+- Vercel：<https://big-eeg-data.vercel.app>
 - 本仓库只保存目录元数据、证据、脚本、工作簿与网页代码；原始 EEG 数据不进入 Git。
 - 更新后运行 `npm run lint`、`npm test`，再由 Vercel 构建网页。
