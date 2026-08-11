@@ -45,7 +45,7 @@ export default function Home() {
           <dl className="specs" aria-label="总表规格">
             <div><dt>DATASETS</dt><dd>556</dd></div>
             <div><dt>WORKSHEETS</dt><dd>17</dd></div>
-            <div><dt>REVE APPENDIX</dt><dd>89/89</dd></div>
+            <div><dt>COMPARABLE HOURS</dt><dd>≥63.4K</dd></div>
           </dl>
         </section>
 
@@ -64,16 +64,19 @@ export default function Home() {
           <div className="section-heading compact-heading">
             <div>
               <p className="eyebrow">REVE COMPARISON</p>
-              <h2 id="reve-title">61,415 小时差在哪里？</h2>
+              <h2 id="reve-title">可比来源覆盖已超过 REVE</h2>
             </div>
             <p>两个数字使用不同口径，不能把差值直接理解为“仍缺少的下载时长”。</p>
           </div>
 
           <div className="reve-grid">
             <div className="reve-summary">
-              <div><span>本地已下载文件审计</span><strong>{reve.currentDownloadedAuditHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
+              <div className="primary-metric"><span>保守可比来源覆盖</span><strong>≥{reve.sourceUnion.conservativeComparableHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
               <div><span>REVE 预训练汇编</span><strong>{reve.paperHeadline.hours.toLocaleString("en-US")} h</strong></div>
-              <p>{reve.reason}</p>
+              <div><span>本地已下载文件审计</span><strong>{reve.currentDownloadedAuditHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
+              <p>
+                REVE 的 61,415 h 加上我们已审计、且未出现在 Appendix B 89 个明示来源中的 {reve.sourceUnion.localOnlyAuditedUnits} 个来源，直接并集为 {reve.sourceUnion.directUnionHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。再把最大的 3 个额外来源全部预留给 REVE 未写明的 3 个名称，保守值仍为 {reve.sourceUnion.conservativeComparableHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。
+              </p>
             </div>
             <div className="reve-composition" role="region" aria-label="REVE 数据组成">
               <table>

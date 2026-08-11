@@ -18,7 +18,8 @@ test("server-renders the simplified BIG EEG DATA catalog", async () => {
   assert.match(html, /BIG EEG DATA/);
   assert.match(html, /556/);
   assert.match(html, /17/);
-  assert.match(html, /89\/89/);
+  assert.match(html, /63\.4K/);
+  assert.match(html, /89 个明示来源/);
   assert.match(html, /EEG_healthcare_disease_catalog_20260811\.xlsx/);
   assert.match(html, /lang="zh-CN"/);
   assert.match(html, /aria-label=/);

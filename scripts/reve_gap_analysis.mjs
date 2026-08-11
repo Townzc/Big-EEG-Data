@@ -101,6 +101,53 @@ const result = {
   duplicateMatches: comparison.filter((row) => row.matches.length > 1),
 };
 
+const matchedCatalogIds = new Set(
+  comparison.flatMap((row) => row.matches).map((match) => match.split(":")[0]),
+);
+const downloadedRows = catalog.focusRows.filter((row) => row.downloadedCountInTotal);
+const localOnlyAuditedRows = downloadedRows
+  .filter((row) => !matchedCatalogIds.has(row.id))
+  .sort((a, b) => (b.downloadedHours ?? 0) - (a.downloadedHours ?? 0));
+const localOnlyAuditedHours = localOnlyAuditedRows.reduce(
+  (total, row) => total + (Number(row.downloadedHours) || 0),
+  0,
+);
+const unnamedSourceCount = 92 - comparison.length;
+const unnamedSourceReserveRows = localOnlyAuditedRows.slice(0, unnamedSourceCount);
+const unnamedSourceReserveHours = unnamedSourceReserveRows.reduce(
+  (total, row) => total + (Number(row.downloadedHours) || 0),
+  0,
+);
+const sourceUnion = {
+  method: "REVE aggregate + locally audited sources absent from the 89 explicitly named Appendix B sources",
+  reveHours: 61415,
+  localOnlyAuditedUnits: localOnlyAuditedRows.length,
+  localOnlyAuditedHours,
+  directUnionHours: 61415 + localOnlyAuditedHours,
+  unnamedSourceCount,
+  unnamedSourceReserveHours,
+  conservativeComparableHours: 61415 + localOnlyAuditedHours - unnamedSourceReserveHours,
+  reserveAssumption: "To avoid overstating coverage, the three largest local-only audited sources are reserved as possible matches for the three sources claimed by Table 7 but not named in Appendix B.",
+  localOnlyAuditedRows: localOnlyAuditedRows.map((row) => ({
+    id: row.id,
+    name: row.name,
+    hours: row.downloadedHours,
+    stableId: row.stableId,
+  })),
+  unnamedSourceReserveRows: unnamedSourceReserveRows.map((row) => ({
+    id: row.id,
+    name: row.name,
+    hours: row.downloadedHours,
+  })),
+};
+
+catalog.reveComparison = { ...catalog.reveComparison, sourceUnion };
+const finalPath = path.join(siteRoot, "work_spreadsheet", "final_catalog_data.json");
+const finalData = JSON.parse(fs.readFileSync(finalPath, "utf8"));
+finalData.reveComparison = { ...finalData.reveComparison, sourceUnion };
+fs.writeFileSync(path.join(siteRoot, "public", "catalog-data.json"), JSON.stringify(catalog));
+fs.writeFileSync(finalPath, JSON.stringify(finalData, null, 2));
+
 const outPath = path.join(siteRoot, "work_spreadsheet", "reve_gap_analysis.json");
-fs.writeFileSync(outPath, JSON.stringify({ result, comparison }, null, 2));
-console.log(JSON.stringify(result, null, 2));
+fs.writeFileSync(outPath, JSON.stringify({ result, comparison, sourceUnion }, null, 2));
+console.log(JSON.stringify({ ...result, sourceUnion }, null, 2));

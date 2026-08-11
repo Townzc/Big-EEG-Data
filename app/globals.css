@@ -78,6 +78,8 @@ table{width:100%;min-width:1500px;border-collapse:collapse;font-size:.79rem}th{p
 .reve-summary, .reve-composition { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
 .reve-summary { padding: 1.2rem; }
 .reve-summary>div { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.reve-summary>.primary-metric { margin: -.25rem -.25rem .25rem; padding: 1rem; background: var(--teal-soft); border: 0; border-radius: 10px; }
+.reve-summary>.primary-metric strong { color: var(--teal); font-size: 1.5rem; }
 .reve-summary span { color: var(--muted); font-size: .78rem; }
 .reve-summary strong { color: var(--navy); font-size: 1.25rem; }
 .reve-summary p { margin: 1rem 0 0; color: var(--muted); font-size: .8rem; }
