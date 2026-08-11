@@ -16,9 +16,10 @@ test("server-renders the simplified BIG EEG DATA catalog", async () => {
   const html = await response.text();
   assert.match(html, /<title>BIG EEG DATA<\/title>/i);
   assert.match(html, /BIG EEG DATA/);
-  assert.match(html, /548/);
-  assert.match(html, /15/);
-  assert.match(html, /EEG_healthcare_disease_catalog_20260810\.xlsx/);
+  assert.match(html, /556/);
+  assert.match(html, /17/);
+  assert.match(html, /89\/89/);
+  assert.match(html, /EEG_healthcare_disease_catalog_20260811\.xlsx/);
   assert.match(html, /lang="zh-CN"/);
   assert.match(html, /aria-label=/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
@@ -29,6 +30,7 @@ test("focuses on the full catalog and evidence workbook", async () => {
   const html = await response.text();
   assert.match(html, /COMPLETE CATALOG/);
   assert.match(html, /EVIDENCE WORKBOOK/);
-  assert.match(html, /15 .*WORKSHEETS|WORKSHEETS/i);
+  assert.match(html, /17 .*WORKSHEETS|WORKSHEETS/i);
+  assert.match(html, /REVE COMPARISON/);
   assert.doesNotMatch(html, /WHY.*AND|SCALE, WITH BOUNDARIES|11 NEW DOWNLOAD UNITS/i);
 });
