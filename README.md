@@ -4,7 +4,7 @@
 
 ## 主要文件
 
-- 工作簿：`EEG_healthcare_disease_catalog_20260823.xlsx`（19 个证据工作表，含下载执行清单）
+- 工作簿：`EEG_healthcare_disease_catalog_20260823.xlsx`（仅保留 README、最终唯一下载清单、修订记录 3 个工作表）
 - 网页入口：`app/page.tsx`
 - 网页数据：`public/catalog-data.json`
 - 下载清单：`public/download-checklist.csv`
@@ -45,6 +45,9 @@ NeuroAtlas 的 42 个评测来源中，原目录已经覆盖 36 个，本轮补�
 - 独立 raw EEG 已获取：67（疾病 55、Health 12）。
 - 已有精确时长审计：57 个 / 43,627.8 h；另 10 个已下载目录待信号与时长审计，不重复下载。
 - 当前仍可推进下载：68；明确舍弃 4 个（EPILEPSIAE、B-SNIP1、IEEE ADHD、SeizeIT1），但保留总目录证据。
+- 68 项中正式需要申请 43 项：21 项已申请等待访问，22 项尚需申请；其余为直接下载、登录后下载或人工复核入口。
+- SeizeIT2（EEG-0031）已经下载并精确审计 11,626.25 h，不在待下载清单；待舍弃的是 SeizeIT1。
+- PD-Mortality 已更新为 OpenNeuro ds007020 公开下载；DOD-H 已更新为 Dreem 官方 S3，不再列为申请项。
 
 ## 开发与验证
 

@@ -41,7 +41,20 @@ assert(metrics.acquisition.healthRawAcquiredUnits === 12, "Expected 12 health ra
 assert(metrics.acquisition.exactDurationAuditUnits === 57, "Expected 57 exact-duration audits");
 assert(metrics.acquisition.actionableDownloadUnits === 68, "Expected 68 actionable remaining downloads");
 assert(metrics.acquisition.discardedUnits === 4, "Expected 4 discarded downloads");
+assert(metrics.acquisition.applicationRequiredUnits === 43, "Expected 43 application-required actionable units");
+assert(metrics.acquisition.appliedWaitingUnits === 21, "Expected 21 already-applied units");
+assert(metrics.acquisition.notYetAppliedUnits === 22, "Expected 22 not-yet-applied units");
 assert(data.downloadChecklist.rows.length === 146, "Expected 146 focus rows in download checklist");
+assert(data.worksheetGuide.length === 3, "Expected simplified 3-sheet workbook guide");
+
+const seizeIt2 = data.downloadChecklist.rows.find((row) => row.id === "EEG-0031");
+assert(seizeIt2?.decision === "已下载·时长已审计", "SeizeIT2 must remain completed, not pending");
+assert(approx(seizeIt2?.auditedHours, 11626.24888888889), "Unexpected SeizeIT2 audited hours");
+for (const row of data.downloadChecklist.rows.filter((item) => ["已申请·等待访问", "需要申请/登录"].includes(item.decision))) {
+  assert(/^https?:\/\//.test(row.applicationPage), `Missing application page for ${row.id}`);
+}
+assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0093")?.decision === "可直接下载", "PD-Mortality should be public/direct");
+assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0122")?.decision === "可直接下载", "DOD-H should be public/direct");
 
 const counted = focusRows.filter((row) => row.downloadedCountInTotal);
 assert(counted.every((row) => row.auditPresence === "EEG_SIGNAL_PRESENT"), "Non-signal row included in current raw total");

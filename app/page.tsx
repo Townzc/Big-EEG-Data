@@ -28,7 +28,7 @@ export default function Home() {
           <a href="#catalog">完整目录</a>
           <a href="#downloads">下载清单</a>
           <a href="#neuroatlas">NeuroAtlas 对照</a>
-          <a href="#workbook">证据工作表</a>
+          <a href="#workbook">工作簿</a>
         </nav>
         <a className="header-download" href="/EEG_healthcare_disease_catalog_20260823.xlsx" download>
           下载 XLSX
@@ -76,6 +76,7 @@ export default function Home() {
             <div><span>独立 raw 已获取</span><strong>{acquisition.independentRawAcquiredUnits}</strong><small>疾病 {acquisition.diseaseRawAcquiredUnits} · Health {acquisition.healthRawAcquiredUnits}</small></div>
             <div><span>时长已审计</span><strong>{acquisition.exactDurationAuditUnits}</strong><small>{acquisition.exactDurationAuditHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</small></div>
             <div><span>仍可推进</span><strong>{acquisition.actionableDownloadUnits}</strong><small>另有 {acquisition.discardedUnits} 项舍弃</small></div>
+            <div><span>正式需申请</span><strong>{acquisition.applicationRequiredUnits}</strong><small>{acquisition.appliedWaitingUnits} 已申请 · {acquisition.notYetAppliedUnits} 待申请</small></div>
           </div>
           <DownloadChecklist rows={data.downloadChecklist.rows} />
           <p className="source-note">服务器状态快照：2026-08-04；2026-08-23 经 VPN 只读复核。10 个已下载但未进入时长审计的数据集不会重复下载。</p>
@@ -114,17 +115,17 @@ export default function Home() {
           </div>
 
           <p className="source-note">
-            NeuroAtlas 对照：原目录覆盖 {neuro.match.alreadyCovered}/42，本轮补入 {neuro.match.added} 个后为 42/42。* 受试者为各数据源报告值的条目合计，不声称为跨数据集去重后的唯一人数。REVE 的 61,415 h 与 89 个明示来源对照仍保留在工作簿中；当前保守可比覆盖为 {reve.sourceUnion.conservativeComparableHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。
+            NeuroAtlas 对照：原目录覆盖 {neuro.match.alreadyCovered}/42，本轮补入 {neuro.match.added} 个后为 42/42。* 受试者为各数据源报告值的条目合计，不声称为跨数据集去重后的唯一人数。REVE 的 61,415 h 与 89 个明示来源对照仍保留在网页数据中；当前保守可比覆盖为 {reve.sourceUnion.conservativeComparableHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。
           </p>
         </section>
 
         <section className="workbook-section" id="workbook" aria-labelledby="workbook-title">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">EVIDENCE WORKBOOK</p>
-              <h2 id="workbook-title">{data.worksheetGuide.length} 个工作表，一套完整证据链</h2>
+              <p className="eyebrow">DOWNLOAD WORKBOOK</p>
+              <h2 id="workbook-title">{data.worksheetGuide.length} 个工作表，一份精简总表</h2>
             </div>
-            <a className="button primary" href="/EEG_healthcare_disease_catalog_20260823.xlsx" download>下载完整工作簿</a>
+            <a className="button primary" href="/EEG_healthcare_disease_catalog_20260823.xlsx" download>下载 XLSX</a>
           </div>
           <ol className="sheet-index">
             {data.worksheetGuide.map(([name, description], index) => (
@@ -139,7 +140,7 @@ export default function Home() {
 
       <footer>
         <div><span className="brand-mark" aria-hidden="true">∿</span><strong>BIG EEG DATA</strong></div>
-        <p>{data.metrics.finalUniqueUnits} download units · {data.worksheetGuide.length} evidence worksheets</p>
+        <p>{data.metrics.finalUniqueUnits} download units · {data.worksheetGuide.length} workbook sheets</p>
         <a href="#top">回到顶部 ↑</a>
       </footer>
     </>

@@ -17,6 +17,7 @@ type ChecklistRow = {
   physicalSizeGB: number | null;
   accessLabel: string;
   url: string;
+  applicationPage: string;
   downloadMethod: string;
   suggestedPath: string;
   nextAction: string;
@@ -27,6 +28,7 @@ const groupLabels: Record<string, string> = {
   待处理: "待处理",
   可下载: "可直接推进",
   待访问: "等待/需要访问",
+  需申请: "正式申请",
   已完成: "服务器已完成",
   舍弃: "舍弃",
   全部: "全部",
@@ -36,6 +38,7 @@ function inGroup(row: ChecklistRow, group: string) {
   if (group === "待处理") return ["P0", "P1", "P2", "P3"].includes(row.priority);
   if (group === "可下载") return row.priority === "P1";
   if (group === "待访问") return ["P2", "P3"].includes(row.priority);
+  if (group === "需申请") return ["已申请·等待访问", "需要申请/登录"].includes(row.decision);
   if (group === "已完成") return row.decision.startsWith("已下载");
   if (group === "舍弃") return row.decision === "舍弃";
   return true;
@@ -54,7 +57,7 @@ export function DownloadChecklist({ rows }: { rows: ChecklistRow[] }) {
     return rows
       .filter((row) => inGroup(row, group))
       .filter((row) => focus === ALL || row.focusType === focus)
-      .filter((row) => !needle || [row.id, row.name, row.focusSubtype, row.decision, row.nextAction]
+      .filter((row) => !needle || [row.id, row.name, row.focusSubtype, row.decision, row.nextAction, row.applicationPage]
         .some((value) => String(value ?? "").toLocaleLowerCase().includes(needle)));
   }, [rows, query, group, focus]);
 
@@ -95,7 +98,11 @@ export function DownloadChecklist({ rows }: { rows: ChecklistRow[] }) {
                   <td><span className="decision-label">{row.decision}</span><small>{row.serverStatus}</small></td>
                   <td>{row.focusType}<small>{row.focusSubtype}</small></td>
                   <td>{hours == null ? "时长待核验" : `${hours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h`}{row.physicalSizeGB == null ? null : <small>{row.physicalSizeGB.toLocaleString("en-US", { maximumFractionDigits: 2 })} GB 已在服务器</small>}</td>
-                  <td>{row.url ? <a href={row.url} target="_blank" rel="noreferrer">{row.accessLabel} ↗</a> : row.accessLabel}<small>{row.downloadMethod}</small></td>
+                  <td>
+                    {row.url ? <a href={row.url} target="_blank" rel="noreferrer">数据页 ↗</a> : row.accessLabel}
+                    {row.applicationPage ? <small><a href={row.applicationPage} target="_blank" rel="noreferrer">申请/登录页面 ↗</a></small> : null}
+                    <small>{row.downloadMethod}</small>
+                  </td>
                   <td>{row.nextAction}{row.suggestedPath ? <small className="mono">{row.suggestedPath}</small> : null}</td>
                 </tr>
               );

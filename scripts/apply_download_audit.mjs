@@ -27,13 +27,85 @@ const discard = new Map([
 
 const appliedWaiting = new Map([
   ["EEG-0012", "已提交 BDSP credentialing/DUA；等待 Harvard EEG 权限。"],
-  ...["EEG-0020", "EEG-0021", "EEG-0022", "EEG-0023", "EEG-0024", "EEG-0025", "EEG-0026", "EEG-0027", "EEG-0028", "EEG-0103", "EEG-0104", "EEG-0105"]
+  ...["EEG-0020", "EEG-0021", "EEG-0022", "EEG-0023", "EEG-0024", "EEG-0025", "EEG-0026", "EEG-0027", "EEG-0028", "EEG-0103", "EEG-0104", "EEG-0105", "EEG-0131", "EEG-0132", "EEG-0133", "EEG-0134"]
     .map((id) => [id, "已提交 BDSP credentialing/DUA；获批后用 credentialed S3 入口同步 MORGOTH。"]),
   ["EEG-0043", "已提交 CAUEEG 申请；需本地伦理批准，等待邮件下载链接和密码。"],
   ["EEG-0058", "MODMA 已申请；登录个人页确认授权，获批后立即下载。"],
   ["EEG-0086", "MESA Sleep 已提交 NSRR 申请；等待审批结果，若明确拒绝则转为舍弃。"],
   ["EEG-0519", "CHBMP 已申请账号；等待 LORIS 账户开通。"],
 ]);
+
+const nsrrRequestSlugs = new Map([
+  ["EEG-0108", "abc"], ["EEG-0589", "apoe"], ["EEG-0111", "apples"], ["EEG-0115", "ccshs"],
+  ["EEG-0116", "cfs"], ["EEG-0117", "chat"], ["EEG-0588", "haassa"], ["EEG-0587", "hchs"],
+  ["EEG-0126", "homepap"], ["EEG-0593", "lofthf"], ["EEG-0591", "mnc"], ["EEG-0135", "mros"],
+  ["EEG-0137", "nfs"], ["EEG-0590", "numom2b"], ["EEG-0142", "shhs"], ["EEG-0145", "sof"],
+  ["EEG-0605", "stages"], ["EEG-0148", "wsc"],
+]);
+const applicationPages = new Map([
+  ["EEG-0012", "https://bdsp.io/register/"],
+  ...["EEG-0020", "EEG-0021", "EEG-0022", "EEG-0023", "EEG-0024", "EEG-0025", "EEG-0026", "EEG-0027", "EEG-0028", "EEG-0103", "EEG-0104", "EEG-0105", "EEG-0131", "EEG-0132", "EEG-0133", "EEG-0134"]
+    .map((id) => [id, "https://bdsp.io/register/"]),
+  ["EEG-0043", "https://github.com/ipis-mjkim/caueeg-dataset"],
+  ["EEG-0058", "https://modma.lzu.edu.cn/data/application/"],
+  ["EEG-0086", "https://sleepdata.org/data/requests/mesa/start"],
+  ["EEG-0519", "https://chbmp-open.loris.ca/"],
+  ...[...nsrrRequestSlugs].map(([id, slug]) => [id, `https://sleepdata.org/data/requests/${slug}/start`]),
+  ["EEG-0127", "https://bdsp.io/register/"],
+  ["EEG-0130", "https://ceams-carsm.ca/mass/"],
+  ["EEG-0141", "https://bcmi.sjtu.edu.cn/ApplicationForm/apply_form/"],
+  ["EEG-0592", "https://physionet.org/settings/profile/"],
+  ["EEG-0102", "https://www.synapse.org/Synapse:syn51549340/wiki/624187"],
+]);
+
+const publicCorrections = new Map([
+  ["EEG-0093", {
+    name: "EEG Mortality Dataset in Parkinson's Disease",
+    url: "https://openneuro.org/datasets/ds007020/versions/1.0.0",
+    stableId: "OpenNeuro:ds007020 | NEMAR:on007020 | DOI:10.82901/nemar.on007020",
+    note: "2026-06 已在 OpenNeuro/NEMAR 公开发布；无需再联系作者申请。",
+  }],
+  ["EEG-0122", {
+    name: "Dreem Open Dataset – Healthy (DOD-H)",
+    url: "https://dreem-dodo-dodh.s3.eu-west-1.amazonaws.com/index.html",
+    stableId: "Dreem official S3:DOD-H | GitHub:Dreem-Organization/dreem-learning-open",
+    note: "官方 S3 提供公开下载；原 Zenodo:4498364 实为无关的 COUGHVID 记录，已纠正。",
+  }],
+]);
+
+for (const [id, correction] of publicCorrections) {
+  const master = catalogById.get(id);
+  if (master) Object.assign(master, {
+    "规范数据集名称": correction.name,
+    "稳定标识（DOI/OpenNeuro/BNCI/仓库ID）": correction.stableId,
+    "下载状态": "DOWNLOAD_PUBLIC",
+    "下载/申请入口": correction.url,
+    "许可与申请说明": "Open/public download",
+    "核验结论": correction.note,
+  });
+  const focus = data.focusRows.find((row) => row.id === id);
+  if (focus) Object.assign(focus, { name: correction.name, access: "DOWNLOAD_PUBLIC", url: correction.url, stableId: correction.stableId, verification: correction.note });
+  const publicRow = publicData.catalogRows?.find((row) => row.id === id);
+  if (publicRow) Object.assign(publicRow, { name: correction.name, access: "DOWNLOAD_PUBLIC", url: correction.url, stableId: correction.stableId, verification: correction.note });
+}
+
+const morgothIds = new Set(["EEG-0020", "EEG-0021", "EEG-0022", "EEG-0023", "EEG-0024", "EEG-0025", "EEG-0026", "EEG-0027", "EEG-0028", "EEG-0103", "EEG-0104", "EEG-0105", "EEG-0131", "EEG-0132", "EEG-0133", "EEG-0134"]);
+for (const id of morgothIds) {
+  const master = catalogById.get(id);
+  if (master) Object.assign(master, {
+    "下载状态": "DOWNLOAD_APPLICATION_REQUIRED",
+    "下载/申请入口": "https://bdsp.io/content/morgoth1/1.0.0/",
+    "许可与申请说明": "BDSP credentialed access；需完成 credentialing 和 DUA。",
+  });
+  const focus = data.focusRows.find((row) => row.id === id);
+  if (focus) Object.assign(focus, { access: "DOWNLOAD_APPLICATION_REQUIRED", url: "https://bdsp.io/content/morgoth1/1.0.0/" });
+  const publicRow = publicData.catalogRows?.find((row) => row.id === id);
+  if (publicRow) Object.assign(publicRow, { access: "DOWNLOAD_APPLICATION_REQUIRED", url: "https://bdsp.io/content/morgoth1/1.0.0/" });
+}
+for (const [id, applicationPage] of applicationPages) {
+  const master = catalogById.get(id);
+  if (master) master["下载/申请入口"] = applicationPage;
+}
 
 function accessLabel(access) {
   return {
@@ -90,8 +162,22 @@ function decisionFor(row) {
   if (row.access === "DOWNLOAD_UNAVAILABLE") {
     return { decision: "舍弃", priority: "舍弃", nextAction: "当前官方入口不可获取；保留目录证据但停止投入下载。", serverCompleted, independentAcquired, exactDurationAudited };
   }
+  if (publicCorrections.has(row.id)) {
+    return { decision: "可直接下载", priority: "P1", nextAction: "已确认新的公开官方入口；直接下载，完成后写入服务器状态并运行 subjects/duration 审计。", serverCompleted, independentAcquired, exactDurationAudited };
+  }
   if (row.access === "DOWNLOAD_APPLICATION_REQUIRED" || server?.finalStatus === "MANUAL_APPLICATION_OR_LOGIN") {
-    return { decision: "需要申请/登录", priority: "P3", nextAction: "尚未进入已申请名单；先确认研究价值与审批成本，再决定是否提交。", serverCompleted, independentAcquired, exactDurationAudited };
+    const nextAction = nsrrRequestSlugs.has(row.id)
+      ? "尚未申请；打开申请页面，登录 NSRR，填写研究用途并提交。"
+      : row.id === "EEG-0127"
+        ? "尚未申请 HSP；完成 BDSP credentialing/DUA 后申请该库权限。"
+        : row.id === "EEG-0130"
+          ? "尚未申请；按 MASS 官网说明提交项目描述和本地伦理审批材料。"
+          : row.id === "EEG-0141"
+            ? "尚未申请；填写 BCMI 官方 Apply 表单。"
+            : row.id === "EEG-0592"
+              ? "尚未申请；完成 PhysioNet credentialing、CITI 培训并签署项目 DUA。"
+              : "尚未进入已申请名单；打开官方申请页面并提交。";
+    return { decision: "需要申请/登录", priority: "P3", nextAction, serverCompleted, independentAcquired, exactDurationAudited };
   }
   if (["FAILED_DISCOVERY", "FAILED_DOWNLOAD", "MANUAL_REVIEW_REQUIRED"].includes(server?.finalStatus)) {
     return { decision: "公开入口·需人工复核", priority: "P2", nextAction: "自动下载未完成；人工打开官方入口，确认真实文件链接后再下载。", serverCompleted, independentAcquired, exactDurationAudited };
@@ -121,6 +207,7 @@ const checklistRows = data.focusRows.map((row) => {
     access: row.access,
     accessLabel: accessLabel(row.access),
     url: row.url,
+    applicationPage: applicationPages.get(row.id) ?? "",
     downloadMethod: downloadMethod(row),
     suggestedPath: master["建议相对路径"] ?? server.relativeDirectory ?? "",
     nextAction: decision.nextAction,
@@ -150,6 +237,9 @@ const acquisitionMetrics = {
   remainingDownloadUnits: checklistRows.filter((row) => !row.serverCompleted).length,
   actionableDownloadUnits: toDownload.length,
   discardedUnits: discarded.length,
+  applicationRequiredUnits: checklistRows.filter((row) => ["已申请·等待访问", "需要申请/登录"].includes(row.decision)).length,
+  appliedWaitingUnits: checklistRows.filter((row) => row.decision === "已申请·等待访问").length,
+  notYetAppliedUnits: checklistRows.filter((row) => row.decision === "需要申请/登录").length,
   countsByDecision,
   note: "已获取数量按服务器完成目录与去重规则；小时只使用已有文件级/发布级审计，不给待审计目录虚构精确时长。",
 };
@@ -165,6 +255,9 @@ const expected = {
   remainingDownloadUnits: 72,
   discardedUnits: 4,
   actionableDownloadUnits: 68,
+  applicationRequiredUnits: 43,
+  appliedWaitingUnits: 21,
+  notYetAppliedUnits: 22,
 };
 for (const [key, value] of Object.entries(expected)) {
   if (acquisitionMetrics[key] !== value) throw new Error(`${key}: expected ${value}, got ${acquisitionMetrics[key]}`);
@@ -192,9 +285,11 @@ data.neuroAtlasComparison.focusCoverage.actionableDownloadUnits = acquisitionMet
 data.neuroAtlasComparison.focusCoverage.discardedUnits = acquisitionMetrics.discardedUnits;
 data.neuroAtlasComparison.focusCoverage.note = acquisitionMetrics.note;
 
-data.worksheetGuide = data.worksheetGuide.filter(([name]) => name !== "下载执行清单");
-const healthcareIndex = data.worksheetGuide.findIndex(([name]) => name === "Healthcare重点清单");
-data.worksheetGuide.splice(healthcareIndex + 1, 0, ["下载执行清单", "疾病/健康146行服务器状态、优先级、下载决策、官方入口与下一步操作；舍弃项仍保留证据"]);
+data.worksheetGuide = [
+  ["README", "核心规模、下载口径与状态说明"],
+  ["最终唯一下载清单", `完整 ${data.metrics.finalUniqueUnits} 行唯一下载单元主表`],
+  ["修订记录", "数据入口、状态、分类与去重规则的版本变更记录"],
+];
 
 Object.assign(publicData, {
   metrics: data.metrics,
@@ -208,8 +303,8 @@ function csvEscape(value) {
   const text = value == null ? "" : String(value);
   return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
 }
-const csvHeaders = ["ID", "优先级", "下载决策", "队列属性", "二级分类", "数据集", "服务器状态", "已取得独立raw", "精确时长已审计", "已审计时长(h)", "文献时长(h)", "实体大小(GB)", "访问方式", "下载方法", "官方入口", "建议路径", "决策理由/下一步"];
-const csvRows = checklistRows.map((row) => [row.id, row.priority, row.decision, row.focusType, row.focusSubtype, row.name, row.serverStatus, row.independentAcquired ? "是" : "否", row.exactDurationAudited ? "是" : "否", row.auditedHours, row.documentedHours, row.physicalSizeGB, row.accessLabel, row.downloadMethod, row.url, row.suggestedPath, row.nextAction]);
+const csvHeaders = ["ID", "优先级", "下载决策", "队列属性", "二级分类", "数据集", "服务器状态", "已取得独立raw", "精确时长已审计", "已审计时长(h)", "文献时长(h)", "实体大小(GB)", "访问方式", "下载方法", "官方入口", "申请/登录页面", "建议路径", "决策理由/下一步"];
+const csvRows = checklistRows.map((row) => [row.id, row.priority, row.decision, row.focusType, row.focusSubtype, row.name, row.serverStatus, row.independentAcquired ? "是" : "否", row.exactDurationAudited ? "是" : "否", row.auditedHours, row.documentedHours, row.physicalSizeGB, row.accessLabel, row.downloadMethod, row.url, row.applicationPage, row.suggestedPath, row.nextAction]);
 
 fs.writeFileSync(finalPath, `${JSON.stringify(data, null, 2)}\n`);
 fs.writeFileSync(publicPath, JSON.stringify(publicData));
