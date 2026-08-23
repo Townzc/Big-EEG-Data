@@ -4,9 +4,11 @@
 
 ## 主要文件
 
-- 工作簿：`EEG_healthcare_disease_catalog_20260823.xlsx`
+- 工作簿：`EEG_healthcare_disease_catalog_20260823.xlsx`（19 个证据工作表，含下载执行清单）
 - 网页入口：`app/page.tsx`
 - 网页数据：`public/catalog-data.json`
+- 下载清单：`public/download-checklist.csv`
+- 服务器状态快照：`data/server_focus_status_20260804.json`
 - NeuroAtlas 逐源对照与下载说明：`NEUROATLAS_COMPARISON_AND_DOWNLOAD.md`
 - NeuroAtlas 42 源机器清单：`data/neuroatlas_gap_manifest.csv`
 - REVE 精确缺口与下载说明：`REVE_GAP_AND_DOWNLOAD.md`
@@ -37,6 +39,13 @@ NeuroAtlas 的 42 个评测来源中，原目录已经覆盖 36 个，本轮补�
 
 按数据源去重，NeuroAtlas 癫痫与睡眠域约 259,000 h；脑龄约 193,000 h 复用睡眠队列，不重复相加。用完整 TUEG 父集替换 TUSZ 子集，并加入不重叠的 I-CARE 后，核心疾病/健康并集约 341,253.3 h；再加入现有独有审计来源、HBN 和 EEG-Bench 后，扩展覆盖约 346,490.7 h。该数字是文献/官方来源覆盖估计，不是本地已下载文件的精确总时长。
 
+## 当前下载状态
+
+- 服务器完成目录/下载单元：74（含 TUH 重叠子集及非 raw 排除项）。
+- 独立 raw EEG 已获取：67（疾病 55、Health 12）。
+- 已有精确时长审计：57 个 / 43,627.8 h；另 10 个已下载目录待信号与时长审计，不重复下载。
+- 当前仍可推进下载：68；明确舍弃 4 个（EPILEPSIAE、B-SNIP1、IEEE ADHD、SeizeIT1），但保留总目录证据。
+
 ## 开发与验证
 
 ```powershell
@@ -53,6 +62,8 @@ $env:NODE_PATH = 'C:\Users\tangzhice\.cache\codex-runtimes\codex-primary-runtime
 & $node scripts/augment_reve_catalog.mjs
 & $node scripts/reve_gap_analysis.mjs
 & $node scripts/augment_neuroatlas_catalog.mjs
+& $node scripts/sync_server_focus_status.mjs '<Seawulf all_status.csv>'
+& $node scripts/apply_download_audit.mjs
 & $node work_spreadsheet/build_final_workbook_20260811.mjs
 & $node work_spreadsheet/verify_final_workbook_20260811.mjs
 ```

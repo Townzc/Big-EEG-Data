@@ -34,6 +34,14 @@ assert(approx(neuroAtlasComparison.sourceUnion.coreHours, 341253.3), `Unexpected
 assert(approx(neuroAtlasComparison.sourceUnion.extendedHours, 346490.7408902543), `Unexpected extended source-union hours: ${neuroAtlasComparison.sourceUnion.extendedHours}`);
 assert(metrics.tueg.downloadedFiles === metrics.tueg.expectedFiles, "TUEG file-count mismatch");
 assert(metrics.tueg.bytes === 1756545393092, `Unexpected TUEG bytes: ${metrics.tueg.bytes}`);
+assert(metrics.acquisition.serverCompletedUnits === 74, "Expected 74 server-completed disease/health units");
+assert(metrics.acquisition.independentRawAcquiredUnits === 67, "Expected 67 independent raw acquisitions");
+assert(metrics.acquisition.diseaseRawAcquiredUnits === 55, "Expected 55 disease raw acquisitions");
+assert(metrics.acquisition.healthRawAcquiredUnits === 12, "Expected 12 health raw acquisitions");
+assert(metrics.acquisition.exactDurationAuditUnits === 57, "Expected 57 exact-duration audits");
+assert(metrics.acquisition.actionableDownloadUnits === 68, "Expected 68 actionable remaining downloads");
+assert(metrics.acquisition.discardedUnits === 4, "Expected 4 discarded downloads");
+assert(data.downloadChecklist.rows.length === 146, "Expected 146 focus rows in download checklist");
 
 const counted = focusRows.filter((row) => row.downloadedCountInTotal);
 assert(counted.every((row) => row.auditPresence === "EEG_SIGNAL_PRESENT"), "Non-signal row included in current raw total");

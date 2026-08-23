@@ -17,7 +17,10 @@ test("server-renders the simplified BIG EEG DATA catalog", async () => {
   assert.match(html, /<title>BIG EEG DATA<\/title>/i);
   assert.match(html, /BIG EEG DATA/);
   assert.match(html, /562/);
-  assert.match(html, /18/);
+  assert.match(html, /19/);
+  assert.match(html, /RAW ACQUIRED/);
+  assert.match(html, />67</);
+  assert.match(html, /DOWNLOAD CHECKLIST/);
   assert.match(html, /346,490\.7|346\.5K|34\.65/);
   assert.match(html, /42\/42/);
   assert.match(html, /EEG_healthcare_disease_catalog_20260823\.xlsx/);
@@ -31,7 +34,8 @@ test("focuses on the full catalog and evidence workbook", async () => {
   const html = await response.text();
   assert.match(html, /COMPLETE CATALOG/);
   assert.match(html, /EVIDENCE WORKBOOK/);
-  assert.match(html, /18 .*WORKSHEETS|WORKSHEETS/i);
+  assert.match(html, /19 .*WORKSHEETS|WORKSHEETS/i);
   assert.match(html, /NEUROATLAS COMPARISON/);
+  assert.match(html, /download-checklist\.csv/);
   assert.doesNotMatch(html, /WHY.*AND|SCALE, WITH BOUNDARIES|11 NEW DOWNLOAD UNITS/i);
 });

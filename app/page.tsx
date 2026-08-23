@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import data from "../public/catalog-data.json";
 import { CatalogExplorer } from "./CatalogExplorer";
+import { DownloadChecklist } from "./DownloadChecklist";
 
 export const metadata: Metadata = {
   title: "BIG EEG DATA",
-  description: "A searchable catalog of 562 EEG dataset download units with an 18-sheet evidence workbook and NeuroAtlas source comparison.",
+  description: "A searchable catalog of 562 EEG dataset download units with a verified disease and health download checklist.",
 };
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
   const neuro = data.neuroAtlasComparison;
   const focus = neuro.focusCoverage;
   const union = neuro.sourceUnion;
-  const neuroAtlasAdditions = neuro.sources.filter((row) => row.status === "本轮补入");
+  const acquisition = data.metrics.acquisition;
 
   return (
     <>
@@ -25,6 +26,7 @@ export default function Home() {
         <nav aria-label="主要导航">
           <a href="#categories">分类</a>
           <a href="#catalog">完整目录</a>
+          <a href="#downloads">下载清单</a>
           <a href="#neuroatlas">NeuroAtlas 对照</a>
           <a href="#workbook">证据工作表</a>
         </nav>
@@ -39,7 +41,7 @@ export default function Home() {
             <p className="eyebrow">EEG DATASET CATALOG · 2026</p>
             <h1 id="hero-title">BIG EEG DATA</h1>
             <p className="hero-lead">
-              562 个 EEG 下载单元；NeuroAtlas 42 个来源已全部覆盖。疾病/健康来源级去重覆盖约 34.65 万小时，已下载与未下载范围分开统计。
+              562 个 EEG 下载单元；疾病/健康已有 {acquisition.independentRawAcquiredUnits} 个独立 raw 数据获取完成，其中 {acquisition.exactDurationAuditUnits} 个已有精确时长审计。
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#catalog">浏览完整目录</a>
@@ -49,7 +51,7 @@ export default function Home() {
           <dl className="specs" aria-label="总表规格">
             <div><dt>DATASETS</dt><dd>{data.metrics.finalUniqueUnits}</dd></div>
             <div><dt>WORKSHEETS</dt><dd>{data.worksheetGuide.length}</dd></div>
-            <div><dt>DISEASE + HEALTH</dt><dd>≈{(union.extendedHours / 1000).toFixed(1)}K h</dd></div>
+            <div><dt>RAW ACQUIRED</dt><dd>{acquisition.independentRawAcquiredUnits}</dd></div>
           </dl>
         </section>
 
@@ -62,6 +64,21 @@ export default function Home() {
             <p>默认按资料完整度排序；缺少受试者、通道、采样率、格式、入口或时长的条目自动后置。</p>
           </div>
           <CatalogExplorer rows={data.catalogRows} categoryStats={data.categoryStats} />
+        </section>
+
+        <section className="download-section" id="downloads" aria-labelledby="downloads-title">
+          <div className="section-heading">
+            <div><p className="eyebrow">DOWNLOAD CHECKLIST</p><h2 id="downloads-title">疾病与 Health 下载执行清单</h2></div>
+            <p>下载、申请、审计和舍弃使用不同状态；舍弃项仍留在总目录中作为证据，不再进入执行队列。</p>
+          </div>
+          <div className="download-metrics" aria-label="下载状态摘要">
+            <div><span>服务器完成目录</span><strong>{acquisition.serverCompletedUnits}</strong><small>含重叠与非 raw 项</small></div>
+            <div><span>独立 raw 已获取</span><strong>{acquisition.independentRawAcquiredUnits}</strong><small>疾病 {acquisition.diseaseRawAcquiredUnits} · Health {acquisition.healthRawAcquiredUnits}</small></div>
+            <div><span>时长已审计</span><strong>{acquisition.exactDurationAuditUnits}</strong><small>{acquisition.exactDurationAuditHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</small></div>
+            <div><span>仍可推进</span><strong>{acquisition.actionableDownloadUnits}</strong><small>另有 {acquisition.discardedUnits} 项舍弃</small></div>
+          </div>
+          <DownloadChecklist rows={data.downloadChecklist.rows} />
+          <p className="source-note">服务器状态快照：2026-08-04；2026-08-23 经 VPN 只读复核。10 个已下载但未进入时长审计的数据集不会重复下载。</p>
         </section>
 
         <section className="reve-section" id="neuroatlas" aria-labelledby="neuroatlas-title">
@@ -87,17 +104,15 @@ export default function Home() {
                 <thead><tr><th scope="col">范围</th><th scope="col">单元</th><th scope="col">受试者条目</th><th scope="col">小时</th></tr></thead>
                 <tbody>
                   <tr><td><strong>疾病/健康总范围</strong></td><td>{focus.units}</td><td>{focus.knownSubjectEntries.toLocaleString("en-US")}*</td><td>≈{union.extendedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
-                  <tr><td><strong>已下载并审计</strong></td><td>{focus.downloadedUnits}</td><td>≥{data.metrics.currentRaw.observedSubjectLowerBound.toLocaleString("en-US")}</td><td>{focus.downloadedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
-                  <tr><td><strong>未下载/未纳入本地审计</strong></td><td>{focus.notDownloadedUnits}</td><td>见逐行来源口径</td><td>≈{focus.pendingHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
+                  <tr><td><strong>独立 raw 已获取</strong></td><td>{acquisition.independentRawAcquiredUnits}</td><td>其中 {acquisition.exactDurationAuditUnits} 个有时长审计</td><td>{focus.downloadedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} 已审计</td></tr>
+                  <tr><td><strong>仍可推进下载</strong></td><td>{acquisition.actionableDownloadUnits}</td><td>申请/登录/公开入口分列</td><td>未知保持空白</td></tr>
+                  <tr><td><strong>停止投入</strong></td><td>{acquisition.discardedUnits}</td><td>保留目录证据</td><td>不计入执行队列</td></tr>
                   <tr><td><strong>NeuroAtlas</strong></td><td>{neuro.paper.datasets}</td><td>论文分域报告</td><td>≈{neuro.paper.hoursRounded.toLocaleString("en-US")}</td></tr>
                 </tbody>
               </table>
             </div>
           </div>
 
-          <ul className="difference-list neuroatlas-additions">
-            {neuroAtlasAdditions.map((item) => <li key={item.source}><strong>{item.source} · {item.domain}</strong><span>{item.focusScope}；{item.download}。{item.note}</span></li>)}
-          </ul>
           <p className="source-note">
             NeuroAtlas 对照：原目录覆盖 {neuro.match.alreadyCovered}/42，本轮补入 {neuro.match.added} 个后为 42/42。* 受试者为各数据源报告值的条目合计，不声称为跨数据集去重后的唯一人数。REVE 的 61,415 h 与 89 个明示来源对照仍保留在工作簿中；当前保守可比覆盖为 {reve.sourceUnion.conservativeComparableHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。
           </p>
