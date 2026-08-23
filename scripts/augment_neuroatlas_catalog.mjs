@@ -560,9 +560,19 @@ data.worksheetGuide = data.worksheetGuide
     ? [sheet, `完整 ${data.rows.length} 行下载单元主表；默认按资料完整度优先`]
     : sheet === "本轮新增_19"
       ? ["新增来源记录_25", "从 EEG 论文、官网、REVE 与 NeuroAtlas 补入的 25 个下载单元"]
+      : sheet === "Healthcare重点清单"
+        ? [sheet, `疾病/临床与健康/人群的 ${data.focusRows.length} 行重点视图`]
       : [sheet, description])
   .filter(([sheet]) => sheet !== "NeuroAtlas对照_42");
 data.worksheetGuide.push(["NeuroAtlas对照_42", "42 个 NeuroAtlas 来源逐项匹配、类别、时长口径、访问状态与下载方式"]);
+
+const worksheetOrder = [
+  "README", "最终唯一下载清单", "排除与非独立条目", "重复合并证据", "人工复核结论",
+  "TUH体系与重叠", "文件夹架构", "修订记录", "原重复证据归档", "分类复核",
+  "分类修订明细", "下载与时长复核", "证据来源", "Healthcare重点清单", "新增来源记录_25",
+  "分类统计", "REVE对照_92", "NeuroAtlas对照_42",
+];
+data.worksheetGuide.sort((a, b) => worksheetOrder.indexOf(a[0]) - worksheetOrder.indexOf(b[0]));
 
 Object.assign(publicData, {
   metrics: data.metrics,
