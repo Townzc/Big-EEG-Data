@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
 
-const description = "556 EEG dataset download units and a 17-sheet evidence workbook.";
+const description = "562 EEG dataset download units, 18 evidence worksheets, and a source-deduplicated NeuroAtlas comparison.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();

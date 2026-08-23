@@ -11,7 +11,7 @@
     "build:vercel": "vite build --config vite.vercel.config.ts",
     "start": "vinext start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern vercel-dist --ignore-pattern .next",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern vercel-dist --ignore-pattern .next --ignore-pattern work_spreadsheet/node_modules",
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {

@@ -43,6 +43,7 @@ const categoryLabels: Record<string, string> = {
 const accessLabels: Record<string, string> = {
   DOWNLOAD_PUBLIC: "公开下载",
   DOWNLOAD_APPLICATION_REQUIRED: "需要申请",
+  DOWNLOAD_UNAVAILABLE: "当前不可获取",
 };
 
 function normalizeCategory(value: string) {
@@ -144,6 +145,7 @@ export function CatalogExplorer({ rows, categoryStats }: { rows: CatalogRow[]; c
               <option value={ALL}>全部</option>
               <option value="DOWNLOAD_PUBLIC">公开下载</option>
               <option value="DOWNLOAD_APPLICATION_REQUIRED">需要申请</option>
+              <option value="DOWNLOAD_UNAVAILABLE">当前不可获取</option>
             </select>
           </label>
           <label>
@@ -169,7 +171,7 @@ export function CatalogExplorer({ rows, categoryStats }: { rows: CatalogRow[]; c
 
         <div className="table-shell" role="region" aria-label="完整 EEG 数据集表格，可横向滚动">
           <table>
-            <caption className="sr-only">完整 556 行 EEG 唯一下载单元总表</caption>
+            <caption className="sr-only">完整 {rows.length} 行 EEG 下载单元总表</caption>
             <thead><tr><th scope="col">ID</th><th scope="col">数据集</th><th scope="col">目录</th><th scope="col">任务</th><th scope="col">受试者</th><th scope="col">时长</th><th scope="col">格式</th><th scope="col">资料</th><th scope="col">入口与证据</th></tr></thead>
             <tbody>
               {visible.map((row) => (

@@ -16,11 +16,11 @@ test("server-renders the simplified BIG EEG DATA catalog", async () => {
   const html = await response.text();
   assert.match(html, /<title>BIG EEG DATA<\/title>/i);
   assert.match(html, /BIG EEG DATA/);
-  assert.match(html, /556/);
-  assert.match(html, /17/);
-  assert.match(html, /63\.4K/);
-  assert.match(html, /89 个明示来源/);
-  assert.match(html, /EEG_healthcare_disease_catalog_20260811\.xlsx/);
+  assert.match(html, /562/);
+  assert.match(html, /18/);
+  assert.match(html, /346,490\.7|346\.5K|34\.65/);
+  assert.match(html, /42\/42/);
+  assert.match(html, /EEG_healthcare_disease_catalog_20260823\.xlsx/);
   assert.match(html, /lang="zh-CN"/);
   assert.match(html, /aria-label=/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
@@ -31,7 +31,7 @@ test("focuses on the full catalog and evidence workbook", async () => {
   const html = await response.text();
   assert.match(html, /COMPLETE CATALOG/);
   assert.match(html, /EVIDENCE WORKBOOK/);
-  assert.match(html, /17 .*WORKSHEETS|WORKSHEETS/i);
-  assert.match(html, /REVE COMPARISON/);
+  assert.match(html, /18 .*WORKSHEETS|WORKSHEETS/i);
+  assert.match(html, /NEUROATLAS COMPARISON/);
   assert.doesNotMatch(html, /WHY.*AND|SCALE, WITH BOUNDARIES|11 NEW DOWNLOAD UNITS/i);
 });

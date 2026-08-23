@@ -1,0 +1,43 @@
+domain,source,status,catalog_ids,neuroatlas_hours,focus_scope,category,access,url,download,note
+Epilepsy,Helsinki neonatal,原目录已覆盖,EEG-0005,106,疾病/临床,医疗与疾病 / 癫痫,,,见目录入口,
+Epilepsy,CHB-MIT,原目录已覆盖,EEG-0009,983,疾病/临床,医疗与疾病 / 癫痫,,,见目录入口,
+Epilepsy,Siena,原目录已覆盖,EEG-0032,137,疾病/临床,医疗与疾病 / 癫痫,,,见目录入口,
+Epilepsy,SeizeIT1,本轮补入,EEG-0602,5900,疾病/临床,医疗与疾病 / 癫痫,当前不可申请,https://rdr.kuleuven.be/dataset.xhtml?persistentId=doi:10.48804/P5Q0OJ,伦理批准已过期；当前无法获取，建议使用 SeizeIT2,"NeuroAtlas 5.9k h；SzCORE 当前公开基准口径 4,211 h。"
+Epilepsy,SeizeIT2,原目录已覆盖,EEG-0031,24000,疾病/临床,医疗与疾病 / 癫痫,,,见目录入口,"NeuroAtlas 24k h；本地文件审计 11,626.2 h，属于版本/范围差异。"
+Epilepsy,TUSZ,原目录已覆盖,EEG-0036,1500,疾病/临床,医疗与疾病 / 癫痫,,,见目录入口,TUSZ 是 TUEG 子集，来源并集用 TUEG 父集替换，不重复相加。
+Epilepsy,Epilepsiae,原目录已覆盖,EEG-0011,26000,疾病/临床,医疗与疾病 / 癫痫,,,见目录入口,
+Epilepsy,TUAB,原目录已覆盖,EEG-0107,,疾病/临床,医疗与疾病 / 异常 EEG,,,见目录入口,record-level cohort；不把未知小时估为精确值。
+Epilepsy,NMT,原目录已覆盖,EEG-0106,,疾病/临床,医疗与疾病 / 异常 EEG,,,见目录入口,record-level cohort；不把未知小时估为精确值。
+Epilepsy,Bonn,原目录已覆盖,EEG-0008,,疾病/临床,医疗与疾病 / 癫痫,,,见目录入口,短片段 record-level benchmark。
+Sleep,CFS,原目录已覆盖,EEG-0116,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
+Sleep,DCSM,本轮补入,EEG-0603,,疾病/临床,医疗与疾病 / 临床睡眠,公开下载,https://erda.ku.dk/public/archives/db553715ecbe1f3ac66c1dc569826eef/published-archive.html,ERDA ZIP；或 ut fetch --dataset dcsm --out_dir data/dcsm,
+Sleep,DOD,原目录已覆盖,EEG-0122,,疾病/临床,意识状态 / 睡眠分期,,,见目录入口,
+Sleep,HMC,原目录已覆盖,EEG-0125,,疾病/临床,意识状态 / 睡眠分期,,,见目录入口,
+Sleep,HomePAP,原目录已覆盖,EEG-0126,,疾病/临床,意识状态 / 睡眠分期,,,见目录入口,
+Sleep,ISRUC,原目录已覆盖,EEG-0128,,疾病/临床,意识状态 / 睡眠分期,,,见目录入口,
+Sleep,MASS,原目录已覆盖,EEG-0130,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
+Sleep,MESA,原目录已覆盖,EEG-0086,,健康/人群,健康与人群 / 睡眠心代谢,,,见目录入口,
+Sleep,MrOS,原目录已覆盖,EEG-0135,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
+Sleep,PN2026,本轮补入,EEG-0604,,疾病/临床,医疗与疾病 / 睡眠与认知障碍,公开训练集,https://moody-challenge.physionet.org/2026/,Kaggle large: kaggle datasets download -d physionet/physionetchallenge2026datalargeversion,"large training 6,600 PSG records / 1.2 TiB；validation/test hidden。"
+Sleep,SHHS,原目录已覆盖,EEG-0142,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
+Sleep,STAGES,本轮补入,EEG-0605,,疾病/临床,医疗与疾病 / 临床睡眠,申请访问,https://sleepdata.org/datasets/stages,NSRR 审批后：nsrr download stages/original,官方提示存在 4 对重复 EDF；下载后须按文件哈希复核。
+Sleep,Sleep-EDF,原目录已覆盖,EEG-0144,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
+Sleep,UCDDB,本轮补入,EEG-0606,,疾病/临床,医疗与疾病 / 睡眠呼吸障碍,公开下载,https://physionet.org/content/ucddb/1.0.0/,wget -r -N -c -np https://physionet.org/files/ucddb/1.0.0/,
+Sleep,WSC,原目录已覆盖,EEG-0148,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
+BCI-MI,BNCI2014_001,原目录已覆盖,EEG-0355,,非疾病/健康重点,运动与交互 / 运动想象,,,见目录入口,
+BCI-MI,BNCI2014_004,原目录已覆盖,EEG-0353,,非疾病/健康重点,运动与交互 / 运动想象,,,见目录入口,
+BCI-MI,BNCI2015_001,原目录已覆盖,EEG-0360,,非疾病/健康重点,运动与交互 / 运动想象,,,见目录入口,
+BCI-MI,Weibo2014,原目录已覆盖,EEG-0415 | EEG-0416,,非疾病/健康重点,运动与交互 / 运动想象,,,见目录入口,目录有原始发布入口与 MOABB 入口两个下载单元；来源级统计只计 1 个数据源。
+BCI-MI,Dreyer2023,原目录已覆盖,EEG-0380,,非疾病/健康重点,运动与交互 / 运动想象,,,见目录入口,
+BCI-MI,Shin2017A,原目录已覆盖,EEG-0410,,非疾病/健康重点,运动与交互 / 运动想象,,,见目录入口,
+BCI-MI,Liu2024,原目录已覆盖,EEG-0084,,非疾病/健康重点,运动与交互 / 运动想象,,,见目录入口,
+BCI-ERP,BI2013a,原目录已覆盖,EEG-0464,,非疾病/健康重点,运动与交互 / P300 BCI,,,见目录入口,
+BCI-ERP,BI2014a,原目录已覆盖,EEG-0465,,非疾病/健康重点,运动与交互 / P300 BCI,,,见目录入口,
+BCI-ERP,EPFLP300,原目录已覆盖,EEG-0229 | EEG-0266,,非疾病/健康重点,认知/交互 / P300,,,见目录入口,目录有官网入口与 MOABB 入口两个下载单元；来源级统计只计 1 个数据源。
+BCI-ERP,BNCI2014_008,原目录已覆盖,EEG-0071,,非疾病/健康重点,运动与交互 / P300 ALS,,,见目录入口,
+BCI-ERP,ErpCore2021_N170,原目录已覆盖,EEG-0267,,非疾病/健康重点,认知与情感 / ERP,,,见目录入口,
+BCI-SSVEP,Nakanishi2015,原目录已覆盖,EEG-0444,,非疾病/健康重点,运动与交互 / SSVEP,,,见目录入口,
+BCI-SSVEP,Kim2025BetaRange,原目录已覆盖,EEG-0439,,非疾病/健康重点,运动与交互 / SSVEP,,,见目录入口,
+BCI-Other,DREAMER,原目录已覆盖,EEG-0120,,非疾病/健康重点,认知与情感 / 情感,,,见目录入口,
+BCI-Other,EEGMat,原目录已覆盖,EEG-0228,,非疾病/健康重点,认知与情感 / 认知负荷,,,见目录入口,
+BCI-Other,ArithmeticTask,本轮补入,EEG-0607,,非疾病/健康重点,认知与情感 / 算术负荷,公开下载,https://osf.io/gh6q3/,OSF project gh6q3,健康认知实验，不属于疾病/健康重点范围。
