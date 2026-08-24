@@ -88,8 +88,8 @@ const rows = [...focusIds].sort().map((id) => {
 });
 
 const output = {
-  snapshotAt: "2026-08-04T01:33:09-04:00",
-  checkedAt: "2026-08-23",
+  snapshotAt: fs.statSync(sourcePath).mtime.toISOString(),
+  checkedAt: new Date().toISOString().slice(0, 10),
   source: "Seawulf reports/auto_v2/all_status.csv plus read-only physical-directory checks",
   focusRows: rows.length,
   completedRows: rows.filter((row) => row.finalStatus === "COMPLETED").length,

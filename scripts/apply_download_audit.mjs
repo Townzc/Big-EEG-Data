@@ -18,6 +18,15 @@ const catalogById = new Map(data.rows.map((row) => [row["Unique ID"], row]));
 const tuegParentId = "EEG-0582";
 const overlapIds = new Set(["EEG-0033", "EEG-0034", "EEG-0035", "EEG-0036", "EEG-0107"]);
 const rawExcludedIds = new Set(["EEG-0007", "EEG-0050", "EEG-0101"]);
+const completedOverlay = new Map([
+  ["EEG-0583", { bytes: 28914297378, completedUtc: "2026-08-24T01:00:09Z", job: "2133731_0" }],
+  ["EEG-0584", { bytes: 7385925560, completedUtc: "2026-08-24T00:40:13Z", job: "2133731_1" }],
+  ["EEG-0585", { bytes: 4068828665, completedUtc: "2026-08-24T00:41:25Z", job: "2133731_2" }],
+  ["EEG-0586", { bytes: 23488664219, completedUtc: "2026-08-24T00:55:56Z", job: "2133731_3" }],
+  ["EEG-0093", { bytes: 1870057343, completedUtc: "2026-08-24T00:40:53Z", job: "2133731_4" }],
+  ["EEG-0122", { bytes: 21872016312, completedUtc: "2026-08-24T01:04:25Z", job: "2133731_5" }],
+]);
+const activeDownloadIds = new Set(["EEG-0125", "EEG-0606"]);
 const discard = new Map([
   ["EEG-0011", "舍弃下载：EPILEPSIAE 为付费/受限申请；保留目录证据，不进入本轮执行队列。"],
   ["EEG-0051", "舍弃下载：NIMH NDA 登录/受控访问未能打通；保留 B-SNIP1 目录记录。"],
@@ -144,7 +153,7 @@ function downloadMethod(row) {
 
 function decisionFor(row) {
   const server = serverById.get(row.id);
-  const serverCompleted = row.id === tuegParentId || server?.finalStatus === "COMPLETED";
+  const serverCompleted = row.id === tuegParentId || server?.finalStatus === "COMPLETED" || completedOverlay.has(row.id);
   const exactDurationAudited = Boolean(row.downloadedCountInTotal);
   const independentAcquired = serverCompleted && !overlapIds.has(row.id) && !rawExcludedIds.has(row.id);
 
@@ -169,6 +178,9 @@ function decisionFor(row) {
   }
   if (approvedAccess.has(row.id)) {
     return { ...approvedAccess.get(row.id), serverCompleted, independentAcquired, exactDurationAudited };
+  }
+  if (activeDownloadIds.has(row.id)) {
+    return { decision: "下载中", priority: "P0", nextAction: "SeaWulf Slurm 任务 2133731 正在续传；完成后立即运行 subjects / duration 文件级审计。", serverCompleted, independentAcquired, exactDurationAudited };
   }
   if (row.id === "EEG-0102") {
     return { decision: "登录后可下载", priority: "P1", nextAction: "注册/登录 Synapse；EEG 数据目录可直接取得，MRI 权限另算。", serverCompleted, independentAcquired, exactDurationAudited };
@@ -211,13 +223,19 @@ const checklistRows = data.focusRows.map((row) => {
     focusType: row.focusType,
     focusSubtype: row.focusSubtype,
     name: row.name,
-    serverStatus: row.id === tuegParentId ? "COMPLETED_PARENT" : (server.finalStatus ?? "NOT_IN_SERVER_AUDIT"),
+    serverStatus: row.id === tuegParentId
+      ? "COMPLETED_PARENT"
+      : completedOverlay.has(row.id)
+        ? "COMPLETED_DIRECT_20260823"
+        : (server.finalStatus ?? "NOT_IN_SERVER_AUDIT"),
     serverCompleted: decision.serverCompleted,
     independentAcquired: decision.independentAcquired,
     exactDurationAudited: decision.exactDurationAudited,
     auditedHours: row.downloadedHours,
     documentedHours: row.documentedHours,
-    physicalSizeGB: Number.isFinite(server.physicalBytes) ? server.physicalBytes / 1e9 : null,
+    physicalSizeGB: completedOverlay.has(row.id)
+      ? completedOverlay.get(row.id).bytes / 1e9
+      : Number.isFinite(server.physicalBytes) ? server.physicalBytes / 1e9 : null,
     access: row.access,
     accessLabel: accessLabel(row.access),
     url: row.url,
@@ -225,7 +243,7 @@ const checklistRows = data.focusRows.map((row) => {
     downloadMethod: downloadMethod(row),
     suggestedPath: master["建议相对路径"] ?? server.relativeDirectory ?? "",
     nextAction: decision.nextAction,
-    serverReason: server.finalReason ?? "",
+    serverReason: completedOverlay.has(row.id) ? "" : (server.finalReason ?? ""),
   };
 }).sort((a, b) => (priorityRank.get(a.priority) ?? 99) - (priorityRank.get(b.priority) ?? 99)
   || (b.documentedHours ?? -1) - (a.documentedHours ?? -1)
@@ -259,16 +277,16 @@ const acquisitionMetrics = {
 };
 
 const expected = {
-  serverCompletedUnits: 74,
-  independentRawAcquiredUnits: 67,
-  diseaseRawAcquiredUnits: 55,
-  healthRawAcquiredUnits: 12,
+  serverCompletedUnits: 80,
+  independentRawAcquiredUnits: 73,
+  diseaseRawAcquiredUnits: 59,
+  healthRawAcquiredUnits: 14,
   exactDurationAuditUnits: 57,
-  pendingSignalDurationAuditUnits: 10,
+  pendingSignalDurationAuditUnits: 16,
   overlapOrNonRawUnits: 7,
-  remainingDownloadUnits: 72,
+  remainingDownloadUnits: 66,
   discardedUnits: 4,
-  actionableDownloadUnits: 68,
+  actionableDownloadUnits: 62,
   applicationRequiredUnits: 41,
   appliedWaitingUnits: 19,
   notYetAppliedUnits: 22,

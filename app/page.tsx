@@ -14,6 +14,7 @@ export default function Home() {
   const focus = neuro.focusCoverage;
   const union = neuro.sourceUnion;
   const acquisition = data.metrics.acquisition;
+  const totalHours = data.metrics.projected.durationLowerBoundHours;
 
   return (
     <>
@@ -52,7 +53,7 @@ export default function Home() {
             <div><dt>DATASETS</dt><dd>{data.metrics.finalUniqueUnits}</dd></div>
             <div><dt>SUBJECT ENTRIES</dt><dd>{focus.knownSubjectEntries.toLocaleString("en-US")}*</dd></div>
             <div><dt>WORKSHEETS</dt><dd>{data.worksheetGuide.length}</dd></div>
-            <div><dt>RAW ACQUIRED</dt><dd>{acquisition.independentRawAcquiredUnits}</dd></div>
+            <div><dt>TOTAL HOURS</dt><dd>{Math.floor(totalHours).toLocaleString("en-US")}+</dd></div>
           </dl>
         </section>
 

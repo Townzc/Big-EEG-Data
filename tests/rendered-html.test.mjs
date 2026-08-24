@@ -18,10 +18,11 @@ test("server-renders the simplified BIG EEG DATA catalog", async () => {
   assert.match(html, /BIG EEG DATA/);
   assert.match(html, /562/);
   assert.match(html, /WORKSHEETS<\/dt><dd>3<\/dd>/);
-  assert.match(html, /RAW ACQUIRED/);
+  assert.match(html, /TOTAL HOURS/);
   assert.match(html, /SUBJECT ENTRIES/);
   assert.match(html, /99,515/);
-  assert.match(html, />67</);
+  assert.match(html, /346,490(?:<!-- -->)?\+/);
+  assert.match(html, /73(?:<!-- -->)? 个独立 raw/);
   assert.match(html, /DOWNLOAD CHECKLIST/);
   assert.match(html, /346,490\.7|346\.5K|34\.65/);
   assert.match(html, /42\/42/);

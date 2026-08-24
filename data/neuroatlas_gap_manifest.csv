@@ -11,7 +11,7 @@ Epilepsy,NMT,原目录已覆盖,EEG-0106,,疾病/临床,医疗与疾病 / 异常
 Epilepsy,Bonn,原目录已覆盖,EEG-0008,,疾病/临床,医疗与疾病 / 癫痫,,,见目录入口,短片段 record-level benchmark。
 Sleep,CFS,原目录已覆盖,EEG-0116,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
 Sleep,DCSM,本轮补入,EEG-0603,,疾病/临床,医疗与疾病 / 临床睡眠,公开下载,https://erda.ku.dk/public/archives/db553715ecbe1f3ac66c1dc569826eef/published-archive.html,ERDA ZIP；或 ut fetch --dataset dcsm --out_dir data/dcsm,
-Sleep,DOD,原目录已覆盖,EEG-0122,,疾病/临床,意识状态 / 睡眠分期,,,见目录入口,
+Sleep,DOD,原目录已覆盖,EEG-0122,,健康/人群,健康与人群 / 健康睡眠,,,见目录入口,
 Sleep,HMC,原目录已覆盖,EEG-0125,,疾病/临床,意识状态 / 睡眠分期,,,见目录入口,
 Sleep,HomePAP,原目录已覆盖,EEG-0126,,疾病/临床,意识状态 / 睡眠分期,,,见目录入口,
 Sleep,ISRUC,原目录已覆盖,EEG-0128,,疾病/临床,意识状态 / 睡眠分期,,,见目录入口,

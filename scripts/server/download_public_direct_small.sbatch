@@ -22,8 +22,8 @@ TARGETS=(
   "datasets/02_Biometrics_and_Disease/Neurological_Disorders/Singh2020"
   "datasets/02_Biometrics_and_Disease/Neurological_Disorders/Singh2021"
   "datasets/02_Biometrics_and_Disease/Neurological_Disorders/PD-Mortality"
-  "datasets/03_Consciousness_and_State/Sleep_Staging/Dreem_Open_Datasets_DOD-H"
-  "datasets/03_Consciousness_and_State/Sleep_Staging/HMC_Haaglanden"
+  "datasets/08_Health_and_Population/Sleep_Health_and_PSG/Dreem_Open_Dataset_Healthy_DOD-H"
+  "datasets/02_Biometrics_and_Disease/Clinical_Sleep_Disorders/HMC_Haaglanden"
   "datasets/02_Biometrics_and_Disease/Sleep_Disordered_Breathing/UCDDB"
 )
 

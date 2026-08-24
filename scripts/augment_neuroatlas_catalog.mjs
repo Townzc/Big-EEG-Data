@@ -215,6 +215,8 @@ const primaryCategoryCorrections = {
   "EEG-0120": ["04_Cognition_and_Emotion", "Emotion", "DREAMER is an affective EEG/ECG experiment, not a sleep-health dataset."],
   "EEG-0129": ["04_Cognition_and_Emotion", "Emotion", "MAHNOB-HCI is multimodal affect recognition, not sleep staging."],
   "EEG-0146": ["07_General-purpose", "Rest_and_Cognitive_State", "RestCog is a healthy rest/cognitive-state benchmark, not a disease or population-health cohort."],
+  "EEG-0122": ["08_Health_and_Population", "Sleep_Health_and_PSG", "DOD-H contains healthy volunteer sleep recordings and is not a clinical disease cohort."],
+  "EEG-0125": ["02_Healthcare_and_Disease", "Clinical_Sleep_Disorders", "HMC is a clinical sleep-center cohort and belongs in the disease/clinical queue."],
 };
 for (const [id, [large, small, reason]] of Object.entries(primaryCategoryCorrections)) {
   const row = byId.get(id);
@@ -222,6 +224,12 @@ for (const [id, [large, small, reason]] of Object.entries(primaryCategoryCorrect
   row[H.large] = large;
   row[H.small] = small;
   row[H.verification] = `${row[H.verification] ?? ""} 分类复核：${reason}`.trim();
+}
+if (byId.has("EEG-0122")) {
+  byId.get("EEG-0122")[H.path] = "08_Health_and_Population/Sleep_Health_and_PSG/Dreem_Open_Dataset_Healthy_DOD-H";
+}
+if (byId.has("EEG-0125")) {
+  byId.get("EEG-0125")[H.path] = "02_Healthcare_and_Disease/Clinical_Sleep_Disorders/HMC_Haaglanden";
 }
 
 const missingPattern = /^(?:\s*|—|-|n\/?a|na|null|none|unknown|not specified|not reported|未给出|未核验|待.*审计|见官方|various)$/i;
@@ -302,7 +310,7 @@ for (const row of focusById.values()) {
 }
 const focusDefinitions = {
   "EEG-0116": ["健康/人群", "Family_Sleep_and_SDB", 735],
-  "EEG-0122": ["疾病/临床", "Clinical_Sleep_and_OSA", 55],
+  "EEG-0122": ["健康/人群", "Sleep_Health_and_PSG", 55],
   "EEG-0125": ["疾病/临床", "Clinical_Sleep_Disorders", 154],
   "EEG-0126": ["疾病/临床", "Obstructive_Sleep_Apnea", 343],
   "EEG-0128": ["疾病/临床", "Clinical_Sleep_Disorders", 118],
@@ -399,7 +407,7 @@ const neuroAtlasSources = [
 
   source("Sleep", "CFS", ["EEG-0116"], { category: "意识状态 / 睡眠分期", focusScope: "健康/人群" }),
   source("Sleep", "DCSM", ["EEG-0603"], { added: true, category: "医疗与疾病 / 临床睡眠", focusScope: "疾病/临床", access: "公开下载", url: byId.get("EEG-0603")[H.url], download: "ERDA ZIP；或 ut fetch --dataset dcsm --out_dir data/dcsm" }),
-  source("Sleep", "DOD", ["EEG-0122"], { category: "意识状态 / 睡眠分期", focusScope: "疾病/临床" }),
+  source("Sleep", "DOD", ["EEG-0122"], { category: "健康与人群 / 健康睡眠", focusScope: "健康/人群" }),
   source("Sleep", "HMC", ["EEG-0125"], { category: "意识状态 / 睡眠分期", focusScope: "疾病/临床" }),
   source("Sleep", "HomePAP", ["EEG-0126"], { category: "意识状态 / 睡眠分期", focusScope: "疾病/临床" }),
   source("Sleep", "ISRUC", ["EEG-0128"], { category: "意识状态 / 睡眠分期", focusScope: "疾病/临床" }),

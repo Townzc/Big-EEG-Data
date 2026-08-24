@@ -28,18 +28,18 @@ assert(approx(metrics.projected.durationLowerBoundHours, 346490.7408902543), `Un
 assert(neuroAtlasComparison.match.total === 42, `Expected 42 NeuroAtlas sources, got ${neuroAtlasComparison.match.total}`);
 assert(neuroAtlasComparison.match.alreadyCovered === 36, `Expected 36 pre-existing NeuroAtlas sources, got ${neuroAtlasComparison.match.alreadyCovered}`);
 assert(neuroAtlasComparison.match.added === 6, `Expected 6 NeuroAtlas additions, got ${neuroAtlasComparison.match.added}`);
-assert(neuroAtlasComparison.focusCoverage.diseaseUnits === 109, `Expected 109 disease units, got ${neuroAtlasComparison.focusCoverage.diseaseUnits}`);
-assert(neuroAtlasComparison.focusCoverage.healthUnits === 37, `Expected 37 health units, got ${neuroAtlasComparison.focusCoverage.healthUnits}`);
+assert(neuroAtlasComparison.focusCoverage.diseaseUnits === 108, `Expected 108 disease units, got ${neuroAtlasComparison.focusCoverage.diseaseUnits}`);
+assert(neuroAtlasComparison.focusCoverage.healthUnits === 38, `Expected 38 health units, got ${neuroAtlasComparison.focusCoverage.healthUnits}`);
 assert(approx(neuroAtlasComparison.sourceUnion.coreHours, 341253.3), `Unexpected core source-union hours: ${neuroAtlasComparison.sourceUnion.coreHours}`);
 assert(approx(neuroAtlasComparison.sourceUnion.extendedHours, 346490.7408902543), `Unexpected extended source-union hours: ${neuroAtlasComparison.sourceUnion.extendedHours}`);
 assert(metrics.tueg.downloadedFiles === metrics.tueg.expectedFiles, "TUEG file-count mismatch");
 assert(metrics.tueg.bytes === 1756545393092, `Unexpected TUEG bytes: ${metrics.tueg.bytes}`);
-assert(metrics.acquisition.serverCompletedUnits === 74, "Expected 74 server-completed disease/health units");
-assert(metrics.acquisition.independentRawAcquiredUnits === 67, "Expected 67 independent raw acquisitions");
-assert(metrics.acquisition.diseaseRawAcquiredUnits === 55, "Expected 55 disease raw acquisitions");
-assert(metrics.acquisition.healthRawAcquiredUnits === 12, "Expected 12 health raw acquisitions");
+assert(metrics.acquisition.serverCompletedUnits === 80, "Expected 80 server-completed disease/health units");
+assert(metrics.acquisition.independentRawAcquiredUnits === 73, "Expected 73 independent raw acquisitions");
+assert(metrics.acquisition.diseaseRawAcquiredUnits === 59, "Expected 59 disease raw acquisitions");
+assert(metrics.acquisition.healthRawAcquiredUnits === 14, "Expected 14 health raw acquisitions");
 assert(metrics.acquisition.exactDurationAuditUnits === 57, "Expected 57 exact-duration audits");
-assert(metrics.acquisition.actionableDownloadUnits === 68, "Expected 68 actionable remaining downloads");
+assert(metrics.acquisition.actionableDownloadUnits === 62, "Expected 62 actionable remaining downloads");
 assert(metrics.acquisition.discardedUnits === 4, "Expected 4 discarded downloads");
 assert(metrics.acquisition.applicationRequiredUnits === 41, "Expected 41 application-required actionable units");
 assert(metrics.acquisition.appliedWaitingUnits === 19, "Expected 19 already-applied units");
@@ -53,8 +53,9 @@ assert(approx(seizeIt2?.auditedHours, 11626.24888888889), "Unexpected SeizeIT2 a
 for (const row of data.downloadChecklist.rows.filter((item) => ["已申请·等待访问", "需要申请/登录"].includes(item.decision))) {
   assert(/^https?:\/\//.test(row.applicationPage), `Missing application page for ${row.id}`);
 }
-assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0093")?.decision === "可直接下载", "PD-Mortality should be public/direct");
-assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0122")?.decision === "可直接下载", "DOD-H should be public/direct");
+assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0093")?.decision === "已下载·待信号/时长审计", "PD-Mortality should reflect the completed server download");
+assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0122")?.focusType === "健康/人群", "DOD-H should be classified as health");
+assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0122")?.decision === "已下载·待信号/时长审计", "DOD-H should reflect the completed server download");
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0058")?.decision === "登录后可下载", "MODMA should reflect approved login access");
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0519")?.decision === "登录后可下载", "CHBMP should reflect approved LORIS access");
 
