@@ -35,8 +35,9 @@ button, input, select { font: inherit; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
 .button { display: inline-flex; justify-content: center; align-items: center; min-height: 46px; padding: .65rem 1.2rem; border-radius: 999px; font-weight: 850; text-decoration: none; }
 .button.primary { color: #fff; background: var(--navy); }.button.secondary{background:#fff;border:1px solid #a9b8c0}
-.specs { display: grid; grid-template-columns: repeat(3, minmax(105px,1fr)); margin: 0; background: rgba(255,255,255,.74); border: 1px solid rgba(23,59,94,.14); border-radius: 16px; overflow: hidden; }
+.specs { display: grid; grid-template-columns: repeat(2, minmax(145px,1fr)); margin: 0; background: rgba(255,255,255,.74); border: 1px solid rgba(23,59,94,.14); border-radius: 16px; overflow: hidden; }
 .specs div { padding: 1.25rem 1.35rem; border-right: 1px solid var(--line); }.specs div:last-child{border-right:0}.specs dt{color:var(--muted);font-size:.66rem;font-weight:900;letter-spacing:.12em}.specs dd{margin:.2rem 0 0;color:var(--navy);font-size:2rem;font-weight:900;line-height:1}
+.specs div:nth-child(-n+2){border-bottom:1px solid var(--line)}.specs div:nth-child(2n){border-right:0}
 
 .catalog-section, .workbook-section, .reve-section, .download-section { padding: clamp(4.5rem, 8vw, 7rem) clamp(1rem, 5vw, 5rem); }
 .catalog-section { background: #eef3f3; }

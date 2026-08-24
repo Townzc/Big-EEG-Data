@@ -23,7 +23,7 @@ assert(approx(metrics.currentRaw.hours, 43627.81906678666), `Unexpected current 
 assert(metrics.additions.subjectRowCount === 23961, `Unexpected new subject row-count: ${metrics.additions.subjectRowCount}`);
 assert(approx(metrics.additions.documentedHours, 7334.8), `Unexpected new documented hours: ${metrics.additions.documentedHours}`);
 assert(metrics.focusUnitCount === 146, `Expected 146 focus units, got ${metrics.focusUnitCount}`);
-assert(metrics.projected.subjectRowCount === 94700, `Unexpected projected subject row-count: ${metrics.projected.subjectRowCount}`);
+assert(metrics.projected.subjectRowCount === 99515, `Unexpected projected subject row-count: ${metrics.projected.subjectRowCount}`);
 assert(approx(metrics.projected.durationLowerBoundHours, 346490.7408902543), `Unexpected projected hours: ${metrics.projected.durationLowerBoundHours}`);
 assert(neuroAtlasComparison.match.total === 42, `Expected 42 NeuroAtlas sources, got ${neuroAtlasComparison.match.total}`);
 assert(neuroAtlasComparison.match.alreadyCovered === 36, `Expected 36 pre-existing NeuroAtlas sources, got ${neuroAtlasComparison.match.alreadyCovered}`);
@@ -41,8 +41,8 @@ assert(metrics.acquisition.healthRawAcquiredUnits === 12, "Expected 12 health ra
 assert(metrics.acquisition.exactDurationAuditUnits === 57, "Expected 57 exact-duration audits");
 assert(metrics.acquisition.actionableDownloadUnits === 68, "Expected 68 actionable remaining downloads");
 assert(metrics.acquisition.discardedUnits === 4, "Expected 4 discarded downloads");
-assert(metrics.acquisition.applicationRequiredUnits === 43, "Expected 43 application-required actionable units");
-assert(metrics.acquisition.appliedWaitingUnits === 21, "Expected 21 already-applied units");
+assert(metrics.acquisition.applicationRequiredUnits === 41, "Expected 41 application-required actionable units");
+assert(metrics.acquisition.appliedWaitingUnits === 19, "Expected 19 already-applied units");
 assert(metrics.acquisition.notYetAppliedUnits === 22, "Expected 22 not-yet-applied units");
 assert(data.downloadChecklist.rows.length === 146, "Expected 146 focus rows in download checklist");
 assert(data.worksheetGuide.length === 3, "Expected simplified 3-sheet workbook guide");
@@ -55,6 +55,8 @@ for (const row of data.downloadChecklist.rows.filter((item) => ["已申请·等�
 }
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0093")?.decision === "可直接下载", "PD-Mortality should be public/direct");
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0122")?.decision === "可直接下载", "DOD-H should be public/direct");
+assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0058")?.decision === "公开入口·需人工复核", "MODMA should reflect approved but currently unreachable access");
+assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0519")?.decision === "登录后可下载", "CHBMP should reflect approved LORIS access");
 
 const counted = focusRows.filter((row) => row.downloadedCountInTotal);
 assert(counted.every((row) => row.auditPresence === "EEG_SIGNAL_PRESENT"), "Non-signal row included in current raw total");

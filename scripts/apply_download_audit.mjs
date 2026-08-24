@@ -30,9 +30,20 @@ const appliedWaiting = new Map([
   ...["EEG-0020", "EEG-0021", "EEG-0022", "EEG-0023", "EEG-0024", "EEG-0025", "EEG-0026", "EEG-0027", "EEG-0028", "EEG-0103", "EEG-0104", "EEG-0105", "EEG-0131", "EEG-0132", "EEG-0133", "EEG-0134"]
     .map((id) => [id, "已提交 BDSP credentialing/DUA；获批后用 credentialed S3 入口同步 MORGOTH。"]),
   ["EEG-0043", "已提交 CAUEEG 申请；需本地伦理批准，等待邮件下载链接和密码。"],
-  ["EEG-0058", "MODMA 已申请；登录个人页确认授权，获批后立即下载。"],
   ["EEG-0086", "MESA Sleep 已提交 NSRR 申请；等待审批结果，若明确拒绝则转为舍弃。"],
-  ["EEG-0519", "CHBMP 已申请账号；等待 LORIS 账户开通。"],
+]);
+
+const approvedAccess = new Map([
+  ["EEG-0058", {
+    decision: "公开入口·需人工复核",
+    priority: "P2",
+    nextAction: "MODMA 下载权限已获批（ID 13/14/17），但官网当前显示无法访问；站点恢复后下载 4.8 GB ERP、2.2 GB 128-ch resting 和 142 MB 3-ch resting。",
+  }],
+  ["EEG-0519", {
+    decision: "登录后可下载",
+    priority: "P1",
+    nextAction: "CHBMP LORIS 账号已开通；已核验 250 条 raw EEG session，首批 32 条已下载并在服务器解包，后续按登录态续传。",
+  }],
 ]);
 
 const nsrrRequestSlugs = new Map([
@@ -67,9 +78,9 @@ const publicCorrections = new Map([
   }],
   ["EEG-0122", {
     name: "Dreem Open Dataset – Healthy (DOD-H)",
-    url: "https://dreem-dodo-dodh.s3.eu-west-1.amazonaws.com/index.html",
-    stableId: "Dreem official S3:DOD-H | GitHub:Dreem-Organization/dreem-learning-open",
-    note: "官方 S3 提供公开下载；原 Zenodo:4498364 实为无关的 COUGHVID 记录，已纠正。",
+    url: "https://zenodo.org/records/15900394",
+    stableId: "DOI:10.5281/zenodo.15900394 | GitHub:Dreem-Organization/dreem-learning-open",
+    note: "Dreem 官方仓库现指向 Zenodo:15900394；DOD-H 为 dodh.zip（21.9 GB）。旧 S3 桶已不存在，已更正入口。",
   }],
 ]);
 
@@ -155,6 +166,9 @@ function decisionFor(row) {
   }
   if (appliedWaiting.has(row.id)) {
     return { decision: "已申请·等待访问", priority: "P2", nextAction: appliedWaiting.get(row.id), serverCompleted, independentAcquired, exactDurationAudited };
+  }
+  if (approvedAccess.has(row.id)) {
+    return { ...approvedAccess.get(row.id), serverCompleted, independentAcquired, exactDurationAudited };
   }
   if (row.id === "EEG-0102") {
     return { decision: "登录后可下载", priority: "P1", nextAction: "注册/登录 Synapse；EEG 数据目录可直接取得，MRI 权限另算。", serverCompleted, independentAcquired, exactDurationAudited };
@@ -255,8 +269,8 @@ const expected = {
   remainingDownloadUnits: 72,
   discardedUnits: 4,
   actionableDownloadUnits: 68,
-  applicationRequiredUnits: 43,
-  appliedWaitingUnits: 21,
+  applicationRequiredUnits: 41,
+  appliedWaitingUnits: 19,
   notYetAppliedUnits: 22,
 };
 for (const [key, value] of Object.entries(expected)) {

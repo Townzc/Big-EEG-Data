@@ -50,6 +50,7 @@ export default function Home() {
           </div>
           <dl className="specs" aria-label="总表规格">
             <div><dt>DATASETS</dt><dd>{data.metrics.finalUniqueUnits}</dd></div>
+            <div><dt>SUBJECT ENTRIES</dt><dd>{focus.knownSubjectEntries.toLocaleString("en-US")}*</dd></div>
             <div><dt>WORKSHEETS</dt><dd>{data.worksheetGuide.length}</dd></div>
             <div><dt>RAW ACQUIRED</dt><dd>{acquisition.independentRawAcquiredUnits}</dd></div>
           </dl>
@@ -115,7 +116,7 @@ export default function Home() {
           </div>
 
           <p className="source-note">
-            NeuroAtlas 对照：原目录覆盖 {neuro.match.alreadyCovered}/42，本轮补入 {neuro.match.added} 个后为 42/42。* 受试者为各数据源报告值的条目合计，不声称为跨数据集去重后的唯一人数。REVE 的 61,415 h 与 89 个明示来源对照仍保留在网页数据中；当前保守可比覆盖为 {reve.sourceUnion.conservativeComparableHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。
+            NeuroAtlas 对照：原目录覆盖 {neuro.match.alreadyCovered}/42，本轮补入 {neuro.match.added} 个后为 42/42。* 受试者为 {focus.knownSubjectEntryUnits}/{focus.units} 个疾病/健康数据单元的来源报告条目合计，不声称为跨数据集去重后的唯一人数；CHBMP 项目队列为 282 人，当前 LORIS 可见 250 条 raw EEG session。REVE 的 61,415 h 与 89 个明示来源对照仍保留在网页数据中；当前保守可比覆盖为 {reve.sourceUnion.conservativeComparableHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。
           </p>
         </section>
 

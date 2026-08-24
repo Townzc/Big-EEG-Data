@@ -349,6 +349,26 @@ for (const [id, definition] of Object.entries(focusDefinitions)) {
     verification: row[H.verification],
   });
 }
+
+// Officially reported participant counts that were previously left null because
+// they were not part of the local file audit or the newly-added benchmark rows.
+// These values are dataset-level participant counts; ambiguous record counts,
+// parent/child overlaps (Harvard/MORGOTH), and release-dependent subsets remain
+// null instead of being promoted to subjects.
+const verifiedSubjectCounts = new Map([
+  ["EEG-0043", 1379], // CAUEEG: 1,379 patients / 1,388 EEG recordings
+  ["EEG-0053", 121],  // ADHD/control EEG dataset
+  ["EEG-0058", 55],   // MODMA IDs are unified; 55 is the EEG union (53 in 128-ch subset)
+  ["EEG-0086", 2056], // MESA participants with downloadable raw PSG/EEG
+  ["EEG-0093", 94],   // OpenNeuro ds007020 participants
+  ["EEG-0102", 780],  // BrainLat participants across five countries
+  ["EEG-0493", 48],   // ADSZ participants
+  ["EEG-0519", 282],  // CHBMP project cohort; LORIS currently exposes 250 raw sessions
+]);
+for (const [id, subjectNumeric] of verifiedSubjectCounts) {
+  const row = focusById.get(id);
+  if (row) row.subjectNumeric = subjectNumeric;
+}
 data.focusRows = [...focusById.values()].sort((a, b) => String(a.id).localeCompare(String(b.id), "en", { numeric: true }));
 
 const source = (domain, name, catalogIds, options = {}) => ({
@@ -554,6 +574,8 @@ data.sources.push(
   ["ArithmeticTask paper/data", "https://pmc.ncbi.nlm.nih.gov/articles/PMC6687903/", "51 included participants; raw data linked from OSF."],
   ["SeizeIT1 official record", byId.get("EEG-0602")[H.url], "Current notice says access is no longer granted because the ethics approval expired."],
 );
+// Keep regeneration idempotent: repeated audit runs must not duplicate evidence rows.
+data.sources = [...new Map(data.sources.map((row) => [`${row[0]}|${row[1]}`, row])).values()];
 
 data.worksheetGuide = data.worksheetGuide
   .map(([sheet, description]) => sheet === "最终唯一下载清单"

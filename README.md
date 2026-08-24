@@ -41,13 +41,29 @@ NeuroAtlas 的 42 个评测来源中，原目录已经覆盖 36 个，本轮补�
 
 ## 当前下载状态
 
+- 疾病/健康重点范围共 146 个下载单元；其中 128 个有来源报告的受试者数，合计 99,515 个 dataset-subject entries（非跨数据集去重人数）。
 - 服务器完成目录/下载单元：74（含 TUH 重叠子集及非 raw 排除项）。
 - 独立 raw EEG 已获取：67（疾病 55、Health 12）。
 - 已有精确时长审计：57 个 / 43,627.8 h；另 10 个已下载目录待信号与时长审计，不重复下载。
 - 当前仍可推进下载：68；明确舍弃 4 个（EPILEPSIAE、B-SNIP1、IEEE ADHD、SeizeIT1），但保留总目录证据。
-- 68 项中正式需要申请 43 项：21 项已申请等待访问，22 项尚需申请；其余为直接下载、登录后下载或人工复核入口。
+- 68 项中正式需要申请 41 项：19 项已申请等待访问，22 项尚需申请；MODMA 与 CHBMP 已从“等待审批”移到“已获批/可登录下载”。
 - SeizeIT2（EEG-0031）已经下载并精确审计 11,626.25 h，不在待下载清单；待舍弃的是 SeizeIT1。
-- PD-Mortality 已更新为 OpenNeuro ds007020 公开下载；DOD-H 已更新为 Dreem 官方 S3，不再列为申请项。
+- PD-Mortality 已更新为 OpenNeuro ds007020 公开下载；DOD-H 已更新为 Dreem 官方 Zenodo 记录 15900394，不再列为申请项。
+- CHBMP 账号已开通，官方项目队列为 282 人，当前 LORIS 可见 250 条 raw EEG session；首批 32 条已下载并在服务器解包，后续批次可续传。
+- MODMA 三个获批包（ID 13/14/17）当前官网不可达，保留为“已获批、入口待恢复”，不重复申请。
+
+## 直接下载与容量计划
+
+- 当前 19 个公开直下单元中，8 个 HBN/OpenNeuro release 合计约 1.38 TiB；PN2026 约 1.2 TiB，DCSM 约 365 GiB，Challenge 2018 约 267 GB。
+- 19 项合计超过 Seawulf 项目目录当前约 2.8 TB 空闲容量，因此先运行 8 个较小且使用条件清晰的单元：4 个 Hugging Face EEG-Bench 来源、PD-Mortality、DOD-H、HMC、UCDDB。
+- PN2026 数据虽然公开，但官方规则限制 2026 challenge 数据在 CinC 2026 结束前用于其他论文投稿；在容量与投稿合规确认前不自动启动 1.2 TiB 下载。
+- 可复现 Slurm 脚本位于 `scripts/server/`；完成标记记录文件数、字节数和 UTC 时间。
+
+## MESA 申请口径
+
+- 本项目应申请标准 **MESA Sleep / Multi-Ethnic Study of Atherosclerosis**，不是商业使用版 `MESA-COMMERCIAL-USE`。
+- 申请时选择 raw polysomnography EDF、XML annotations，并配套核心协变量。官方可下载 raw PSG/EEG 为 2,056 名参与者；母队列睡眠检查样本 2,237 人，两者不要混成同一“已下载受试者数”。
+- 申请入口：<https://sleepdata.org/data/requests/mesa/start>；Matrix 页面用于发现数据集，不是实际文件申请入口。
 
 ## 开发与验证
 

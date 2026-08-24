@@ -20,7 +20,7 @@ Sleep,MESA,原目录已覆盖,EEG-0086,,健康/人群,健康与人群 / 睡眠�
 Sleep,MrOS,原目录已覆盖,EEG-0135,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
 Sleep,PN2026,本轮补入,EEG-0604,,疾病/临床,医疗与疾病 / 睡眠与认知障碍,公开训练集,https://moody-challenge.physionet.org/2026/,Kaggle large: kaggle datasets download -d physionet/physionetchallenge2026datalargeversion,"large training 6,600 PSG records / 1.2 TiB；validation/test hidden。"
 Sleep,SHHS,原目录已覆盖,EEG-0142,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
-Sleep,STAGES,本轮补入,EEG-0605,,疾病/临床,医疗与疾病 / 临床睡眠,申请访问,https://sleepdata.org/datasets/stages,NSRR 审批后：nsrr download stages/original,官方提示存在 4 对重复 EDF；下载后须按文件哈希复核。
+Sleep,STAGES,本轮补入,EEG-0605,,疾病/临床,医疗与疾病 / 临床睡眠,申请访问,https://sleepdata.org/data/requests/stages/start,NSRR 审批后：nsrr download stages/original,官方提示存在 4 对重复 EDF；下载后须按文件哈希复核。
 Sleep,Sleep-EDF,原目录已覆盖,EEG-0144,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
 Sleep,UCDDB,本轮补入,EEG-0606,,疾病/临床,医疗与疾病 / 睡眠呼吸障碍,公开下载,https://physionet.org/content/ucddb/1.0.0/,wget -r -N -c -np https://physionet.org/files/ucddb/1.0.0/,
 Sleep,WSC,原目录已覆盖,EEG-0148,,健康/人群,意识状态 / 睡眠分期,,,见目录入口,
