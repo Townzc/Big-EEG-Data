@@ -12,7 +12,7 @@ if (-not (Test-Path -LiteralPath $identityFile)) {
 $sshArgs = @('-i', $identityFile, '-o', 'BatchMode=yes', $remoteHost)
 $remoteStartCommand = @'
 /usr/bin/tmux kill-session -t modma-download 2>/dev/null || true
-/usr/bin/tmux new-session -d -s modma-download "export PYTHONPATH=/gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/tools/public-downloads/lib/python3.6/site-packages; exec /usr/bin/python3 /gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/scripts/current/download_modma_authenticated.py"
+/usr/bin/tmux new-session -d -s modma-download "export PYTHONPATH=/gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/tools/modma-download/lib/python3.9/site-packages; exec /usr/bin/python3 /gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/scripts/current/download_modma_authenticated.py"
 sleep 1
 '@
 $remotePasteCommand = 'IFS= read -r payload; printf %s "$payload" | /usr/bin/tmux load-buffer -; unset payload; /usr/bin/tmux paste-buffer -d -t modma-download; /usr/bin/tmux send-keys -t modma-download C-m'
