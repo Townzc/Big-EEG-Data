@@ -284,9 +284,9 @@ const expected = {
   exactDurationAuditUnits: 57,
   pendingSignalDurationAuditUnits: 16,
   overlapOrNonRawUnits: 7,
-  remainingDownloadUnits: 66,
+  remainingDownloadUnits: 67,
   discardedUnits: 4,
-  actionableDownloadUnits: 62,
+  actionableDownloadUnits: 63,
   applicationRequiredUnits: 41,
   appliedWaitingUnits: 19,
   notYetAppliedUnits: 22,
@@ -309,7 +309,7 @@ for (const row of data.focusRows) {
 }
 
 // The focus audit already contains many duration values that the compact
-// 562-row catalog previously failed to expose.  Promote the best-supported
+// complete catalog previously failed to expose.  Promote the best-supported
 // value to the master/public row while retaining its scope and provenance.
 // File audits take precedence when present; paper-derived values fill blanks.
 const publicCatalogById = new Map((publicData.catalogRows ?? []).map((row) => [row.id, row]));

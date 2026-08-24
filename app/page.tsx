@@ -5,7 +5,7 @@ import { DownloadChecklist } from "./DownloadChecklist";
 
 export const metadata: Metadata = {
   title: "BIG EEG DATA",
-  description: "A searchable catalog of 562 EEG dataset download units with a verified disease and health download checklist.",
+  description: "A searchable catalog of 563 EEG dataset download units with a verified disease and health download checklist.",
 };
 
 export default function Home() {
@@ -42,7 +42,7 @@ export default function Home() {
             <p className="eyebrow">EEG DATASET CATALOG · 2026</p>
             <h1 id="hero-title">BIG EEG DATA</h1>
             <p className="hero-lead">
-              562 个 EEG 下载单元；疾病/健康已有 {acquisition.independentRawAcquiredUnits} 个独立 raw 数据获取完成，其中 {acquisition.exactDurationAuditUnits} 个已有精确时长审计。
+              563 个 EEG 下载单元；疾病/健康已有 {acquisition.independentRawAcquiredUnits} 个独立 raw 数据获取完成，其中 {acquisition.exactDurationAuditUnits} 个已有精确时长审计。
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#catalog">浏览完整目录</a>

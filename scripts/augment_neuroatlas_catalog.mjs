@@ -173,6 +173,29 @@ const newRows = [
     [H.duration]: null,
     [H.scans]: 51,
   },
+  {
+    [H.id]: "EEG-0608",
+    [H.large]: "02_Healthcare_and_Disease",
+    [H.small]: "Sleep_Disordered_Breathing",
+    [H.name]: "Dreem Open Dataset – Obstructive (DOD-O)",
+    [H.alias]: "DOD-O; Dreem Open Dataset obstructive sleep apnea cohort",
+    [H.stable]: "DOI:10.5281/zenodo.15900394 | arXiv:1911.03221",
+    [H.access]: "DOWNLOAD_PUBLIC",
+    [H.url]: "https://zenodo.org/records/15900394",
+    [H.task]: "Sleep staging in patients with obstructive sleep apnea",
+    [H.subjects]: "55 OSA patients / 55 overnight PSG recordings",
+    [H.channels]: "8 PSG EEG channels + 5 Dreem headband EEG channels; EOG/EMG/ECG and respiratory channels",
+    [H.rate]: "250 Hz",
+    [H.format]: "HDF5 / EDF",
+    [H.raw]: "Raw PSG + Dreem headband signals + five-expert consensus hypnograms",
+    [H.license]: "Open/public download from the official Dreem Zenodo release",
+    [H.paper]: "Guillot et al. (2020), Dreem Open Datasets",
+    [H.path]: "02_Healthcare_and_Disease/Sleep_Disordered_Breathing/Dreem_Open_Dataset_Obstructive_DOD-O",
+    [H.verification]: "DOD-O is the 55-patient obstructive-sleep-apnea cohort and is separate from the 25-volunteer DOD-H cohort; the two archives must not be assigned to one Health row.",
+    "fMRI TR (s)": null,
+    [H.duration]: null,
+    [H.scans]: 55,
+  },
 ];
 
 const byId = new Map(data.rows.map((row) => [row[H.id], row]));
@@ -227,6 +250,9 @@ for (const [id, [large, small, reason]] of Object.entries(primaryCategoryCorrect
 }
 if (byId.has("EEG-0122")) {
   byId.get("EEG-0122")[H.path] = "08_Health_and_Population/Sleep_Health_and_PSG/Dreem_Open_Dataset_Healthy_DOD-H";
+  byId.get("EEG-0122")[H.alias] = "DOD-H; Dreem Open Dataset healthy cohort";
+  byId.get("EEG-0122")[H.subjects] = "25 healthy volunteers / 25 overnight PSG recordings";
+  byId.get("EEG-0122")[H.channels] = "12 PSG EEG channels + 5 Dreem headband EEG channels; EOG/EMG/ECG and other PSG channels";
 }
 if (byId.has("EEG-0125")) {
   byId.get("EEG-0125")[H.path] = "02_Healthcare_and_Disease/Clinical_Sleep_Disorders/HMC_Haaglanden";
@@ -310,7 +336,7 @@ for (const row of focusById.values()) {
 }
 const focusDefinitions = {
   "EEG-0116": ["健康/人群", "Family_Sleep_and_SDB", 735],
-  "EEG-0122": ["健康/人群", "Sleep_Health_and_PSG", 80],
+  "EEG-0122": ["健康/人群", "Sleep_Health_and_PSG", 25],
   "EEG-0125": ["疾病/临床", "Clinical_Sleep_Disorders", 151],
   "EEG-0126": ["疾病/临床", "Obstructive_Sleep_Apnea", 343],
   "EEG-0128": ["疾病/临床", "Clinical_Sleep_Disorders", 118],
@@ -324,6 +350,7 @@ const focusDefinitions = {
   "EEG-0604": ["疾病/临床", "Sleep_and_Cognitive_Impairment", null],
   "EEG-0605": ["疾病/临床", "Clinical_Sleep_Disorders", 1500],
   "EEG-0606": ["疾病/临床", "Sleep_Disordered_Breathing", 25],
+  "EEG-0608": ["疾病/临床", "Sleep_Disordered_Breathing", 55],
 };
 
 for (const [id, definition] of Object.entries(focusDefinitions)) {
@@ -380,7 +407,8 @@ const csdpDurations = new Map([
   ["EEG-0128", [93330, "CSDP ISRUC groups 1-3 analysed subset"]],
   ["EEG-0130", [104764, "CSDP MASS cohorts 1 and 3 analysed subset"]],
   ["EEG-0606", [20789, "CSDP analysed cohort"]],
-  ["EEG-0122", [24665, "CSDP DOD-H subset (25 records; catalog release is wider)"]],
+  ["EEG-0122", [24665, "CSDP DOD-H analysed cohort"]],
+  ["EEG-0608", [54197, "CSDP DOD-O analysed cohort"]],
 ]);
 for (const [id, [epochCount, durationScope]] of csdpDurations) {
   const row = focusById.get(id);
@@ -440,7 +468,7 @@ const neuroAtlasSources = [
 
   source("Sleep", "CFS", ["EEG-0116"], { category: "意识状态 / 睡眠分期", focusScope: "健康/人群" }),
   source("Sleep", "DCSM", ["EEG-0603"], { added: true, category: "医疗与疾病 / 临床睡眠", focusScope: "疾病/临床", access: "公开下载", url: byId.get("EEG-0603")[H.url], download: "ERDA ZIP；或 ut fetch --dataset dcsm --out_dir data/dcsm" }),
-  source("Sleep", "DOD", ["EEG-0122"], { category: "健康与人群 / 健康睡眠", focusScope: "健康/人群" }),
+  source("Sleep", "DOD", ["EEG-0122", "EEG-0608"], { category: "健康睡眠 DOD-H + OSA 临床睡眠 DOD-O", focusScope: "疾病/临床 + 健康/人群", note: "同一官方发布中的两个人群按下载单元拆分：DOD-H 25 名健康志愿者；DOD-O 55 名 OSA 患者。" }),
   source("Sleep", "HMC", ["EEG-0125"], { category: "意识状态 / 睡眠分期", focusScope: "疾病/临床" }),
   source("Sleep", "HomePAP", ["EEG-0126"], { category: "意识状态 / 睡眠分期", focusScope: "疾病/临床" }),
   source("Sleep", "ISRUC", ["EEG-0128"], { category: "意识状态 / 睡眠分期", focusScope: "疾病/临床" }),
@@ -623,7 +651,7 @@ data.worksheetGuide = data.worksheetGuide
   .map(([sheet, description]) => sheet === "最终唯一下载清单"
     ? [sheet, `完整 ${data.rows.length} 行下载单元主表；默认按资料完整度优先`]
     : sheet === "本轮新增_19"
-      ? ["新增来源记录_25", "从 EEG 论文、官网、REVE 与 NeuroAtlas 补入的 25 个下载单元"]
+      ? ["新增来源记录_26", "从 EEG 论文、官网、REVE 与 NeuroAtlas 补入的 26 个下载单元"]
       : sheet === "Healthcare重点清单"
         ? [sheet, `疾病/临床与健康/人群的 ${data.focusRows.length} 行重点视图`]
       : [sheet, description])
@@ -633,7 +661,7 @@ data.worksheetGuide.push(["NeuroAtlas对照_42", "42 个 NeuroAtlas 来源逐项
 const worksheetOrder = [
   "README", "最终唯一下载清单", "排除与非独立条目", "重复合并证据", "人工复核结论",
   "TUH体系与重叠", "文件夹架构", "修订记录", "原重复证据归档", "分类复核",
-  "分类修订明细", "下载与时长复核", "证据来源", "Healthcare重点清单", "新增来源记录_25",
+  "分类修订明细", "下载与时长复核", "证据来源", "Healthcare重点清单", "新增来源记录_26",
   "分类统计", "REVE对照_92", "NeuroAtlas对照_42",
 ];
 data.worksheetGuide.sort((a, b) => worksheetOrder.indexOf(a[0]) - worksheetOrder.indexOf(b[0]));

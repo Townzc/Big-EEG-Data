@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const description = "562 EEG dataset download units, a verified disease and health acquisition checklist, and a source-deduplicated NeuroAtlas comparison.";
+const description = "563 EEG dataset download units, a verified disease and health acquisition checklist, and a source-deduplicated NeuroAtlas comparison.";
 const metadataBase = new URL("https://big-eeg-data.vercel.app");
 
 export async function generateMetadata(): Promise<Metadata> {

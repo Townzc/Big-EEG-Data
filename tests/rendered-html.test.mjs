@@ -17,7 +17,7 @@ test("server-renders the simplified BIG EEG DATA catalog", async () => {
   const html = await response.text();
   assert.match(html, /<title>BIG EEG DATA<\/title>/i);
   assert.match(html, /BIG EEG DATA/);
-  assert.match(html, /562/);
+  assert.match(html, /563/);
   assert.match(html, /WORKSHEETS<\/dt><dd>3<\/dd>/);
   assert.match(html, /TOTAL HOURS/);
   assert.match(html, /SUBJECT ENTRIES/);
@@ -39,7 +39,7 @@ test("surfaces audited and literature-derived durations in the complete catalog"
   const mesa = data.catalogRows.find((row) => row.id === "EEG-0086");
   assert.equal(mesa.durationHours, 21721.175);
   assert.equal(mesa.durationBasis, "论文换算·明确范围");
-  assert.equal(data.metrics.durationCoverage.catalogKnownUnits, 93);
+  assert.equal(data.metrics.durationCoverage.catalogKnownUnits, 94);
 });
 
 test("focuses on the full catalog and simplified workbook", async () => {
