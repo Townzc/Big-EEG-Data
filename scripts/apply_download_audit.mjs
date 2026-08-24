@@ -35,9 +35,9 @@ const appliedWaiting = new Map([
 
 const approvedAccess = new Map([
   ["EEG-0058", {
-    decision: "公开入口·需人工复核",
-    priority: "P2",
-    nextAction: "MODMA 下载权限已获批（ID 13/14/17），但官网当前显示无法访问；站点恢复后下载 4.8 GB ERP、2.2 GB 128-ch resting 和 142 MB 3-ch resting。",
+    decision: "登录后可下载",
+    priority: "P1",
+    nextAction: "MODMA 下载权限已获批（ID 13/14/17）；入口在 2026-08-23 双端复测恢复，重新登录后下载 4.8 GB ERP、2.2 GB 128-ch resting 和 142 MB 3-ch resting。",
   }],
   ["EEG-0519", {
     decision: "登录后可下载",

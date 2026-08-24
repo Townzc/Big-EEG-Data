@@ -55,7 +55,7 @@ for (const row of data.downloadChecklist.rows.filter((item) => ["已申请·等�
 }
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0093")?.decision === "可直接下载", "PD-Mortality should be public/direct");
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0122")?.decision === "可直接下载", "DOD-H should be public/direct");
-assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0058")?.decision === "公开入口·需人工复核", "MODMA should reflect approved but currently unreachable access");
+assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0058")?.decision === "登录后可下载", "MODMA should reflect approved login access");
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0519")?.decision === "登录后可下载", "CHBMP should reflect approved LORIS access");
 
 const counted = focusRows.filter((row) => row.downloadedCountInTotal);
