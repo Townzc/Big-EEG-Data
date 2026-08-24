@@ -1,6 +1,10 @@
 $ErrorActionPreference = 'Stop'
 
 $remoteHost = 'seawulf-milan2'
+$sshExe = 'C:\Windows\System32\OpenSSH\ssh.exe'
+if (-not (Test-Path -LiteralPath $sshExe)) {
+    throw "Windows OpenSSH client not found: $sshExe"
+}
 $identityFile = Join-Path $env:USERPROFILE '.ssh\codex_seawulf_duration_20260731'
 if (-not (Test-Path -LiteralPath $identityFile)) {
     throw "SeaWulf SSH identity file not found: $identityFile"
@@ -16,14 +20,14 @@ $remotePasteCommand = 'IFS= read -r payload; printf %s "$payload" | /usr/bin/tmu
 function Send-ModmaPromptValue {
     param([Parameter(Mandatory = $true)][string]$Value)
 
-    $Value | & ssh @sshArgs $remotePasteCommand
+    $Value | & $sshExe @sshArgs $remotePasteCommand
     if ($LASTEXITCODE -ne 0) {
         throw "Unable to send the value to the private MODMA tmux session."
     }
 }
 
 Write-Host 'MODMA will download directly on SeaWulf. Credentials are not written to disk.' -ForegroundColor Cyan
-& ssh @sshArgs $remoteStartCommand
+& $sshExe @sshArgs $remoteStartCommand
 if ($LASTEXITCODE -ne 0) {
     throw 'Unable to start the private MODMA download session on the pinned login node.'
 }
@@ -49,5 +53,5 @@ finally {
 
 Start-Sleep -Seconds 2
 Write-Host 'Authentication values sent. Current remote status:' -ForegroundColor Green
-& ssh @sshArgs "/usr/bin/tmux capture-pane -p -S -12 -t modma-download"
+& $sshExe @sshArgs "/usr/bin/tmux capture-pane -p -S -12 -t modma-download"
 Write-Host 'You can close this terminal; the remote tmux download continues.' -ForegroundColor Cyan
