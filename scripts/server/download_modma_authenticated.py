@@ -16,6 +16,7 @@ import re
 import sys
 import tempfile
 import time
+import zipfile
 from pathlib import Path
 from urllib.parse import unquote
 
@@ -91,6 +92,19 @@ def md5sum(path: Path) -> str:
     return digest.hexdigest()
 
 
+def verify_zip_crc(path: Path) -> int:
+    """Read every member and return the entry count when all ZIP CRCs pass."""
+    try:
+        with zipfile.ZipFile(path) as archive:
+            entry_count = len(archive.infolist())
+            bad_member = archive.testzip()
+    except (OSError, zipfile.BadZipFile, RuntimeError) as exc:
+        raise RuntimeError(f"ZIP integrity test failed for {path.name}: {exc}") from exc
+    if bad_member is not None:
+        raise RuntimeError(f"ZIP CRC mismatch in {path.name}: {bad_member}")
+    return entry_count
+
+
 def download_one(session: requests.Session, dataset_id: int, target: Path, probe_only: bool) -> dict[str, object]:
     meta = DATASETS[dataset_id]
     fallback = f"{meta['label']}.download"
@@ -102,6 +116,7 @@ def download_one(session: requests.Session, dataset_id: int, target: Path, probe
     filename = filename_from_headers(probe, fallback)
     content_type = probe.headers.get("Content-Type", "")
     content_length = probe.headers.get("Content-Length")
+    expected_size = int(content_length) if content_length and content_length.isdigit() else None
     probe.close()
     if probe_only:
         return {
@@ -109,14 +124,44 @@ def download_one(session: requests.Session, dataset_id: int, target: Path, probe
             "label": meta["label"],
             "filename": filename,
             "content_type": content_type,
-            "content_length": int(content_length) if content_length and content_length.isdigit() else None,
+            "content_length": expected_size,
             "status": "AUTHORIZED",
         }
 
     final_path = target / filename
     partial_path = final_path.with_name(final_path.name + ".part")
-    if final_path.is_file() and md5sum(final_path) == meta["md5"]:
-        return {"id": dataset_id, "filename": filename, "bytes": final_path.stat().st_size, "md5": meta["md5"], "status": "ALREADY_COMPLETE"}
+    if final_path.is_file():
+        final_size = final_path.stat().st_size
+        observed_md5 = md5sum(final_path)
+        if observed_md5 == meta["md5"]:
+            return {
+                "id": dataset_id,
+                "filename": filename,
+                "bytes": final_size,
+                "md5": observed_md5,
+                "published_md5": meta["md5"],
+                "integrity": "PUBLISHED_MD5_MATCH",
+                "status": "ALREADY_COMPLETE",
+            }
+        if expected_size is not None and final_size != expected_size:
+            raise RuntimeError(
+                f"Existing {filename} differs from both the published MD5 and current server size; refusing to overwrite"
+            )
+        zip_entries = verify_zip_crc(final_path)
+        print(
+            f"WARNING id={dataset_id}: published MD5 differs, but current server size and all {zip_entries} ZIP CRCs pass",
+            flush=True,
+        )
+        return {
+            "id": dataset_id,
+            "filename": filename,
+            "bytes": final_size,
+            "md5": observed_md5,
+            "published_md5": meta["md5"],
+            "zip_entries": zip_entries,
+            "integrity": "SERVER_SIZE_AND_ZIP_CRC_OK_PUBLISHED_MD5_MISMATCH",
+            "status": "ALREADY_COMPLETE_VALIDATED",
+        }
 
     transfer_attempt = 0
     while True:
@@ -204,10 +249,35 @@ def download_one(session: requests.Session, dataset_id: int, target: Path, probe
             time.sleep(wait_seconds)
 
     observed_md5 = md5sum(partial_path)
+    integrity = "PUBLISHED_MD5_MATCH"
+    zip_entries = None
     if observed_md5 != meta["md5"]:
-        raise RuntimeError(f"MD5 mismatch for id={dataset_id}: expected {meta['md5']}, got {observed_md5}; partial retained")
+        observed_size = partial_path.stat().st_size
+        if expected_size is not None and observed_size != expected_size:
+            raise RuntimeError(
+                f"MD5 and size mismatch for id={dataset_id}: expected {meta['md5']} and {expected_size:,} bytes, "
+                f"got {observed_md5} and {observed_size:,} bytes; partial retained"
+            )
+        zip_entries = verify_zip_crc(partial_path)
+        integrity = "SERVER_SIZE_AND_ZIP_CRC_OK_PUBLISHED_MD5_MISMATCH"
+        print(
+            f"WARNING id={dataset_id}: published MD5={meta['md5']} differs from downloaded MD5={observed_md5}; "
+            f"current server size matches and all {zip_entries} ZIP CRCs pass",
+            flush=True,
+        )
     os.replace(partial_path, final_path)
-    return {"id": dataset_id, "filename": filename, "bytes": final_path.stat().st_size, "md5": observed_md5, "status": "COMPLETE"}
+    result = {
+        "id": dataset_id,
+        "filename": filename,
+        "bytes": final_path.stat().st_size,
+        "md5": observed_md5,
+        "published_md5": meta["md5"],
+        "integrity": integrity,
+        "status": "COMPLETE",
+    }
+    if zip_entries is not None:
+        result["zip_entries"] = zip_entries
+    return result
 
 
 def main() -> None:
