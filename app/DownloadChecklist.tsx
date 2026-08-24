@@ -97,7 +97,11 @@ export function DownloadChecklist({ rows }: { rows: ChecklistRow[] }) {
                   <td><strong>{row.name}</strong><small className="mono">{row.id}</small></td>
                   <td><span className="decision-label">{row.decision}</span><small>{row.serverStatus}</small></td>
                   <td>{row.focusType}<small>{row.focusSubtype}</small></td>
-                  <td>{hours == null ? "时长待核验" : `${hours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h`}{row.physicalSizeGB == null ? null : <small>{row.physicalSizeGB.toLocaleString("en-US", { maximumFractionDigits: 2 })} GB 已在服务器</small>}</td>
+                  <td>
+                    {hours == null ? "时长待核验" : `${hours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h`}
+                    {hours == null ? null : <small>{row.exactDurationAudited ? "文件审计" : "论文/官网范围"}</small>}
+                    {row.physicalSizeGB == null ? null : <small>{row.physicalSizeGB.toLocaleString("en-US", { maximumFractionDigits: 2 })} GB 已在服务器</small>}
+                  </td>
                   <td>
                     {row.url ? <a href={row.url} target="_blank" rel="noreferrer">数据页 ↗</a> : row.accessLabel}
                     {row.applicationPage ? <small><a href={row.applicationPage} target="_blank" rel="noreferrer">申请/登录页面 ↗</a></small> : null}

@@ -308,6 +308,73 @@ for (const row of data.focusRows) {
   });
 }
 
+// The focus audit already contains many duration values that the compact
+// 562-row catalog previously failed to expose.  Promote the best-supported
+// value to the master/public row while retaining its scope and provenance.
+// File audits take precedence when present; paper-derived values fill blanks.
+const publicCatalogById = new Map((publicData.catalogRows ?? []).map((row) => [row.id, row]));
+const durationOverlayMetrics = {
+  fileAuditUnits: 0,
+  documentedOnlyUnits: 0,
+  focusKnownUnits: 0,
+  catalogKnownUnits: 0,
+  missingFocusUnits: 0,
+};
+for (const focus of data.focusRows) {
+  const hasAudit = Number.isFinite(focus.downloadedHours) && focus.downloadedHours > 0;
+  const hasDocumented = Number.isFinite(focus.documentedHours) && focus.documentedHours > 0;
+  const effectiveHours = hasAudit ? focus.downloadedHours : hasDocumented ? focus.documentedHours : null;
+  if (effectiveHours == null) {
+    durationOverlayMetrics.missingFocusUnits += 1;
+    continue;
+  }
+
+  durationOverlayMetrics.focusKnownUnits += 1;
+  if (hasAudit) durationOverlayMetrics.fileAuditUnits += 1;
+  else durationOverlayMetrics.documentedOnlyUnits += 1;
+
+  const evidence = String(focus.durationEvidence ?? "");
+  const durationBasis = hasAudit
+    ? evidence.includes("PARTIAL")
+      ? "文件审计·部分范围"
+      : evidence.includes("EXACT")
+        ? "文件审计·精确"
+        : "发布/下载范围"
+    : evidence.includes("Common Sleep Data Pipeline")
+      ? "论文换算·明确范围"
+      : "论文/官网记录";
+  const evidenceUrl = focus.durationEvidenceUrl || focus.url || "";
+
+  const master = catalogById.get(focus.id);
+  if (master) {
+    const existingSeconds = Number(master["Recording duration (s)"]);
+    if (!(Number.isFinite(existingSeconds) && existingSeconds > 0)) {
+      master["Recording duration (s)"] = effectiveHours * 3600;
+    }
+    const provenance = `时长口径：${effectiveHours.toLocaleString("en-US", { maximumFractionDigits: 3 })} h（${durationBasis}；${evidence || "见下载/来源记录"}）`;
+    const verification = String(master["核验结论"] ?? "").trim();
+    if (!verification.includes("时长口径：")) master["核验结论"] = `${verification}${verification ? " " : ""}${provenance}`;
+  }
+
+  const publicRow = publicCatalogById.get(focus.id);
+  if (publicRow) {
+    const lackedDuration = !(Number.isFinite(publicRow.durationHours) && publicRow.durationHours > 0);
+    if (lackedDuration) {
+      publicRow.durationHours = effectiveHours;
+      publicRow.completenessScore = Math.min(publicRow.completenessMax ?? 15, (publicRow.completenessScore ?? 0) + 2);
+    }
+    publicRow.durationBasis = durationBasis;
+    publicRow.durationEvidence = evidence;
+    publicRow.durationEvidenceUrl = evidenceUrl;
+  }
+}
+durationOverlayMetrics.catalogKnownUnits = (publicData.catalogRows ?? [])
+  .filter((row) => Number.isFinite(row.durationHours) && row.durationHours > 0).length;
+data.metrics.durationCoverage = durationOverlayMetrics;
+publicData.catalogRows?.sort((a, b) => (b.completenessScore ?? 0) - (a.completenessScore ?? 0)
+  || Number(Number.isFinite(b.durationHours)) - Number(Number.isFinite(a.durationHours))
+  || String(a.id).localeCompare(String(b.id), "en", { numeric: true }));
+
 data.metrics.acquisition = acquisitionMetrics;
 data.downloadChecklist = { metrics: acquisitionMetrics, rows: checklistRows };
 data.neuroAtlasComparison.focusCoverage.serverCompletedUnits = acquisitionMetrics.serverCompletedUnits;

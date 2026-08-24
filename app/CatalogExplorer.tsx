@@ -16,6 +16,9 @@ type CatalogRow = {
   verification: string | null;
   isNew: boolean;
   durationHours: number | null;
+  durationBasis?: string;
+  durationEvidence?: string;
+  durationEvidenceUrl?: string;
   completenessScore: number;
   completenessMax: number;
 };
@@ -181,12 +184,16 @@ export function CatalogExplorer({ rows, categoryStats }: { rows: CatalogRow[]; c
                   <td><span className="category-pill">{categoryLabels[normalizeCategory(row.largeCategory)] ?? row.largeCategory}</span><small>{row.smallCategory}</small></td>
                   <td>{row.task ?? "—"}</td>
                   <td>{row.subjectsDisplay ?? "未给出"}</td>
-                  <td>{row.durationHours == null ? "未给出" : `${row.durationHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h`}</td>
+                  <td>
+                    {row.durationHours == null ? "未给出" : `${row.durationHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h`}
+                    {row.durationHours != null && row.durationBasis ? <small>{row.durationBasis}</small> : null}
+                  </td>
                   <td>{row.format ?? "未给出"}</td>
                   <td><span className="score-badge">{row.completenessScore}/{row.completenessMax}</span></td>
                   <td>
                     {row.url ? <a href={row.url} target="_blank" rel="noreferrer">{accessLabels[row.access] ?? row.access} ↗</a> : <span>{accessLabels[row.access] ?? row.access}</span>}
                     {row.verification ? <small>{row.verification}</small> : null}
+                    {row.durationEvidence ? <small>时长依据：{row.durationEvidence}{row.durationEvidenceUrl && row.durationEvidenceUrl !== row.url ? <> · <a href={row.durationEvidenceUrl} target="_blank" rel="noreferrer">来源 ↗</a></> : null}</small> : null}
                   </td>
                 </tr>
               ))}

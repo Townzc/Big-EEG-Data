@@ -21,9 +21,9 @@ assert(metrics.currentRaw.subjectRowCount === 22150, `Unexpected current subject
 assert(metrics.currentRaw.observedSubjectLowerBound === 21132, `Unexpected observed lower bound: ${metrics.currentRaw.observedSubjectLowerBound}`);
 assert(approx(metrics.currentRaw.hours, 43627.81906678666), `Unexpected current hours: ${metrics.currentRaw.hours}`);
 assert(metrics.additions.subjectRowCount === 23961, `Unexpected new subject row-count: ${metrics.additions.subjectRowCount}`);
-assert(approx(metrics.additions.documentedHours, 7334.8), `Unexpected new documented hours: ${metrics.additions.documentedHours}`);
+assert(approx(metrics.additions.documentedHours, 12332.533333333335), `Unexpected new documented hours: ${metrics.additions.documentedHours}`);
 assert(metrics.focusUnitCount === 146, `Expected 146 focus units, got ${metrics.focusUnitCount}`);
-assert(metrics.projected.subjectRowCount === 99515, `Unexpected projected subject row-count: ${metrics.projected.subjectRowCount}`);
+assert(metrics.projected.subjectRowCount === 99537, `Unexpected projected subject row-count: ${metrics.projected.subjectRowCount}`);
 assert(approx(metrics.projected.durationLowerBoundHours, 346490.7408902543), `Unexpected projected hours: ${metrics.projected.durationLowerBoundHours}`);
 assert(neuroAtlasComparison.match.total === 42, `Expected 42 NeuroAtlas sources, got ${neuroAtlasComparison.match.total}`);
 assert(neuroAtlasComparison.match.alreadyCovered === 36, `Expected 36 pre-existing NeuroAtlas sources, got ${neuroAtlasComparison.match.alreadyCovered}`);
@@ -46,6 +46,12 @@ assert(metrics.acquisition.appliedWaitingUnits === 19, "Expected 19 already-appl
 assert(metrics.acquisition.notYetAppliedUnits === 22, "Expected 22 not-yet-applied units");
 assert(data.downloadChecklist.rows.length === 146, "Expected 146 focus rows in download checklist");
 assert(data.worksheetGuide.length === 3, "Expected simplified 3-sheet workbook guide");
+assert(metrics.durationCoverage.focusKnownUnits >= 90, `Too few focus durations surfaced: ${metrics.durationCoverage.focusKnownUnits}`);
+assert(metrics.durationCoverage.catalogKnownUnits >= 90, `Too few catalog durations surfaced: ${metrics.durationCoverage.catalogKnownUnits}`);
+assert(metrics.durationCoverage.documentedOnlyUnits >= 15, "Expected paper-derived duration overlays");
+
+const mesaCatalog = data.rows.find((row) => row["Unique ID"] === "EEG-0086");
+assert(approx(Number(mesaCatalog?.["Recording duration (s)"]) / 3600, 21721.175), "MESA CSDP duration overlay missing");
 
 const seizeIt2 = data.downloadChecklist.rows.find((row) => row.id === "EEG-0031");
 assert(seizeIt2?.decision === "已下载·时长已审计", "SeizeIT2 must remain completed, not pending");

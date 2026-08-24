@@ -310,8 +310,8 @@ for (const row of focusById.values()) {
 }
 const focusDefinitions = {
   "EEG-0116": ["健康/人群", "Family_Sleep_and_SDB", 735],
-  "EEG-0122": ["健康/人群", "Sleep_Health_and_PSG", 55],
-  "EEG-0125": ["疾病/临床", "Clinical_Sleep_Disorders", 154],
+  "EEG-0122": ["健康/人群", "Sleep_Health_and_PSG", 80],
+  "EEG-0125": ["疾病/临床", "Clinical_Sleep_Disorders", 151],
   "EEG-0126": ["疾病/临床", "Obstructive_Sleep_Apnea", 343],
   "EEG-0128": ["疾病/临床", "Clinical_Sleep_Disorders", 118],
   "EEG-0130": ["健康/人群", "Sleep_Staging_and_Microarousals", 200],
@@ -356,6 +356,39 @@ for (const [id, definition] of Object.entries(focusDefinitions)) {
     auditPresence: existing.auditPresence ?? "NOT_AUDITED",
     verification: row[H.verification],
   });
+}
+
+// Table 1 of the peer-reviewed Common Sleep Data Pipeline paper reports the
+// number of retained 30-second epochs after its harmonised preprocessing.  The
+// conversion below is therefore exact for the paper's analysed subset
+// (epochs / 120 = hours), but is deliberately labelled as a subset whenever
+// that scope is narrower than the catalog's current public release.
+const csdpUrl = "https://doi.org/10.1371/journal.pone.0307202";
+const csdpDurations = new Map([
+  ["EEG-0108", [133101, "CSDP analysed cohort"]],
+  ["EEG-0115", [691402, "CSDP analysed cohort"]],
+  ["EEG-0116", [866222, "CSDP analysed cohort"]],
+  ["EEG-0117", [1958341, "CSDP analysed cohort"]],
+  ["EEG-0603", [578939, "CSDP analysed cohort"]],
+  ["EEG-0126", [231436, "CSDP subset (247 records; catalog release is wider)"]],
+  ["EEG-0086", [2606541, "CSDP analysed cohort"]],
+  ["EEG-0135", [5398538, "CSDP analysed cohort including longitudinal records"]],
+  ["EEG-0140", [847346, "CSDP subset (919 records; catalog release is wider)"]],
+  ["EEG-0144", [429071, "CSDP Sleep-EDF SC+ST analysed subset"]],
+  ["EEG-0142", [9055971, "CSDP analysed cohort"]],
+  ["EEG-0145", [541696, "CSDP analysed cohort"]],
+  ["EEG-0128", [93330, "CSDP ISRUC groups 1-3 analysed subset"]],
+  ["EEG-0130", [104764, "CSDP MASS cohorts 1 and 3 analysed subset"]],
+  ["EEG-0606", [20789, "CSDP analysed cohort"]],
+  ["EEG-0122", [24665, "CSDP DOD-H subset (25 records; catalog release is wider)"]],
+]);
+for (const [id, [epochCount, durationScope]] of csdpDurations) {
+  const row = focusById.get(id);
+  if (!row) throw new Error(`Missing focus row for CSDP duration: ${id}`);
+  row.documentedHours = epochCount / 120;
+  row.durationEvidence = `Common Sleep Data Pipeline Table 1: ${epochCount.toLocaleString("en-US")} retained 30-s epochs / 120 = ${row.documentedHours.toFixed(3)} h; ${durationScope}`;
+  row.durationEvidenceUrl = csdpUrl;
+  row.durationScope = durationScope;
 }
 
 // Officially reported participant counts that were previously left null because
@@ -575,6 +608,7 @@ data.classificationRules = [
 ];
 data.sources.push(
   ["NeuroAtlas paper", "https://arxiv.org/abs/2605.14698", "42 datasets / ~260k h; Appendix B source list and domain-level scope."],
+  ["Common Sleep Data Pipeline", csdpUrl, "Table 1 retained 30-s epoch counts converted by epochs / 120; values describe the paper's analysed scope and narrower subsets are labelled."],
   ["DCSM official archive", byId.get("EEG-0603")[H.url], "255 clinical overnight PSG recordings; public ZIP/U-Time access."],
   ["PhysioNet Challenge 2026", byId.get("EEG-0604")[H.url], "6,600 public large-training PSG records / 1.2 TiB; validation/test hidden."],
   ["STAGES / NSRR", byId.get("EEG-0605")[H.url], "1,500 patients; application access; duplicate EDF warning."],

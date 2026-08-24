@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import test from "node:test";
 
 async function render() {
@@ -20,7 +21,7 @@ test("server-renders the simplified BIG EEG DATA catalog", async () => {
   assert.match(html, /WORKSHEETS<\/dt><dd>3<\/dd>/);
   assert.match(html, /TOTAL HOURS/);
   assert.match(html, /SUBJECT ENTRIES/);
-  assert.match(html, /99,515/);
+  assert.match(html, /99,537/);
   assert.match(html, /346,490(?:<!-- -->)?\+/);
   assert.match(html, /73(?:<!-- -->)? 个独立 raw/);
   assert.match(html, /DOWNLOAD CHECKLIST/);
@@ -29,7 +30,16 @@ test("server-renders the simplified BIG EEG DATA catalog", async () => {
   assert.match(html, /EEG_healthcare_disease_catalog_20260823\.xlsx/);
   assert.match(html, /lang="zh-CN"/);
   assert.match(html, /aria-label=/);
+  assert.match(html, /论文换算·明确范围/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
+});
+
+test("surfaces audited and literature-derived durations in the complete catalog", () => {
+  const data = JSON.parse(fs.readFileSync(new URL("../public/catalog-data.json", import.meta.url), "utf8"));
+  const mesa = data.catalogRows.find((row) => row.id === "EEG-0086");
+  assert.equal(mesa.durationHours, 21721.175);
+  assert.equal(mesa.durationBasis, "论文换算·明确范围");
+  assert.equal(data.metrics.durationCoverage.catalogKnownUnits, 93);
 });
 
 test("focuses on the full catalog and simplified workbook", async () => {
