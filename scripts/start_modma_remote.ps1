@@ -11,9 +11,12 @@ if (-not (Test-Path -LiteralPath $identityFile)) {
 }
 $sshArgs = @('-i', $identityFile, '-o', 'BatchMode=yes', $remoteHost)
 $remoteStartCommand = @'
+MODMA_SITEPACKAGES=/gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/tools/modma-download/lib/python3.9/site-packages
+PYTHONPATH="$MODMA_SITEPACKAGES" /usr/bin/python3 -c 'import requests' || exit 21
 /usr/bin/tmux kill-session -t modma-download 2>/dev/null || true
-/usr/bin/tmux new-session -d -s modma-download "export PYTHONPATH=/gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/tools/modma-download/lib/python3.9/site-packages; exec /usr/bin/python3 /gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/scripts/current/download_modma_authenticated.py"
+/usr/bin/tmux new-session -d -s modma-download "/usr/bin/env PYTHONPATH=$MODMA_SITEPACKAGES /usr/bin/python3 /gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/scripts/current/download_modma_authenticated.py"
 sleep 1
+/usr/bin/tmux has-session -t modma-download
 '@
 $remotePasteCommand = 'IFS= read -r payload; printf %s "$payload" | /usr/bin/tmux load-buffer -; unset payload; /usr/bin/tmux paste-buffer -d -t modma-download; /usr/bin/tmux send-keys -t modma-download C-m'
 
