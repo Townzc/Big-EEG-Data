@@ -151,7 +151,14 @@ def main() -> None:
 
     args.target.mkdir(parents=True, exist_ok=True)
     username = input("MODMA account/email: ").strip()
-    password = getpass.getpass("MODMA password (not saved): ")
+    if sys.stdin.isatty():
+        password = getpass.getpass("MODMA password (not saved): ")
+    else:
+        # start_modma_remote.ps1 supplies a hidden local prompt over SSH stdin.
+        # Reading the second line directly avoids getpass's misleading no-TTY
+        # warning; the value is neither echoed nor persisted.
+        password = sys.stdin.readline().rstrip("\r\n")
+        print("MODMA password received securely from launcher (not saved)", flush=True)
     if not username or not password:
         raise SystemExit("Both account and password are required")
 
