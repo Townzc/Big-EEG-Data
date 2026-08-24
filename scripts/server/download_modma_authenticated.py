@@ -15,6 +15,7 @@ import os
 import re
 import sys
 import tempfile
+import time
 from pathlib import Path
 from urllib.parse import unquote
 
@@ -40,6 +41,8 @@ DATASETS = {
         "published_size": "142 MB",
     },
 }
+TRANSFER_ATTEMPTS = 12
+PROGRESS_INTERVAL = 512 * 1024 * 1024
 
 
 def csrf_token(html: str) -> str:
@@ -115,21 +118,90 @@ def download_one(session: requests.Session, dataset_id: int, target: Path, probe
     if final_path.is_file() and md5sum(final_path) == meta["md5"]:
         return {"id": dataset_id, "filename": filename, "bytes": final_path.stat().st_size, "md5": meta["md5"], "status": "ALREADY_COMPLETE"}
 
-    offset = partial_path.stat().st_size if partial_path.exists() else 0
-    headers = {"Range": f"bytes={offset}-"} if offset else {}
-    with session.get(f"{BASE}/data/download/?id={dataset_id}", headers=headers, stream=True, timeout=120, allow_redirects=True) as response:
-        response.raise_for_status()
-        if "/accounts/login/" in response.url or "text/html" in response.headers.get("Content-Type", "").lower():
-            raise RuntimeError(f"MODMA session expired while downloading dataset id={dataset_id}")
-        append = offset > 0 and response.status_code == 206
-        mode = "ab" if append else "wb"
-        if not append:
-            offset = 0
-        print(f"id={dataset_id} {meta['label']} -> {final_path.name} (resume={offset:,} bytes)", flush=True)
-        with partial_path.open(mode) as handle:
-            for chunk in response.iter_content(chunk_size=16 * 1024 * 1024):
-                if chunk:
-                    handle.write(chunk)
+    transfer_attempt = 0
+    while True:
+        offset = partial_path.stat().st_size if partial_path.exists() else 0
+        headers = {"Range": f"bytes={offset}-"} if offset else {}
+        transfer_attempt += 1
+        try:
+            with session.get(
+                f"{BASE}/data/download/?id={dataset_id}",
+                headers=headers,
+                stream=True,
+                timeout=120,
+                allow_redirects=True,
+            ) as response:
+                if response.status_code == 416 and offset:
+                    # The local partial may already be complete; MD5 below is
+                    # the authoritative check.
+                    print(f"id={dataset_id} server reports range complete; verifying MD5", flush=True)
+                    break
+                response.raise_for_status()
+                if "/accounts/login/" in response.url or "text/html" in response.headers.get("Content-Type", "").lower():
+                    raise RuntimeError(f"MODMA session expired while downloading dataset id={dataset_id}")
+
+                skip_remaining = 0
+                if offset and response.status_code == 206:
+                    content_range = response.headers.get("Content-Range", "")
+                    match = re.match(r"bytes\s+(\d+)-(\d+)/(\d+|\*)", content_range, flags=re.I)
+                    if not match or int(match.group(1)) != offset:
+                        raise RuntimeError(
+                            f"MODMA returned an invalid Content-Range for id={dataset_id}: {content_range!r}"
+                        )
+                    mode = "ab"
+                elif offset:
+                    # Preserve the large partial even if the origin ignores
+                    # Range. Discard the already saved prefix from the new
+                    # response, then append only unseen bytes.
+                    mode = "ab"
+                    skip_remaining = offset
+                    print(
+                        f"id={dataset_id} server ignored Range; preserving the partial and skipping {offset:,} response bytes",
+                        flush=True,
+                    )
+                else:
+                    mode = "wb"
+
+                print(
+                    f"id={dataset_id} {meta['label']} -> {final_path.name} "
+                    f"(resume={offset:,} bytes, attempt={transfer_attempt}/{TRANSFER_ATTEMPTS})",
+                    flush=True,
+                )
+                written_size = offset
+                next_report = ((written_size // PROGRESS_INTERVAL) + 1) * PROGRESS_INTERVAL
+                with partial_path.open(mode) as handle:
+                    for chunk in response.iter_content(chunk_size=16 * 1024 * 1024):
+                        if not chunk:
+                            continue
+                        if skip_remaining:
+                            if len(chunk) <= skip_remaining:
+                                skip_remaining -= len(chunk)
+                                continue
+                            chunk = chunk[skip_remaining:]
+                            skip_remaining = 0
+                        handle.write(chunk)
+                        written_size += len(chunk)
+                        if written_size >= next_report:
+                            print(f"id={dataset_id} downloaded={written_size:,} bytes", flush=True)
+                            next_report = ((written_size // PROGRESS_INTERVAL) + 1) * PROGRESS_INTERVAL
+                if skip_remaining:
+                    raise requests.exceptions.ChunkedEncodingError(
+                        f"response ended while skipping the saved {offset:,}-byte prefix"
+                    )
+                break
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout, requests.exceptions.ChunkedEncodingError) as exc:
+            if transfer_attempt >= TRANSFER_ATTEMPTS:
+                raise RuntimeError(
+                    f"MODMA transfer failed after {TRANSFER_ATTEMPTS} attempts for id={dataset_id}; partial retained"
+                ) from exc
+            saved_size = partial_path.stat().st_size if partial_path.exists() else 0
+            wait_seconds = min(2 ** max(transfer_attempt, 1), 30)
+            print(
+                f"id={dataset_id} connection interrupted ({type(exc).__name__}); "
+                f"saved={saved_size:,} bytes, retrying in {wait_seconds}s",
+                flush=True,
+            )
+            time.sleep(wait_seconds)
 
     observed_md5 = md5sum(partial_path)
     if observed_md5 != meta["md5"]:
