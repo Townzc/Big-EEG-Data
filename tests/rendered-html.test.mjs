@@ -23,7 +23,7 @@ test("server-renders the simplified BIG EEG DATA catalog", async () => {
   assert.match(html, /SUBJECT ENTRIES/);
   assert.match(html, /99,537/);
   assert.match(html, /346,490(?:<!-- -->)?\+/);
-  assert.match(html, /73(?:<!-- -->)? 个独立 raw/);
+  assert.match(html, /74(?:<!-- -->)? 个独立 raw/);
   assert.match(html, /DOWNLOAD CHECKLIST/);
   assert.match(html, /346,490\.7|346\.5K|34\.65/);
   assert.match(html, /42\/42/);
@@ -40,6 +40,10 @@ test("surfaces audited and literature-derived durations in the complete catalog"
   assert.equal(mesa.durationHours, 21721.175);
   assert.equal(mesa.durationBasis, "论文换算·明确范围");
   assert.equal(data.metrics.durationCoverage.catalogKnownUnits, 94);
+  const modma = data.downloadChecklist.rows.find((row) => row.id === "EEG-0058");
+  assert.equal(modma.decision, "已下载·待信号/时长审计");
+  assert.equal(modma.serverCompleted, true);
+  assert.equal(modma.physicalSizeGB, 7.593313997);
 });
 
 test("focuses on the full catalog and simplified workbook", async () => {

@@ -1,0 +1,7 @@
+catalog_id=EEG-0058
+dataset=MODMA
+completed_utc=2026-08-26T04:11:10Z
+files=3
+bytes=7593313997
+manifest=raw/download_manifest.json
+integrity=id14_and_id17_published_md5_match;id13_server_size_and_60_zip_crc_ok_published_md5_mismatch

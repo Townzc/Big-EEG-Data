@@ -1,9 +1,9 @@
 {
-  "snapshotAt": "2026-08-24T01:14:39.695Z",
-  "checkedAt": "2026-08-24",
-  "source": "Seawulf reports/auto_v2/all_status.csv plus read-only physical-directory checks",
+  "snapshotAt": "2026-08-26T04:11:10.570Z",
+  "checkedAt": "2026-08-25",
+  "source": "Seawulf reports/auto_v2/all_status.csv plus read-only physical-directory checks and MODMA authenticated-download manifest",
   "focusRows": 146,
-  "completedRows": 73,
+  "completedRows": 74,
   "rows": [
     {
       "id": "EEG-0005",
@@ -666,16 +666,16 @@
     {
       "id": "EEG-0058",
       "datasetName": "MODMA",
-      "finalStatus": "MANUAL_APPLICATION_OR_LOGIN",
-      "finalReason": "Workbook marks this dataset as application-required",
-      "automationPolicy": "APPLICATION_REQUIRED",
-      "handler": "",
+      "finalStatus": "COMPLETED",
+      "finalReason": "Authenticated MODMA IDs 13/14/17 completed; manifest present; no partial files; all ZIP CRC checks passed",
+      "automationPolicy": "ALREADY_COMPLETED",
+      "handler": "download_modma_authenticated.py",
       "workbookStatus": "DOWNLOAD_APPLICATION_REQUIRED",
       "serverCategory": "02_Biometrics_and_Disease",
       "serverSubcategory": "Mental_and_Developmental_Disorders",
       "stableIdentifier": "",
       "relativeDirectory": "02_Biometrics_and_Disease/Mental_and_Developmental_Disorders/MODMA",
-      "physicalBytes": null
+      "physicalBytes": 7593313997
     },
     {
       "id": "EEG-0059",

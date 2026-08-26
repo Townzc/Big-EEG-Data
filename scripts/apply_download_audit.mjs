@@ -19,6 +19,7 @@ const tuegParentId = "EEG-0582";
 const overlapIds = new Set(["EEG-0033", "EEG-0034", "EEG-0035", "EEG-0036", "EEG-0107"]);
 const rawExcludedIds = new Set(["EEG-0007", "EEG-0050", "EEG-0101"]);
 const completedOverlay = new Map([
+  ["EEG-0058", { bytes: 7593313997, completedUtc: "2026-08-26T04:11:10Z", job: "authenticated-direct" }],
   ["EEG-0583", { bytes: 28914297378, completedUtc: "2026-08-24T01:00:09Z", job: "2133731_0" }],
   ["EEG-0584", { bytes: 7385925560, completedUtc: "2026-08-24T00:40:13Z", job: "2133731_1" }],
   ["EEG-0585", { bytes: 4068828665, completedUtc: "2026-08-24T00:41:25Z", job: "2133731_2" }],
@@ -43,11 +44,6 @@ const appliedWaiting = new Map([
 ]);
 
 const approvedAccess = new Map([
-  ["EEG-0058", {
-    decision: "登录后可下载",
-    priority: "P1",
-    nextAction: "MODMA 下载权限已获批（ID 13/14/17）；入口在 2026-08-23 双端复测恢复，重新登录后下载 4.8 GB ERP、2.2 GB 128-ch resting 和 142 MB 3-ch resting。",
-  }],
   ["EEG-0519", {
     decision: "登录后可下载",
     priority: "P1",
@@ -92,6 +88,16 @@ const publicCorrections = new Map([
     note: "Dreem 官方仓库现指向 Zenodo:15900394；DOD-H 为 dodh.zip（21.9 GB）。旧 S3 桶已不存在，已更正入口。",
   }],
 ]);
+
+const modmaCompletionNote = "2026-08-25 authenticated download complete: IDs 13/14/17, 7,593,313,997 bytes. ID 14/17 match the published MD5; ID 13 matches the current server size and passes all 60 ZIP CRCs while the published MD5 discrepancy is retained in the manifest.";
+const modmaMaster = catalogById.get("EEG-0058");
+if (modmaMaster && !String(modmaMaster["核验结论"] ?? "").includes("7,593,313,997 bytes")) {
+  modmaMaster["核验结论"] = `${String(modmaMaster["核验结论"] ?? "").trim()} ${modmaCompletionNote}`.trim();
+}
+const modmaPublic = publicData.catalogRows?.find((row) => row.id === "EEG-0058");
+if (modmaPublic && !String(modmaPublic.verification ?? "").includes("7,593,313,997 bytes")) {
+  modmaPublic.verification = `${String(modmaPublic.verification ?? "").trim()} ${modmaCompletionNote}`.trim();
+}
 
 for (const [id, correction] of publicCorrections) {
   const master = catalogById.get(id);
@@ -226,7 +232,7 @@ const checklistRows = data.focusRows.map((row) => {
     serverStatus: row.id === tuegParentId
       ? "COMPLETED_PARENT"
       : completedOverlay.has(row.id)
-        ? "COMPLETED_DIRECT_20260823"
+        ? "COMPLETED_DIRECT_OVERLAY"
         : (server.finalStatus ?? "NOT_IN_SERVER_AUDIT"),
     serverCompleted: decision.serverCompleted,
     independentAcquired: decision.independentAcquired,
@@ -277,16 +283,16 @@ const acquisitionMetrics = {
 };
 
 const expected = {
-  serverCompletedUnits: 80,
-  independentRawAcquiredUnits: 73,
-  diseaseRawAcquiredUnits: 59,
+  serverCompletedUnits: 81,
+  independentRawAcquiredUnits: 74,
+  diseaseRawAcquiredUnits: 60,
   healthRawAcquiredUnits: 14,
   exactDurationAuditUnits: 57,
-  pendingSignalDurationAuditUnits: 16,
+  pendingSignalDurationAuditUnits: 17,
   overlapOrNonRawUnits: 7,
-  remainingDownloadUnits: 67,
+  remainingDownloadUnits: 66,
   discardedUnits: 4,
-  actionableDownloadUnits: 63,
+  actionableDownloadUnits: 62,
   applicationRequiredUnits: 41,
   appliedWaitingUnits: 19,
   notYetAppliedUnits: 22,

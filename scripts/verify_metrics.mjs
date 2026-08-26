@@ -34,12 +34,12 @@ assert(approx(neuroAtlasComparison.sourceUnion.coreHours, 341253.3), `Unexpected
 assert(approx(neuroAtlasComparison.sourceUnion.extendedHours, 346490.7408902543), `Unexpected extended source-union hours: ${neuroAtlasComparison.sourceUnion.extendedHours}`);
 assert(metrics.tueg.downloadedFiles === metrics.tueg.expectedFiles, "TUEG file-count mismatch");
 assert(metrics.tueg.bytes === 1756545393092, `Unexpected TUEG bytes: ${metrics.tueg.bytes}`);
-assert(metrics.acquisition.serverCompletedUnits === 80, "Expected 80 server-completed disease/health units");
-assert(metrics.acquisition.independentRawAcquiredUnits === 73, "Expected 73 independent raw acquisitions");
-assert(metrics.acquisition.diseaseRawAcquiredUnits === 59, "Expected 59 disease raw acquisitions");
+assert(metrics.acquisition.serverCompletedUnits === 81, "Expected 81 server-completed disease/health units");
+assert(metrics.acquisition.independentRawAcquiredUnits === 74, "Expected 74 independent raw acquisitions");
+assert(metrics.acquisition.diseaseRawAcquiredUnits === 60, "Expected 60 disease raw acquisitions");
 assert(metrics.acquisition.healthRawAcquiredUnits === 14, "Expected 14 health raw acquisitions");
 assert(metrics.acquisition.exactDurationAuditUnits === 57, "Expected 57 exact-duration audits");
-assert(metrics.acquisition.actionableDownloadUnits === 63, "Expected 63 actionable remaining downloads");
+assert(metrics.acquisition.actionableDownloadUnits === 62, "Expected 62 actionable remaining downloads");
 assert(metrics.acquisition.discardedUnits === 4, "Expected 4 discarded downloads");
 assert(metrics.acquisition.applicationRequiredUnits === 41, "Expected 41 application-required actionable units");
 assert(metrics.acquisition.appliedWaitingUnits === 19, "Expected 19 already-applied units");
@@ -66,7 +66,7 @@ for (const row of data.downloadChecklist.rows.filter((item) => ["已申请·等�
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0093")?.decision === "已下载·待信号/时长审计", "PD-Mortality should reflect the completed server download");
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0122")?.focusType === "健康/人群", "DOD-H should be classified as health");
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0122")?.decision === "已下载·待信号/时长审计", "DOD-H should reflect the completed server download");
-assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0058")?.decision === "登录后可下载", "MODMA should reflect approved login access");
+assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0058")?.decision === "已下载·待信号/时长审计", "MODMA should reflect completed server download");
 assert(data.downloadChecklist.rows.find((row) => row.id === "EEG-0519")?.decision === "登录后可下载", "CHBMP should reflect approved LORIS access");
 
 const counted = focusRows.filter((row) => row.downloadedCountInTotal);
@@ -76,7 +76,7 @@ assert(!counted.some((row) => ["EEG-0033", "EEG-0034", "EEG-0035", "EEG-0036", "
 
 console.log(JSON.stringify({
   status: "PASS",
-  checkedAt: "2026-08-23",
+  checkedAt: "2026-08-25",
   catalogRows: rows.length,
   focusRows: focusRows.length,
   currentRaw: metrics.currentRaw,
