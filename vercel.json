@@ -5,7 +5,7 @@
   "outputDirectory": "vercel-dist",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/fmri", "destination": "/index.html" },
-    { "source": "/fmri/:path*", "destination": "/index.html" }
+    { "source": "/fmri", "destination": "/" },
+    { "source": "/fmri/:path*", "destination": "/" }
   ]
 }

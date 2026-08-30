@@ -42,6 +42,15 @@ test("keeps the original EEG catalog byte-for-byte", () => {
   assert.equal(crypto.createHash("sha256").update(raw).digest("hex").toUpperCase(), "2945590BBA5D852A1A838431C6861B7BE0623F4BAAC63CC5D3DE83F10D7F54D9");
 });
 
+test("keeps Vercel SPA deep links compatible with clean URLs", () => {
+  const config = JSON.parse(fs.readFileSync(new URL("../vercel.json", import.meta.url), "utf8"));
+  assert.equal(config.cleanUrls, true);
+  assert.deepEqual(config.rewrites, [
+    { source: "/fmri", destination: "/" },
+    { source: "/fmri/:path*", destination: "/" },
+  ]);
+});
+
 test("server-renders the comprehensive fMRI catalog and evidence boundaries", async () => {
   const response = await render("/fmri");
   assert.equal(response.status, 200);
