@@ -1,6 +1,66 @@
-# BIG EEG DATA
+# BIG DATA · EEG + fMRI
 
-本目录包含持续更新的 EEG 数据集总表、可检索网页与可复现的数据/工作簿构建脚本；最近状态修订为 2026-08-25。
+统一的公共脑数据集门户：`/` 保留原有 EEG 数据集总表、下载清单与工作簿功能，`/fmri` 提供来源可追溯的公共人类 fMRI 数据集目录。网站名称已从 **Big EEG Data** 更新为 **Big Data**，两个页面分别为 **Big Data of EEG** 与 **Big Data of fMRI**。
+
+原 EEG 数据文件 `public/catalog-data.json` 没有改动；当前 SHA-256 为 `2945590BBA5D852A1A838431C6861B7BE0623F4BAAC63CC5D3DE83F10D7F54D9`。原 EEG 工作簿、下载清单、分类和统计口径继续保留。
+
+## Portal 架构
+
+- EEG 页面：`app/page.tsx`，继续读取 `public/catalog-data.json`，沿用既有 `CatalogExplorer` 与 `DownloadChecklist`。
+- fMRI 页面：`app/fmri/page.tsx`；交互目录与详情面板位于 `app/fmri/FmriExplorer.tsx`。
+- 模态切换：`app/ModalitySwitcher.tsx`，在 EEG / fMRI 页面共享。
+- fMRI 完整 schema：`data/fmri-schema.ts`。
+- fMRI canonical catalog：`data/fmri-catalog.ts`。同一队列的 OpenNeuro、DataLad、NITRC、云镜像和机构入口记录在一个条目里，不按镜像重复建行。
+
+## fMRI 目录范围
+
+当前目录收录 96 个 canonical fMRI 数据集/队列，覆盖：
+
+- HCP Young Adult、HCP Development、AABC/HCP Aging、BCP、dHCP，以及 HCP-EP、BANDA、PDC、DCAM 等疾病相关 HCP 项目；
+- ABCD、HBCD、UK Biobank、ADNI、OASIS-3、CamCAN、NKI-Rockland、Healthy Brain Network；
+- 1000FCP、ADHD-200、ABIDE I/II、COBRE、SchizConnect 下的 FBIRN Phase II 与 MCIC、PING、PNC、IMAGEN、CoRR、GSP；
+- Midnight Scan Club、Natural Scenes Dataset、StudyForrest、IBC、Narratives 等高密度/自然刺激数据；
+- OpenNeuro 大样本人类 fMRI 数据集。发现阶段使用 OpenNeuro 公共 GraphQL API v5.6.0，筛选公开 MRI、至少 100 位 BIDS participants 且含 functional task entity 的数据，随后排除非人类数据并合并相关 release。
+
+目录优先使用项目官方网站、官方 repository metadata 和原始 dataset paper。`Last Verified` 当前为 2026-08-30。受试者数可能指发布人数、BIDS participants 或整队列人数；每条记录的 Notes / Limitations 会说明它是否等同于可用/QC-passed fMRI 人数。
+
+## fMRI 标准 schema
+
+每个 `FmriDataset` 都包含下列固定分组，缺失值显式使用 `null` / `Unknown`，不会用 0 代替：
+
+- `identification`：名称、缩写、官网、repository、所有 access URL、paper/DOI、机构和地区；
+- `scale`：subjects、sessions、fMRI runs、总分钟/小时、每受试者小时数、数据容量；
+- `fmriComposition`：rest、task、movie/naturalistic、task names、分项时长和 longitudinal；
+- `participants`：年龄、平均年龄、sex/gender、healthy/clinical/mixed、疾病与 population；
+- `acquisition`：厂商、型号、场强、sites、TR、TE、flip angle、voxel size、volumes、multiband；
+- `additionalModalities`：T1w、T2w、DWI、EEG、MEG、PET、行为、认知、遗传、临床、生理和眼动；
+- `dataFormat`：BIDS、NIfTI、raw、preprocessed 和主要 pipeline；
+- `access`：访问类型、registration/application/DUA、费用、license 与 commercial restrictions；
+- `release`、`metadata` 和 `sources`：版本、年份、核查日期、特点、限制、备注及 provenance URL。
+
+所有重要数值使用 `Metric`：
+
+```ts
+type Metric = {
+  value: number | null;
+  unit: string;
+  durationSource: "reported" | "calculated" | "estimated" | "unavailable";
+  sourceUrl: string | null;
+  note: string | null;
+};
+```
+
+时长只统计 BOLD fMRI，不含 structural MRI、DWI、PET、EEG 等。`calculated` 必须可由 TR、volumes、runs、sessions/subjects 等复算；`estimated` 必须在 note 里写明假设。聚合卡只累加非空值，并显示 `known X / 96`，因此缺失数据不会被误当作 0。
+
+## 添加或修订 fMRI 数据集
+
+1. 先确认它包含 human fMRI 且存在可说明的研究者获取机制。
+2. 检查 `id`、cohort 名称、DOI、accession 和 participant population，避免与现有镜像或 release 重复。
+3. 在 `data/fmri-catalog.ts` 通过 `defineDataset(...)` 添加条目；OpenNeuro 大样本条目可使用同文件的 `openNeuro(...)` helper。
+4. 所有已知 numeric metric 必须附 HTTPS `sourceUrl`；找不到可靠值时保持 unavailable。
+5. 对 derived duration 在 note 中写出公式与分母，例如 `TR × volumes × runs × subjects / 3600`。
+6. 至少提供一个 `sources` 条目，优先 official release page，再补 primary paper。
+7. 运行 `npm run lint` 和 `npm test`。catalog 在 module load 时检查重复 ID、缺失来源、非 HTTPS provenance 以及数值/证据状态不一致。
 
 ## 主要文件
 

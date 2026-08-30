@@ -3,5 +3,9 @@
   "framework": "vite",
   "buildCommand": "npm run build:vercel",
   "outputDirectory": "vercel-dist",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/fmri", "destination": "/index.html" },
+    { "source": "/fmri/:path*", "destination": "/index.html" }
+  ]
 }

@@ -1,27 +1,25 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const description = "563 EEG dataset download units, a verified disease and health acquisition checklist, and a source-deduplicated NeuroAtlas comparison.";
+const description = "A unified, provenance-aware catalog of public EEG and fMRI datasets for large-scale brain research.";
 const metadataBase = new URL("https://big-eeg-data.vercel.app");
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase,
-    title: "BIG EEG DATA",
+    title: "BIG DATA",
     description,
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
     openGraph: {
-      title: "BIG EEG DATA",
+      title: "BIG DATA",
       description,
       type: "website",
       url: metadataBase,
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: "BIG EEG DATA" }],
     },
     twitter: {
-      card: "summary_large_image",
-      title: "BIG EEG DATA",
+      card: "summary",
+      title: "BIG DATA",
       description,
-      images: ["/og.png"],
     },
   };
 }

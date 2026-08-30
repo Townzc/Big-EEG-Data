@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import data from "../public/catalog-data.json";
 import { CatalogExplorer } from "./CatalogExplorer";
 import { DownloadChecklist } from "./DownloadChecklist";
+import { ModalitySwitcher } from "./ModalitySwitcher";
 
 export const metadata: Metadata = {
-  title: "BIG EEG DATA",
+  title: "Big Data of EEG",
   description: "A searchable catalog of 563 EEG dataset download units with a verified disease and health download checklist.",
 };
 
@@ -19,12 +20,13 @@ export default function Home() {
   return (
     <>
       <a className="skip-link" href="#catalog">跳到完整数据目录</a>
-      <header className="site-header">
+      <header className="site-header portal-header">
         <a className="brand" href="#top" aria-label="返回页面顶部">
           <span className="brand-mark" aria-hidden="true">∿</span>
-          <span>BIG EEG DATA</span>
+          <span>BIG DATA</span>
         </a>
-        <nav aria-label="主要导航">
+        <ModalitySwitcher active="eeg" />
+        <nav className="section-nav" aria-label="主要导航">
           <a href="#categories">分类</a>
           <a href="#catalog">完整目录</a>
           <a href="#downloads">下载清单</a>
@@ -40,7 +42,7 @@ export default function Home() {
         <section className="hero" aria-labelledby="hero-title">
           <div>
             <p className="eyebrow">EEG DATASET CATALOG · 2026</p>
-            <h1 id="hero-title">BIG EEG DATA</h1>
+            <h1 id="hero-title">Big Data of EEG</h1>
             <p className="hero-lead">
               563 个 EEG 下载单元；疾病/健康已有 {acquisition.independentRawAcquiredUnits} 个独立 raw 数据获取完成，其中 {acquisition.exactDurationAuditUnits} 个已有精确时长审计。
             </p>
@@ -141,7 +143,7 @@ export default function Home() {
       </main>
 
       <footer>
-        <div><span className="brand-mark" aria-hidden="true">∿</span><strong>BIG EEG DATA</strong></div>
+        <div><span className="brand-mark" aria-hidden="true">∿</span><strong>BIG DATA</strong></div>
         <p>{data.metrics.finalUniqueUnits} download units · {data.worksheetGuide.length} workbook sheets</p>
         <a href="#top">回到顶部 ↑</a>
       </footer>

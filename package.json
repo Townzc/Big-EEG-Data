@@ -12,6 +12,8 @@
     "start": "vinext start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern vercel-dist --ignore-pattern .next --ignore-pattern work_spreadsheet/node_modules",
+    "check:fmri-links": "node scripts/check_fmri_links.mjs",
+    "verify:openneuro": "node scripts/verify_openneuro_catalog.mjs",
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
