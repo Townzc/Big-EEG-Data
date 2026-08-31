@@ -67,6 +67,7 @@ type Metric = {
 - 工作簿：`EEG_healthcare_disease_catalog_20260823.xlsx`（仅保留 README、最终唯一下载清单、修订记录 3 个工作表）
 - 网页入口：`app/page.tsx`
 - 网页数据：`public/catalog-data.json`
+- 全目录获取/预处理快照：`data/eeg-progress.ts`
 - 下载清单：`public/download-checklist.csv`
 - 服务器状态快照：`data/server_focus_status_20260804.json`
 - NeuroAtlas 逐源对照与下载说明：`NEUROATLAS_COMPARISON_AND_DOWNLOAD.md`
@@ -100,6 +101,17 @@ NeuroAtlas 的 42 个评测来源中，原目录已经覆盖 36 个，本轮补�
 按数据源去重，NeuroAtlas 癫痫与睡眠域约 259,000 h；脑龄约 193,000 h 复用睡眠队列，不重复相加。用完整 TUEG 父集替换 TUSZ 子集，并加入不重叠的 I-CARE 后，核心疾病/健康并集约 341,253.3 h；再加入现有独有审计来源、HBN 和 EEG-Bench 后，扩展覆盖约 346,490.7 h。该数字是文献/官方来源覆盖估计，不是本地已下载文件的精确总时长。
 
 ## 当前下载状态
+
+### 2026-08-30 全类别与严格预处理快照
+
+- 完整 EEG catalog 为 563 个 canonical 下载单元；544 个有可解释的来源受试者数，已知下界合计 265,630 个 dataset-subject entries。该数字不声称是跨数据集去重后的唯一人数。
+- 94/563 个单元有可相加的时长证据，逐行原始合计 308,233.5 h；这94行全部属于147个疾病/健康重点单元，其余416个非重点单元目前没有可加总时长。综合来源级去重证据，当前可报告的已知覆盖约为 346,490.7 h；563个单元的实际总时长尚未闭合，预计更高。30.82万小时只用于逐行证据核对，不应作为全目录最终总时长。
+- 将全类别服务器审计、新增疾病/健康下载 overlay 与 563 行 canonical catalog 合并后，273 个唯一目录单元有完成证据；旧审计表在 catalog 去重前有 280 个 `COMPLETED` 状态行。
+- SeaWulf `datasets/` 当前约 14 TiB；GPFS 约剩 2.4 TiB。
+- 严格终端验证完成 52/101 个预处理目标（47 个 disease-v1 目标 + 5 个 baseline，共 54 adapters）：122,219 outputs、21,319 adapter-level subject entries、42,692.2 signal-hours、1,659,549 event rows、1,607,042,726,768 derivative bytes。
+- EEG-0082 spinal SEP（99/399）和 EEG-0523 SFARI（1,590/2,563）仍在 full production，未计入严格完成数；前者当前有一个 SET/FDT 样本数不一致问题待处理。两者 signal matrix 估算约 46.35 GiB，按 50–60 GiB 预留。EEG-0521 older-adult walking 仍因事件/信号时间轴冲突而保持 gated。
+
+这些数字集中定义在 `data/eeg-progress.ts`，EEG 首页以“全目录来源规模 / 本地获取证据 / 严格预处理结果”三个层级展示，避免把 catalog coverage、服务器下载状态与验证后训练数据混成一个总数。
 
 - 疾病/健康重点范围共 147 个下载单元；其中 129 个有来源报告的受试者数，合计 99,537 个 dataset-subject entries（非跨数据集去重人数）。DOD-H（25 名健康志愿者）与 DOD-O（55 名 OSA 患者）已拆成两个下载单元，避免人数合并后整体误归 Health。
 - 服务器完成目录/下载单元：81（含 TUH 重叠子集及非 raw 排除项）。
