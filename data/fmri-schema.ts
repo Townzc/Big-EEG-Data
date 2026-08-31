@@ -18,6 +18,26 @@ export type AccessType =
 
 export type ParticipantGroup = "Healthy" | "Clinical" | "Mixed" | "Population" | "Unknown";
 
+export type ActivityCategory =
+  | "Resting-state"
+  | "Task-evoked"
+  | "Naturalistic"
+  | "Intervention / perturbation"
+  | "Repeated / longitudinal";
+
+export type TaskDesignCategory =
+  | "Attention / executive"
+  | "Emotion / social"
+  | "Language / reading"
+  | "Memory / learning"
+  | "Motor / sensory"
+  | "Reward / decision"
+  | "Clinical / symptom provocation"
+  | "Naturalistic movie / story"
+  | "Multi-domain / other";
+
+export type CurationLevel = "Protocol reviewed" | "Repository + BOLD header verified";
+
 export type SourceLink = {
   label: string;
   url: string;
@@ -51,6 +71,11 @@ export type FmriDataset = {
     task: { available: boolean | null; names: string[]; durationMinutesPerSubject: Metric; totalHours: Metric };
     naturalisticMovie: { available: boolean | null; names: string[]; durationMinutesPerSubject: Metric; totalHours: Metric };
     longitudinal: boolean | null;
+  };
+  classification: {
+    activity: ActivityCategory[];
+    taskDesign: TaskDesignCategory[];
+    curationLevel: CurationLevel;
   };
   participants: {
     ageRange: string;
@@ -162,6 +187,9 @@ export type DatasetSeed = {
   naturalisticMinutes?: Metric;
   naturalisticHours?: Metric;
   longitudinal?: boolean | null;
+  activityCategories?: ActivityCategory[];
+  taskDesignCategories?: TaskDesignCategory[];
+  curationLevel?: CurationLevel;
   ageRange?: string;
   meanAge?: string;
   sexGender?: string;
@@ -220,6 +248,33 @@ const formatDefaults: FmriDataset["dataFormat"] = {
   mainPreprocessingPipeline: "Unknown",
 };
 
+function inferredTaskDesigns(seed: DatasetSeed): TaskDesignCategory[] {
+  const text = [...(seed.tasks ?? []), ...(seed.naturalisticNames ?? []), seed.name].join(" ").toLowerCase();
+  const categories: TaskDesignCategory[] = [];
+  const add = (category: TaskDesignCategory, pattern: RegExp) => pattern.test(text) && categories.push(category);
+  add("Attention / executive", /attention|stroop|stop|inhibit|go.?no.?go|n.?back|working memory|executive|cognitive control|task switch|flanker/);
+  add("Emotion / social", /emotion|face|social|theory of mind|mentaliz|affect|fear|empathy|mood/);
+  add("Language / reading", /language|read|word|speech|semantic|syntax|story|narrative|lexical|bilingual|multilingual|voice/);
+  add("Memory / learning", /memory|learn|encoding|retrieval|recall|recognition|conditioning|habit/);
+  add("Motor / sensory", /motor|finger|hand|foot|tongue|sensorimotor|visual|auditory|somatosensory|checkerboard|pain/);
+  add("Reward / decision", /reward|gambl|risk|decision|monetary|incentive|bart|reinforcement|loss|choice/);
+  add("Clinical / symptom provocation", /clinical|symptom|depression|anxiety|psychosis|schizophrenia|addiction|craving|aphasia|disease|patient|disorder/);
+  if (seed.naturalistic || /movie|film|story|narrative|audiobook|documentary|cartoon/.test(text)) categories.push("Naturalistic movie / story");
+  const classified: TaskDesignCategory[] = categories.length ? categories : ["Multi-domain / other"];
+  return [...new Set(classified)];
+}
+
+function inferredActivity(seed: DatasetSeed): ActivityCategory[] {
+  const text = [...(seed.tasks ?? []), ...(seed.characteristics ?? []), seed.name].join(" ").toLowerCase();
+  const categories: ActivityCategory[] = [];
+  if (seed.rest === true) categories.push("Resting-state");
+  if (seed.task === true || (seed.tasks?.length ?? 0) > 0) categories.push("Task-evoked");
+  if (seed.naturalistic === true) categories.push("Naturalistic");
+  if (/intervention|treatment|training|placebo|drug|pharmac|tms|stimulation|meditation|exercise|ketosis/.test(text)) categories.push("Intervention / perturbation");
+  if (seed.longitudinal === true) categories.push("Repeated / longitudinal");
+  return [...new Set(categories)];
+}
+
 export function defineDataset(seed: DatasetSeed): FmriDataset {
   return {
     id: seed.id,
@@ -262,6 +317,11 @@ export function defineDataset(seed: DatasetSeed): FmriDataset {
         totalHours: seed.naturalisticHours ?? unavailable("hours"),
       },
       longitudinal: seed.longitudinal ?? null,
+    },
+    classification: {
+      activity: seed.activityCategories ?? inferredActivity(seed),
+      taskDesign: seed.taskDesignCategories ?? inferredTaskDesigns(seed),
+      curationLevel: seed.curationLevel ?? "Protocol reviewed",
     },
     participants: {
       ageRange: seed.ageRange ?? "Unknown",

@@ -1,10 +1,106 @@
-import { defineDataset, metric, type DatasetSeed, type FmriDataset, type SourceLink } from "./fmri-schema";
+import openNeuroDurationAudit from "./openneuro-duration-audit.json";
+import openNeuroIndex from "./openneuro-fmri-index.json";
+import { defineDataset, metric, type DatasetSeed, type EvidenceKind, type FmriDataset, type SourceLink } from "./fmri-schema";
 
 const verified = "2026-08-30";
 const source = (label: string, url: string, scope: string): SourceLink => ({ label, url, scope });
 const reported = (value: number, unit: string, url: string, note: string | null = null) => metric(value, unit, "reported", url, note);
 const calculated = (value: number, unit: string, url: string, note: string) => metric(value, unit, "calculated", url, note);
 const estimated = (value: number, unit: string, url: string, note: string) => metric(value, unit, "estimated", url, note);
+const openNeuroDurationById = new Map(openNeuroDurationAudit.records.map((record) => [record.accession, record]));
+type OpenNeuroDurationRecord = (typeof openNeuroDurationAudit.records)[number];
+type OpenNeuroIndexRecord = (typeof openNeuroIndex.datasets)[number];
+
+const restTaskPattern = /(^|[-_])rest(?:ing)?(?:state)?\d*($|[-_])/i;
+const naturalisticTaskPattern = /movie|film|story|narr|audiobook|documentary|cartoon/i;
+
+function durationMetric(
+  value: number,
+  unit: string,
+  audit: OpenNeuroDurationRecord,
+  note = audit.note,
+) {
+  return metric(
+    value,
+    unit,
+    audit.durationSource as Exclude<EvidenceKind, "reported" | "unavailable">,
+    audit.sourceUrl,
+    note,
+  );
+}
+
+function openNeuroAccession(dataset: FmriDataset) {
+  const text = [dataset.id, dataset.identification.officialWebsite, ...dataset.identification.datasetUrls].join(" ");
+  return text.match(/\bds\d{6}\b/i)?.[0].toLowerCase() ?? null;
+}
+
+function enrichOpenNeuroDuration(dataset: FmriDataset): FmriDataset {
+  const accession = openNeuroAccession(dataset);
+  if (!accession) return dataset;
+  const audit = openNeuroDurationById.get(accession);
+  if (!audit) return dataset;
+
+  const choose = (current: FmriDataset["scale"]["totalFmriHours"], next: FmriDataset["scale"]["totalFmriHours"]) =>
+    current.value === null ? next : current;
+  const subjects = audit.subjects || dataset.scale.subjects.value || 1;
+  const taskMinutesPerSubject = audit.estimatedTaskHours * 60 / subjects;
+  const naturalisticMinutesPerSubject = audit.estimatedNaturalisticHours * 60 / subjects;
+  const stableTr = audit.trMsRange[0] === audit.trMsRange[1] ? audit.trMsRange[0] : null;
+  const stableVolumes = audit.volumesRange[0] === audit.volumesRange[1] ? audit.volumesRange[0] : null;
+
+  return {
+    ...dataset,
+    scale: {
+      ...dataset.scale,
+      totalFmriDurationMinutes: choose(dataset.scale.totalFmriDurationMinutes, durationMetric(audit.estimatedTotalHours * 60, "minutes", audit)),
+      totalFmriHours: choose(dataset.scale.totalFmriHours, durationMetric(audit.estimatedTotalHours, "hours", audit)),
+      averageFmriHoursPerSubject: choose(dataset.scale.averageFmriHoursPerSubject, durationMetric(audit.averageMinutesPerSubject / 60, "hours/subject", audit)),
+    },
+    fmriComposition: {
+      ...dataset.fmriComposition,
+      restingState: {
+        ...dataset.fmriComposition.restingState,
+        available: audit.estimatedRestHours > 0 ? true : dataset.fmriComposition.restingState.available,
+        totalHours: audit.estimatedRestHours > 0
+          ? choose(dataset.fmriComposition.restingState.totalHours, durationMetric(audit.estimatedRestHours, "hours", audit))
+          : dataset.fmriComposition.restingState.totalHours,
+      },
+      task: {
+        ...dataset.fmriComposition.task,
+        available: audit.estimatedTaskHours > 0 ? true : dataset.fmriComposition.task.available,
+        durationMinutesPerSubject: audit.estimatedTaskHours > 0
+          ? choose(dataset.fmriComposition.task.durationMinutesPerSubject, durationMetric(taskMinutesPerSubject, "minutes/subject", audit))
+          : dataset.fmriComposition.task.durationMinutesPerSubject,
+        totalHours: audit.estimatedTaskHours > 0
+          ? choose(dataset.fmriComposition.task.totalHours, durationMetric(audit.estimatedTaskHours, "hours", audit))
+          : dataset.fmriComposition.task.totalHours,
+      },
+      naturalisticMovie: {
+        ...dataset.fmriComposition.naturalisticMovie,
+        available: audit.estimatedNaturalisticHours > 0 ? true : dataset.fmriComposition.naturalisticMovie.available,
+        durationMinutesPerSubject: audit.estimatedNaturalisticHours > 0
+          ? choose(dataset.fmriComposition.naturalisticMovie.durationMinutesPerSubject, durationMetric(naturalisticMinutesPerSubject, "minutes/subject", audit))
+          : dataset.fmriComposition.naturalisticMovie.durationMinutesPerSubject,
+        totalHours: audit.estimatedNaturalisticHours > 0
+          ? choose(dataset.fmriComposition.naturalisticMovie.totalHours, durationMetric(audit.estimatedNaturalisticHours, "hours", audit))
+          : dataset.fmriComposition.naturalisticMovie.totalHours,
+      },
+    },
+    acquisition: {
+      ...dataset.acquisition,
+      trMs: stableTr === null ? dataset.acquisition.trMs : choose(dataset.acquisition.trMs, durationMetric(stableTr, "ms", audit, `${audit.note} All sampled BOLD runs use the same TR.`)),
+      numberOfVolumes: stableVolumes === null ? dataset.acquisition.numberOfVolumes : choose(dataset.acquisition.numberOfVolumes, durationMetric(stableVolumes, "volumes/run", audit, `${audit.note} All sampled BOLD runs have the same volume count.`)),
+    },
+    metadata: {
+      ...dataset.metadata,
+      knownLimitations: [
+        ...dataset.metadata.knownLimitations,
+        ...(audit.durationSource === "estimated" ? ["OpenNeuro duration is extrapolated from sampled NIfTI headers; individual run completion can vary."] : []),
+      ],
+      notes: [...dataset.metadata.notes, `OpenNeuro duration audit sampled ${audit.sampledSubjects.length} participant(s) and ${audit.sampledRuns} readable BOLD run(s) from snapshot ${audit.snapshotTag}.`],
+    },
+  };
+}
 
 const hcpYa = "https://www.humanconnectome.org/study/hcp-young-adult/data-releases";
 const hcpD = "https://www.humanconnectome.org/study/hcp-lifespan-development/data-releases";
@@ -349,8 +445,10 @@ const populationDatasets: FmriDataset[] = [
     countryRegion: "United States",
     subjects: reported(11878, "baseline participants", "https://abcdstudy.org/about/", "Cohort enrollment; released usable fMRI counts differ by visit, task and QC."),
     averageHours: calculated(0.95, "hours/complete imaging visit", "https://abcdstudy.org/scientists/data-sharing/", "20 min rest + 12 min MID + 13 min SST + 12 min emotional n-back."),
+    fmriRuns: calculated(7, "runs/complete visit", "https://abcdstudy.org/images/Protocol_Imaging_Sequences.pdf", "Four resting-state runs plus one run for each of three task paradigms."),
     rest: true,
     restMinutes: reported(5, "minutes/run", "https://abcdstudy.org/images/Protocol_Imaging_Sequences.pdf", "Four resting-state runs per complete visit."),
+    restHours: estimated(3042.7, "hours", "https://papers.neurips.cc/paper_files/paper/2023/file/8313b1920ee9c78d846c5798c1ce48be-Paper-Conference.pdf", "9,128 QC-included resting-state participants reported by SwiFT × 20 min complete resting protocol; this is a model subset estimate, not the archive total."),
     task: true,
     tasks: ["Monetary incentive delay", "Stop-signal", "Emotional n-back"],
     taskMinutes: reported(37, "minutes/complete visit", "https://abcdstudy.org/images/Protocol_Imaging_Sequences.pdf"),
@@ -376,10 +474,12 @@ const populationDatasets: FmriDataset[] = [
     version: "ABCD Release 7.0",
     year: 2025,
     characteristics: ["Large longitudinal pediatric cohort", "Three task paradigms", "Genetics and deep phenotyping", "Multi-vendor harmonized protocol"],
-    limitations: ["11,878 is baseline enrollment, not a released/QC-passed fMRI count.", "Aggregate fMRI hours are unavailable because run completion varies by visit and release."],
+    limitations: ["11,878 is baseline enrollment, not a released/QC-passed fMRI count.", "Aggregate total fMRI hours remain unavailable because run completion varies by visit and release; the resting-state subtotal is explicitly tied to the SwiFT QC subset."],
+    notes: ["SwiFT reports 9,128 QC-included ABCD resting-state participants; that model-specific subset is not substituted for the official cohort enrollment count."],
     sources: [
       source("ABCD data sharing", "https://abcdstudy.org/scientists/data-sharing/", "release and controlled-access process"),
-      source("ABCD imaging protocol", "https://abcdstudy.org/images/Protocol_Imaging_Sequences.pdf", "run durations and acquisition")
+      source("ABCD imaging protocol", "https://abcdstudy.org/images/Protocol_Imaging_Sequences.pdf", "run durations and acquisition"),
+      source("SwiFT NeurIPS 2023", "https://papers.neurips.cc/paper_files/paper/2023/file/8313b1920ee9c78d846c5798c1ce48be-Paper-Conference.pdf", "9,128-participant QC-included resting-state modeling subset")
     ],
   }),
   defineDataset({
@@ -1071,6 +1171,49 @@ const repositoryDatasets: FmriDataset[] = [
     characteristics: ["Large young-adult resting-state sample", "Genomics and behavioral phenotypes"],
     limitations: ["Repository components and derivative subsets should not be counted as separate cohorts."],
     sources: [source("Harvard Dataverse GSP", "https://dataverse.harvard.edu/dataverse/GSP", "canonical repository, count and access")],
+  }),
+  defineDataset({
+    id: "rest-meta-mdd",
+    name: "REST-meta-MDD Consortium",
+    abbreviation: "REST-meta-MDD",
+    officialWebsite: "https://rfmri.org/REST-meta-MDD",
+    repository: "DIRECT Consortium / REST-meta-MDD",
+    datasetUrls: ["https://rfmri.org/REST-meta-MDD"],
+    primaryPaper: "Reduced default mode network functional connectivity in patients with recurrent major depressive disorder",
+    doi: "10.1073/pnas.1900390116",
+    institution: "REST-meta-MDD / DIRECT Consortium",
+    countryRegion: "China",
+    subjects: reported(2428, "functional brain images", "https://pmc.ncbi.nlm.nih.gov/articles/PMC6500168/", "Consortium total: 1,300 participants with MDD and 1,128 controls from 25 research groups; analysis-specific QC subsets are smaller."),
+    sessions: reported(1, "cross-sectional session/participant", "https://pmc.ncbi.nlm.nih.gov/articles/PMC6500168/", "The canonical consortium release is cross-sectional; site protocols differ."),
+    rest: true,
+    task: false,
+    longitudinal: false,
+    ageRange: "Adults; analysis subsets commonly restrict to 18–65 years",
+    group: "Mixed",
+    disease: "Major depressive disorder",
+    population: "1,300 participants with major depressive disorder and 1,128 normal controls contributed by 25 Chinese research groups.",
+    manufacturers: ["Multiple vendors"],
+    fieldStrengths: ["3T", "site-dependent"],
+    sites: reported(25, "research groups / cohorts", "https://pmc.ncbi.nlm.nih.gov/articles/PMC6500168/"),
+    multiSite: true,
+    modalities: { t1w: true, clinicalVariables: true, behavioralData: true },
+    format: { bidsCompliant: false, nifti: null, rawDataAvailable: null, preprocessedDataAvailable: true, mainPreprocessingPipeline: "DPARSF/DPABI harmonized regional indices and time-series products; raw-image access varies by consortium agreement" },
+    accessType: "Data use agreement required",
+    registration: true,
+    application: true,
+    dua: true,
+    fee: "No documented fee",
+    license: "REST-meta-MDD data use agreement",
+    commercial: "See consortium DUA",
+    version: "REST-meta-MDD pooled release",
+    year: 2019,
+    characteristics: ["Largest widely used multi-site resting-state fMRI consortium for major depression", "Included in NeuroSTORM external clinical evaluation", "Harmonized analysis products across heterogeneous acquisition sites"],
+    limitations: ["The 2,428 count is the pooled consortium total, not a single uniform QC-complete raw-image release.", "TR, volume count and scan duration vary by contributing site, so no aggregate fMRI hours are imputed.", "The public mechanism prominently covers intermediate derivatives; raw-image availability must be confirmed in the application."],
+    sources: [
+      source("REST-meta-MDD primary PNAS paper", "https://pmc.ncbi.nlm.nih.gov/articles/PMC6500168/", "cohort composition, 25 groups and primary analysis"),
+      source("DIRECT / REST-meta-MDD overview", "https://pmc.ncbi.nlm.nih.gov/articles/PMC10917197/", "2,428 pooled functional images, sharing model and limitations"),
+      source("REST-meta-MDD data use agreement", "https://rfmri.org/sites/default/files/REST-meta-MDD_Data_Use_Agreement.pdf", "application and DUA requirements"),
+    ],
   }),
 ];
 
@@ -2171,12 +2314,150 @@ const openNeuroDatasets: FmriDataset[] = [
   }),
 ];
 
-export const fmriDatasets: FmriDataset[] = [
+function indexedOpenNeuro(dataset: OpenNeuroIndexRecord): FmriDataset {
+  const url = `https://openneuro.org/datasets/${dataset.accession}/versions/${dataset.snapshotTag}`;
+  const tasks = dataset.tasks.map(String);
+  const rest = tasks.some((task) => restTaskPattern.test(task));
+  const naturalisticNames = tasks.filter((task) => naturalisticTaskPattern.test(task));
+  const nonRestTasks = tasks.filter((task) => !restTaskPattern.test(task));
+  const sessionCount = dataset.sessions.length;
+  const diagnosis = dataset.diagnosis ? String(dataset.diagnosis) : "None specified";
+  const healthyTerms = /healthy|control|typically developing/i.test(diagnosis);
+  const clinicalTerms = /patient|disorder|disease|depress|anxiety|psychosis|schizo|adhd|autis|epilep|pain|parkinson|dementia|impair|stroke|tumou?r|addiction|cocaine|ocd|clinical|mci|als/i.test(diagnosis);
+  const group: DatasetSeed["group"] = !dataset.diagnosis ? "Unknown"
+    : healthyTerms && clinicalTerms ? "Mixed"
+    : healthyTerms ? "Healthy"
+    : "Clinical";
+  const ageRange = dataset.ageMin !== null || dataset.ageMax !== null
+    ? `${dataset.ageMin ?? "?"}–${dataset.ageMax ?? "?"} years (repository metadata)`
+    : "Unknown";
+  const longitudinalText = String(dataset.longitudinal ?? dataset.studyDesign ?? "");
+  const longitudinal = sessionCount > 1 || /longitudinal|repeated/i.test(longitudinalText)
+    ? true
+    : /cross.?sectional/i.test(longitudinalText) ? false : null;
+  const normalizeDoi = (value: unknown) => String(value ?? "").trim().replace(/^doi:/i, "").replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, "");
+  const datasetDoi = normalizeDoi(dataset.datasetDoi);
+  const paperDoi = normalizeDoi(dataset.paperDoi);
+  const audit = openNeuroDurationById.get(dataset.accession);
+  const taskMinutes = audit && audit.estimatedTaskHours > 0 ? audit.estimatedTaskHours * 60 / audit.subjects : null;
+  const naturalisticMinutes = audit && audit.estimatedNaturalisticHours > 0 ? audit.estimatedNaturalisticHours * 60 / audit.subjects : null;
+  const stableTr = audit && audit.trMsRange[0] === audit.trMsRange[1] ? audit.trMsRange[0] : null;
+  const stableVolumes = audit && audit.volumesRange[0] === audit.volumesRange[1] ? audit.volumesRange[0] : null;
+  const extraSources = [
+    ...(datasetDoi ? [source("OpenNeuro dataset DOI", `https://doi.org/${datasetDoi}`, "versioned dataset citation")] : []),
+    ...(paperDoi ? [source("Dataset paper DOI", `https://doi.org/${paperDoi}`, "primary publication recorded in repository metadata")] : []),
+    ...dataset.references
+      .map(String)
+      .filter((reference) => reference.startsWith("https://"))
+      .slice(0, 3)
+      .map((reference, index) => source(`Repository reference ${index + 1}`, reference, "project or publication link supplied in OpenNeuro metadata")),
+  ];
+
+  return defineDataset({
+    id: dataset.accession,
+    name: dataset.name || dataset.accession,
+    abbreviation: dataset.accession,
+    officialWebsite: url,
+    repository: "OpenNeuro",
+    datasetUrls: [url],
+    primaryPaper: paperDoi ? "Dataset paper recorded in OpenNeuro metadata" : null,
+    doi: paperDoi || null,
+    institution: "See dataset metadata",
+    countryRegion: "See dataset metadata",
+    subjects: reported(dataset.subjects, "BIDS participants", url, "Official snapshot participant count; task-specific usable/QC counts may be smaller."),
+    sessions: sessionCount ? reported(sessionCount, "BIDS session labels", url, "The number of labels is not a guarantee that each participant completed every session.") : undefined,
+    totalMinutes: audit ? durationMetric(audit.estimatedTotalHours * 60, "minutes", audit) : undefined,
+    totalHours: audit ? durationMetric(audit.estimatedTotalHours, "hours", audit) : undefined,
+    averageHours: audit ? durationMetric(audit.averageMinutesPerSubject / 60, "hours/subject", audit) : undefined,
+    sizeGb: reported(dataset.sizeGb, "GB", url, "Official OpenNeuro snapshot size; archive size can change with revisions."),
+    rest,
+    restHours: audit && audit.estimatedRestHours > 0 ? durationMetric(audit.estimatedRestHours, "hours", audit) : undefined,
+    task: nonRestTasks.length > 0,
+    tasks: nonRestTasks,
+    taskMinutes: audit && taskMinutes !== null ? durationMetric(taskMinutes, "minutes/subject", audit) : undefined,
+    taskHours: audit && audit.estimatedTaskHours > 0 ? durationMetric(audit.estimatedTaskHours, "hours", audit) : undefined,
+    naturalistic: naturalisticNames.length > 0,
+    naturalisticNames,
+    naturalisticMinutes: audit && naturalisticMinutes !== null ? durationMetric(naturalisticMinutes, "minutes/subject", audit) : undefined,
+    naturalisticHours: audit && audit.estimatedNaturalisticHours > 0 ? durationMetric(audit.estimatedNaturalisticHours, "hours", audit) : undefined,
+    longitudinal,
+    ageRange,
+    group,
+    disease: diagnosis,
+    population: "Public human BIDS cohort indexed from the cited OpenNeuro snapshot; consult participants.tsv and the dataset paper for cohort details.",
+    trMs: audit && stableTr !== null ? durationMetric(stableTr, "ms", audit, `${audit.note} All sampled BOLD runs use the same TR.`) : undefined,
+    volumes: audit && stableVolumes !== null ? durationMetric(stableVolumes, "volumes/run", audit, `${audit.note} All sampled BOLD runs have the same volume count.`) : undefined,
+    modalities: { behavioralData: null },
+    format: { bidsCompliant: true, nifti: true, rawDataAvailable: true, preprocessedDataAvailable: null, mainPreprocessingPipeline: "BIDS raw; derivatives vary by dataset" },
+    accessType: "Open download",
+    registration: false,
+    application: false,
+    dua: false,
+    fee: "No download fee",
+    license: dataset.license || "Dataset-specific license shown on OpenNeuro",
+    commercial: "Dataset-specific; inspect the license before commercial use",
+    version: `OpenNeuro ${dataset.snapshotTag}`,
+    year: dataset.releaseYear,
+    lastVerified: verified,
+    curationLevel: "Repository + BOLD header verified",
+    characteristics: [
+      `BIDS tasks: ${tasks.join(", ") || "task labels unavailable"}`,
+      ...(dataset.studyDomain ? [`Study domain: ${dataset.studyDomain}`] : []),
+    ],
+    limitations: [
+      "Repository-indexed entry: protocol parameters and cohort interpretation have not yet received the same manual paper-level review as core entries.",
+      "Participant and byte counts describe the cited BIDS snapshot, not necessarily every participant's usable fMRI runs after QC.",
+      ...(audit?.durationSource === "estimated" ? ["Duration extrapolates a sampled participant's readable BOLD runs to the BIDS participant count; run completion can vary."] : []),
+    ],
+    notes: audit ? [`Duration audit sampled ${audit.sampledSubjects.length} participant(s) and ${audit.sampledRuns} readable BOLD run(s).`] : [],
+    sources: [source(`OpenNeuro ${dataset.accession} ${dataset.snapshotTag}`, url, "official BIDS snapshot, participant count, task labels, size, license and download"), ...extraSources],
+  });
+}
+
+const manuallyCuratedDatasets: FmriDataset[] = [
   ...coreDatasets,
   ...populationDatasets,
   ...repositoryDatasets,
   ...naturalisticDatasets,
   ...openNeuroDatasets,
+];
+
+const curatedOpenNeuroAccessions = new Set(manuallyCuratedDatasets.map(openNeuroAccession).filter((value): value is string => value !== null));
+const openNeuroCanonicalAliases = new Map<string, string[]>([
+  ["ds006105", ["ds006108"]],
+  ["ds003988", ["ds003872"]],
+  ["ds007272", ["ds006798"]],
+]);
+const openNeuroAliasAccessions = new Set([...openNeuroCanonicalAliases.values()].flat());
+const indexedByAccession = new Map(openNeuroIndex.datasets.map((dataset) => [dataset.accession, dataset]));
+const attachAliasLocations = (dataset: FmriDataset) => {
+  const aliases = openNeuroCanonicalAliases.get(dataset.id) ?? [];
+  if (!aliases.length) return dataset;
+  const aliasUrls = aliases.map((accession) => {
+    const alias = indexedByAccession.get(accession);
+    return alias ? `https://openneuro.org/datasets/${accession}/versions/${alias.snapshotTag}` : `https://openneuro.org/datasets/${accession}`;
+  });
+  return {
+    ...dataset,
+    identification: { ...dataset.identification, datasetUrls: [...dataset.identification.datasetUrls, ...aliasUrls] },
+    metadata: {
+      ...dataset.metadata,
+      notes: [...dataset.metadata.notes, `Canonical entry merges byte/task/participant-identical OpenNeuro accession(s): ${aliases.join(", ")}.`],
+    },
+    sources: [
+      ...dataset.sources,
+      ...aliases.map((accession, index) => source(`OpenNeuro mirror ${accession}`, aliasUrls[index], "alternate accession with identical title, participant count, task labels, session labels and snapshot size")),
+    ],
+  };
+};
+const repositoryIndexedOpenNeuro = openNeuroIndex.datasets
+  .filter((dataset) => openNeuroDurationById.has(dataset.accession) && !curatedOpenNeuroAccessions.has(dataset.accession) && !openNeuroAliasAccessions.has(dataset.accession))
+  .map(indexedOpenNeuro)
+  .map(attachAliasLocations);
+
+export const fmriDatasets: FmriDataset[] = [
+  ...manuallyCuratedDatasets.map(enrichOpenNeuroDuration),
+  ...repositoryIndexedOpenNeuro,
 ];
 
 function validateCatalog(datasets: FmriDataset[]) {
@@ -2187,6 +2468,7 @@ function validateCatalog(datasets: FmriDataset[]) {
     if (!dataset.identification.datasetName || !dataset.identification.officialWebsite) {
       throw new Error(`Missing canonical identification fields: ${dataset.id}`);
     }
+    if (dataset.classification.taskDesign.length === 0) throw new Error(`Missing task-design classification: ${dataset.id}`);
     if (dataset.sources.length === 0) throw new Error(`Missing provenance source: ${dataset.id}`);
     for (const item of dataset.sources) {
       if (!item.url.startsWith("https://")) throw new Error(`Non-HTTPS provenance URL: ${dataset.id} ${item.url}`);
@@ -2216,12 +2498,24 @@ function validateCatalog(datasets: FmriDataset[]) {
 validateCatalog(fmriDatasets);
 
 export const fmriCatalogMeta = {
-  schemaVersion: "1.0.0",
+  schemaVersion: "2.0.0",
   lastVerified: verified,
   openNeuroDiscovery: {
-    method: "OpenNeuro public GraphQL API: public datasets with modality=mri, at least 100 participants, and at least one functional task entity; non-human datasets removed; related releases deduplicated.",
+    method: openNeuroIndex.method,
     api: "https://openneuro.org/crn/graphql",
-    apiVersionAtVerification: "5.6.0",
+    apiVersionAtVerification: openNeuroIndex.apiVersion,
+    indexedCandidates: openNeuroIndex.datasetCount,
+    boldHeaderVerifiedCanonicalEntries: repositoryIndexedOpenNeuro.length,
+    mergedMirrorAccessions: openNeuroAliasAccessions.size,
+  },
+  durationAudit: {
+    method: openNeuroDurationAudit.method,
+    source: openNeuroDurationAudit.source,
+    withTiming: openNeuroDurationAudit.records.filter((record) => indexedByAccession.has(record.accession)).length,
+    unavailable: openNeuroDurationAudit.failures.filter((record) => indexedByAccession.has(record.accession)).length,
+    pending: openNeuroIndex.datasetCount
+      - openNeuroDurationAudit.records.filter((record) => indexedByAccession.has(record.accession)).length
+      - openNeuroDurationAudit.failures.filter((record) => indexedByAccession.has(record.accession)).length,
   },
   eegCatalogSha256: "2945590BBA5D852A1A838431C6861B7BE0623F4BAAC63CC5D3DE83F10D7F54D9",
 } as const;

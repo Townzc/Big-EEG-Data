@@ -14,13 +14,14 @@
 
 ## fMRI 目录范围
 
-当前目录收录 96 个 canonical fMRI 数据集/队列，覆盖：
+当前目录收录 **782 个 canonical fMRI 数据集/队列**：97 个为逐项核对官网/论文的 protocol-reviewed 核心条目，685 个为去重后补入、并实际读到 BOLD NIfTI header 的 OpenNeuro 长尾条目。两种核查层级在网页和 schema 中明确区分。覆盖：
 
 - HCP Young Adult、HCP Development、AABC/HCP Aging、BCP、dHCP，以及 HCP-EP、BANDA、PDC、DCAM 等疾病相关 HCP 项目；
 - ABCD、HBCD、UK Biobank、ADNI、OASIS-3、CamCAN、NKI-Rockland、Healthy Brain Network；
 - 1000FCP、ADHD-200、ABIDE I/II、COBRE、SchizConnect 下的 FBIRN Phase II 与 MCIC、PING、PNC、IMAGEN、CoRR、GSP；
 - Midnight Scan Club、Natural Scenes Dataset、StudyForrest、IBC、Narratives 等高密度/自然刺激数据；
-- OpenNeuro 大样本人类 fMRI 数据集。发现阶段使用 OpenNeuro 公共 GraphQL API v5.6.0，筛选公开 MRI、至少 100 位 BIDS participants 且含 functional task entity 的数据，随后排除非人类数据并合并相关 release。
+- OpenNeuro 公共人类 fMRI 全量候选索引。发现阶段使用 OpenNeuro 公共 GraphQL API v5.6.0，检查所有公开 MRI 条目，保留至少一个 BIDS participant 且带 BOLD task 的数据，随后排除 derivatives、非人类、phantom、脊髓和明显 test/demo 占位数据；本次快照得到 874 个候选 accession。自动进入主目录的条目还必须实际读到 BOLD NIfTI header；再与人工 catalog 按 accession 去重，并合并 3 个元数据与字节规模一致的镜像 accession。
+- REST-meta-MDD、ABCD、UKB、ADNI 等 foundation-model / review paper 中反复出现的人群与临床队列；并保留访问限制、模型论文实际样本数与官方发布人数之间的区别。
 
 目录优先使用项目官方网站、官方 repository metadata 和原始 dataset paper。`Last Verified` 当前为 2026-08-30。受试者数可能指发布人数、BIDS participants 或整队列人数；每条记录的 Notes / Limitations 会说明它是否等同于可用/QC-passed fMRI 人数。
 
@@ -31,6 +32,7 @@
 - `identification`：名称、缩写、官网、repository、所有 access URL、paper/DOI、机构和地区；
 - `scale`：subjects、sessions、fMRI runs、总分钟/小时、每受试者小时数、数据容量；
 - `fmriComposition`：rest、task、movie/naturalistic、task names、分项时长和 longitudinal；
+- `classification`：按活动状态（resting、task-evoked、naturalistic、intervention、repeated/longitudinal）与任务设计（attention/executive、emotion/social、language、memory、motor/sensory、reward、clinical provocation、naturalistic、multi-domain）进行非互斥分类，并记录 curation level；
 - `participants`：年龄、平均年龄、sex/gender、healthy/clinical/mixed、疾病与 population；
 - `acquisition`：厂商、型号、场强、sites、TR、TE、flip angle、voxel size、volumes、multiband；
 - `additionalModalities`：T1w、T2w、DWI、EEG、MEG、PET、行为、认知、遗传、临床、生理和眼动；
@@ -50,13 +52,28 @@ type Metric = {
 };
 ```
 
-时长只统计 BOLD fMRI，不含 structural MRI、DWI、PET、EEG 等。`calculated` 必须可由 TR、volumes、runs、sessions/subjects 等复算；`estimated` 必须在 note 里写明假设。聚合卡只累加非空值，并显示 `known X / 96`，因此缺失数据不会被误当作 0。
+时长只统计 BOLD fMRI，不含 structural MRI、DWI、PET、EEG 等。`calculated` 必须可由 TR、volumes、runs、sessions/subjects 等复算；`estimated` 必须在 note 里写明假设。OpenNeuro 长尾条目通过公开快照中的 BOLD NIfTI header 读取 TR × volumes，并从均匀抽取的 participant protocol 外推时长；这类值始终标为 `estimated`，详情中显示抽样人数、run 数、snapshot 与局限。聚合卡只累加非空值并显示覆盖分母，因此缺失数据不会被误当作 0。
+
+## fMRI 数据刷新与时长审计
+
+```powershell
+# 重新抓取 OpenNeuro 官方公共 MRI/BOLD 元数据快照
+node scripts/refresh_openneuro_fmri_index.mjs
+
+# 从公开 S3 快照仅读取 BOLD NIfTI 文件头；支持 checkpoint / resume
+node scripts/audit_openneuro_fmri_durations.mjs --samples=1 --resume
+
+# 验证所有 OpenNeuro accession 仍能由官方 API 解析
+npm run verify:openneuro
+```
+
+生成文件分别为 `data/openneuro-fmri-index.json` 与 `data/openneuro-duration-audit.json`。若要提高时长估计稳健性，可增加 `--samples=3` 或更多，但会显著增加网络请求；任何抽样外推仍不得改标为 reported/calculated。
 
 ## 添加或修订 fMRI 数据集
 
 1. 先确认它包含 human fMRI 且存在可说明的研究者获取机制。
 2. 检查 `id`、cohort 名称、DOI、accession 和 participant population，避免与现有镜像或 release 重复。
-3. 在 `data/fmri-catalog.ts` 通过 `defineDataset(...)` 添加条目；OpenNeuro 大样本条目可使用同文件的 `openNeuro(...)` helper。
+3. 在 `data/fmri-catalog.ts` 通过 `defineDataset(...)` 添加需要人工核查的核心条目；OpenNeuro 长尾条目由官方索引自动生成，不要再手工创建同 accession 的重复行。
 4. 所有已知 numeric metric 必须附 HTTPS `sourceUrl`；找不到可靠值时保持 unavailable。
 5. 对 derived duration 在 note 中写出公式与分母，例如 `TR × volumes × runs × subjects / 3600`。
 6. 至少提供一个 `sources` 条目，优先 official release page，再补 primary paper。
