@@ -60,7 +60,7 @@ export function CatalogExplorer({ rows, categoryStats }: { rows: CatalogRow[]; c
   const [access, setAccess] = useState(ALL);
   const [sort, setSort] = useState("complete");
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(25);
+  const [pageSize, setPageSize] = useState(5);
 
   const activeCategory = categoryStats.find((item) => item.code === category);
   const subcategories = activeCategory?.subcategories ?? [];
@@ -91,7 +91,7 @@ export function CatalogExplorer({ rows, categoryStats }: { rows: CatalogRow[]; c
   const update = (callback: () => void) => { callback(); setPage(1); };
   const chooseCategory = (code: string) => update(() => { setCategory(code); setSubcategory(ALL); });
   const reset = () => {
-    setQuery(""); setCategory(ALL); setSubcategory(ALL); setAccess(ALL); setSort("complete"); setPage(1); setPageSize(25);
+    setQuery(""); setCategory(ALL); setSubcategory(ALL); setAccess(ALL); setSort("complete"); setPage(1); setPageSize(5);
   };
 
   return (
@@ -167,7 +167,7 @@ export function CatalogExplorer({ rows, categoryStats }: { rows: CatalogRow[]; c
           <p><strong>{filtered.length}</strong> 个唯一下载单元</p>
           <label>每页
             <select value={pageSize} onChange={(event) => { setPageSize(Number(event.target.value)); setPage(1); }}>
-              <option value="25">25</option><option value="50">50</option><option value="100">100</option>
+              <option value="5">5</option><option value="25">25</option><option value="50">50</option><option value="100">100</option>
             </select>
           </label>
         </div>

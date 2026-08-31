@@ -49,7 +49,7 @@ export function DownloadChecklist({ rows }: { rows: ChecklistRow[] }) {
   const [group, setGroup] = useState("待处理");
   const [focus, setFocus] = useState(ALL);
   const [page, setPage] = useState(1);
-  const pageSize = 20;
+  const pageSize = 5;
 
   const counts = useMemo(() => Object.fromEntries(Object.keys(groupLabels).map((key) => [key, rows.filter((row) => inGroup(row, key)).length])), [rows]);
   const filtered = useMemo(() => {

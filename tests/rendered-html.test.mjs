@@ -27,10 +27,8 @@ test("server-renders the preserved EEG catalog inside Big Data", async () => {
   assert.match(html, /265,630/);
   assert.match(html, /308,233/);
   assert.match(html, /346,490\.7/);
-  assert.match(html, /其余(?:<!-- -->)?416(?:<!-- -->)?个单元尚无可加总时长/);
-  assert.match(html, /52(?:<!-- -->)?\/(?:<!-- -->)?101/);
-  assert.match(html, /122,219/);
-  assert.match(html, /42,692\.2/);
+  assert.match(html, /其余 (?:<!-- -->)?416(?:<!-- -->)? 个目录单元尚无可加总时长/);
+  assert.doesNotMatch(html, /52(?:<!-- -->)?\/(?:<!-- -->)?101|1,659,549|50–60 GiB/);
   assert.match(html, /273/);
   assert.match(html, /99,537/);
   assert.match(html, /独立 raw 已获取/);
@@ -42,6 +40,7 @@ test("server-renders the preserved EEG catalog inside Big Data", async () => {
   assert.match(html, /lang="zh-CN"/);
   assert.match(html, /aria-label=/);
   assert.match(html, /论文换算·明确范围/);
+  assert.equal([...html.matchAll(/显示 (?:<!-- -->)?1(?:<!-- -->)?–(?:<!-- -->)?5(?:<!-- -->)? 行/g)].length, 2);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
@@ -110,7 +109,8 @@ test("focuses on the full catalog and simplified workbook", async () => {
   const response = await render();
   const html = await response.text();
   assert.match(html, /COMPLETE CATALOG/);
-  assert.match(html, /全类别数据规模与本地进度/);
+  assert.match(html, /数据预处理/);
+  assert.doesNotMatch(html, /03 · 严格预处理/);
   assert.match(html, /DOWNLOAD WORKBOOK/);
   assert.match(html, /3(?:<!-- -->)? 个工作表/);
   assert.match(html, /正式需申请/);

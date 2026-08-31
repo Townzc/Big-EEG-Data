@@ -7,7 +7,7 @@ import { eegProgress } from "../data/eeg-progress";
 
 export const metadata: Metadata = {
   title: "Big Data of EEG",
-  description: "A searchable 563-unit EEG catalog with catalog-wide subject and duration coverage, acquisition status, and strictly validated preprocessing progress.",
+  description: "A searchable 563-unit EEG catalog with catalog-wide subject and duration coverage, acquisition status, and documented preprocessing methods.",
 };
 
 export default function Home() {
@@ -17,8 +17,6 @@ export default function Home() {
   const union = neuro.sourceUnion;
   const acquisition = data.metrics.acquisition;
   const catalogScale = eegProgress.catalog;
-  const preprocessing = eegProgress.preprocessing;
-  const preprocessingPercent = 100 * preprocessing.strictCompleteTargets / preprocessing.effectiveTargets;
 
   return (
     <>
@@ -31,11 +29,11 @@ export default function Home() {
         <ModalitySwitcher active="eeg" />
         <nav className="section-nav" aria-label="主要导航">
           <a href="#categories">分类</a>
-          <a href="#progress">全量进度</a>
           <a href="#catalog">完整目录</a>
           <a href="#downloads">下载清单</a>
           <a href="#neuroatlas">NeuroAtlas 对照</a>
           <a href="#workbook">工作簿</a>
+          <a href="#progress">数据预处理</a>
         </nav>
         <a className="header-download" href="/EEG_healthcare_disease_catalog_20260823.xlsx" download>
           下载 XLSX
@@ -61,82 +59,6 @@ export default function Home() {
             <div><dt>KNOWN COVERAGE</dt><dd>≈{Math.round(catalogScale.sourceDeduplicatedCoverageEstimateHours).toLocaleString("en-US")}</dd></div>
             <div><dt>SERVER COMPLETE</dt><dd>{eegProgress.acquisition.uniqueCatalogUnitsWithCompletionEvidence}</dd></div>
           </dl>
-        </section>
-
-        <section className="progress-section" id="progress" aria-labelledby="progress-title">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">CATALOG · ACQUISITION · PREPROCESSING</p>
-              <h2 id="progress-title">全类别数据规模与本地进度</h2>
-            </div>
-            <p>三个口径分开报告：全目录来源规模、本地获取证据、严格通过终端验证的预处理结果。缺失值不按 0 计。</p>
-          </div>
-
-          <div className="progress-lenses">
-            <article>
-              <span>01 · 全目录</span>
-              <strong>{catalogScale.units}</strong>
-              <h3>唯一下载单元</h3>
-              <p>{catalogScale.subjectKnownUnits}/{catalogScale.units} 有 subject；{catalogScale.durationKnownUnits}/{catalogScale.units} 有逐行 duration，合计 {catalogScale.documentedHoursRowSum.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。来源级去重覆盖约 {catalogScale.sourceDeduplicatedCoverageEstimateHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。</p>
-            </article>
-            <article>
-              <span>02 · 本地获取</span>
-              <strong>{eegProgress.acquisition.uniqueCatalogUnitsWithCompletionEvidence}</strong>
-              <h3>有完成证据的目录单元</h3>
-              <p>与 563 行 canonical catalog 取交集并去除旧表重复行；当前 datasets 目录约 {eegProgress.acquisition.datasetsDiskTiB} TiB，GPFS 约剩 {eegProgress.acquisition.gpfsFreeTiB} TiB。</p>
-            </article>
-            <article>
-              <span>03 · 严格预处理</span>
-              <strong>{preprocessing.strictCompleteTargets}/{preprocessing.effectiveTargets}</strong>
-              <h3>{preprocessingPercent.toFixed(1)}% 通过终端验证</h3>
-              <p>{preprocessing.outputs.toLocaleString("en-US")} 个 outputs、{preprocessing.subjectEntries.toLocaleString("en-US")} 个 adapter-level subject entries、{preprocessing.signalHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h；衍生数据约 {(preprocessing.derivativeBytes / 1e12).toFixed(2)} TB。</p>
-            </article>
-          </div>
-
-          <div className="progress-detail-grid">
-            <div className="progress-table-card">
-              <h3>八大类别来源规模</h3>
-              <div className="table-shell">
-                <table className="progress-table">
-                  <thead><tr><th scope="col">类别</th><th scope="col">数据单元</th><th scope="col">Subject entries</th><th scope="col">已知时长</th></tr></thead>
-                  <tbody>
-                    {eegProgress.categories.map((category) => (
-                      <tr key={category.code}>
-                        <td><strong>{category.code}</strong> · {category.label}</td>
-                        <td>{category.units}</td>
-                        <td>{category.subjectEntries.toLocaleString("en-US")}<small>{category.subjectKnownUnits}/{category.units} 有值</small></td>
-                        <td>{category.hours == null ? "未形成可加总时长" : `${category.hours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h`}<small>{category.durationKnownUnits}/{category.units} 有值</small></td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <aside className="progress-status" aria-label="当前生产与统计边界">
-              <h3>当前生产与统计边界</h3>
-              <ul>
-                {preprocessing.activeTargets.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-              <dl>
-                <div><dt>正式需申请</dt><dd>{eegProgress.acquisition.focusApplicationRequiredUnits}</dd></div>
-                <div><dt>已申请等待</dt><dd>{eegProgress.acquisition.focusAppliedWaitingUnits}</dd></div>
-                <div><dt>尚未申请</dt><dd>{eegProgress.acquisition.focusNotYetAppliedUnits}</dd></div>
-                <div><dt>严格验证 events</dt><dd>{preprocessing.eventRows.toLocaleString("en-US")}</dd></div>
-                <div><dt>GPFS 可用</dt><dd>{eegProgress.acquisition.gpfsFreeTiB} TiB</dd></div>
-                <div><dt>当前批次预算</dt><dd>{preprocessing.activeProductionBudgetGiB} GiB</dd></div>
-              </dl>
-            </aside>
-          </div>
-
-          <div className="method-strip" aria-label="预处理方法摘要">
-            {eegProgress.methodology.map((item, index) => (
-              <article key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></article>
-            ))}
-          </div>
-          <p className="source-note">
-            快照日期：{eegProgress.snapshotDate}。全目录 subject 是来源报告条目下界，未跨数据集去重。308,233.5 h 是 94 行原始相加，会包含父集/子集或重复队列；这94行全部位于147个疾病/健康重点单元内，其余416个单元尚无可加总时长。因此当前应报告“已知来源覆盖约 {union.extendedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h”，而不是把30.82万小时当作563个单元的最终总时长。严格预处理 subject 同样是 adapter 内相加，不代表全球唯一人数。
-          </p>
         </section>
 
         <section className="catalog-section" id="catalog" aria-labelledby="catalog-title">
@@ -219,6 +141,59 @@ export default function Home() {
               </li>
             ))}
           </ol>
+        </section>
+
+        <section className="progress-section" id="progress" aria-labelledby="progress-title">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">DATA PREPROCESSING</p>
+              <h2 id="progress-title">数据预处理</h2>
+            </div>
+            <p>本区放在数据集收集之后，仅说明疾病/临床重点队列正在采用的预处理方法；不把局部生产进度外推为 563 个目录单元的统一完成率。</p>
+          </div>
+
+          <div className="progress-lenses progress-lenses-two">
+            <article>
+              <span>01 · 数据集收集</span>
+              <strong>{catalogScale.units}</strong>
+              <h3>唯一下载单元</h3>
+              <p>{catalogScale.subjectKnownUnits}/{catalogScale.units} 有 subject；{catalogScale.durationKnownUnits}/{catalogScale.units} 有逐行 duration，原始行相加为 {catalogScale.documentedHoursRowSum.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。</p>
+            </article>
+            <article>
+              <span>02 · 本地获取</span>
+              <strong>{eegProgress.acquisition.uniqueCatalogUnitsWithCompletionEvidence}</strong>
+              <h3>有完成证据的目录单元</h3>
+              <p>与 563 行 canonical catalog 取交集并去除旧表重复行；完成标记只证明数据单元已保留，不等同于已经完成预处理。</p>
+            </article>
+          </div>
+
+          <div className="progress-table-card">
+            <h3>八大类别来源规模</h3>
+            <div className="table-shell">
+              <table className="progress-table">
+                <thead><tr><th scope="col">类别</th><th scope="col">数据单元</th><th scope="col">Subject entries</th><th scope="col">已知时长</th></tr></thead>
+                <tbody>
+                  {eegProgress.categories.map((category) => (
+                    <tr key={category.code}>
+                      <td><strong>{category.code}</strong> · {category.label}</td>
+                      <td>{category.units}</td>
+                      <td>{category.subjectEntries.toLocaleString("en-US")}<small>{category.subjectKnownUnits}/{category.units} 有值</small></td>
+                      <td>{category.hours == null ? "未形成可加总时长" : `${category.hours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h`}<small>{category.durationKnownUnits}/{category.units} 有值</small></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="method-strip" aria-label="疾病与临床数据预处理方法摘要">
+            {eegProgress.methodology.map((item, index) => (
+              <article key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></article>
+            ))}
+          </div>
+          <p className="source-note">
+            快照日期：{eegProgress.snapshotDate}。308,233.5 h 是 94 个有时长行的原始相加，含父集/子集或重复队列；约 {union.extendedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h 是 147 个疾病/健康重点单元的来源级去重覆盖估计。其余 416 个目录单元尚无可加总时长，因此这两个数字都不是 563 个单元的最终总时长。
+          </p>
         </section>
       </main>
 

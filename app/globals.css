@@ -103,6 +103,8 @@ table{width:100%;min-width:1500px;border-collapse:collapse;font-size:.79rem}th{p
 .difference-list.neuroatlas-additions li:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
 .source-note { margin: .8rem 0 0; color: var(--muted); font-size: .75rem; }
 .progress-lenses { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); margin-bottom: 1rem; background: #f8faf9; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.progress-lenses.progress-lenses-two { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.progress-lenses.progress-lenses-two article:last-child { grid-column: auto; }
 .progress-lenses article { min-height: 220px; padding: 1.25rem; border-right: 1px solid var(--line); }
 .progress-lenses article:last-child { border-right: 0; }
 .progress-lenses article>span { color: var(--teal); font-family: ui-monospace,monospace; font-size: .7rem; font-weight: 900; letter-spacing: .08em; }
@@ -207,5 +209,6 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;pa
   .dataset-card-foot button{width:100%;margin:.35rem 0 0;text-align:left}
   .paper-grid{grid-template-columns:1fr}
 }
+@media(max-width:680px){.progress-lenses.progress-lenses-two{grid-template-columns:1fr}.progress-lenses.progress-lenses-two article:last-child{grid-column:auto;border-bottom:0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 @media(prefers-contrast:more){:root{--muted:#344b59;--line:#778c97}.explorer,.sheet-index{border-width:2px}}
