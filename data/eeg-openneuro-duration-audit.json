@@ -1,0 +1,4047 @@
+{
+  "generatedAt": "2026-08-31",
+  "source": "OpenNeuro public BIDS snapshots on the Registry of Open Data on AWS",
+  "method": "Up to 15 evenly spaced BIDS participants per accession. Recording durations prefer BIDS RecordingDuration, then EDF/BDF or BrainVision headers. Unsampled cohorts and incomplete file coverage remain estimated.",
+  "records": [
+    {
+      "id": "EEG-0067",
+      "name": "Auditory-Visual Shift Study",
+      "accessions": [
+        {
+          "accession": "ds002893",
+          "snapshotTag": "2.0.0",
+          "subjects": 49,
+          "sampledSubjects": [
+            "001",
+            "025",
+            "049"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.821,
+          "estimatedTotalHours": 40.22,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002893/versions/2.0.0"
+        }
+      ],
+      "durationHours": 40.22,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002893/versions/2.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0097",
+      "name": "Semantic Animals/Tools (EEG-fNIRS)",
+      "accessions": [
+        {
+          "accession": "ds004514",
+          "snapshotTag": "1.1.2",
+          "subjects": 12,
+          "sampledSubjects": [
+            "11",
+            "08",
+            "09"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.27,
+          "estimatedTotalHours": 15.24,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004514/versions/1.1.2"
+        }
+      ],
+      "durationHours": 15.24,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004514/versions/1.1.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0146",
+      "name": "Test-Retest / RestCog",
+      "accessions": [
+        {
+          "accession": "ds004148",
+          "snapshotTag": "1.0.1",
+          "subjects": 60,
+          "sampledSubjects": [
+            "01",
+            "31",
+            "60"
+          ],
+          "sampledSignalFiles": 45,
+          "readableSignalFiles": 45,
+          "averageHoursPerSubject": 1.25,
+          "estimatedTotalHours": 75,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004148/versions/1.0.1"
+        }
+      ],
+      "durationHours": 75,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004148/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 45/45 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0149",
+      "name": "Awakening (propofol)",
+      "accessions": [
+        {
+          "accession": "ds005620",
+          "snapshotTag": "1.0.0",
+          "subjects": 21,
+          "sampledSubjects": [
+            "1010",
+            "1054",
+            "1074"
+          ],
+          "sampledSignalFiles": 29,
+          "readableSignalFiles": 29,
+          "averageHoursPerSubject": 0.858,
+          "estimatedTotalHours": 18.01,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005620/versions/1.0.0"
+        }
+      ],
+      "durationHours": 18.01,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005620/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 29/29 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0158",
+      "name": "EPOC Post-SARS-CoV-2 PVT EEG",
+      "accessions": [
+        {
+          "accession": "ds007605",
+          "snapshotTag": "1.0.1",
+          "subjects": 97,
+          "sampledSubjects": [
+            "XA37LM",
+            "YR05JH",
+            "LO24FP"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.13,
+          "estimatedTotalHours": 12.6,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007605/versions/1.0.1"
+        }
+      ],
+      "durationHours": 12.6,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007605/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0160",
+      "name": "GX (EEG-ECG tES)",
+      "accessions": [
+        {
+          "accession": "ds003670",
+          "snapshotTag": "1.1.0",
+          "subjects": 25,
+          "sampledSubjects": [
+            "001",
+            "013",
+            "026"
+          ],
+          "sampledSignalFiles": 10,
+          "readableSignalFiles": 10,
+          "averageHoursPerSubject": 3.832,
+          "estimatedTotalHours": 95.79,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003670/versions/1.1.0"
+        }
+      ],
+      "durationHours": 95.79,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003670/versions/1.1.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 10/10 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0169",
+      "name": "A dataset recorded during development of an affective brain-computer music interface: calibration session",
+      "accessions": [
+        {
+          "accession": "ds002722",
+          "snapshotTag": "1.0.1",
+          "subjects": 19,
+          "sampledSubjects": [
+            "01",
+            "10",
+            "19"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 1.24,
+          "estimatedTotalHours": 23.56,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002722/versions/1.0.1"
+        }
+      ],
+      "durationHours": 23.56,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002722/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 15/15 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0170",
+      "name": "A dataset recorded during development of an affective brain-computer music interface: testing session",
+      "accessions": [
+        {
+          "accession": "ds002723",
+          "snapshotTag": "1.1.0",
+          "subjects": 8,
+          "sampledSubjects": [
+            "01",
+            "13",
+            "19"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 1.17,
+          "estimatedTotalHours": 9.36,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002723/versions/1.1.0"
+        }
+      ],
+      "durationHours": 9.36,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002723/versions/1.1.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 15/15 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0171",
+      "name": "A dataset recorded during development of an affective brain-computer music interface: training sessions",
+      "accessions": [
+        {
+          "accession": "ds002724",
+          "snapshotTag": "1.0.1",
+          "subjects": 10,
+          "sampledSubjects": [
+            "08",
+            "13",
+            "17"
+          ],
+          "sampledSignalFiles": 20,
+          "readableSignalFiles": 20,
+          "averageHoursPerSubject": 1.913,
+          "estimatedTotalHours": 19.13,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002724/versions/1.0.1"
+        }
+      ],
+      "durationHours": 19.13,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002724/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 20/20 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0172",
+      "name": "Affective Music Listening EEG-fMRI Dataset",
+      "accessions": [
+        {
+          "accession": "ds002725",
+          "snapshotTag": "1.0.0",
+          "subjects": 21,
+          "sampledSubjects": [
+            "01",
+            "11",
+            "21"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 1.071,
+          "estimatedTotalHours": 22.49,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002725/versions/1.0.0"
+        }
+      ],
+      "durationHours": 22.49,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002725/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 15/15 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0175",
+      "name": "EEG-Asymmetries Dataset",
+      "accessions": [
+        {
+          "accession": "ds007172",
+          "snapshotTag": "1.0.0",
+          "subjects": 100,
+          "sampledSubjects": [
+            "007",
+            "076",
+            "047"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.499,
+          "estimatedTotalHours": 49.94,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007172/versions/1.0.0"
+        }
+      ],
+      "durationHours": 49.94,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007172/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 15/15 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0178",
+      "name": "EmoEEG-MC",
+      "accessions": [
+        {
+          "accession": "ds005540",
+          "snapshotTag": "1.0.7",
+          "subjects": 60,
+          "sampledSubjects": [
+            "10",
+            "35",
+            "07",
+            "60",
+            "41",
+            "02",
+            "15",
+            "38",
+            "30",
+            "26",
+            "59",
+            "58",
+            "46",
+            "36",
+            "05"
+          ],
+          "sampledSignalFiles": 26,
+          "readableSignalFiles": 26,
+          "averageHoursPerSubject": 2.765,
+          "estimatedTotalHours": 165.9,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005540/versions/1.0.7"
+        }
+      ],
+      "durationHours": 165.9,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005540/versions/1.0.7",
+      "note": "Estimated from 15 sampled BIDS participant(s); 26/26 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0182",
+      "name": "Imagined Emotion Study",
+      "accessions": [
+        {
+          "accession": "ds003004",
+          "snapshotTag": "1.1.1",
+          "subjects": 34,
+          "sampledSubjects": [
+            "01",
+            "18",
+            "35"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.59,
+          "estimatedTotalHours": 54.05,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003004/versions/1.1.1"
+        }
+      ],
+      "durationHours": 54.05,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003004/versions/1.1.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0183",
+      "name": "Loneliness Socio-affective EEG Suite",
+      "accessions": [
+        {
+          "accession": "ds006861",
+          "snapshotTag": "1.0.2",
+          "subjects": 120,
+          "sampledSubjects": [
+            "096",
+            "072",
+            "036",
+            "107",
+            "030",
+            "087",
+            "042",
+            "110",
+            "079",
+            "021",
+            "045",
+            "055",
+            "065",
+            "061",
+            "018"
+          ],
+          "sampledSignalFiles": 30,
+          "readableSignalFiles": 30,
+          "averageHoursPerSubject": 0.821,
+          "estimatedTotalHours": 98.54,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006861/versions/1.0.2"
+        },
+        {
+          "accession": "ds006866",
+          "snapshotTag": "1.0.0",
+          "subjects": 148,
+          "sampledSubjects": [
+            "111",
+            "086",
+            "018",
+            "101",
+            "113",
+            "104",
+            "029",
+            "078",
+            "053",
+            "100",
+            "069",
+            "103",
+            "006",
+            "068",
+            "080"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.833,
+          "estimatedTotalHours": 123.26,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006866/versions/1.0.0"
+        },
+        {
+          "accession": "ds007827",
+          "snapshotTag": "1.0.1",
+          "subjects": 99,
+          "sampledSubjects": [
+            "77",
+            "94",
+            "63",
+            "52",
+            "44",
+            "40",
+            "47",
+            "02",
+            "38",
+            "84",
+            "21",
+            "20",
+            "71",
+            "50",
+            "09"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.455,
+          "estimatedTotalHours": 45.08,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007827/versions/1.0.1"
+        }
+      ],
+      "durationHours": 266.88,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006861/versions/1.0.2",
+      "note": "Estimated from 45 sampled BIDS participant(s); 60/60 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0185",
+      "name": "Mood Manipulation and PST, Experiment 1",
+      "accessions": [
+        {
+          "accession": "ds004315",
+          "snapshotTag": "1.0.0",
+          "subjects": 50,
+          "sampledSubjects": [
+            "001",
+            "026",
+            "050"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.432,
+          "estimatedTotalHours": 21.62,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004315/versions/1.0.0"
+        }
+      ],
+      "durationHours": 21.62,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004315/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0187",
+      "name": "MusicEEG",
+      "accessions": [
+        {
+          "accession": "ds002721",
+          "snapshotTag": "1.0.3",
+          "subjects": 31,
+          "sampledSubjects": [
+            "01",
+            "16",
+            "31"
+          ],
+          "sampledSignalFiles": 18,
+          "readableSignalFiles": 18,
+          "averageHoursPerSubject": 0.813,
+          "estimatedTotalHours": 25.22,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002721/versions/1.0.3"
+        }
+      ],
+      "durationHours": 25.22,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002721/versions/1.0.3",
+      "note": "Estimated from 3 sampled BIDS participant(s); 18/18 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0188",
+      "name": "Poetry Assessment EEG Dataset 1",
+      "accessions": [
+        {
+          "accession": "ds006648",
+          "snapshotTag": "1.0.0",
+          "subjects": 47,
+          "sampledSubjects": [
+            "032",
+            "039",
+            "047"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.743,
+          "estimatedTotalHours": 81.9,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006648/versions/1.0.0"
+        }
+      ],
+      "durationHours": 81.9,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006648/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0199",
+      "name": "EEG meditation study",
+      "accessions": [
+        {
+          "accession": "ds001787",
+          "snapshotTag": "1.1.1",
+          "subjects": 24,
+          "sampledSubjects": [
+            "001",
+            "013",
+            "024"
+          ],
+          "sampledSignalFiles": 4,
+          "readableSignalFiles": 4,
+          "averageHoursPerSubject": 1.091,
+          "estimatedTotalHours": 26.19,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds001787/versions/1.1.1"
+        }
+      ],
+      "durationHours": 26.19,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds001787/versions/1.1.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 4/4 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0200",
+      "name": "Meditation vs thinking task",
+      "accessions": [
+        {
+          "accession": "ds003969",
+          "snapshotTag": "1.0.0",
+          "subjects": 98,
+          "sampledSubjects": [
+            "001",
+            "050",
+            "098"
+          ],
+          "sampledSignalFiles": 12,
+          "readableSignalFiles": 12,
+          "averageHoursPerSubject": 0.674,
+          "estimatedTotalHours": 66.03,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003969/versions/1.0.0"
+        }
+      ],
+      "durationHours": 66.03,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003969/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 12/12 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0201",
+      "name": "PsiConnect",
+      "accessions": [
+        {
+          "accession": "ds006110",
+          "snapshotTag": "1.2.1",
+          "subjects": 65,
+          "sampledSubjects": [
+            "PC205",
+            "PC002",
+            "PC031"
+          ],
+          "sampledSignalFiles": 6,
+          "readableSignalFiles": 6,
+          "averageHoursPerSubject": 0.766,
+          "estimatedTotalHours": 49.76,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006110/versions/1.2.1"
+        }
+      ],
+      "durationHours": 49.76,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006110/versions/1.2.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 6/6 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0203",
+      "name": "Alphabetic Decision Task (Arial Light Font)",
+      "accessions": [
+        {
+          "accession": "ds005594",
+          "snapshotTag": "1.0.3",
+          "subjects": 16,
+          "sampledSubjects": [
+            "01",
+            "09",
+            "16"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.808,
+          "estimatedTotalHours": 12.93,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005594/versions/1.0.3"
+        }
+      ],
+      "durationHours": 12.93,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005594/versions/1.0.3",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0210",
+      "name": "Cabergoline Reinforcement-learning EEG Suite",
+      "accessions": [
+        {
+          "accession": "ds003518",
+          "snapshotTag": "1.1.0",
+          "subjects": 110,
+          "sampledSubjects": [
+            "001",
+            "009",
+            "017",
+            "024",
+            "032",
+            "040",
+            "048",
+            "056",
+            "063",
+            "071",
+            "079",
+            "087",
+            "094",
+            "102",
+            "110"
+          ],
+          "sampledSignalFiles": 19,
+          "readableSignalFiles": 19,
+          "averageHoursPerSubject": 0.821,
+          "estimatedTotalHours": 90.29,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003518/versions/1.1.0"
+        },
+        {
+          "accession": "ds004532",
+          "snapshotTag": "1.2.0",
+          "subjects": 110,
+          "sampledSubjects": [
+            "001",
+            "009",
+            "017",
+            "024",
+            "032",
+            "040",
+            "048",
+            "056",
+            "063",
+            "071",
+            "079",
+            "087",
+            "094",
+            "102",
+            "110"
+          ],
+          "sampledSignalFiles": 19,
+          "readableSignalFiles": 19,
+          "averageHoursPerSubject": 0.469,
+          "estimatedTotalHours": 51.57,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004532/versions/1.2.0"
+        }
+      ],
+      "durationHours": 141.86,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003518/versions/1.1.0",
+      "note": "Estimated from 30 sampled BIDS participant(s); 38/38 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0213",
+      "name": "CMx7-MM Experiment",
+      "accessions": [
+        {
+          "accession": "ds007554",
+          "snapshotTag": "1.0.0",
+          "subjects": 30,
+          "sampledSubjects": [
+            "026",
+            "017",
+            "018"
+          ],
+          "sampledSignalFiles": 55,
+          "readableSignalFiles": 55,
+          "averageHoursPerSubject": 1.099,
+          "estimatedTotalHours": 32.97,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007554/versions/1.0.0"
+        }
+      ],
+      "durationHours": 32.97,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007554/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 55/55 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0215",
+      "name": "Cognitive Electrophysiology in Socioeconomic Context in Adulthood",
+      "accessions": [
+        {
+          "accession": "ds006018",
+          "snapshotTag": "1.2.2",
+          "subjects": 127,
+          "sampledSubjects": [
+            "111",
+            "120",
+            "080"
+          ],
+          "sampledSignalFiles": 6,
+          "readableSignalFiles": 6,
+          "averageHoursPerSubject": 0.192,
+          "estimatedTotalHours": 24.35,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006018/versions/1.2.2"
+        }
+      ],
+      "durationHours": 24.35,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006018/versions/1.2.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 6/6 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0216",
+      "name": "Cross-species Behavioral Dimensions EEG",
+      "accessions": [
+        {
+          "accession": "ds003638",
+          "snapshotTag": "1.0.0",
+          "subjects": 57,
+          "sampledSubjects": [
+            "001",
+            "029",
+            "057"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.694,
+          "estimatedTotalHours": 39.56,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003638/versions/1.0.0"
+        }
+      ],
+      "durationHours": 39.56,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003638/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0220",
+      "name": "Digit-Span (pupillometry)",
+      "accessions": [
+        {
+          "accession": "ds003838",
+          "snapshotTag": "1.0.6",
+          "subjects": 65,
+          "sampledSubjects": [
+            "032",
+            "038",
+            "042",
+            "047",
+            "051",
+            "056",
+            "060",
+            "065",
+            "071",
+            "075",
+            "080",
+            "084",
+            "089",
+            "093",
+            "098"
+          ],
+          "sampledSignalFiles": 30,
+          "readableSignalFiles": 30,
+          "averageHoursPerSubject": 2.198,
+          "estimatedTotalHours": 142.88,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003838/versions/1.0.6"
+        }
+      ],
+      "durationHours": 142.88,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003838/versions/1.0.6",
+      "note": "Estimated from 15 sampled BIDS participant(s); 30/30 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0221",
+      "name": "Dortmund Vital (resting)",
+      "accessions": [
+        {
+          "accession": "ds005385",
+          "snapshotTag": "1.0.3",
+          "subjects": 608,
+          "sampledSubjects": [
+            "227",
+            "074",
+            "115",
+            "371",
+            "427",
+            "468",
+            "487",
+            "246",
+            "399",
+            "423",
+            "441",
+            "052",
+            "252",
+            "200",
+            "356"
+          ],
+          "sampledSignalFiles": 84,
+          "readableSignalFiles": 84,
+          "averageHoursPerSubject": 0.289,
+          "estimatedTotalHours": 175.93,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005385/versions/1.0.3"
+        }
+      ],
+      "durationHours": 175.93,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005385/versions/1.0.3",
+      "note": "Estimated from 15 sampled BIDS participant(s); 84/84 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0222",
+      "name": "Dynamic-Binary-Choice",
+      "accessions": [
+        {
+          "accession": "ds003766",
+          "snapshotTag": "2.0.3",
+          "subjects": 31,
+          "sampledSubjects": [
+            "15",
+            "25",
+            "09"
+          ],
+          "sampledSignalFiles": 12,
+          "readableSignalFiles": 12,
+          "averageHoursPerSubject": 1.301,
+          "estimatedTotalHours": 40.34,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003766/versions/2.0.3"
+        }
+      ],
+      "durationHours": 40.34,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003766/versions/2.0.3",
+      "note": "Estimated from 3 sampled BIDS participant(s); 12/12 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0223",
+      "name": "EEG from participants playing an 8-bit style video game (DS003517)",
+      "accessions": [
+        {
+          "accession": "ds003517",
+          "snapshotTag": "1.1.0",
+          "subjects": 17,
+          "sampledSubjects": [
+            "001",
+            "002",
+            "003",
+            "004",
+            "006",
+            "007",
+            "008",
+            "009",
+            "010",
+            "011",
+            "012",
+            "014",
+            "015",
+            "016",
+            "017"
+          ],
+          "sampledSignalFiles": 30,
+          "readableSignalFiles": 30,
+          "averageHoursPerSubject": 0.769,
+          "estimatedTotalHours": 13.07,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003517/versions/1.1.0"
+        }
+      ],
+      "durationHours": 13.07,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003517/versions/1.1.0",
+      "note": "Estimated from 15 sampled BIDS participant(s); 30/30 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0224",
+      "name": "EEG-attention-rsvp-exp1",
+      "accessions": [
+        {
+          "accession": "ds004816",
+          "snapshotTag": "1.0.1",
+          "subjects": 20,
+          "sampledSubjects": [
+            "01",
+            "11",
+            "20"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.537,
+          "estimatedTotalHours": 10.73,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004816/versions/1.0.1"
+        }
+      ],
+      "durationHours": 10.73,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004816/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0225",
+      "name": "EEG-attention-rsvp-exp2",
+      "accessions": [
+        {
+          "accession": "ds004817",
+          "snapshotTag": "1.0.1",
+          "subjects": 20,
+          "sampledSubjects": [
+            "01",
+            "11",
+            "20"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.581,
+          "estimatedTotalHours": 11.61,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004817/versions/1.0.1"
+        }
+      ],
+      "durationHours": 11.61,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004817/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0230",
+      "name": "ERN",
+      "accessions": [
+        {
+          "accession": "ds004602",
+          "snapshotTag": "1.0.3",
+          "subjects": 182,
+          "sampledSubjects": [
+            "2090",
+            "2116",
+            "1002",
+            "2011",
+            "1012",
+            "2106",
+            "2047",
+            "2031",
+            "2052",
+            "2078",
+            "1013",
+            "2012",
+            "1024",
+            "1006",
+            "2135"
+          ],
+          "sampledSignalFiles": 45,
+          "readableSignalFiles": 45,
+          "averageHoursPerSubject": 0.479,
+          "estimatedTotalHours": 87.15,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004602/versions/1.0.3"
+        },
+        {
+          "accession": "ds004883",
+          "snapshotTag": "1.0.1",
+          "subjects": 172,
+          "sampledSubjects": [
+            "2032",
+            "2045",
+            "1033",
+            "2087",
+            "2035",
+            "2117",
+            "1011",
+            "2125",
+            "2072",
+            "2074",
+            "2050",
+            "2029",
+            "1008",
+            "1041",
+            "2040"
+          ],
+          "sampledSignalFiles": 45,
+          "readableSignalFiles": 45,
+          "averageHoursPerSubject": 0.802,
+          "estimatedTotalHours": 138.02,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004883/versions/1.0.1"
+        }
+      ],
+      "durationHours": 225.17,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004602/versions/1.0.3",
+      "note": "Estimated from 30 sampled BIDS participant(s); 90/90 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0231",
+      "name": "Executive Functioning Data",
+      "accessions": [
+        {
+          "accession": "ds004350",
+          "snapshotTag": "2.0.0",
+          "subjects": 24,
+          "sampledSubjects": [
+            "021",
+            "010",
+            "020"
+          ],
+          "sampledSignalFiles": 30,
+          "readableSignalFiles": 30,
+          "averageHoursPerSubject": 1.729,
+          "estimatedTotalHours": 41.49,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004350/versions/2.0.0"
+        }
+      ],
+      "durationHours": 41.49,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004350/versions/2.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 30/30 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0232",
+      "name": "FOODEEG",
+      "accessions": [
+        {
+          "accession": "ds007012",
+          "snapshotTag": "1.1.1",
+          "subjects": 117,
+          "sampledSubjects": [
+            "045",
+            "105",
+            "068"
+          ],
+          "sampledSignalFiles": 4,
+          "readableSignalFiles": 4,
+          "averageHoursPerSubject": 0.63,
+          "estimatedTotalHours": 73.69,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007012/versions/1.1.1"
+        }
+      ],
+      "durationHours": 73.69,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007012/versions/1.1.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 4/4 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0237",
+      "name": "OpenNeuro ds006367",
+      "accessions": [
+        {
+          "accession": "ds006367",
+          "snapshotTag": "1.0.1",
+          "subjects": 52,
+          "sampledSubjects": [
+            "325",
+            "352",
+            "344"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.31,
+          "estimatedTotalHours": 68.15,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006367/versions/1.0.1"
+        }
+      ],
+      "durationHours": 68.15,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006367/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0238",
+      "name": "PEARL-Neuro",
+      "accessions": [
+        {
+          "accession": "ds004796",
+          "snapshotTag": "1.1.0",
+          "subjects": 79,
+          "sampledSubjects": [
+            "18",
+            "23",
+            "26"
+          ],
+          "sampledSignalFiles": 9,
+          "readableSignalFiles": 9,
+          "averageHoursPerSubject": 0.561,
+          "estimatedTotalHours": 44.3,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004796/versions/1.1.0"
+        }
+      ],
+      "durationHours": 44.3,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004796/versions/1.1.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 9/9 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0239",
+      "name": "PEERS",
+      "accessions": [
+        {
+          "accession": "ds004395",
+          "snapshotTag": "2.0.0",
+          "subjects": 364,
+          "sampledSubjects": [
+            "LTP063",
+            "LTP091",
+            "LTP117",
+            "LTP143",
+            "LTP170",
+            "LTP197",
+            "LTP223",
+            "LTP249",
+            "LTP274",
+            "LTP300",
+            "LTP326",
+            "LTP355",
+            "LTP382",
+            "LTP414",
+            "LTP440"
+          ],
+          "sampledSignalFiles": 282,
+          "readableSignalFiles": 282,
+          "averageHoursPerSubject": 25.984,
+          "estimatedTotalHours": 9458.21,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004395/versions/2.0.0"
+        }
+      ],
+      "durationHours": 9458.21,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004395/versions/2.0.0",
+      "note": "Estimated from 15 sampled BIDS participant(s); 282/282 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0240",
+      "name": "Proactive selective attention across competition contexts",
+      "accessions": [
+        {
+          "accession": "ds005089",
+          "snapshotTag": "1.0.1",
+          "subjects": 36,
+          "sampledSubjects": [
+            "01",
+            "19",
+            "36"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.8,
+          "estimatedTotalHours": 64.79,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005089/versions/1.0.1"
+        }
+      ],
+      "durationHours": 64.79,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005089/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0241",
+      "name": "PURSUE ERP Benchmark Suite",
+      "accessions": [
+        {
+          "accession": "ds007052",
+          "snapshotTag": "1.1.2",
+          "subjects": 288,
+          "sampledSubjects": [
+            "3090",
+            "1009",
+            "3019",
+            "3043",
+            "3008",
+            "3055",
+            "1015",
+            "1100",
+            "3070",
+            "1076",
+            "3111",
+            "2084",
+            "3078",
+            "2107",
+            "1011"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.14,
+          "estimatedTotalHours": 40.19,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007052/versions/1.1.2"
+        },
+        {
+          "accession": "ds007056",
+          "snapshotTag": "1.1.1",
+          "subjects": 286,
+          "sampledSubjects": [
+            "3090",
+            "1009",
+            "1071",
+            "1023",
+            "2075",
+            "3098",
+            "2030",
+            "1002",
+            "3017",
+            "3071",
+            "2023",
+            "1010",
+            "3013",
+            "2081",
+            "1011"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.124,
+          "estimatedTotalHours": 35.49,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007056/versions/1.1.1"
+        },
+        {
+          "accession": "ds007069",
+          "snapshotTag": "1.0.0",
+          "subjects": 281,
+          "sampledSubjects": [
+            "3090",
+            "2074",
+            "2022",
+            "1060",
+            "1055",
+            "3098",
+            "1015",
+            "1068",
+            "2105",
+            "1004",
+            "2117",
+            "1010",
+            "3078",
+            "2107",
+            "1011"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.197,
+          "estimatedTotalHours": 55.45,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007069/versions/1.0.0"
+        },
+        {
+          "accession": "ds007096",
+          "snapshotTag": "1.0.0",
+          "subjects": 292,
+          "sampledSubjects": [
+            "3090",
+            "1009",
+            "1071",
+            "1023",
+            "3008",
+            "3055",
+            "1015",
+            "1068",
+            "1063",
+            "1004",
+            "2023",
+            "1044",
+            "1035",
+            "2081",
+            "1011"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.166,
+          "estimatedTotalHours": 48.56,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007096/versions/1.0.0"
+        },
+        {
+          "accession": "ds007137",
+          "snapshotTag": "1.0.0",
+          "subjects": 294,
+          "sampledSubjects": [
+            "3090",
+            "1009",
+            "1071",
+            "3043",
+            "1073",
+            "3006",
+            "1101",
+            "1068",
+            "1063",
+            "1004",
+            "2023",
+            "1044",
+            "1035",
+            "2081",
+            "1011"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.168,
+          "estimatedTotalHours": 49.51,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007137/versions/1.0.0"
+        },
+        {
+          "accession": "ds007139",
+          "snapshotTag": "1.0.0",
+          "subjects": 292,
+          "sampledSubjects": [
+            "3090",
+            "1009",
+            "1071",
+            "1023",
+            "3008",
+            "3055",
+            "1015",
+            "1068",
+            "1063",
+            "1004",
+            "2023",
+            "1044",
+            "1035",
+            "2081",
+            "1011"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.215,
+          "estimatedTotalHours": 62.74,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007139/versions/1.0.0"
+        }
+      ],
+      "durationHours": 291.94,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007052/versions/1.1.2",
+      "note": "Estimated from 90 sampled BIDS participant(s); 90/90 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0243",
+      "name": "Real-time EEG feedback on alpha power lateralization leads to behavioral improvements in a covert attention task",
+      "accessions": [
+        {
+          "accession": "ds002034",
+          "snapshotTag": "1.0.3",
+          "subjects": 14,
+          "sampledSubjects": [
+            "01",
+            "08",
+            "14"
+          ],
+          "sampledSignalFiles": 36,
+          "readableSignalFiles": 36,
+          "averageHoursPerSubject": 2.485,
+          "estimatedTotalHours": 34.78,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002034/versions/1.0.3"
+        }
+      ],
+      "durationHours": 34.78,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002034/versions/1.0.3",
+      "note": "Estimated from 3 sampled BIDS participant(s); 36/36 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0248",
+      "name": "Song Familiarity EEG",
+      "accessions": [
+        {
+          "accession": "ds005876",
+          "snapshotTag": "1.0.1",
+          "subjects": 29,
+          "sampledSubjects": [
+            "18",
+            "16",
+            "26"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.562,
+          "estimatedTotalHours": 16.31,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005876/versions/1.0.1"
+        }
+      ],
+      "durationHours": 16.31,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005876/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0249",
+      "name": "Spatial memory and non-invasive closed-loop stimulus timing",
+      "accessions": [
+        {
+          "accession": "ds004706",
+          "snapshotTag": "1.0.0",
+          "subjects": 34,
+          "sampledSubjects": [
+            "LTP448",
+            "LTP451",
+            "LTP455",
+            "LTP458",
+            "LTP463",
+            "LTP473",
+            "LTP475",
+            "LTP478",
+            "LTP480",
+            "LTP484",
+            "LTP488",
+            "LTP493",
+            "LTP495",
+            "LTP498",
+            "LTP500"
+          ],
+          "sampledSignalFiles": 140,
+          "readableSignalFiles": 140,
+          "averageHoursPerSubject": 14.767,
+          "estimatedTotalHours": 502.09,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004706/versions/1.0.0"
+        }
+      ],
+      "durationHours": 502.09,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004706/versions/1.0.0",
+      "note": "Estimated from 15 sampled BIDS participant(s); 140/140 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0251",
+      "name": "SRM Resting-state EEG",
+      "accessions": [
+        {
+          "accession": "ds003775",
+          "snapshotTag": "1.2.1",
+          "subjects": 111,
+          "sampledSubjects": [
+            "001",
+            "056",
+            "111"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.067,
+          "estimatedTotalHours": 7.4,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003775/versions/1.2.1"
+        }
+      ],
+      "durationHours": 7.4,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003775/versions/1.2.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0252",
+      "name": "STERNBERG DIFFICULT",
+      "accessions": [
+        {
+          "accession": "ds005095",
+          "snapshotTag": "1.0.2",
+          "subjects": 48,
+          "sampledSubjects": [
+            "12",
+            "52",
+            "04"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.345,
+          "estimatedTotalHours": 16.57,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005095/versions/1.0.2"
+        }
+      ],
+      "durationHours": 16.57,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005095/versions/1.0.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0254",
+      "name": "The time-course of feature-based attention effects dissociated from temporal expectation and target-related processes",
+      "accessions": [
+        {
+          "accession": "ds004043",
+          "snapshotTag": "1.1.0",
+          "subjects": 20,
+          "sampledSubjects": [
+            "01",
+            "11",
+            "20"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.941,
+          "estimatedTotalHours": 18.81,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004043/versions/1.1.0"
+        }
+      ],
+      "durationHours": 18.81,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004043/versions/1.1.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0255",
+      "name": "Visual Oddball Task (256 channels)",
+      "accessions": [
+        {
+          "accession": "ds002578",
+          "snapshotTag": "1.1.0",
+          "subjects": 2,
+          "sampledSubjects": [
+            "001",
+            "002"
+          ],
+          "sampledSignalFiles": 2,
+          "readableSignalFiles": 2,
+          "averageHoursPerSubject": 0.728,
+          "estimatedTotalHours": 1.46,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002578/versions/1.1.0"
+        }
+      ],
+      "durationHours": 1.46,
+      "durationSource": "calculated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002578/versions/1.1.0",
+      "note": "Calculated from every participant and every readable signal file in the cited OpenNeuro snapshot."
+    },
+    {
+      "id": "EEG-0257",
+      "name": "Auditory and Visual Rhythm Omission EEG",
+      "accessions": [
+        {
+          "accession": "ds002218",
+          "snapshotTag": "2.0.0",
+          "subjects": 18,
+          "sampledSubjects": [
+            "001",
+            "010",
+            "018"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.913,
+          "estimatedTotalHours": 16.43,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002218/versions/2.0.0"
+        }
+      ],
+      "durationHours": 16.43,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002218/versions/2.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0264",
+      "name": "Deaf Readers Semantic",
+      "accessions": [
+        {
+          "accession": "ds005296",
+          "snapshotTag": "1.0.1",
+          "subjects": 62,
+          "sampledSubjects": [
+            "27",
+            "5",
+            "20"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.587,
+          "estimatedTotalHours": 36.37,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005296/versions/1.0.1"
+        }
+      ],
+      "durationHours": 36.37,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005296/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0265",
+      "name": "Drum Trainer",
+      "accessions": [
+        {
+          "accession": "ds004152",
+          "snapshotTag": "1.1.2",
+          "subjects": 21,
+          "sampledSubjects": [
+            "01",
+            "11",
+            "21"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.709,
+          "estimatedTotalHours": 14.89,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004152/versions/1.1.2"
+        }
+      ],
+      "durationHours": 14.89,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004152/versions/1.1.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0268",
+      "name": "Face processing EEG dataset for EEGLAB",
+      "accessions": [
+        {
+          "accession": "ds002718",
+          "snapshotTag": "1.1.0",
+          "subjects": 18,
+          "sampledSubjects": [
+            "003",
+            "002",
+            "017"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.829,
+          "estimatedTotalHours": 14.92,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002718/versions/1.1.0"
+        }
+      ],
+      "durationHours": 14.92,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002718/versions/1.1.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0270",
+      "name": "HeartBEAM Older Adult Resting",
+      "accessions": [
+        {
+          "accession": "ds006466",
+          "snapshotTag": "1.0.1",
+          "subjects": 66,
+          "sampledSubjects": [
+            "EpicAwl",
+            "ManyAba",
+            "HewnMod",
+            "LiveRub",
+            "HepBleu",
+            "TornEra",
+            "EyedEgo",
+            "ShyCorn",
+            "EvenBox",
+            "PatPart",
+            "AvidJar",
+            "ArcoWeb",
+            "CalmJib",
+            "ShyStag",
+            "LealOca"
+          ],
+          "sampledSignalFiles": 288,
+          "readableSignalFiles": 288,
+          "averageHoursPerSubject": 2.007,
+          "estimatedTotalHours": 132.47,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006466/versions/1.0.1"
+        }
+      ],
+      "durationHours": 132.47,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006466/versions/1.0.1",
+      "note": "Estimated from 15 sampled BIDS participant(s); 288/288 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0281",
+      "name": "OpenNeuro ds006480",
+      "accessions": [
+        {
+          "accession": "ds006480",
+          "snapshotTag": "1.0.1",
+          "subjects": 68,
+          "sampledSubjects": [
+            "10",
+            "43",
+            "05"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.06,
+          "estimatedTotalHours": 72.1,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006480/versions/1.0.1"
+        }
+      ],
+      "durationHours": 72.1,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006480/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0282",
+      "name": "Python Reading Task EEG",
+      "accessions": [
+        {
+          "accession": "ds004771",
+          "snapshotTag": "1.0.0",
+          "subjects": 61,
+          "sampledSubjects": [
+            "001",
+            "031",
+            "061"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0,
+          "estimatedTotalHours": 0.02,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004771/versions/1.0.0"
+        }
+      ],
+      "durationHours": 0.02,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004771/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0283",
+      "name": "Runabout Mobile EEG Auditory Oddball",
+      "accessions": [
+        {
+          "accession": "ds003620",
+          "snapshotTag": "1.1.1",
+          "subjects": 44,
+          "sampledSubjects": [
+            "01",
+            "23",
+            "44"
+          ],
+          "sampledSignalFiles": 4,
+          "readableSignalFiles": 4,
+          "averageHoursPerSubject": 1.357,
+          "estimatedTotalHours": 59.7,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003620/versions/1.1.1"
+        }
+      ],
+      "durationHours": 59.7,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003620/versions/1.1.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 4/4 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0287",
+      "name": "VR ERP Experiment Dataset",
+      "accessions": [
+        {
+          "accession": "ds005841",
+          "snapshotTag": "1.0.0",
+          "subjects": 48,
+          "sampledSubjects": [
+            "003",
+            "018",
+            "017"
+          ],
+          "sampledSignalFiles": 18,
+          "readableSignalFiles": 18,
+          "averageHoursPerSubject": 0.466,
+          "estimatedTotalHours": 22.35,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005841/versions/1.0.0"
+        }
+      ],
+      "durationHours": 22.35,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005841/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 18/18 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0290",
+      "name": "ArEEG: Arabic Inner Speech EEG dataset",
+      "accessions": [
+        {
+          "accession": "ds005262",
+          "snapshotTag": "1.0.1",
+          "subjects": 12,
+          "sampledSubjects": [
+            "11",
+            "8",
+            "9"
+          ],
+          "sampledSignalFiles": 45,
+          "readableSignalFiles": 45,
+          "averageHoursPerSubject": 2.02,
+          "estimatedTotalHours": 24.24,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005262/versions/1.0.1"
+        }
+      ],
+      "durationHours": 24.24,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005262/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 45/45 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0295",
+      "name": "ChineseEEG",
+      "accessions": [
+        {
+          "accession": "ds004952",
+          "snapshotTag": "1.2.2",
+          "subjects": 10,
+          "sampledSubjects": [
+            "15",
+            "05",
+            "10",
+            "06",
+            "14",
+            "13",
+            "04",
+            "07",
+            "09",
+            "08"
+          ],
+          "sampledSignalFiles": 245,
+          "readableSignalFiles": 245,
+          "averageHoursPerSubject": 12.174,
+          "estimatedTotalHours": 121.74,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004952/versions/1.2.2"
+        }
+      ],
+      "durationHours": 121.74,
+      "durationSource": "calculated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004952/versions/1.2.2",
+      "note": "Calculated from every participant and every readable signal file in the cited OpenNeuro snapshot."
+    },
+    {
+      "id": "EEG-0297",
+      "name": "Chisco (Chinese Imagined Speech EEG Corpus)",
+      "accessions": [
+        {
+          "accession": "ds005170",
+          "snapshotTag": "1.1.2",
+          "subjects": 5,
+          "sampledSubjects": [
+            "03",
+            "01",
+            "05"
+          ],
+          "sampledSignalFiles": 135,
+          "readableSignalFiles": 135,
+          "averageHoursPerSubject": 20.981,
+          "estimatedTotalHours": 104.9,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005170/versions/1.1.2"
+        },
+        {
+          "accession": "ds006317",
+          "snapshotTag": "1.1.1",
+          "subjects": 2,
+          "sampledSubjects": [
+            "02",
+            "01"
+          ],
+          "sampledSignalFiles": 64,
+          "readableSignalFiles": 64,
+          "averageHoursPerSubject": 31.061,
+          "estimatedTotalHours": 62.12,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006317/versions/1.1.1"
+        }
+      ],
+      "durationHours": 167.02,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005170/versions/1.1.2",
+      "note": "Estimated from 5 sampled BIDS participant(s); 199/199 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0300",
+      "name": "EEG Semantic Imagination and Perception Dataset",
+      "accessions": [
+        {
+          "accession": "ds004306",
+          "snapshotTag": "1.0.2",
+          "subjects": 12,
+          "sampledSubjects": [
+            "010",
+            "016",
+            "08"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.267,
+          "estimatedTotalHours": 15.21,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004306/versions/1.0.2"
+        }
+      ],
+      "durationHours": 15.21,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004306/versions/1.0.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0301",
+      "name": "EEG-Speech Brain Decoding Dataset",
+      "accessions": [
+        {
+          "accession": "ds007808",
+          "snapshotTag": "1.0.0",
+          "subjects": 3,
+          "sampledSubjects": [
+            "01",
+            "02",
+            "03"
+          ],
+          "sampledSignalFiles": 1974,
+          "readableSignalFiles": 1974,
+          "averageHoursPerSubject": 340.016,
+          "estimatedTotalHours": 1020.05,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007808/versions/1.0.0"
+        }
+      ],
+      "durationHours": 1020.05,
+      "durationSource": "calculated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007808/versions/1.0.0",
+      "note": "Calculated from every participant and every readable signal file in the cited OpenNeuro snapshot."
+    },
+    {
+      "id": "EEG-0303",
+      "name": "LPPHK",
+      "accessions": [
+        {
+          "accession": "ds004718",
+          "snapshotTag": "1.1.2",
+          "subjects": 52,
+          "sampledSubjects": [
+            "HK038",
+            "HK018",
+            "HK013"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.427,
+          "estimatedTotalHours": 22.19,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004718/versions/1.1.2"
+        }
+      ],
+      "durationHours": 22.19,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004718/versions/1.1.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0304",
+      "name": "Multiband ABR to Continuous Speech",
+      "accessions": [
+        {
+          "accession": "ds008065",
+          "snapshotTag": "1.0.1",
+          "subjects": 62,
+          "sampledSubjects": [
+            "exp212",
+            "exp216",
+            "exp108",
+            "exp201",
+            "exp206",
+            "exp213",
+            "exp312",
+            "exp221",
+            "exp105",
+            "exp113",
+            "exp217",
+            "exp225",
+            "exp301",
+            "exp306",
+            "exp315"
+          ],
+          "sampledSignalFiles": 17,
+          "readableSignalFiles": 17,
+          "averageHoursPerSubject": 2.12,
+          "estimatedTotalHours": 131.46,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds008065/versions/1.0.1"
+        }
+      ],
+      "durationHours": 131.46,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds008065/versions/1.0.1",
+      "note": "Estimated from 15 sampled BIDS participant(s); 17/17 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0305",
+      "name": "Music and Speech Subcortical Responses EEG",
+      "accessions": [
+        {
+          "accession": "ds004356",
+          "snapshotTag": "2.2.1",
+          "subjects": 22,
+          "sampledSubjects": [
+            "01",
+            "12",
+            "24"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 2.032,
+          "estimatedTotalHours": 44.7,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004356/versions/2.2.1"
+        }
+      ],
+      "durationHours": 44.7,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004356/versions/2.2.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0306",
+      "name": "OpenNeuro ds004408 Continuous Naturalistic Speech EEG",
+      "accessions": [
+        {
+          "accession": "ds004408",
+          "snapshotTag": "1.0.8",
+          "subjects": 19,
+          "sampledSubjects": [
+            "001",
+            "010",
+            "019"
+          ],
+          "sampledSignalFiles": 60,
+          "readableSignalFiles": 60,
+          "averageHoursPerSubject": 1.075,
+          "estimatedTotalHours": 20.42,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004408/versions/1.0.8"
+        }
+      ],
+      "durationHours": 20.42,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004408/versions/1.0.8",
+      "note": "Estimated from 3 sampled BIDS participant(s); 60/60 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0307",
+      "name": "Silent Visual Reading EEG",
+      "accessions": [
+        {
+          "accession": "ds007058",
+          "snapshotTag": "1.1.1",
+          "subjects": 10,
+          "sampledSubjects": [
+            "1002",
+            "1001",
+            "1010"
+          ],
+          "sampledSignalFiles": 147,
+          "readableSignalFiles": 147,
+          "averageHoursPerSubject": 4.5,
+          "estimatedTotalHours": 45,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007058/versions/1.1.1"
+        }
+      ],
+      "durationHours": 45,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007058/versions/1.1.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 147/147 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0308",
+      "name": "Spanish Sentences Silent",
+      "accessions": [
+        {
+          "accession": "ds004279",
+          "snapshotTag": "1.1.2",
+          "subjects": 56,
+          "sampledSubjects": [
+            "046",
+            "062",
+            "042"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.893,
+          "estimatedTotalHours": 50.02,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004279/versions/1.1.2"
+        }
+      ],
+      "durationHours": 50.02,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004279/versions/1.1.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0309",
+      "name": "Speech-Decoding (articulation)",
+      "accessions": [
+        {
+          "accession": "ds006104",
+          "snapshotTag": "1.0.1",
+          "subjects": 24,
+          "sampledSubjects": [
+            "P07",
+            "S02",
+            "S06"
+          ],
+          "sampledSignalFiles": 7,
+          "readableSignalFiles": 7,
+          "averageHoursPerSubject": 1.901,
+          "estimatedTotalHours": 45.63,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006104/versions/1.0.1"
+        }
+      ],
+      "durationHours": 45.63,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006104/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 7/7 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0310",
+      "name": "TMNRED",
+      "accessions": [
+        {
+          "accession": "ds005383",
+          "snapshotTag": "1.0.0",
+          "subjects": 30,
+          "sampledSubjects": [
+            "01",
+            "16",
+            "30"
+          ],
+          "sampledSignalFiles": 24,
+          "readableSignalFiles": 24,
+          "averageHoursPerSubject": 0.278,
+          "estimatedTotalHours": 8.33,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005383/versions/1.0.0"
+        }
+      ],
+      "durationHours": 8.33,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005383/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 24/24 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0314",
+      "name": "Auditory Gamma Entrainment EEG",
+      "accessions": [
+        {
+          "accession": "ds003800",
+          "snapshotTag": "1.0.0",
+          "subjects": 13,
+          "sampledSubjects": [
+            "001",
+            "007",
+            "013"
+          ],
+          "sampledSignalFiles": 5,
+          "readableSignalFiles": 5,
+          "averageHoursPerSubject": 0.106,
+          "estimatedTotalHours": 1.37,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003800/versions/1.0.0"
+        }
+      ],
+      "durationHours": 1.37,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003800/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 5/5 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0316",
+      "name": "EEG, ECG and pupil data from young and older adults: rest and auditory cued reaction time tasks",
+      "accessions": [
+        {
+          "accession": "ds003690",
+          "snapshotTag": "1.0.0",
+          "subjects": 75,
+          "sampledSubjects": [
+            "AB10",
+            "AB53",
+            "AB9"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.63,
+          "estimatedTotalHours": 47.23,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003690/versions/1.0.0"
+        }
+      ],
+      "durationHours": 47.23,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003690/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 15/15 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0318",
+      "name": "LPP Multi-talker",
+      "accessions": [
+        {
+          "accession": "ds005345",
+          "snapshotTag": "1.0.1",
+          "subjects": 26,
+          "sampledSubjects": [
+            "11",
+            "18",
+            "16"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.723,
+          "estimatedTotalHours": 18.81,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005345/versions/1.0.1"
+        }
+      ],
+      "durationHours": 18.81,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005345/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0319",
+      "name": "MUSIN-G",
+      "accessions": [
+        {
+          "accession": "ds003774",
+          "snapshotTag": "1.0.2",
+          "subjects": 20,
+          "sampledSubjects": [
+            "001",
+            "011",
+            "020"
+          ],
+          "sampledSignalFiles": 36,
+          "readableSignalFiles": 36,
+          "averageHoursPerSubject": 0.432,
+          "estimatedTotalHours": 8.64,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003774/versions/1.0.2"
+        }
+      ],
+      "durationHours": 8.64,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003774/versions/1.0.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 36/36 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0323",
+      "name": "YOTO",
+      "accessions": [
+        {
+          "accession": "ds005815",
+          "snapshotTag": "2.0.1",
+          "subjects": 20,
+          "sampledSubjects": [
+            "10",
+            "22",
+            "05"
+          ],
+          "sampledSignalFiles": 12,
+          "readableSignalFiles": 12,
+          "averageHoursPerSubject": 0.298,
+          "estimatedTotalHours": 5.96,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005815/versions/2.0.1"
+        }
+      ],
+      "durationHours": 5.96,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005815/versions/2.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 12/12 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0332",
+      "name": "FakeFaceEmo_data",
+      "accessions": [
+        {
+          "accession": "ds004582",
+          "snapshotTag": "1.0.0",
+          "subjects": 73,
+          "sampledSubjects": [
+            "FFE001",
+            "FFE037",
+            "FFE152"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.477,
+          "estimatedTotalHours": 34.82,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004582/versions/1.0.0"
+        }
+      ],
+      "durationHours": 34.82,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004582/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0335",
+      "name": "PerceiveImagine",
+      "accessions": [
+        {
+          "accession": "ds005697",
+          "snapshotTag": "1.0.2",
+          "subjects": 52,
+          "sampledSubjects": [
+            "10",
+            "21",
+            "05"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.603,
+          "estimatedTotalHours": 83.33,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005697/versions/1.0.2"
+        }
+      ],
+      "durationHours": 83.33,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005697/versions/1.0.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0337",
+      "name": "THINGS-EEG1",
+      "accessions": [
+        {
+          "accession": "ds003825",
+          "snapshotTag": "1.2.0",
+          "subjects": 50,
+          "sampledSubjects": [
+            "01",
+            "26",
+            "50"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.871,
+          "estimatedTotalHours": 43.57,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003825/versions/1.2.0"
+        }
+      ],
+      "durationHours": 43.57,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003825/versions/1.2.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0339",
+      "name": "THINGS-MEG/EEG (NOD)",
+      "accessions": [
+        {
+          "accession": "ds005811",
+          "snapshotTag": "1.0.9",
+          "subjects": 19,
+          "sampledSubjects": [
+            "03",
+            "04",
+            "29"
+          ],
+          "sampledSignalFiles": 80,
+          "readableSignalFiles": 80,
+          "averageHoursPerSubject": 1.411,
+          "estimatedTotalHours": 26.8,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005811/versions/1.0.9"
+        }
+      ],
+      "durationHours": 26.8,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005811/versions/1.0.9",
+      "note": "Estimated from 3 sampled BIDS participant(s); 80/80 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0341",
+      "name": "ToonFaces",
+      "accessions": [
+        {
+          "accession": "ds004324",
+          "snapshotTag": "1.0.0",
+          "subjects": 26,
+          "sampledSubjects": [
+            "01",
+            "14",
+            "26"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.827,
+          "estimatedTotalHours": 21.51,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004324/versions/1.0.0"
+        }
+      ],
+      "durationHours": 21.51,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004324/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0342",
+      "name": "Visual Touch Perception EEG",
+      "accessions": [
+        {
+          "accession": "ds005662",
+          "snapshotTag": "2.0.1",
+          "subjects": 80,
+          "sampledSubjects": [
+            "77",
+            "39",
+            "09"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.997,
+          "estimatedTotalHours": 79.78,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005662/versions/2.0.1"
+        }
+      ],
+      "durationHours": 79.78,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005662/versions/2.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0348",
+      "name": "Urban Appraisal EEG",
+      "accessions": [
+        {
+          "accession": "ds006850",
+          "snapshotTag": "1.0.0",
+          "subjects": 63,
+          "sampledSubjects": [
+            "71",
+            "19",
+            "54"
+          ],
+          "sampledSignalFiles": 6,
+          "readableSignalFiles": 6,
+          "averageHoursPerSubject": 1.156,
+          "estimatedTotalHours": 72.84,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006850/versions/1.0.0"
+        }
+      ],
+      "durationHours": 72.84,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006850/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 6/6 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0385",
+      "name": "free walking study",
+      "accessions": [
+        {
+          "accession": "ds003039",
+          "snapshotTag": "1.0.2",
+          "subjects": 19,
+          "sampledSubjects": [
+            "003",
+            "013",
+            "009"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.944,
+          "estimatedTotalHours": 17.93,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003039/versions/1.0.2"
+        }
+      ],
+      "durationHours": 17.93,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003039/versions/1.0.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0390",
+      "name": "HD-SMR-BMI",
+      "accessions": [
+        {
+          "accession": "ds004444",
+          "snapshotTag": "1.0.1",
+          "subjects": 30,
+          "sampledSubjects": [
+            "001",
+            "016",
+            "030"
+          ],
+          "sampledSignalFiles": 41,
+          "readableSignalFiles": 41,
+          "averageHoursPerSubject": 1.632,
+          "estimatedTotalHours": 48.95,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004444/versions/1.0.1"
+        }
+      ],
+      "durationHours": 48.95,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004444/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 41/41 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0405",
+      "name": "MoBI-Gait",
+      "accessions": [
+        {
+          "accession": "ds001971",
+          "snapshotTag": "1.1.1",
+          "subjects": 20,
+          "sampledSubjects": [
+            "001",
+            "011",
+            "020"
+          ],
+          "sampledSignalFiles": 37,
+          "readableSignalFiles": 37,
+          "averageHoursPerSubject": 1.866,
+          "estimatedTotalHours": 37.32,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds001971/versions/1.1.1"
+        }
+      ],
+      "durationHours": 37.32,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds001971/versions/1.1.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 37/37 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0409",
+      "name": "OpenNeuro ds002336",
+      "accessions": [
+        {
+          "accession": "ds002336",
+          "snapshotTag": "2.0.2",
+          "subjects": 10,
+          "sampledSubjects": [
+            "xp101",
+            "xp106",
+            "xp110"
+          ],
+          "sampledSignalFiles": 16,
+          "readableSignalFiles": 16,
+          "averageHoursPerSubject": 0.564,
+          "estimatedTotalHours": 5.64,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002336/versions/2.0.2"
+        },
+        {
+          "accession": "ds002338",
+          "snapshotTag": "2.0.2",
+          "subjects": 17,
+          "sampledSubjects": [
+            "xp201",
+            "xp211",
+            "xp222"
+          ],
+          "sampledSignalFiles": 15,
+          "readableSignalFiles": 15,
+          "averageHoursPerSubject": 0.488,
+          "estimatedTotalHours": 8.29,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002338/versions/2.0.2"
+        }
+      ],
+      "durationHours": 13.93,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002336/versions/2.0.2",
+      "note": "Estimated from 6 sampled BIDS participant(s); 31/31 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0485",
+      "name": "Inner-Speech (Thinking-Out-Loud)",
+      "accessions": [
+        {
+          "accession": "ds003626",
+          "snapshotTag": "2.1.2",
+          "subjects": 10,
+          "sampledSubjects": [
+            "01",
+            "06",
+            "10"
+          ],
+          "sampledSignalFiles": 9,
+          "readableSignalFiles": 9,
+          "averageHoursPerSubject": 1.271,
+          "estimatedTotalHours": 12.71,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003626/versions/2.1.2"
+        }
+      ],
+      "durationHours": 12.71,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003626/versions/2.1.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 9/9 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0500",
+      "name": "EEG Pre",
+      "accessions": [
+        {
+          "accession": "ds007558",
+          "snapshotTag": "1.0.0",
+          "subjects": 67,
+          "sampledSubjects": [
+            "048",
+            "054",
+            "039"
+          ],
+          "sampledSignalFiles": 6,
+          "readableSignalFiles": 6,
+          "averageHoursPerSubject": 0.44,
+          "estimatedTotalHours": 29.51,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007558/versions/1.0.0"
+        }
+      ],
+      "durationHours": 29.51,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007558/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 6/6 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0502",
+      "name": "India + Tanzania Large-scale EEG Subset",
+      "accessions": [
+        {
+          "accession": "ds007358",
+          "snapshotTag": "1.0.0",
+          "subjects": 2000,
+          "sampledSubjects": [
+            "NEGA1921",
+            "CHMU1564",
+            "NEGA1522",
+            "THMA450",
+            "PORA2944",
+            "UPSA055",
+            "ANAN3218",
+            "VIDH2710",
+            "PORA3449",
+            "KESH2792",
+            "JOLA2605",
+            "ANAN3982",
+            "RARW758",
+            "LABE105",
+            "JOMO6066"
+          ],
+          "sampledSignalFiles": 45,
+          "readableSignalFiles": 45,
+          "averageHoursPerSubject": 0.134,
+          "estimatedTotalHours": 267.58,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007358/versions/1.0.0"
+        }
+      ],
+      "durationHours": 267.58,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007358/versions/1.0.0",
+      "note": "Estimated from 15 sampled BIDS participant(s); 45/45 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0503",
+      "name": "Juvenile Offenders Resting EEG",
+      "accessions": [
+        {
+          "accession": "ds006923",
+          "snapshotTag": "1.0.1",
+          "subjects": 140,
+          "sampledSubjects": [
+            "1069sg",
+            "2002cg",
+            "2070cg"
+          ],
+          "sampledSignalFiles": 6,
+          "readableSignalFiles": 6,
+          "averageHoursPerSubject": 0.267,
+          "estimatedTotalHours": 37.33,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006923/versions/1.0.1"
+        }
+      ],
+      "durationHours": 37.33,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006923/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 6/6 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0504",
+      "name": "MCEF-RS",
+      "accessions": [
+        {
+          "accession": "ds005305",
+          "snapshotTag": "1.0.1",
+          "subjects": 165,
+          "sampledSubjects": [
+            "001",
+            "083",
+            "165"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.085,
+          "estimatedTotalHours": 14.04,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005305/versions/1.0.1"
+        }
+      ],
+      "durationHours": 14.04,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005305/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0507",
+      "name": "Multi-session simultaneous EEG-fMRI with experience sampling",
+      "accessions": [
+        {
+          "accession": "ds007216",
+          "snapshotTag": "1.0.0",
+          "subjects": 24,
+          "sampledSubjects": [
+            "009",
+            "005",
+            "015"
+          ],
+          "sampledSignalFiles": 20,
+          "readableSignalFiles": 20,
+          "averageHoursPerSubject": 1.258,
+          "estimatedTotalHours": 30.19,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007216/versions/1.0.0"
+        }
+      ],
+      "durationHours": 30.19,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007216/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 20/20 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0509",
+      "name": "OpenNeuro ds006801 Resting-state EEG before",
+      "accessions": [
+        {
+          "accession": "ds006801",
+          "snapshotTag": "1.0.0",
+          "subjects": 21,
+          "sampledSubjects": [
+            "10",
+            "22",
+            "05"
+          ],
+          "sampledSignalFiles": 6,
+          "readableSignalFiles": 6,
+          "averageHoursPerSubject": 0.302,
+          "estimatedTotalHours": 6.33,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006801/versions/1.0.0"
+        }
+      ],
+      "durationHours": 6.33,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006801/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 6/6 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0511",
+      "name": "PREDICT",
+      "accessions": [
+        {
+          "accession": "ds005486",
+          "snapshotTag": "1.0.1",
+          "subjects": 159,
+          "sampledSubjects": [
+            "153",
+            "084",
+            "017"
+          ],
+          "sampledSignalFiles": 9,
+          "readableSignalFiles": 9,
+          "averageHoursPerSubject": 0.39,
+          "estimatedTotalHours": 62.02,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005486/versions/1.0.1"
+        }
+      ],
+      "durationHours": 62.02,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005486/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 9/9 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0516",
+      "name": "Single-pulse open-loop TMS-EEG Dataset",
+      "accessions": [
+        {
+          "accession": "ds002094",
+          "snapshotTag": "1.0.0",
+          "subjects": 20,
+          "sampledSubjects": [
+            "283",
+            "761",
+            "786"
+          ],
+          "sampledSignalFiles": 6,
+          "readableSignalFiles": 6,
+          "averageHoursPerSubject": 0.958,
+          "estimatedTotalHours": 19.16,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002094/versions/1.0.0"
+        }
+      ],
+      "durationHours": 19.16,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002094/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 6/6 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0525",
+      "name": "Average Task Value",
+      "accessions": [
+        {
+          "accession": "ds004147",
+          "snapshotTag": "1.0.2",
+          "subjects": 12,
+          "sampledSubjects": [
+            "27",
+            "33",
+            "38"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.824,
+          "estimatedTotalHours": 9.88,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004147/versions/1.0.2"
+        }
+      ],
+      "durationHours": 9.88,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004147/versions/1.0.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0530",
+      "name": "Braille letters - EEG",
+      "accessions": [
+        {
+          "accession": "ds004951",
+          "snapshotTag": "1.0.0",
+          "subjects": 11,
+          "sampledSubjects": [
+            "02",
+            "15",
+            "20"
+          ],
+          "sampledSignalFiles": 4,
+          "readableSignalFiles": 4,
+          "averageHoursPerSubject": 1.843,
+          "estimatedTotalHours": 20.27,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004951/versions/1.0.0"
+        }
+      ],
+      "durationHours": 20.27,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004951/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 4/4 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0531",
+      "name": "Capacity for movement is an organisational principle in object representations: EEG data from Experiment 1",
+      "accessions": [
+        {
+          "accession": "ds003885",
+          "snapshotTag": "1.0.8",
+          "subjects": 24,
+          "sampledSubjects": [
+            "01",
+            "13",
+            "24"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.092,
+          "estimatedTotalHours": 26.21,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003885/versions/1.0.8"
+        }
+      ],
+      "durationHours": 26.21,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003885/versions/1.0.8",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0532",
+      "name": "Capacity for movement is an organisational principle in object representations: EEG data from Experiment 2",
+      "accessions": [
+        {
+          "accession": "ds003887",
+          "snapshotTag": "1.2.3",
+          "subjects": 24,
+          "sampledSubjects": [
+            "01",
+            "13",
+            "24"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.099,
+          "estimatedTotalHours": 26.37,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003887/versions/1.2.3"
+        }
+      ],
+      "durationHours": 26.37,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003887/versions/1.2.3",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0533",
+      "name": "COVID-19 Survivors and Close Contacts EEG",
+      "accessions": [
+        {
+          "accession": "ds007823",
+          "snapshotTag": "1.0.3",
+          "subjects": 173,
+          "sampledSubjects": [
+            "CUCOV027",
+            "CUCOV007",
+            "CUCOV119"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.218,
+          "estimatedTotalHours": 37.68,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds007823/versions/1.0.3"
+        }
+      ],
+      "durationHours": 37.68,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds007823/versions/1.0.3",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0534",
+      "name": "CRYPTO and PROVIDE EEG Baseline Data",
+      "accessions": [
+        {
+          "accession": "ds002181",
+          "snapshotTag": "1.0.0",
+          "subjects": 226,
+          "sampledSubjects": [
+            "1473",
+            "1681",
+            "3401"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.026,
+          "estimatedTotalHours": 5.8,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002181/versions/1.0.0"
+        }
+      ],
+      "durationHours": 5.8,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002181/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0535",
+      "name": "Edzna VR Visual",
+      "accessions": [
+        {
+          "accession": "ds005628",
+          "snapshotTag": "1.0.0",
+          "subjects": 102,
+          "sampledSubjects": [
+            "30p",
+            "10",
+            "35p"
+          ],
+          "sampledSignalFiles": 9,
+          "readableSignalFiles": 9,
+          "averageHoursPerSubject": 0.189,
+          "estimatedTotalHours": 19.25,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005628/versions/1.0.0"
+        }
+      ],
+      "durationHours": 19.25,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005628/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 9/9 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0536",
+      "name": "eeg-neuroforecasting",
+      "accessions": [
+        {
+          "accession": "ds004284",
+          "snapshotTag": "1.0.0",
+          "subjects": 18,
+          "sampledSubjects": [
+            "104",
+            "113",
+            "121"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.52,
+          "estimatedTotalHours": 9.36,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004284/versions/1.0.0"
+        }
+      ],
+      "durationHours": 9.36,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004284/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0540",
+      "name": "Electroencephalographic responses to the number of objects in partially occluded and uncovered scenes",
+      "accessions": [
+        {
+          "accession": "ds005586",
+          "snapshotTag": "2.0.0",
+          "subjects": 23,
+          "sampledSubjects": [
+            "001",
+            "012",
+            "023"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.59,
+          "estimatedTotalHours": 36.57,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005586/versions/2.0.0"
+        }
+      ],
+      "durationHours": 36.57,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005586/versions/2.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0542",
+      "name": "Features-EEG",
+      "accessions": [
+        {
+          "accession": "ds004357",
+          "snapshotTag": "1.0.1",
+          "subjects": 16,
+          "sampledSubjects": [
+            "01",
+            "09",
+            "16"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.787,
+          "estimatedTotalHours": 12.59,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004357/versions/1.0.1"
+        }
+      ],
+      "durationHours": 12.59,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004357/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0544",
+      "name": "Go-nogo Categorization and Detection Task",
+      "accessions": [
+        {
+          "accession": "ds002680",
+          "snapshotTag": "1.2.0",
+          "subjects": 14,
+          "sampledSubjects": [
+            "002",
+            "009",
+            "015"
+          ],
+          "sampledSignalFiles": 75,
+          "readableSignalFiles": 75,
+          "averageHoursPerSubject": 1.437,
+          "estimatedTotalHours": 20.12,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002680/versions/1.2.0"
+        }
+      ],
+      "durationHours": 20.12,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002680/versions/1.2.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 75/75 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0545",
+      "name": "HD-EEG Naming/Spelling",
+      "accessions": [
+        {
+          "accession": "ds003420",
+          "snapshotTag": "1.0.2",
+          "subjects": 23,
+          "sampledSubjects": [
+            "01",
+            "12",
+            "23"
+          ],
+          "sampledSignalFiles": 12,
+          "readableSignalFiles": 12,
+          "averageHoursPerSubject": 0.588,
+          "estimatedTotalHours": 13.52,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003420/versions/1.0.2"
+        }
+      ],
+      "durationHours": 13.52,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003420/versions/1.0.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 12/12 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0547",
+      "name": "Illusion of Agency over Electrically-Actuated Movements",
+      "accessions": [
+        {
+          "accession": "ds004561",
+          "snapshotTag": "1.0.0",
+          "subjects": 23,
+          "sampledSubjects": [
+            "01",
+            "13",
+            "25"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.538,
+          "estimatedTotalHours": 12.37,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004561/versions/1.0.0"
+        }
+      ],
+      "durationHours": 12.37,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004561/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0548",
+      "name": "IllusionGameEEG",
+      "accessions": [
+        {
+          "accession": "ds004587",
+          "snapshotTag": "1.0.0",
+          "subjects": 103,
+          "sampledSubjects": [
+            "FFE001",
+            "FFE052",
+            "FFE153"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.249,
+          "estimatedTotalHours": 25.62,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004587/versions/1.0.0"
+        }
+      ],
+      "durationHours": 25.62,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004587/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0550",
+      "name": "Neural representation of consciously seen and unseen information",
+      "accessions": [
+        {
+          "accession": "ds005273",
+          "snapshotTag": "1.0.0",
+          "subjects": 33,
+          "sampledSubjects": [
+            "10",
+            "26",
+            "42"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.795,
+          "estimatedTotalHours": 59.25,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005273/versions/1.0.0"
+        }
+      ],
+      "durationHours": 59.25,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005273/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0551",
+      "name": "NeuroTechs STEM Skills EEG",
+      "accessions": [
+        {
+          "accession": "ds006803",
+          "snapshotTag": "1.1.1",
+          "subjects": 63,
+          "sampledSubjects": [
+            "27e",
+            "09c",
+            "03e"
+          ],
+          "sampledSignalFiles": 6,
+          "readableSignalFiles": 6,
+          "averageHoursPerSubject": 0.724,
+          "estimatedTotalHours": 45.6,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006803/versions/1.1.1"
+        }
+      ],
+      "durationHours": 45.6,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006803/versions/1.1.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 6/6 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0553",
+      "name": "OpenNeuro ds006171",
+      "accessions": [
+        {
+          "accession": "ds006171",
+          "snapshotTag": "1.0.0",
+          "subjects": 36,
+          "sampledSubjects": [
+            "18",
+            "23",
+            "26"
+          ],
+          "sampledSignalFiles": 9,
+          "readableSignalFiles": 9,
+          "averageHoursPerSubject": 1.161,
+          "estimatedTotalHours": 41.81,
+          "methods": [
+            "EDF/BDF header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006171/versions/1.0.0"
+        }
+      ],
+      "durationHours": 41.81,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006171/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 9/9 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0554",
+      "name": "OpenNeuro ds006437",
+      "accessions": [
+        {
+          "accession": "ds006437",
+          "snapshotTag": "1.1.0",
+          "subjects": 9,
+          "sampledSubjects": [
+            "003",
+            "001",
+            "006"
+          ],
+          "sampledSignalFiles": 21,
+          "readableSignalFiles": 21,
+          "averageHoursPerSubject": 1.717,
+          "estimatedTotalHours": 15.46,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006437/versions/1.1.0"
+        }
+      ],
+      "durationHours": 15.46,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006437/versions/1.1.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 21/21 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0555",
+      "name": "OpenNeuro ds006446",
+      "accessions": [
+        {
+          "accession": "ds006446",
+          "snapshotTag": "1.0.0",
+          "subjects": 29,
+          "sampledSubjects": [
+            "P01",
+            "P27",
+            "P05"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.66,
+          "estimatedTotalHours": 19.13,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006446/versions/1.0.0"
+        }
+      ],
+      "durationHours": 19.13,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006446/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0556",
+      "name": "OpenNeuro ds006547",
+      "accessions": [
+        {
+          "accession": "ds006547",
+          "snapshotTag": "1.0.0",
+          "subjects": 31,
+          "sampledSubjects": [
+            "18",
+            "23",
+            "26"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.004,
+          "estimatedTotalHours": 31.13,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006547/versions/1.0.0"
+        }
+      ],
+      "durationHours": 31.13,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006547/versions/1.0.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0557",
+      "name": "PES - Pandemic Emergency Scenario",
+      "accessions": [
+        {
+          "accession": "ds004477",
+          "snapshotTag": "1.0.2",
+          "subjects": 9,
+          "sampledSubjects": [
+            "001",
+            "005",
+            "009"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.43,
+          "estimatedTotalHours": 12.87,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004477/versions/1.0.2"
+        }
+      ],
+      "durationHours": 12.87,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004477/versions/1.0.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0559",
+      "name": "Prediction Error",
+      "accessions": [
+        {
+          "accession": "ds003846",
+          "snapshotTag": "2.0.2",
+          "subjects": 19,
+          "sampledSubjects": [
+            "15",
+            "07",
+            "09"
+          ],
+          "sampledSignalFiles": 8,
+          "readableSignalFiles": 8,
+          "averageHoursPerSubject": 1.228,
+          "estimatedTotalHours": 23.33,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds003846/versions/2.0.2"
+        }
+      ],
+      "durationHours": 23.33,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds003846/versions/2.0.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 8/8 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0561",
+      "name": "Search Superiority Recollection Familiarity",
+      "accessions": [
+        {
+          "accession": "ds005189",
+          "snapshotTag": "1.0.1",
+          "subjects": 30,
+          "sampledSubjects": [
+            "01",
+            "16",
+            "30"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.682,
+          "estimatedTotalHours": 20.46,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005189/versions/1.0.1"
+        }
+      ],
+      "durationHours": 20.46,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005189/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0562",
+      "name": "Siefert2024",
+      "accessions": [
+        {
+          "accession": "ds005121",
+          "snapshotTag": "1.0.2",
+          "subjects": 34,
+          "sampledSubjects": [
+            "01",
+            "18",
+            "34"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 1.197,
+          "estimatedTotalHours": 40.7,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds005121/versions/1.0.2"
+        }
+      ],
+      "durationHours": 40.7,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds005121/versions/1.0.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0563",
+      "name": "Simultaneous EEG-fMRI Speeded Discrimination Dataset",
+      "accessions": [
+        {
+          "accession": "ds002158",
+          "snapshotTag": "1.0.2",
+          "subjects": 20,
+          "sampledSubjects": [
+            "02",
+            "04",
+            "08",
+            "09",
+            "10",
+            "12",
+            "13",
+            "15",
+            "16",
+            "17",
+            "19",
+            "20",
+            "21",
+            "24",
+            "26"
+          ],
+          "sampledSignalFiles": 91,
+          "readableSignalFiles": 91,
+          "averageHoursPerSubject": 0.873,
+          "estimatedTotalHours": 17.46,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds002158/versions/1.0.2"
+        }
+      ],
+      "durationHours": 17.46,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds002158/versions/1.0.2",
+      "note": "Estimated from 15 sampled BIDS participant(s); 91/91 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0565",
+      "name": "Steer the Ship",
+      "accessions": [
+        {
+          "accession": "ds004264",
+          "snapshotTag": "1.1.0",
+          "subjects": 21,
+          "sampledSubjects": [
+            "01",
+            "11",
+            "21"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.342,
+          "estimatedTotalHours": 7.19,
+          "methods": [
+            "BrainVision header"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004264/versions/1.1.0"
+        }
+      ],
+      "durationHours": 7.19,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004264/versions/1.1.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0566",
+      "name": "The effects of sham hypnosis techniques",
+      "accessions": [
+        {
+          "accession": "ds004572",
+          "snapshotTag": "1.3.2",
+          "subjects": 52,
+          "sampledSubjects": [
+            "12",
+            "34",
+            "04"
+          ],
+          "sampledSignalFiles": 30,
+          "readableSignalFiles": 30,
+          "averageHoursPerSubject": 1.03,
+          "estimatedTotalHours": 53.57,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004572/versions/1.3.2"
+        }
+      ],
+      "durationHours": 53.57,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004572/versions/1.3.2",
+      "note": "Estimated from 3 sampled BIDS participant(s); 30/30 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0567",
+      "name": "TMS-EEG-MRI-fMRI-DWI ccPAS Dataset",
+      "accessions": [
+        {
+          "accession": "ds004024",
+          "snapshotTag": "1.0.1",
+          "subjects": 13,
+          "sampledSubjects": [
+            "CON001",
+            "CON020",
+            "CON031"
+          ],
+          "sampledSignalFiles": 119,
+          "readableSignalFiles": 119,
+          "averageHoursPerSubject": 4.387,
+          "estimatedTotalHours": 57.03,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004024/versions/1.0.1"
+        }
+      ],
+      "durationHours": 57.03,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004024/versions/1.0.1",
+      "note": "Estimated from 3 sampled BIDS participant(s); 119/119 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0569",
+      "name": "Visual Attribute-Specific Contextual Trajectory Paradigm",
+      "accessions": [
+        {
+          "accession": "ds004603",
+          "snapshotTag": "1.1.0",
+          "subjects": 37,
+          "sampledSubjects": [
+            "01",
+            "19",
+            "37"
+          ],
+          "sampledSignalFiles": 3,
+          "readableSignalFiles": 3,
+          "averageHoursPerSubject": 0.849,
+          "estimatedTotalHours": 31.42,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds004603/versions/1.1.0"
+        }
+      ],
+      "durationHours": 31.42,
+      "durationSource": "estimated",
+      "sourceUrl": "https://openneuro.org/datasets/ds004603/versions/1.1.0",
+      "note": "Estimated from 3 sampled BIDS participant(s); 3/3 sampled signal files had usable duration metadata or headers."
+    },
+    {
+      "id": "EEG-0575",
+      "name": "Simultaneous EEG-fMRI Inner Speech Dataset",
+      "accessions": [
+        {
+          "accession": "ds006033",
+          "snapshotTag": "1.0.1",
+          "subjects": 3,
+          "sampledSubjects": [
+            "01",
+            "02",
+            "03"
+          ],
+          "sampledSignalFiles": 5,
+          "readableSignalFiles": 5,
+          "averageHoursPerSubject": 0.729,
+          "estimatedTotalHours": 2.19,
+          "methods": [
+            "BIDS RecordingDuration"
+          ],
+          "sourceUrl": "https://openneuro.org/datasets/ds006033/versions/1.0.1"
+        }
+      ],
+      "durationHours": 2.19,
+      "durationSource": "calculated",
+      "sourceUrl": "https://openneuro.org/datasets/ds006033/versions/1.0.1",
+      "note": "Calculated from every participant and every readable signal file in the cited OpenNeuro snapshot."
+    }
+  ],
+  "failures": [
+    {
+      "id": "EEG-0101",
+      "name": "VEPCON",
+      "accessions": [
+        "ds003505"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0153",
+      "name": "BCIT Driving",
+      "accessions": [
+        "ds004118",
+        "ds004120",
+        "ds004121",
+        "ds004122"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0174",
+      "name": "DENS",
+      "accessions": [
+        "ds003751"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0291",
+      "name": "Bimodal Inner-Speech (EEG-fMRI)",
+      "accessions": [
+        "ds004197"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0334",
+      "name": "Infant-200-Objects",
+      "accessions": [
+        "ds005106"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0343",
+      "name": "Visual-Object-Recognition (Xue)",
+      "accessions": [
+        "ds005589"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0344",
+      "name": "Zhang MEG+EEG Object Recognition Dataset",
+      "accessions": [
+        "ds000117"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0379",
+      "name": "Cross-Environment Multi-Paradigm Motor Imagery EEG",
+      "accessions": [
+        "ds007221"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0508",
+      "name": "Oklahoma Resting EEG",
+      "accessions": [
+        "ds006525"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0541",
+      "name": "Evidence accumulation Perithreshold Tactile detection task with confidence",
+      "accessions": [
+        "ds001785"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0564",
+      "name": "SomatoMotor",
+      "accessions": [
+        "ds006035"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0573",
+      "name": "Simultaneous EEG-fMRI Auditory and Visual Oddball Dataset",
+      "accessions": [
+        "ds000116"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0574",
+      "name": "Simultaneous EEG-fMRI Confidence in Perceptual Decisions",
+      "accessions": [
+        "ds002739"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    },
+    {
+      "id": "EEG-0576",
+      "name": "Simultaneous EEG-fMRI Sustained Attention gradCPT with DWI",
+      "accessions": [
+        "ds006040"
+      ],
+      "reason": "No readable BIDS duration or EDF/BDF/BrainVision header in sampled participant(s)"
+    }
+  ]
+}

@@ -19,6 +19,7 @@ type CatalogRow = {
   durationBasis?: string;
   durationEvidence?: string;
   durationEvidenceUrl?: string;
+  durationSource?: "reported" | "calculated" | "estimated";
   completenessScore: number;
   completenessMax: number;
 };
@@ -186,6 +187,7 @@ export function CatalogExplorer({ rows, categoryStats }: { rows: CatalogRow[]; c
                   <td>{row.subjectsDisplay ?? "未给出"}</td>
                   <td>
                     {row.durationHours == null ? "未给出" : `${row.durationHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h`}
+                    {row.durationSource ? <span className={`evidence evidence-${row.durationSource}`}>{row.durationSource}</span> : null}
                     {row.durationHours != null && row.durationBasis ? <small>{row.durationBasis}</small> : null}
                   </td>
                   <td>{row.format ?? "未给出"}</td>

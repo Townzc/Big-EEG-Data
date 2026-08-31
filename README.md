@@ -85,6 +85,8 @@ npm run verify:openneuro
 - 工作簿：`EEG_healthcare_disease_catalog_20260823.xlsx`（仅保留 README、最终唯一下载清单、修订记录 3 个工作表）
 - 网页入口：`app/page.tsx`
 - 网页数据：`public/catalog-data.json`
+- EEG 时长审计 overlay：`data/eeg-openneuro-duration-audit.json`（不改原 EEG JSON）
+- EEG 时长审计脚本：`scripts/audit_openneuro_eeg_durations.mjs`
 - 全目录获取/预处理快照：`data/eeg-progress.ts`
 - 下载清单：`public/download-checklist.csv`
 - 服务器状态快照：`data/server_focus_status_20260804.json`
@@ -120,10 +122,11 @@ NeuroAtlas 的 42 个评测来源中，原目录已经覆盖 36 个，本轮补�
 
 ## 当前下载状态
 
-### 2026-08-30 全类别目录与数据预处理口径
+### 2026-08-31 全类别目录与数据预处理口径
 
 - 完整 EEG catalog 为 563 个 canonical 下载单元；544 个有可解释的来源受试者数，已知下界合计 265,630 个 dataset-subject entries。该数字不声称是跨数据集去重后的唯一人数。
-- 94/563 个单元有可相加的时长证据，逐行原始合计 308,233.5 h；这94行全部属于147个疾病/健康重点单元，其余416个非重点单元目前没有可加总时长。综合来源级去重证据，当前可报告的已知覆盖约为 346,490.7 h；563个单元的实际总时长尚未闭合，预计更高。30.82万小时只用于逐行证据核对，不应作为全目录最终总时长。
+- 原始 EEG JSON 的 94 个时长值保持不变；新增 OpenNeuro overlay 后，217/563 个单元有逐行时长证据，原始行相加为 324,764.9 h。综合既有疾病/健康来源级并集与本轮非重点 OpenNeuro canonical 条目，当前全目录已知覆盖约 363,022.2 h。仍有 346 行未知，不能当作 0，因而 36.30 万小时仍不是 563 行的最终上限。
+- “疾病/临床”共 109 个重点单元，其中 72 个有逐行时长，原始相加 142,241.8 h；剔除已知包含在 TUEG 父集内的 TUEP、TUEV、TUSL、TUSZ、TUAB 五个子集后，当前可核验疾病/临床覆盖约 138,822.9 h。页面把这个值与完整目录约 363,022.2 h 分开显示。
 - 将全类别服务器审计、新增疾病/健康下载 overlay 与 563 行 canonical catalog 合并后，273 个唯一目录单元有完成证据；旧审计表在 catalog 去重前有 280 个 `COMPLETED` 状态行。
 - SeaWulf `datasets/` 当前约 14 TiB；GPFS 约剩 2.4 TiB。
 - 严格终端验证完成 52/101 个预处理目标（47 个 disease-v1 目标 + 5 个 baseline，共 54 adapters）：122,219 outputs、21,319 adapter-level subject entries、42,692.2 signal-hours、1,659,549 event rows、1,607,042,726,768 derivative bytes。
@@ -133,7 +136,30 @@ NeuroAtlas 的 42 个评测来源中，原目录已经覆盖 36 个，本轮补�
 
 疾病/健康重点清单使用研究队列属性而不是关键词硬分：有临床诊断、患者招募、医院监测、疾病预后/治疗或病例-对照设计的归为“疾病/临床”，其中的健康对照仍随主研究目标归疾病；健康参考、生命周期、流行病学、孕产妇、衰老或风险表型归为“健康/人群”，不会把量表高分直接当作确诊。睡眠分期/PSG 先按任务轴保留睡眠类别，再用第二轴标记临床属性。
 
-`346,490.7 h` 是 147 个疾病/健康重点单元的来源级去重覆盖估计，不是 563 行全目录的最终总时长，也不是把网页各行直接相加的结果。94 个有时长行原始相加为 `308,233.5 h`，但含父集/子集或重复队列；其余 416 个目录单元目前没有可加总时长，因此完整 563 行总时长仍未闭合。
+`346,490.7 h` 仍是 147 个疾病/健康重点单元的来源级去重覆盖估计。新审计在此基础上增加 123 个非重点 OpenNeuro canonical 条目的 `16,531.41 h`，得到全目录当前来源级已知覆盖约 `363,022.2 h`。逐行口径为 217 行、`324,764.9 h`，因为逐行相加包含已知父集/子集；两种数字用途不同，页面同时列出分母与方法。
+
+## EEG OpenNeuro 时长审计
+
+本轮系统检查了完整目录中原来没有时长、且具有 OpenNeuro accession 的 137 个非重点 EEG 条目。123 个得到可复算的时长，14 个因 BIDS sidecar 与受支持信号头都没有足够时长信息而保持 Unknown；123 个新增条目合计 `16,531.41 h`。其中 4 个读取了全部被试和全部信号文件，标为 `calculated`；119 个按均匀抽取的 BIDS participants 外推，标为 `estimated`，不会冒充官网报告值。
+
+审计按以下顺序取证：BIDS `RecordingDuration` → EDF/BDF header → BrainVision header。多数队列抽取 3 名被试；PEERS、PURSUE、India/Tanzania、Dortmund Vital 等高影响或高异质性条目扩展到最多 15 名被试。PEERS 的 OpenNeuro README 另称五个实验累计超过 7,000 个 90 分钟 session，但当前 snapshot 只列出其中三个实验，所以网页采用 snapshot 文件证据的估算值，不直接把论文级总数塞入该行。
+
+- BIDS EEG 规范：<https://bids-specification.readthedocs.io/en/v1.7.0/04-modality-specific-files/03-electroencephalography.html>
+- OpenNeuro 下载说明：<https://docs.openneuro.org/user-guide/>
+- PEERS OpenNeuro snapshot：<https://openneuro.org/datasets/ds004395/versions/2.0.0>
+- EEG-Speech 175 h 论文：<https://arxiv.org/abs/2407.07595>
+
+重新运行或扩大抽样：
+
+```powershell
+# 全部 137 个候选，默认每个 accession 均匀抽取 3 名被试
+node scripts/audit_openneuro_eeg_durations.mjs --samples=3 --workers=24
+
+# 针对高影响条目扩大抽样，并保留其他已有记录
+node scripts/audit_openneuro_eeg_durations.mjs --ids=EEG-0239,EEG-0502 --samples=15 --resume --replace
+```
+
+### 疾病/健康下载执行状态
 
 - 疾病/健康重点范围共 147 个下载单元；其中 129 个有来源报告的受试者数，合计 99,537 个 dataset-subject entries（非跨数据集去重人数）。DOD-H（25 名健康志愿者）与 DOD-O（55 名 OSA 患者）已拆成两个下载单元，避免人数合并后整体误归 Health。
 - 服务器完成目录/下载单元：81（含 TUH 重叠子集及非 raw 排除项）。
@@ -184,7 +210,8 @@ $env:NODE_PATH = 'C:\Users\tangzhice\.cache\codex-runtimes\codex-primary-runtime
 ## 统计口径
 
 - 43,627.8 h 是当前已下载文件审计口径。
-- 346,490.7 h 是疾病/健康数据源级去重覆盖估计；其中约 302,862.9 h 尚未进入本地文件审计。
+- 138,822.9 h 是疾病/临床已知行剔除明确 TUEG 子集重叠后的当前可核验覆盖；未知疾病条目不计为 0。
+- 363,022.2 h 是全目录当前来源级已知覆盖，包含疾病/健康来源并集 346,490.7 h 与非重点 OpenNeuro 审计 16,531.41 h；其中大量数值仍是论文/官网或 BIDS 抽样估算，不等于本地文件精确审计。
 - 受试者统计为来源报告的 dataset-subject entries，不声称是跨数据集去重后的全球唯一人数。
 - REVE 的 61,415 h 是其预训练汇编与预处理口径，两者不可直接相减为下载缺口。
 - 未获得官方总时长的条目保持空白，不以“人数 × 假设时长”制造精确值。

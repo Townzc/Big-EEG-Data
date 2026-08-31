@@ -4,6 +4,7 @@ import { CatalogExplorer } from "./CatalogExplorer";
 import { DownloadChecklist } from "./DownloadChecklist";
 import { ModalitySwitcher } from "./ModalitySwitcher";
 import { eegProgress } from "../data/eeg-progress";
+import { categoryDurationStats, eegCatalogRows, eegDurationSummary } from "../data/eeg-duration";
 
 export const metadata: Metadata = {
   title: "Big Data of EEG",
@@ -11,12 +12,12 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const reve = data.reveComparison;
   const neuro = data.neuroAtlasComparison;
   const focus = neuro.focusCoverage;
-  const union = neuro.sourceUnion;
   const acquisition = data.metrics.acquisition;
   const catalogScale = eegProgress.catalog;
+  const duration = eegDurationSummary;
+  const durationCategories = categoryDurationStats(eegProgress.categories);
 
   return (
     <>
@@ -46,7 +47,7 @@ export default function Home() {
             <p className="eyebrow">EEG DATASET CATALOG · 2026</p>
             <h1 id="hero-title">Big Data of EEG</h1>
             <p className="hero-lead">
-              {catalogScale.units} 个 EEG 下载单元；{catalogScale.subjectKnownUnits} 个有受试者信息，已知下界 {catalogScale.subjectEntryLowerBound.toLocaleString("en-US")} 个 dataset-subject entries。当前来源级去重覆盖估计约 {catalogScale.sourceDeduplicatedCoverageEstimateHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h；完整563个单元的实际总时长尚未闭合。
+              {catalogScale.units} 个 EEG 下载单元；{catalogScale.subjectKnownUnits} 个有受试者信息，已知下界 {catalogScale.subjectEntryLowerBound.toLocaleString("en-US")} 个 dataset-subject entries。疾病/临床队列目前可核验约 {duration.disease.knownOverlapAdjustedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h；加入本轮 OpenNeuro BIDS 时长审计后，全目录来源级已知覆盖约 {duration.catalog.sourceLevelKnownCoverageHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。缺失值不按 0 计入。
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#catalog">浏览完整目录</a>
@@ -55,9 +56,9 @@ export default function Home() {
           </div>
           <dl className="specs" aria-label="总表规格">
             <div><dt>DATASETS</dt><dd>{data.metrics.finalUniqueUnits}</dd></div>
-            <div><dt>SUBJECT ENTRIES</dt><dd>{catalogScale.subjectEntryLowerBound.toLocaleString("en-US")}+</dd></div>
-            <div><dt>KNOWN COVERAGE</dt><dd>≈{Math.round(catalogScale.sourceDeduplicatedCoverageEstimateHours).toLocaleString("en-US")}</dd></div>
-            <div><dt>SERVER COMPLETE</dt><dd>{eegProgress.acquisition.uniqueCatalogUnitsWithCompletionEvidence}</dd></div>
+            <div><dt>DISEASE / CLINICAL</dt><dd>≈{(duration.disease.knownOverlapAdjustedHours / 1000).toFixed(1)}K h</dd></div>
+            <div><dt>ALL KNOWN COVERAGE</dt><dd>≈{(duration.catalog.sourceLevelKnownCoverageHours / 1000).toFixed(1)}K h</dd></div>
+            <div><dt>ROW-LEVEL HOURS</dt><dd>{duration.catalog.rowLevelKnownUnits}/{duration.catalog.units}</dd></div>
           </dl>
         </section>
 
@@ -69,7 +70,7 @@ export default function Home() {
             </div>
             <p>默认按资料完整度排序；缺少受试者、通道、采样率、格式、入口或时长的条目自动后置。</p>
           </div>
-          <CatalogExplorer rows={data.catalogRows} categoryStats={data.categoryStats} />
+          <CatalogExplorer rows={eegCatalogRows} categoryStats={data.categoryStats} />
         </section>
 
         <section className="download-section" id="downloads" aria-labelledby="downloads-title">
@@ -92,36 +93,36 @@ export default function Home() {
           <div className="section-heading compact-heading">
             <div>
               <p className="eyebrow">NEUROATLAS COMPARISON</p>
-              <h2 id="neuroatlas-title">疾病/健康去重覆盖约 {(union.extendedHours / 10000).toFixed(2)} 万小时</h2>
+              <h2 id="neuroatlas-title">全目录已知覆盖约 {(duration.catalog.sourceLevelKnownCoverageHours / 10000).toFixed(2)} 万小时</h2>
             </div>
-            <p>NeuroAtlas 的脑龄任务复用睡眠队列，不重复叠加；全部数字按数据源层级去重。</p>
+            <p>疾病类与全目录分列；reported、calculated 与 estimated 分开保留，未知时长不作为 0。</p>
           </div>
 
           <div className="reve-grid">
             <div className="reve-summary">
-              <div className="primary-metric"><span>疾病/健康来源覆盖</span><strong>≈{union.extendedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
-              <div><span>NeuroAtlas 全基准</span><strong>≈{neuro.paper.hoursRounded.toLocaleString("en-US")} h</strong></div>
-              <div><span>超出 NeuroAtlas</span><strong>+{union.exceedsNeuroAtlasFullByHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
+              <div className="primary-metric"><span>全目录来源级已知覆盖</span><strong>≈{duration.catalog.sourceLevelKnownCoverageHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
+              <div><span>疾病/临床已知时长</span><strong>≈{duration.disease.knownOverlapAdjustedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
+              <div><span>本轮 OpenNeuro 补全</span><strong>+{duration.openNeuro.addedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
               <p>
-                核心并集约 {union.coreHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h：以 NeuroAtlas 癫痫 + 睡眠 25 个来源的约 259,000 h 为底稿，用完整 TUEG 父集替换其 TUSZ 子集，再加入不重叠的 I-CARE。即使不计 HBN、EEG-Bench 和其他小型来源，也已超过 26 万小时。
+                疾病/临床值来自 {duration.disease.knownUnits}/{duration.disease.units} 个有逐行证据的单元，并剔除已知与 TUEG 父集重叠的 {duration.disease.excludedKnownOverlapUnits} 个 TUH 子集；它仍是当前可核验覆盖，不代表其余未知条目为 0。全目录值在疾病/健康来源级去重覆盖 {duration.catalog.sourceLevelFocusHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h 上，加上 {duration.openNeuro.knownUnits} 个非重点 OpenNeuro canonical 条目的审计时长。
               </p>
             </div>
             <div className="reve-composition" role="region" aria-label="NeuroAtlas 与本目录规模对照">
               <table>
                 <thead><tr><th scope="col">范围</th><th scope="col">单元</th><th scope="col">受试者条目</th><th scope="col">小时</th></tr></thead>
                 <tbody>
-                  <tr><td><strong>疾病/健康总范围</strong></td><td>{focus.units}</td><td>{focus.knownSubjectEntries.toLocaleString("en-US")}*</td><td>≈{union.extendedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
-                  <tr><td><strong>独立 raw 已获取</strong></td><td>{acquisition.independentRawAcquiredUnits}</td><td>其中 {acquisition.exactDurationAuditUnits} 个有时长审计</td><td>{focus.downloadedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} 已审计</td></tr>
-                  <tr><td><strong>仍可推进下载</strong></td><td>{acquisition.actionableDownloadUnits}</td><td>申请/登录/公开入口分列</td><td>未知保持空白</td></tr>
-                  <tr><td><strong>停止投入</strong></td><td>{acquisition.discardedUnits}</td><td>保留目录证据</td><td>不计入执行队列</td></tr>
-                  <tr><td><strong>NeuroAtlas</strong></td><td>{neuro.paper.datasets}</td><td>论文分域报告</td><td>≈{neuro.paper.hoursRounded.toLocaleString("en-US")}</td></tr>
+                  <tr><td><strong>疾病/临床</strong></td><td>{duration.disease.units}</td><td>{duration.disease.knownUnits} 个有逐行时长</td><td>≈{duration.disease.knownOverlapAdjustedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
+                  <tr><td><strong>疾病/健康来源级覆盖</strong></td><td>{focus.units}</td><td>{focus.knownSubjectEntries.toLocaleString("en-US")}*</td><td>≈{duration.catalog.sourceLevelFocusHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
+                  <tr><td><strong>非重点 OpenNeuro 审计</strong></td><td>{duration.openNeuro.knownUnits}/{duration.openNeuro.candidateUnits}</td><td>{duration.openNeuro.calculatedUnits} calculated · {duration.openNeuro.estimatedUnits} estimated</td><td>+{duration.openNeuro.addedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
+                  <tr><td><strong>全目录逐行证据</strong></td><td>{duration.catalog.rowLevelKnownUnits}/{duration.catalog.units}</td><td>{duration.catalog.rowLevelMissingUnits} 个仍未知</td><td>{duration.catalog.rowLevelHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} 原始行相加</td></tr>
+                  <tr><td><strong>全目录来源级覆盖</strong></td><td>{duration.catalog.sourceLevelCoveredFocusUnits}+{duration.catalog.sourceLevelCoveredNonFocusUnits}</td><td>重点来源并集 + 非重点 canonical 行</td><td>≈{duration.catalog.sourceLevelKnownCoverageHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
                 </tbody>
               </table>
             </div>
           </div>
 
           <p className="source-note">
-            NeuroAtlas 对照：原目录覆盖 {neuro.match.alreadyCovered}/42，本轮补入 {neuro.match.added} 个后为 42/42。* 受试者为 {focus.knownSubjectEntryUnits}/{focus.units} 个疾病/健康数据单元的来源报告条目合计，不声称为跨数据集去重后的唯一人数；CHBMP 项目队列为 282 人，当前 LORIS 可见 250 条 raw EEG session。REVE 的 61,415 h 与 89 个明示来源对照仍保留在网页数据中；当前保守可比覆盖为 {reve.sourceUnion.conservativeComparableHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。
+            时长审计快照：{duration.verifiedAt}。OpenNeuro 值读取公开 BIDS snapshot：优先 RecordingDuration，其次 EDF/BDF 或 BrainVision header；仅当全部被试及信号文件均读取时标为 calculated，其余均标为 estimated。* 受试者为来源报告的 dataset-subject entries，不声称为跨数据集去重后的唯一人数。NeuroAtlas 42/42 与 REVE 61,415 h 对照继续保留；不同论文的纳入范围和预处理口径不能直接相减。
           </p>
         </section>
 
@@ -157,7 +158,7 @@ export default function Home() {
               <span>01 · 数据集收集</span>
               <strong>{catalogScale.units}</strong>
               <h3>唯一下载单元</h3>
-              <p>{catalogScale.subjectKnownUnits}/{catalogScale.units} 有 subject；{catalogScale.durationKnownUnits}/{catalogScale.units} 有逐行 duration，原始行相加为 {catalogScale.documentedHoursRowSum.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。</p>
+              <p>{catalogScale.subjectKnownUnits}/{catalogScale.units} 有 subject；{duration.catalog.rowLevelKnownUnits}/{duration.catalog.units} 有逐行 duration，原始行相加为 {duration.catalog.rowLevelHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。</p>
             </article>
             <article>
               <span>02 · 本地获取</span>
@@ -173,7 +174,7 @@ export default function Home() {
               <table className="progress-table">
                 <thead><tr><th scope="col">类别</th><th scope="col">数据单元</th><th scope="col">Subject entries</th><th scope="col">已知时长</th></tr></thead>
                 <tbody>
-                  {eegProgress.categories.map((category) => (
+                  {durationCategories.map((category) => (
                     <tr key={category.code}>
                       <td><strong>{category.code}</strong> · {category.label}</td>
                       <td>{category.units}</td>
@@ -192,7 +193,7 @@ export default function Home() {
             ))}
           </div>
           <p className="source-note">
-            快照日期：{eegProgress.snapshotDate}。308,233.5 h 是 94 个有时长行的原始相加，含父集/子集或重复队列；约 {union.extendedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h 是 147 个疾病/健康重点单元的来源级去重覆盖估计。其余 416 个目录单元尚无可加总时长，因此这两个数字都不是 563 个单元的最终总时长。
+            快照日期：{duration.verifiedAt}。当前 {duration.catalog.rowLevelKnownUnits}/{duration.catalog.units} 行有时长证据，原始相加 {duration.catalog.rowLevelHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h；其中可能包含父集/子集，因此另给出来源级覆盖约 {duration.catalog.sourceLevelKnownCoverageHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。仍有 {duration.catalog.rowLevelMissingUnits} 行未知，完整 563 行的最终真实时长只能高于当前已知覆盖，不能把未知值当作 0。
           </p>
         </section>
       </main>

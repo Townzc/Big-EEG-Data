@@ -16,6 +16,7 @@
     "verify:openneuro": "node scripts/verify_openneuro_catalog.mjs",
     "refresh:openneuro": "node scripts/refresh_openneuro_fmri_index.mjs",
     "audit:fmri-durations": "node scripts/audit_openneuro_fmri_durations.mjs --samples=1 --resume",
+    "audit:eeg-durations": "node scripts/audit_openneuro_eeg_durations.mjs --samples=3 --resume",
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {

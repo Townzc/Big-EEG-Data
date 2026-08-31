@@ -21,20 +21,24 @@ test("server-renders the preserved EEG catalog inside Big Data", async () => {
   assert.match(html, />EEG<\/a>/);
   assert.match(html, />fMRI<\/a>/);
   assert.match(html, /563/);
-  assert.match(html, /KNOWN COVERAGE/);
-  assert.match(html, /SERVER COMPLETE/);
-  assert.match(html, /SUBJECT ENTRIES/);
+  assert.match(html, /DISEASE \/ CLINICAL/);
+  assert.match(html, /ALL KNOWN COVERAGE/);
+  assert.match(html, /ROW-LEVEL HOURS/);
   assert.match(html, /265,630/);
-  assert.match(html, /308,233/);
+  assert.match(html, /324,764\.9/);
   assert.match(html, /346,490\.7/);
-  assert.match(html, /其余 (?:<!-- -->)?416(?:<!-- -->)? 个目录单元尚无可加总时长/);
+  assert.match(html, /363,022\.2/);
+  assert.match(html, /138,822\.9/);
+  assert.match(html, /仍有 (?:<!-- -->)?346(?:<!-- -->)? 行未知/);
+  assert.match(html, /217(?:<!-- -->)?\/(?:<!-- -->)?563/);
   assert.doesNotMatch(html, /52(?:<!-- -->)?\/(?:<!-- -->)?101|1,659,549|50–60 GiB/);
   assert.match(html, /273/);
   assert.match(html, /99,537/);
   assert.match(html, /独立 raw 已获取/);
-  assert.match(html, /其中 (?:<!-- -->)?57(?:<!-- -->)? 个有时长审计/);
+  assert.match(html, /时长已审计/);
+  assert.match(html, /43,627\.8/);
   assert.match(html, /DOWNLOAD CHECKLIST/);
-  assert.match(html, /346,490\.7|346\.5K|34\.65/);
+  assert.match(html, /363,022\.2|363\.0K|36\.30/);
   assert.match(html, /42\/42/);
   assert.match(html, /EEG_healthcare_disease_catalog_20260823\.xlsx/);
   assert.match(html, /lang="zh-CN"/);
@@ -103,6 +107,20 @@ test("surfaces audited and literature-derived durations in the complete catalog"
   assert.equal(modma.decision, "已下载·待信号/时长审计");
   assert.equal(modma.serverCompleted, true);
   assert.equal(modma.physicalSizeGB, 7.593313997);
+});
+
+test("adds a provenance overlay for formerly missing OpenNeuro EEG durations", () => {
+  const audit = JSON.parse(fs.readFileSync(new URL("../data/eeg-openneuro-duration-audit.json", import.meta.url), "utf8"));
+  assert.equal(audit.records.length, 123);
+  assert.equal(audit.failures.length, 14);
+  assert.equal(audit.records.filter((row) => row.durationSource === "calculated").length, 4);
+  assert.equal(audit.records.filter((row) => row.durationSource === "estimated").length, 119);
+  const hours = audit.records.reduce((sum, row) => sum + row.durationHours, 0);
+  assert.ok(Math.abs(hours - 16_531.41) < 1e-6);
+  assert.equal(new Set(audit.records.flatMap((row) => row.accessions.map((item) => item.accession))).size, 134);
+  const peers = audit.records.find((row) => row.id === "EEG-0239");
+  assert.equal(peers.durationSource, "estimated");
+  assert.equal(peers.accessions[0].sampledSubjects.length, 15);
 });
 
 test("focuses on the full catalog and simplified workbook", async () => {
