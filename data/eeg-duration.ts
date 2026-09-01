@@ -1,17 +1,27 @@
 import catalog from "../public/catalog-data.json";
 import openNeuroAudit from "./eeg-openneuro-duration-audit.json";
+import literatureAudit from "./eeg-literature-duration-audit.json";
 
 type CatalogRow = (typeof catalog.catalogRows)[number];
 type DurationAuditRecord = (typeof openNeuroAudit.records)[number];
+type LiteratureAuditRecord = (typeof literatureAudit.records)[number];
 type AuditedCatalogRow = CatalogRow & { durationSource?: "reported" | "calculated" | "estimated" };
 
 const auditById = new Map<string, DurationAuditRecord>(
   openNeuroAudit.records.map((record) => [record.id, record]),
 );
+const literatureById = new Map<string, LiteratureAuditRecord>(
+  literatureAudit.records.map((record) => [record.id, record]),
+);
 
 const appliedAuditRecords = openNeuroAudit.records.filter((record) => {
   const row = catalog.catalogRows.find((item) => item.id === record.id);
   return row != null && row.durationHours == null;
+});
+
+const appliedLiteratureRecords = literatureAudit.records.filter((record) => {
+  const row = catalog.catalogRows.find((item) => item.id === record.id);
+  return row != null && row.durationHours == null && !auditById.has(record.id);
 });
 
 const auditBasis = (record: DurationAuditRecord) => record.durationSource === "calculated"
@@ -29,20 +39,32 @@ const auditEvidence = (record: DurationAuditRecord) => {
 
 export const eegCatalogRows = catalog.catalogRows.map((row): AuditedCatalogRow => {
   const audit = auditById.get(row.id);
-  if (!audit || row.durationHours != null) {
-    return row.durationHours == null ? row : {
+  if (audit && row.durationHours == null) {
+    return {
       ...row,
-      durationSource: row.durationBasis?.includes("文件") ? "calculated" : "reported",
+      durationHours: audit.durationHours,
+      durationSource: audit.durationSource,
+      durationBasis: auditBasis(audit),
+      durationEvidence: auditEvidence(audit),
+      durationEvidenceUrl: audit.sourceUrl,
+      completenessScore: Math.min(row.completenessMax, row.completenessScore + 1),
     };
   }
-  return {
-    ...row,
-    durationHours: audit.durationHours,
-    durationSource: audit.durationSource,
-    durationBasis: auditBasis(audit),
-    durationEvidence: auditEvidence(audit),
-    durationEvidenceUrl: audit.sourceUrl,
-    completenessScore: Math.min(row.completenessMax, row.completenessScore + 1),
+  const literature = literatureById.get(row.id);
+  if (literature && row.durationHours == null) {
+    return {
+      ...row,
+      durationHours: literature.durationHours,
+      durationSource: "reported",
+      durationBasis: "论文表格报告·记录小时",
+      durationEvidence: "SingLEM Table I；多通道连续记录小时，不是 single-channel hours",
+      durationEvidenceUrl: literatureAudit.sourceUrl,
+      completenessScore: Math.min(row.completenessMax, row.completenessScore + 1),
+    };
+  }
+  return row.durationHours == null ? row : {
+      ...row,
+      durationSource: row.durationBasis?.includes("文件") ? "calculated" : "reported",
   };
 });
 
@@ -54,11 +76,14 @@ const diseaseKnownRows = diseaseRows.filter((row) => row.durationHours != null);
 // Removing them is the only row-level overlap correction made here.
 const tuegChildOverlapIds = new Set(["EEG-0033", "EEG-0034", "EEG-0035", "EEG-0036", "EEG-0107"]);
 const nonFocusOpenNeuroHours = appliedAuditRecords.reduce((sum, record) => sum + record.durationHours, 0);
+const focusIds = new Set(catalog.downloadChecklist.rows.map((row) => row.id));
+const nonFocusLiteratureRecords = appliedLiteratureRecords.filter((record) => !focusIds.has(record.id));
+const nonFocusLiteratureHours = nonFocusLiteratureRecords.reduce((sum, record) => sum + record.durationHours, 0);
 const rowLevelHours = eegCatalogRows.reduce((sum, row) => sum + (row.durationHours ?? 0), 0);
 const rowLevelKnownUnits = eegCatalogRows.filter((row) => row.durationHours != null).length;
 
 export const eegDurationSummary = {
-  verifiedAt: openNeuroAudit.generatedAt,
+  verifiedAt: literatureAudit.generatedAt,
   disease: {
     units: diseaseRows.length,
     knownUnits: diseaseKnownRows.length,
@@ -73,10 +98,10 @@ export const eegDurationSummary = {
     rowLevelKnownUnits,
     rowLevelMissingUnits: catalog.catalogRows.length - rowLevelKnownUnits,
     rowLevelHours,
-    sourceLevelKnownCoverageHours: catalog.neuroAtlasComparison.sourceUnion.extendedHours + nonFocusOpenNeuroHours,
+    sourceLevelKnownCoverageHours: catalog.neuroAtlasComparison.sourceUnion.extendedHours + nonFocusOpenNeuroHours + nonFocusLiteratureHours,
     sourceLevelFocusHours: catalog.neuroAtlasComparison.sourceUnion.extendedHours,
     sourceLevelCoveredFocusUnits: catalog.neuroAtlasComparison.focusCoverage.units,
-    sourceLevelCoveredNonFocusUnits: appliedAuditRecords.length,
+    sourceLevelCoveredNonFocusUnits: appliedAuditRecords.length + nonFocusLiteratureRecords.length,
   },
   openNeuro: {
     candidateUnits: appliedAuditRecords.length + openNeuroAudit.failures.length,
@@ -85,6 +110,15 @@ export const eegDurationSummary = {
     calculatedUnits: appliedAuditRecords.filter((record) => record.durationSource === "calculated").length,
     estimatedUnits: appliedAuditRecords.filter((record) => record.durationSource === "estimated").length,
     addedHours: nonFocusOpenNeuroHours,
+  },
+  literature: {
+    sourceName: "SingLEM Table I",
+    sourceUrl: literatureAudit.sourceUrl,
+    candidateUnits: literatureAudit.records.length,
+    addedUnits: appliedLiteratureRecords.length,
+    addedHours: appliedLiteratureRecords.reduce((sum, record) => sum + record.durationHours, 0),
+    sourceLevelNonFocusUnits: nonFocusLiteratureRecords.length,
+    sourceLevelNonFocusHours: nonFocusLiteratureHours,
   },
 } as const;
 

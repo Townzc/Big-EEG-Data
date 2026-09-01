@@ -25,12 +25,12 @@ test("server-renders the preserved EEG catalog inside Big Data", async () => {
   assert.match(html, /ALL KNOWN COVERAGE/);
   assert.match(html, /ROW-LEVEL HOURS/);
   assert.match(html, /265,630/);
-  assert.match(html, /324,764\.9/);
+  assert.match(html, /330,191\.6/);
   assert.match(html, /346,490\.7/);
-  assert.match(html, /363,022\.2/);
-  assert.match(html, /138,822\.9/);
-  assert.match(html, /仍有 (?:<!-- -->)?346(?:<!-- -->)? 行未知/);
-  assert.match(html, /217(?:<!-- -->)?\/(?:<!-- -->)?563/);
+  assert.match(html, /366,086\.3/);
+  assert.match(html, /138,839\.5/);
+  assert.match(html, /仍有 (?:<!-- -->)?304(?:<!-- -->)? 行未知/);
+  assert.match(html, /259(?:<!-- -->)?\/(?:<!-- -->)?563/);
   assert.doesNotMatch(html, /52(?:<!-- -->)?\/(?:<!-- -->)?101|1,659,549|50–60 GiB/);
   assert.match(html, /273/);
   assert.match(html, /99,537/);
@@ -38,12 +38,17 @@ test("server-renders the preserved EEG catalog inside Big Data", async () => {
   assert.match(html, /时长已审计/);
   assert.match(html, /43,627\.8/);
   assert.match(html, /DOWNLOAD CHECKLIST/);
-  assert.match(html, /363,022\.2|363\.0K|36\.30/);
+  assert.match(html, /366,086\.3|366\.1K|36\.61/);
   assert.match(html, /42\/42/);
   assert.match(html, /EEG_healthcare_disease_catalog_20260823\.xlsx/);
   assert.match(html, /lang="zh-CN"/);
   assert.match(html, /aria-label=/);
   assert.match(html, /论文换算·明确范围/);
+  assert.match(html, /FOUNDATION-MODEL DURATION AUDIT/);
+  assert.match(html, /10,179\.98 recording h/);
+  assert.match(html, /PAIRED EEG–FMRI SURVEY/);
+  assert.match(html, /618\.9/);
+  assert.match(html, /452/);
   assert.equal([...html.matchAll(/显示 (?:<!-- -->)?1(?:<!-- -->)?–(?:<!-- -->)?5(?:<!-- -->)? 行/g)].length, 2);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
@@ -121,6 +126,41 @@ test("adds a provenance overlay for formerly missing OpenNeuro EEG durations", (
   const peers = audit.records.find((row) => row.id === "EEG-0239");
   assert.equal(peers.durationSource, "estimated");
   assert.equal(peers.accessions[0].sampledSubjects.length, 15);
+});
+
+test("adds only canonical literature hours and keeps paper-hour semantics explicit", () => {
+  const catalog = JSON.parse(fs.readFileSync(new URL("../public/catalog-data.json", import.meta.url), "utf8"));
+  const openNeuro = JSON.parse(fs.readFileSync(new URL("../data/eeg-openneuro-duration-audit.json", import.meta.url), "utf8"));
+  const literature = JSON.parse(fs.readFileSync(new URL("../data/eeg-literature-duration-audit.json", import.meta.url), "utf8"));
+  assert.equal(literature.records.length, 42);
+  assert.ok(Math.abs(literature.records.reduce((sum, row) => sum + row.durationHours, 0) - 5_426.72) < 1e-6);
+  assert.equal(new Set(literature.records.map((row) => row.id)).size, literature.records.length);
+  const openNeuroIds = new Set(openNeuro.records.map((row) => row.id));
+  for (const record of literature.records) {
+    const row = catalog.catalogRows.find((candidate) => candidate.id === record.id);
+    assert.ok(row, `${record.id} exists in the immutable catalog`);
+    assert.equal(row.durationHours, null, `${record.id} was genuinely missing before overlays`);
+    assert.equal(openNeuroIds.has(record.id), false, `${record.id} is not double-counted with the file audit`);
+  }
+  const paperAudit = fs.readFileSync(new URL("../data/eeg-foundation-paper-audit.ts", import.meta.url), "utf8");
+  assert.match(paperAudit, /357,000 single-channel h/);
+  assert.match(paperAudit, /1,109,545 × 30 s = 9,246\.2 processed h/);
+  assert.match(paperAudit, /not reported/);
+});
+
+test("keeps simultaneous EEG-fMRI totals reproducible and excludes non-paired resources", async () => {
+  const surveyUrl = new URL("../data/eeg-fmri-pairs.ts", import.meta.url);
+  surveyUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  const survey = await import(surveyUrl.href);
+  assert.equal(survey.eegFmriPairSummary.datasets, 26);
+  assert.equal(survey.eegFmriPairSummary.subjectEntries, 452);
+  assert.equal(survey.eegFmriPairSummary.knownDurationDatasets, 23);
+  assert.ok(Math.abs(survey.eegFmriPairSummary.knownPairedHours - 618.88) < 1e-6);
+  assert.equal(survey.eegFmriPairSummary.addedDatasets, 8);
+  assert.equal(new Set(survey.eegFmriPairs.map((row) => row.id)).size, survey.eegFmriPairs.length);
+  assert.equal(survey.eegFmriPairs.find((row) => row.id === "msit-dryad").pairing, "derived-only");
+  assert.equal(survey.eegFmriPairs.find((row) => row.id === "neurobolt").pairing, "not-public");
+  assert.equal(survey.eegFmriPairs.find((row) => row.id === "ds004196").pairing, "same-participants-separate");
 });
 
 test("focuses on the full catalog and simplified workbook", async () => {

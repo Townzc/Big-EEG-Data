@@ -5,6 +5,9 @@ import { DownloadChecklist } from "./DownloadChecklist";
 import { ModalitySwitcher } from "./ModalitySwitcher";
 import { eegProgress } from "../data/eeg-progress";
 import { categoryDurationStats, eegCatalogRows, eegDurationSummary } from "../data/eeg-duration";
+import { foundationPaperAudits } from "../data/eeg-foundation-paper-audit";
+import { eegFmriPairs, eegFmriPairSummary } from "../data/eeg-fmri-pairs";
+import { EegFmriExplorer } from "./EegFmriExplorer";
 
 export const metadata: Metadata = {
   title: "Big Data of EEG",
@@ -29,11 +32,10 @@ export default function Home() {
         </a>
         <ModalitySwitcher active="eeg" />
         <nav className="section-nav" aria-label="主要导航">
-          <a href="#categories">分类</a>
           <a href="#catalog">完整目录</a>
           <a href="#downloads">下载清单</a>
-          <a href="#neuroatlas">NeuroAtlas 对照</a>
-          <a href="#workbook">工作簿</a>
+          <a href="#duration-methods">时长口径</a>
+          <a href="#eeg-fmri">EEG–fMRI</a>
           <a href="#progress">数据预处理</a>
         </nav>
         <a className="header-download" href="/EEG_healthcare_disease_catalog_20260823.xlsx" download>
@@ -47,7 +49,7 @@ export default function Home() {
             <p className="eyebrow">EEG DATASET CATALOG · 2026</p>
             <h1 id="hero-title">Big Data of EEG</h1>
             <p className="hero-lead">
-              {catalogScale.units} 个 EEG 下载单元；{catalogScale.subjectKnownUnits} 个有受试者信息，已知下界 {catalogScale.subjectEntryLowerBound.toLocaleString("en-US")} 个 dataset-subject entries。疾病/临床队列目前可核验约 {duration.disease.knownOverlapAdjustedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h；加入本轮 OpenNeuro BIDS 时长审计后，全目录来源级已知覆盖约 {duration.catalog.sourceLevelKnownCoverageHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。缺失值不按 0 计入。
+              {catalogScale.units} 个 EEG 下载单元；{catalogScale.subjectKnownUnits} 个有受试者信息，已知下界 {catalogScale.subjectEntryLowerBound.toLocaleString("en-US")} 个 dataset-subject entries。疾病/临床队列目前可核验约 {duration.disease.knownOverlapAdjustedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h；结合 OpenNeuro BIDS 文件审计与基础模型论文逐表核对后，全目录来源级已知覆盖约 {duration.catalog.sourceLevelKnownCoverageHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。缺失值不按 0 计入。
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#catalog">浏览完整目录</a>
@@ -103,8 +105,9 @@ export default function Home() {
               <div className="primary-metric"><span>全目录来源级已知覆盖</span><strong>≈{duration.catalog.sourceLevelKnownCoverageHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
               <div><span>疾病/临床已知时长</span><strong>≈{duration.disease.knownOverlapAdjustedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
               <div><span>本轮 OpenNeuro 补全</span><strong>+{duration.openNeuro.addedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
+              <div><span>SingLEM 逐表新增</span><strong>+{duration.literature.addedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong></div>
               <p>
-                疾病/临床值来自 {duration.disease.knownUnits}/{duration.disease.units} 个有逐行证据的单元，并剔除已知与 TUEG 父集重叠的 {duration.disease.excludedKnownOverlapUnits} 个 TUH 子集；它仍是当前可核验覆盖，不代表其余未知条目为 0。全目录值在疾病/健康来源级去重覆盖 {duration.catalog.sourceLevelFocusHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h 上，加上 {duration.openNeuro.knownUnits} 个非重点 OpenNeuro canonical 条目的审计时长。
+                疾病/临床值来自 {duration.disease.knownUnits}/{duration.disease.units} 个有逐行证据的单元，并剔除已知与 TUEG 父集重叠的 {duration.disease.excludedKnownOverlapUnits} 个 TUH 子集；它仍是当前可核验覆盖，不代表其余未知条目为 0。全目录值在疾病/健康来源级去重覆盖 {duration.catalog.sourceLevelFocusHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h 上，加上非重点 OpenNeuro 文件审计与不重叠的 SingLEM canonical 行。
               </p>
             </div>
             <div className="reve-composition" role="region" aria-label="NeuroAtlas 与本目录规模对照">
@@ -114,6 +117,7 @@ export default function Home() {
                   <tr><td><strong>疾病/临床</strong></td><td>{duration.disease.units}</td><td>{duration.disease.knownUnits} 个有逐行时长</td><td>≈{duration.disease.knownOverlapAdjustedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
                   <tr><td><strong>疾病/健康来源级覆盖</strong></td><td>{focus.units}</td><td>{focus.knownSubjectEntries.toLocaleString("en-US")}*</td><td>≈{duration.catalog.sourceLevelFocusHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
                   <tr><td><strong>非重点 OpenNeuro 审计</strong></td><td>{duration.openNeuro.knownUnits}/{duration.openNeuro.candidateUnits}</td><td>{duration.openNeuro.calculatedUnits} calculated · {duration.openNeuro.estimatedUnits} estimated</td><td>+{duration.openNeuro.addedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
+                  <tr><td><strong>SingLEM 逐表补全</strong></td><td>{duration.literature.addedUnits}</td><td>{duration.literature.sourceLevelNonFocusUnits} 个非重点 canonical 行进入来源级总量</td><td>+{duration.literature.addedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} 逐行</td></tr>
                   <tr><td><strong>全目录逐行证据</strong></td><td>{duration.catalog.rowLevelKnownUnits}/{duration.catalog.units}</td><td>{duration.catalog.rowLevelMissingUnits} 个仍未知</td><td>{duration.catalog.rowLevelHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} 原始行相加</td></tr>
                   <tr><td><strong>全目录来源级覆盖</strong></td><td>{duration.catalog.sourceLevelCoveredFocusUnits}+{duration.catalog.sourceLevelCoveredNonFocusUnits}</td><td>重点来源并集 + 非重点 canonical 行</td><td>≈{duration.catalog.sourceLevelKnownCoverageHours.toLocaleString("en-US", { maximumFractionDigits: 1 })}</td></tr>
                 </tbody>
@@ -122,8 +126,61 @@ export default function Home() {
           </div>
 
           <p className="source-note">
-            时长审计快照：{duration.verifiedAt}。OpenNeuro 值读取公开 BIDS snapshot：优先 RecordingDuration，其次 EDF/BDF 或 BrainVision header；仅当全部被试及信号文件均读取时标为 calculated，其余均标为 estimated。* 受试者为来源报告的 dataset-subject entries，不声称为跨数据集去重后的唯一人数。NeuroAtlas 42/42 与 REVE 61,415 h 对照继续保留；不同论文的纳入范围和预处理口径不能直接相减。
+            时长审计快照：{duration.verifiedAt}。OpenNeuro 值读取公开 BIDS snapshot；SingLEM 补值只采用 Table I 的 multi-channel recording duration，不采用摘要的 single-channel hours。* 受试者为来源报告的 dataset-subject entries，不声称为跨数据集去重后的唯一人数。NeuroAtlas 42/42 与 REVE 61,415 h 对照继续保留；不同论文的纳入范围和预处理口径不能直接相减。
           </p>
+        </section>
+
+        <section className="paper-audit-section" id="duration-methods" aria-labelledby="duration-methods-title">
+          <div className="section-heading compact-heading">
+            <div>
+              <p className="eyebrow">FOUNDATION-MODEL DURATION AUDIT</p>
+              <h2 id="duration-methods-title">论文中的“小时”并不是同一种量</h2>
+            </div>
+            <p>原始连续记录小时可以进入目录总量；通道小时、重叠窗和过滤后的模型样本小时只能用于说明训练规模。</p>
+          </div>
+          <div className="duration-callout">
+            <strong>本轮从 346 个缺失行中再补全 {duration.literature.addedUnits} 行</strong>
+            <p>新增 {duration.literature.addedHours.toLocaleString("en-US", { maximumFractionDigits: 2 })} 个逐行记录小时；已知行升至 {duration.catalog.rowLevelKnownUnits}/{duration.catalog.units}，仍有 {duration.catalog.rowLevelMissingUnits} 行缺少可可靠映射的时长。论文只给来源级合计、数据大小或处理后窗数时，继续保留 Unknown。</p>
+          </div>
+          <div className="table-shell paper-table-shell">
+            <table className="paper-audit-table">
+              <thead><tr><th scope="col">模型 / 论文</th><th scope="col">预训练数据</th><th scope="col">论文时长</th><th scope="col">网站处理</th></tr></thead>
+              <tbody>
+                {foundationPaperAudits.map((paper) => (
+                  <tr key={paper.model}>
+                    <td><a href={paper.paperUrl} target="_blank" rel="noreferrer"><strong>{paper.model}</strong> ↗</a><small>{paper.subjects}</small></td>
+                    <td>{paper.datasets}</td>
+                    <td><strong>{paper.headlineHours}</strong><small className={`basis-chip ${paper.basis}`}>{paper.basis}</small></td>
+                    <td>{paper.interpretation}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="source-note">换算公式仅在分母清楚时使用：连续记录时长 = samples ÷ sampling rate，或 TR × volumes × runs；若论文报告的是切窗数，则“窗数 × 窗长”只是模型样本小时，窗口重叠时尤其不能等同于独立原始时长。</p>
+        </section>
+
+        <section className="pair-section" id="eeg-fmri" aria-labelledby="eeg-fmri-title">
+          <div className="section-heading compact-heading">
+            <div>
+              <p className="eyebrow">PAIRED EEG–FMRI SURVEY</p>
+              <h2 id="eeg-fmri-title">公开 EEG–fMRI 配对数据集</h2>
+            </div>
+            <p>同步采集是主统计；同被试分开采集、仅公开 connectome/表格、无公开下载的数据保留在次级分类，不混入时长。</p>
+          </div>
+          <div className="pair-metrics" aria-label="公开同步 EEG-fMRI 汇总">
+            <div><span>公开同步数据集</span><strong>{eegFmriPairSummary.datasets}</strong><small>canonical acquisitions</small></div>
+            <div><span>Subject entries</span><strong>{eegFmriPairSummary.subjectEntries}</strong><small>跨数据集未去重</small></div>
+            <div><span>已知配对时长</span><strong>≥{eegFmriPairSummary.knownPairedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h</strong><small>{eegFmriPairSummary.knownDurationDatasets}/{eegFmriPairSummary.datasets} 有时长</small></div>
+            <div><span>本轮补入</span><strong>+{eegFmriPairSummary.addedDatasets}</strong><small>参考表之外/空白项补全</small></div>
+            <div><span>分开采集</span><strong>{eegFmriPairSummary.separateSessionDatasets}</strong><small>不计同步时长</small></div>
+          </div>
+          <div className="pair-audit-note">
+            <p><strong>对参考 Google Sheet 的结论：</strong>原表的“21 个、419 subjects、约 263 h”混入了未公开 NeuroBOLT、只提供 46.59 KB 汇总表的 MSIT，以及未核实 raw 下载的 Berlin cohort；同时漏了 whole-night sleep1、reward-sleep、value-decision、visual-flicker、CineBrain、Bondi motor、Schrooten 和已正式发布的 ATR 数据。按本页严格口径，当前是 {eegFmriPairSummary.datasets} 个可获取的同步采集、{eegFmriPairSummary.subjectEntries} 个 dataset-subject entries，已知下界 ≥{eegFmriPairSummary.knownPairedHours.toLocaleString("en-US", { maximumFractionDigits: 1 })} h。</p>
+            <a href="https://docs.google.com/spreadsheets/d/1b3Tb4eD0jv-_eJzCRAL_UPl5MS7sRCp_FHz6tFmIhSA/edit?gid=0#gid=0" target="_blank" rel="noreferrer">打开参考表 ↗</a>
+          </div>
+          <EegFmriExplorer rows={eegFmriPairs} />
+          <p className="source-note">配对时长只统计 EEG 与 BOLD 同步存在的时间，不含 T1/T2、DWI、fMRI-only、EEG-only 或分开日期的记录。618.9 h 是 23/26 个公开同步数据集的已知下界；其余 3 个未知不是 0。AMRI sleep1 的约 256 h 使用官方“每人两夜、每夜约 8 h”的 protocol estimate，是本表最大项。</p>
         </section>
 
         <section className="workbook-section" id="workbook" aria-labelledby="workbook-title">
