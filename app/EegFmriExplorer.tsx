@@ -26,6 +26,14 @@ const durationLabels: Record<EegFmriPair["durationSource"], string> = {
   unavailable: "unavailable",
 };
 
+const sourceOriginLabels: Record<EegFmriPair["sourceOrigin"], string> = {
+  "reference-sheet": "参考表已有",
+  "added-in-audit": "首轮补入",
+  "added-independent-resurvey": "独立复核新增",
+};
+
+const csvCell = (value: unknown) => `"${String(value ?? "").replaceAll('"', '""')}"`;
+
 export function EegFmriExplorer({ rows }: { rows: EegFmriPair[] }) {
   const [query, setQuery] = useState("");
   const [pairing, setPairing] = useState("simultaneous");
@@ -49,6 +57,20 @@ export function EegFmriExplorer({ rows }: { rows: EegFmriPair[] }) {
   const updateFilter = (setter: (value: string) => void, value: string) => {
     setter(value);
     setPage(1);
+  };
+  const downloadCsv = () => {
+    const headers = ["id", "name", "repository", "subjects", "paired_hours", "duration_source", "pairing", "activity", "access", "source_url", "paper_url", "duration_note", "notes"];
+    const lines = [headers.map(csvCell).join(","), ...filtered.map((row) => [
+      row.id, row.name, row.repository, row.subjects, row.pairedHours, row.durationSource,
+      row.pairing, row.activity, row.access, row.sourceUrl, row.paperUrl, row.durationNote, row.notes,
+    ].map(csvCell).join(","))];
+    const blob = new Blob([`\uFEFF${lines.join("\n")}`], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "eeg-fmri-pair-survey.csv";
+    anchor.click();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -84,7 +106,7 @@ export function EegFmriExplorer({ rows }: { rows: EegFmriPair[] }) {
 
       <div className="pair-table-head">
         <p><strong>{filtered.length}</strong> 个结果 · 同步公开总数只统计可下载或注册后可得的原始/可用配对信号</p>
-        <span>每页 {pageSize} 行</span>
+        <div><span>每页 {pageSize} 行</span><button type="button" onClick={downloadCsv}>导出当前结果 CSV</button></div>
       </div>
       <div className="table-shell pair-table-shell">
         <table className="pair-table">
@@ -98,7 +120,7 @@ export function EegFmriExplorer({ rows }: { rows: EegFmriPair[] }) {
                   <a className="pair-name" href={row.sourceUrl} target="_blank" rel="noreferrer">{row.name} ↗</a>
                   <small>{row.repository}</small>
                   <div className="pair-badges">
-                    <span>{row.sourceOrigin === "added-in-audit" ? "本轮补入" : "参考表已有"}</span>
+                    <span>{sourceOriginLabels[row.sourceOrigin]}</span>
                     <span>{pairingLabels[row.pairing]}</span>
                   </div>
                 </td>

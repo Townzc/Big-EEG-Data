@@ -87,6 +87,7 @@ npm run verify:openneuro
 - 网页数据：`public/catalog-data.json`
 - EEG OpenNeuro 时长审计 overlay：`data/eeg-openneuro-duration-audit.json`（不改原 EEG JSON）
 - EEG 论文时长 overlay：`data/eeg-literature-duration-audit.json`（SingLEM Table I 的记录小时；不使用 single-channel hours）
+- EEG 独立官网/论文复核：`data/eeg-independent-duration-audit.ts`（BDSP、SleepFM、NeuroLM；同时追加新发布 Neurotech，但不改原始 JSON）
 - EEG 基础模型论文口径：`data/eeg-foundation-paper-audit.ts`
 - EEG–fMRI 配对数据集 survey：`data/eeg-fmri-pairs.ts`
 - EEG 时长审计脚本：`scripts/audit_openneuro_eeg_durations.mjs`
@@ -127,9 +128,9 @@ NeuroAtlas 的 42 个评测来源中，原目录已经覆盖 36 个，本轮补�
 
 ### 2026-08-31 全类别目录与数据预处理口径
 
-- 完整 EEG catalog 为 563 个 canonical 下载单元；544 个有可解释的来源受试者数，已知下界合计 265,630 个 dataset-subject entries。该数字不声称是跨数据集去重后的唯一人数。
-- 原始 EEG JSON 的 94 个时长值保持不变；叠加 OpenNeuro 文件审计与 SingLEM Table I canonical 论文 overlay 后，259/563 个单元有逐行时长证据，原始行相加为 330,191.6 h。综合既有疾病/健康来源级并集、非重点 OpenNeuro canonical 条目和不重叠的非重点 SingLEM 条目，当前全目录已知覆盖约 366,086.3 h。仍有 304 行未知，不能当作 0，因而 36.61 万小时仍不是 563 行的最终上限。
-- “疾病/临床”共 109 个重点单元，其中 73 个有逐行时长，剔除已知包含在 TUEG 父集内的 TUEP、TUEV、TUSL、TUSZ、TUAB 五个子集后，当前可核验疾病/临床覆盖约 138,839.5 h。页面把这个值与完整目录约 366,086.3 h 分开显示。
+- 原始 EEG catalog 的 563 行 JSON 保持逐字节不变；网页证据层追加 2026 年发布的 Neurotech EEG Dataset，因此当前可检索为 564 个单元。545 个有来源受试者数，已知下界合计 270,544 个 dataset-subject entries；这不是跨数据集去重后的唯一人数。
+- 叠加 OpenNeuro 文件审计、SingLEM Table I、NeuroLM、SleepFM 与 BDSP 官方发布后，269/564 个单元有逐行时长证据，原始行相加为 4,033,202.7 h。来源级保守去重覆盖约 3,821,689.4 h；仍有 295 行未知，不能当作 0。
+- “疾病/临床”重点范围加新 Neurotech 共 110 个单元，其中 76 个有逐行时长。剔除 TUEG 的五个已知子集，并在加入 HEEDB 约 330 万小时后保守移除全部 I-CARE 56,676 h，当前疾病/临床覆盖约 3,785,081.5 h。这样做可能低估 I-CARE 的非 Harvard 站点，但不会因已知医院重叠抬高总量。
 - 将全类别服务器审计、新增疾病/健康下载 overlay 与 563 行 canonical catalog 合并后，273 个唯一目录单元有完成证据；旧审计表在 catalog 去重前有 280 个 `COMPLETED` 状态行。
 - SeaWulf `datasets/` 当前约 14 TiB；GPFS 约剩 2.4 TiB。
 - 严格终端验证完成 52/101 个预处理目标（47 个 disease-v1 目标 + 5 个 baseline，共 54 adapters）：122,219 outputs、21,319 adapter-level subject entries、42,692.2 signal-hours、1,659,549 event rows、1,607,042,726,768 derivative bytes。
@@ -139,7 +140,7 @@ NeuroAtlas 的 42 个评测来源中，原目录已经覆盖 36 个，本轮补�
 
 疾病/健康重点清单使用研究队列属性而不是关键词硬分：有临床诊断、患者招募、医院监测、疾病预后/治疗或病例-对照设计的归为“疾病/临床”，其中的健康对照仍随主研究目标归疾病；健康参考、生命周期、流行病学、孕产妇、衰老或风险表型归为“健康/人群”，不会把量表高分直接当作确诊。睡眠分期/PSG 先按任务轴保留睡眠类别，再用第二轴标记临床属性。
 
-`346,490.7 h` 仍是 147 个疾病/健康重点单元的来源级去重覆盖估计。OpenNeuro 审计增加 123 个非重点 canonical 条目的 `16,531.41 h`；SingLEM 又为 42 个原本缺失的 canonical 行补入 `5,426.72 h`，其中 `3,064.13 h` 属于尚未包含在疾病/健康来源并集中的非重点条目。三者得到全目录当前来源级已知覆盖约 `366,086.3 h`。逐行口径为 259 行、`330,191.6 h`，因为逐行相加包含已知父集/子集；两种数字用途不同，页面同时列出分母与方法。
+旧的 `346,490.7 h` 是 147 个疾病/健康重点单元的来源级去重覆盖估计。OpenNeuro 审计增加 123 个非重点 canonical 条目的 `16,531.41 h`；SingLEM 中不重叠的非重点行增加 `3,064.13 h`。独立复核再带来净新增 `3,455,603.07 h`：HEEDB 约 330 万小时减去全部 I-CARE 56,676 h、Neurotech 212,186 h，以及 NeuroLM 可唯一映射的 7 行 93.07 h。由此得到全目录当前来源级已知覆盖 `3,821,689.4 h`。HSP 的 190,732 h 用于补齐逐行证据，但已在旧睡眠来源并集中，不再次增加来源级总量。
 
 ## EEG OpenNeuro 时长审计
 
@@ -164,24 +165,37 @@ node scripts/audit_openneuro_eeg_durations.mjs --ids=EEG-0239,EEG-0502 --samples
 
 ## 基础模型论文时长口径
 
-本轮逐页核查了 SingLEM、REVE、CBraMod、LaBraM、Neuro-GPT、BIOT、BENDR 与 EEGPT。结论是论文中的“小时”至少有三种不可混加的口径：
+本轮不再只核查用户给出的论文，另外独立检索了 NeuroLM、BrainWave、NeuralBench、BrainOmni、INCEPT、SleepFM 和 EEG foundation-model critical review，并回到 BDSP/HSP/HEEDB 官网交叉验证。结论是论文中的“小时”至少有三种不可混加的口径：
 
 - **原始/连续记录小时**：所有同步通道共享同一时间轴，一段 1 小时的 64 通道 EEG 仍记作 1 recording hour。目录总量使用这一口径。
 - **single-channel hours**：记录小时乘可用通道数。SingLEM 摘要约 357,000 h 属于此口径；其 Table I 的 71 个数据集记录小时精确相加为 10,179.98 h。网站只采用后者，并仅映射到 42 个仍缺时长且别名唯一的 canonical 行。
 - **处理后模型样本小时**：segment 数 × window 长度。若有重叠窗、过滤或重复采样，它不等于独立原始时长。CBraMod 的 TUEG 从约 27,062 raw h 经筛选后得到 1,109,545 个 30 秒窗，即约 9,246.2 model-sample h；BIOT 也主要按 10/30 秒片段数量报告。
 
-论文比较摘要：REVE 报告 92 来源、24,274 subjects、61,415 h，但只给平台/类别合计；LaBraM 报告 2,534.78 h，混有 TUH 子集与自采数据；Neuro-GPT 的 5,656 h 是所选 20,000 条 TUH 记录的处理后子集；BENDR 与 EEGPT 未给可复算总小时。因此这些数字用于交叉检查，不作为整块新增量重复加到 catalog。
+论文比较摘要：REVE 报告 92 来源、24,274 subjects、61,415 h；BrainWave 分列 35,675.5 scalp-EEG h 与 5,231 iEEG h；NeuralBench-EEG v1.0 为 94 数据集、9,478 subjects、13,603 h；NeuroLM 清洗后约 25,000 h，并在 Appendix C 给出逐来源时长；BrainOmni 报告 1,997 EEG h + 656 MEG h；INCEPT 的约 11,000 h 是 TUEG 过滤后保留量。只有 NeuroLM 中 7 个别名、人数和入口都可唯一映射且原行缺失的值进入逐行 overlay；其他聚合值只用于交叉检查，不能整包重复加入 catalog。
+
+新增的大规模官网证据包括：
+
+- Harvard EEG Database：BDSP v4.1 为 284,343 studies / 109,178 patients；BDSP 当前对照页近似报告约 329,000 recordings / 330 万小时。网页采用后者并显式标为官网近似 reported 值。
+- Human Sleep Project：与目录 18,973-subject 版本一致的 SleepFM Table 4 报告 25,253 recordings、平均 7.6 ± 1.1 h、总 190,732 h；HSP v3 已扩展到 90,166 patients，但官网没有发布可直接相加的精确总 EEG 小时，所以不拿平均值外推新版。
+- Neurotech EEG Dataset v1.0：4,914 patients、23,607 recordings、212,186 h、10.2 TB；受限于 credentialing + DUA，不能标作开放直下。
 
 ## 公开 EEG–fMRI 配对数据 survey
 
-参考 Google Sheet 的 21 行经过 canonical 去重和访问核验后，主统计限定为：人类数据、EEG 与 BOLD 同时采集，并且有公开下载或注册后获取机制。当前结果为 **26 个公开同步数据集、452 个 dataset-subject entries、23/26 个有时长，已知下界 618.88 h**。受试者是在数据集内去重、跨数据集未去重；未知时长不是 0。
+参考 Google Sheet 的 21 行经过 canonical 去重、访问核验和第二轮独立检索后，主统计限定为：人类数据、EEG 与 BOLD 同时采集，并且有公开下载或注册后获取机制。当前结果为 **26 个公开/注册后可得的同步数据集、443 个 dataset-subject entries、25/26 个有 reported/calculated/estimated 时长，合计 696.59 h**。受试者是在数据集内去重、跨数据集未去重；唯一仍无法可靠求和的是 5 人 Schrooten 数据，Unknown 不是 0。
 
-本轮确认的 8 个补入/补全项为：OpenNeuro `ds002734`（价值决策）、`ds003574`（reward + sleep）、`ds005127`（两夜 whole-night sleep1）、`ds004478`（visual flicker）、CineBrain、CMU/Figshare Bondi motor、Zenodo Schrooten covert-attention，以及原表只有空白占位的 ATR `atr-EfP-2025`。其中 `ds005127` 的约 256 h 按官方 README 的“16 人 × 两夜 × 每夜约 8 h”估算，是当前最大公开同步项。
+首轮确认的 8 个补入/补全项仍是：OpenNeuro `ds002734`（22 人 / 9.38 h）、`ds003574`（18 / 50.37 h）、`ds005127`（16 / 约 256 h）、`ds004478`（6 / 0.40 h）、CineBrain（6 / 36 h）、CMU/Figshare Bondi motor（17 / 4.41 h）、Zenodo Schrooten covert-attention（5 / Unknown），以及原表空白 ATR `atr-EfP-2025`（39 / 约 42.97 h）。这 8 个合计 129 dataset-subject entries，7 个有时长，合计约 399.53 h。
 
-以下条目不进入 618.88 h：
+第二轮不依赖参考表的检索又新增 G-Node/GIN `g-node.6269c2` epileptic-focus 数据：10 名难治性癫痫患者，每人 20 min 同步静息 EEG-fMRI，合计 3.33 h，CC0。另发现多个 NDA 控制访问项目（connectome states、ASD rest、ADHD working memory、stress/anxiety）；由于公开页只给 collection-wide subjects，未给“同时拥有完整 EEG + BOLD raw runs”的人数与时长，暂列“范围待核”，不混入 26/443/696.59 的严格总数。
+
+同一轮也补记了 OpenNeuro `ds003688`：51 名患者有 iEEG、30 名有 fMRI，其中 18 名完成两种模态的同一 6.5 min 电影任务；但 fMRI 在植入前、iEEG 在数天或数周后采集，因此归入“同被试分开采集”，不计同步时长。当前次级分类共有 7 个分开采集数据集。
+
+NATVIEW 原先的 5.9 h 已纠正：NEMAR v1.0.0 manifest 中实际有 391 个 scanner-on EEG run 文件，按数据论文 Table 1 的对应 BOLD nominal run lengths 求和为 150,740 s，即 41.87 h；scanner-off 与 outside-scanner EEG 被排除。此前 5.9 h 来自二手汇总表，不代表完整公开同步协议。
+
+以下条目不进入 696.59 h：
 
 - NeuroBOLT 没有核实到公开下载；
 - Dryad MSIT 公开记录只有 46.59 KB 汇总工作表，不是 raw EEG/fMRI；
+- Gesture–speech Zenodo 只公开 3 个 alpha 结果压缩包（64.4 MB），没有 raw EEG/BOLD；
 - Berlin/Charité 50 人 cohort 没有核实到 raw public download；
 - LPPHK、LPP Multi-talker、PEARL、旧 inner-speech `ds004196`、VEPCON、Wakeman–Henson 为同被试多模态但分开会话；
 - TLE connectomes 与 Zenodo 3905103 仅提供衍生 connectome。
@@ -239,8 +253,8 @@ $env:NODE_PATH = 'C:\Users\tangzhice\.cache\codex-runtimes\codex-primary-runtime
 ## 统计口径
 
 - 43,627.8 h 是当前已下载文件审计口径。
-- 138,839.5 h 是疾病/临床已知行剔除明确 TUEG 子集重叠后的当前可核验覆盖；未知疾病条目不计为 0。
-- 366,086.3 h 是全目录当前来源级已知覆盖，包含疾病/健康来源并集 346,490.7 h、非重点 OpenNeuro 审计 16,531.41 h，以及不重叠的非重点 SingLEM canonical 行 3,064.13 h；其中大量数值仍是论文/官网或 BIDS 抽样估算，不等于本地文件精确审计。
+- 3,785,081.5 h 是疾病/临床已知行的当前保守覆盖：剔除明确 TUEG 子集，并在加入 HEEDB 后移除全部 I-CARE 以防 Harvard 医院重叠；未知疾病条目不计为 0。
+- 3,821,689.4 h 是全目录当前来源级已知覆盖；3,300,000 h HEEDB 为官网近似 reported 值，OpenNeuro 的部分条目为 BIDS 抽样估算，因此这不是本地文件精确审计。
 - 受试者统计为来源报告的 dataset-subject entries，不声称是跨数据集去重后的全球唯一人数。
 - REVE 的 61,415 h 是其预训练汇编与预处理口径，两者不可直接相减为下载缺口。
 - 未获得官方总时长的条目保持空白，不以“人数 × 假设时长”制造精确值。
