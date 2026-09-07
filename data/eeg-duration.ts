@@ -1,17 +1,23 @@
 import catalog from "../public/catalog-data.json";
 import openNeuroAudit from "./eeg-openneuro-duration-audit.json";
 import literatureAudit from "./eeg-literature-duration-audit.json";
+import { applyCatalogClassification, applyChecklistClassification, heedbClassification } from "./eeg-classification";
 import {
   independentDurationAudit,
   independentDurationRecords,
   neurotechSupplementalCatalogRow,
 } from "./eeg-independent-duration-audit";
 
-type CatalogRow = (typeof catalog.catalogRows)[number];
 type DurationAuditRecord = (typeof openNeuroAudit.records)[number];
 type LiteratureAuditRecord = (typeof literatureAudit.records)[number];
 type IndependentAuditRecord = (typeof independentDurationRecords)[number];
-type AuditedCatalogRow = (CatalogRow | typeof neurotechSupplementalCatalogRow) & {
+type AuditedCatalogRow = {
+  id: string; name: string; largeCategory: string; smallCategory: string; task: string | null;
+  subjectsDisplay: string | number | null; channels: string | null; samplingRate: string | null;
+  format: string | null; rawProcessed: string | null; access: string; url: string;
+  stableId: string | null; paper: string | null; verification: string | null; isNew: boolean;
+  durationHours: number | null; completenessScore: number; completenessMax: number;
+  durationBasis?: string | null; durationEvidence?: string | null; durationEvidenceUrl?: string | null;
   durationSource?: "reported" | "calculated" | "estimated";
 };
 
@@ -59,7 +65,7 @@ const auditedOriginalRows = catalog.catalogRows.map((row): AuditedCatalogRow => 
     return {
       ...row,
       durationHours: audit.durationHours,
-      durationSource: audit.durationSource,
+      durationSource: audit.durationSource === 'calculated' ? 'calculated' : 'estimated',
       durationBasis: auditBasis(audit),
       durationEvidence: auditEvidence(audit),
       durationEvidenceUrl: audit.sourceUrl,
@@ -100,7 +106,7 @@ const auditedOriginalRows = catalog.catalogRows.map((row): AuditedCatalogRow => 
 // is appended in this evidence layer so it is searchable without rewriting the
 // user's original catalog.
 export const eegCatalogRows: AuditedCatalogRow[] = [
-  ...auditedOriginalRows,
+  ...auditedOriginalRows.map(applyCatalogClassification),
   neurotechSupplementalCatalogRow,
 ];
 
@@ -124,16 +130,19 @@ export const eegCategoryStats = catalog.categoryStats.map((category) => {
   };
 });
 
-const focusTypeById = new Map(catalog.downloadChecklist.rows.map((row) => [row.id, row.focusType]));
+export const eegDownloadChecklistRows = catalog.downloadChecklist.rows.map(applyChecklistClassification);
+const focusTypeById = new Map(eegDownloadChecklistRows.map((row) => [row.id, row.focusType]));
 const diseaseRows = eegCatalogRows.filter((row) =>
   focusTypeById.get(row.id) === "疾病/临床" || row.id === neurotechSupplementalCatalogRow.id
 );
 const diseaseKnownRows = diseaseRows.filter((row) => row.durationHours != null);
 
 // These five entries are documented child subsets of the included TUEG parent.
-// Removing them is the only row-level overlap correction made here.
+// I-CARE is excluded only if its HEEDB parent is inside this same aggregation.
+// The whole-catalog source union retains the conservative overlap guard.
 const tuegChildOverlapIds = new Set(["EEG-0033", "EEG-0034", "EEG-0035", "EEG-0036", "EEG-0107"]);
-const knownClinicalOverlapIds = new Set([...tuegChildOverlapIds, "EEG-0150"]);
+const diseaseIncludesHeedb = diseaseRows.some((row) => row.id === heedbClassification.id);
+const knownClinicalOverlapIds = new Set([...tuegChildOverlapIds, ...(diseaseIncludesHeedb ? ["EEG-0150"] : [])]);
 const nonFocusOpenNeuroHours = appliedAuditRecords.reduce((sum, record) => sum + record.durationHours, 0);
 const focusIds = new Set(catalog.downloadChecklist.rows.map((row) => row.id));
 const nonFocusLiteratureRecords = appliedLiteratureRecords.filter((record) => !focusIds.has(record.id));
@@ -157,7 +166,7 @@ export const eegDurationSummary = {
       .reduce((sum, row) => sum + (row.durationHours ?? 0), 0),
     excludedKnownOverlapUnits: knownClinicalOverlapIds.size,
     excludedTuegChildUnits: tuegChildOverlapIds.size,
-    excludedIcareUnits: 1,
+    excludedIcareUnits: diseaseIncludesHeedb ? 1 : 0,
   },
   catalog: {
     units: eegCatalogRows.length,
@@ -225,11 +234,14 @@ export const categoryDurationStats = (categories: readonly {
   });
   const known = matching.filter((row) => row.durationHours != null);
   const isClinical = category.code === "02";
+  // Transfer the original snapshot's 100,000+ lower bound. Do not mix releases
+  // or substitute the different 109,178-patient v4.1 count during reclassification.
+  const heedbTransfer = isClinical ? -1 : category.code === "03" ? 1 : 0;
   return {
     ...category,
     units: matching.length,
-    subjectKnownUnits: category.subjectKnownUnits + (isClinical ? 1 : 0),
-    subjectEntries: category.subjectEntries + (isClinical ? 4_914 : 0),
+    subjectKnownUnits: category.subjectKnownUnits + (isClinical ? 1 : 0) + heedbTransfer,
+    subjectEntries: category.subjectEntries + (isClinical ? 4_914 : 0) + heedbTransfer * 100_000,
     durationKnownUnits: known.length,
     hours: known.length ? known.reduce((sum, row) => sum + (row.durationHours ?? 0), 0) : null,
   };

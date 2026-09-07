@@ -27,9 +27,9 @@ export const independentDurationRecords: IndependentDurationRecord[] = [
     durationHours: 3_300_000,
     durationSource: "reported",
     evidenceUrl: "https://bdsp.io/content/nf89816gtxbon11kbr9a/1.0/",
-    evidence: "Official BDSP comparison reports approximately 3.3 million EEG hours, approximately 329,000 recordings and approximately 109,000 patients.",
+    evidence: "The official BDSP Neurotech comparison page reports approximately 3.3 million EEG hours, approximately 329,000 recordings and approximately 109,000 patients for HEEDB.",
     sourceLevelIncrementHours: 3_300_000 - 56_676,
-    note: "Approximate current-platform scale; the separately versioned HEEDB v4.1 page reports 284,343 studies and 109,178 patients. The source-union increment conservatively removes all I-CARE hours because several Harvard hospitals overlap.",
+    note: "Approximate full-platform scale, not a local download or an immediately usable training subset. The separately versioned HEEDB v4.1 page reports 284,343 studies and 109,178 patients but no exact aggregate hours. Full access requires BDSP credentialing, the project DUA and compliance with the credentialed health-data license. The source-union increment conservatively removes all I-CARE hours because several Harvard hospitals overlap.",
   },
   {
     id: "EEG-0127",

@@ -1,0 +1,1133 @@
+{
+  "reviewDate": "2026-09-06",
+  "fmri": {
+    "child": {
+      "id": "ds002366",
+      "treeSha": "bb8f33eebd2626cc40b8f31e35781726509c8ef0",
+      "url": "https://api.github.com/repos/OpenNeuroDatasets/ds002366/git/trees/master?recursive=1"
+    },
+    "parent": {
+      "id": "ds002620",
+      "treeSha": "6626ae127678af7d3c1b7a704e655103a343b4b1",
+      "url": "https://api.github.com/repos/OpenNeuroDatasets/ds002620/git/trees/master?recursive=1"
+    },
+    "note": "Matching Git object paths and SHA values for published BOLD links; no full signal downloads.",
+    "matches": [
+      {
+        "path": "sub-ER006/ses-1/func/sub-ER006_ses-1_task-emoregRun1_bold.nii",
+        "sha": "494be8ee28d597b67d90ed39b1a8ec85ee6c6c61"
+      },
+      {
+        "path": "sub-ER006/ses-1/func/sub-ER006_ses-1_task-emoregRun2_bold.nii",
+        "sha": "22e71e0b85c62ab061d5a4df15ac4e7b1a03c527"
+      },
+      {
+        "path": "sub-ER006/ses-1/func/sub-ER006_ses-1_task-emoregRun3_bold.nii",
+        "sha": "17af1833d0cecddb58aa11427f50392f92746751"
+      },
+      {
+        "path": "sub-ER006/ses-1/func/sub-ER006_ses-1_task-emoregRun4_bold.nii",
+        "sha": "6abf0990b53902556f9b0d72d2f36918ab901f3b"
+      },
+      {
+        "path": "sub-ER007/ses-1/func/sub-ER007_ses-1_task-emoregRun1_bold.nii",
+        "sha": "7cd6ce7f6cb62e866b53250c889ed8e2ce7986db"
+      },
+      {
+        "path": "sub-ER007/ses-1/func/sub-ER007_ses-1_task-emoregRun2_bold.nii",
+        "sha": "9a3bfa2f3b76fbc117108bb00423f35da9c2a03c"
+      },
+      {
+        "path": "sub-ER007/ses-1/func/sub-ER007_ses-1_task-emoregRun3_bold.nii",
+        "sha": "8320a1bf72eaa84a080a86d3a3a5eaeedcdb4456"
+      },
+      {
+        "path": "sub-ER007/ses-1/func/sub-ER007_ses-1_task-emoregRun4_bold.nii",
+        "sha": "1c137c8d4af69cedf3b59025e269d49d81e83bab"
+      },
+      {
+        "path": "sub-ER008/ses-1/func/sub-ER008_ses-1_task-emoregRun1_bold.nii",
+        "sha": "aac934d888426f0ad0274b5e10e0558a9ad135df"
+      },
+      {
+        "path": "sub-ER008/ses-1/func/sub-ER008_ses-1_task-emoregRun2_bold.nii",
+        "sha": "8607e266f935c239b1157f0aa793208641ccfae2"
+      },
+      {
+        "path": "sub-ER008/ses-1/func/sub-ER008_ses-1_task-emoregRun3_bold.nii",
+        "sha": "6e2c448c2302fe584a5bb3505d7524b4cf480426"
+      },
+      {
+        "path": "sub-ER008/ses-1/func/sub-ER008_ses-1_task-emoregRun4_bold.nii",
+        "sha": "33b5ca1666c0e3a2ad498286f736ea59a487550e"
+      },
+      {
+        "path": "sub-ER009/ses-1/func/sub-ER009_ses-1_task-emoregRun1_bold.nii",
+        "sha": "f9f82b6c7604bef56d602b04efc77b10137455d9"
+      },
+      {
+        "path": "sub-ER009/ses-1/func/sub-ER009_ses-1_task-emoregRun2_bold.nii",
+        "sha": "09e7ca0b571e95786611d3506b0ebb1e01aafa16"
+      },
+      {
+        "path": "sub-ER009/ses-1/func/sub-ER009_ses-1_task-emoregRun3_bold.nii",
+        "sha": "73b7344f046ff15d9e05b8287e52f709c24d0f9d"
+      },
+      {
+        "path": "sub-ER009/ses-1/func/sub-ER009_ses-1_task-emoregRun4_bold.nii",
+        "sha": "6b9b6412f1a57c58e9214f661f72aea9c165da6e"
+      },
+      {
+        "path": "sub-ER010/ses-1/func/sub-ER010_ses-1_task-emoregRun1_bold.nii",
+        "sha": "c5e0e036e6e91abb5180a42b39a529f361fd09f3"
+      },
+      {
+        "path": "sub-ER010/ses-1/func/sub-ER010_ses-1_task-emoregRun2_bold.nii",
+        "sha": "b112b9da0a657d76faf941e7eafd0cae21e21b62"
+      },
+      {
+        "path": "sub-ER010/ses-1/func/sub-ER010_ses-1_task-emoregRun3_bold.nii",
+        "sha": "87901af0cb2a08dfbae591bb57317a0aca3b53d4"
+      },
+      {
+        "path": "sub-ER010/ses-1/func/sub-ER010_ses-1_task-emoregRun4_bold.nii",
+        "sha": "757caef2288a7e3d4fb89f60faeb1c5f25540886"
+      },
+      {
+        "path": "sub-ER011/ses-1/func/sub-ER011_ses-1_task-emoregRun1_bold.nii",
+        "sha": "a8c338ea80a670aee68747003f5dbbe5440d999b"
+      },
+      {
+        "path": "sub-ER011/ses-1/func/sub-ER011_ses-1_task-emoregRun2_bold.nii",
+        "sha": "145dd094724adf355fda0fe25744e2565e80471b"
+      },
+      {
+        "path": "sub-ER011/ses-1/func/sub-ER011_ses-1_task-emoregRun3_bold.nii",
+        "sha": "c6435612fd8a1546f90b9f84c2377903f836a3ea"
+      },
+      {
+        "path": "sub-ER011/ses-1/func/sub-ER011_ses-1_task-emoregRun4_bold.nii",
+        "sha": "bd4cdef79c7aa80fefa865b99512f532a2f91d9d"
+      },
+      {
+        "path": "sub-ER012/ses-1/func/sub-ER012_ses-1_task-emoregRun1_bold.nii",
+        "sha": "9402b66d5a0d914851b5fe7a8a609e2d2c6d6569"
+      },
+      {
+        "path": "sub-ER012/ses-1/func/sub-ER012_ses-1_task-emoregRun2_bold.nii",
+        "sha": "181245255b8523cdb5ca2989909e0f2032d16318"
+      },
+      {
+        "path": "sub-ER012/ses-1/func/sub-ER012_ses-1_task-emoregRun3_bold.nii",
+        "sha": "12add1e931d503034867611a257977996add8495"
+      },
+      {
+        "path": "sub-ER012/ses-1/func/sub-ER012_ses-1_task-emoregRun4_bold.nii",
+        "sha": "9651dc8152634d75d85e20c483c4b757965429a9"
+      },
+      {
+        "path": "sub-ER015/ses-1/func/sub-ER015_ses-1_task-emoregRun1_bold.nii",
+        "sha": "3747cb346670d3e0092b145cccc9859f366c10b5"
+      },
+      {
+        "path": "sub-ER015/ses-1/func/sub-ER015_ses-1_task-emoregRun2_bold.nii",
+        "sha": "5e33f43ecdb071ae88bf6556bbc1c864cdcfb7fd"
+      },
+      {
+        "path": "sub-ER015/ses-1/func/sub-ER015_ses-1_task-emoregRun3_bold.nii",
+        "sha": "2e63d17545b2de421b3ebfc1aac49155ef27c016"
+      },
+      {
+        "path": "sub-ER015/ses-1/func/sub-ER015_ses-1_task-emoregRun4_bold.nii",
+        "sha": "fe8b570a6ab78b8b88aa6ce812588f265280d6ae"
+      },
+      {
+        "path": "sub-ER016/ses-1/func/sub-ER016_ses-1_task-emoregRun1_bold.nii",
+        "sha": "796824448a3585b1b6bab0d590aabfc3b99a9a3c"
+      },
+      {
+        "path": "sub-ER016/ses-1/func/sub-ER016_ses-1_task-emoregRun2_bold.nii",
+        "sha": "e8d6b47a2611839703d03ed5a8d836a4b97ea778"
+      },
+      {
+        "path": "sub-ER016/ses-1/func/sub-ER016_ses-1_task-emoregRun3_bold.nii",
+        "sha": "e6fee06b9f9c118af5c48aa3cde1f5db7862ff95"
+      },
+      {
+        "path": "sub-ER016/ses-1/func/sub-ER016_ses-1_task-emoregRun4_bold.nii",
+        "sha": "950973315de2a65e45126ffcaead23339ac60807"
+      },
+      {
+        "path": "sub-ER017/ses-1/func/sub-ER017_ses-1_task-emoregRun1_bold.nii",
+        "sha": "ec996af7aa293d4cf4c067fd1befb9a81e1a11c5"
+      },
+      {
+        "path": "sub-ER017/ses-1/func/sub-ER017_ses-1_task-emoregRun2_bold.nii",
+        "sha": "3231effa8256ece4785650a4d5296d4e44a4d8c9"
+      },
+      {
+        "path": "sub-ER017/ses-1/func/sub-ER017_ses-1_task-emoregRun3_bold.nii",
+        "sha": "24e239b51f16bfbe898ee44c17160e75b4bbb780"
+      },
+      {
+        "path": "sub-ER017/ses-1/func/sub-ER017_ses-1_task-emoregRun4_bold.nii",
+        "sha": "7c5202621ce68dc8768d24d84adb7f66bd393b21"
+      },
+      {
+        "path": "sub-ER018/ses-1/func/sub-ER018_ses-1_task-emoregRun1_bold.nii",
+        "sha": "ab2145d01feb991cee57215b34fead332ac35134"
+      },
+      {
+        "path": "sub-ER018/ses-1/func/sub-ER018_ses-1_task-emoregRun2_bold.nii",
+        "sha": "1821b1bf83312fc5d37f474c1b427c5454acb307"
+      },
+      {
+        "path": "sub-ER018/ses-1/func/sub-ER018_ses-1_task-emoregRun3_bold.nii",
+        "sha": "3fa0ea0a7a41266586985aad6720b4c0e965661a"
+      },
+      {
+        "path": "sub-ER018/ses-1/func/sub-ER018_ses-1_task-emoregRun4_bold.nii",
+        "sha": "07df97e0109be2b62feaa7e8cc4fec4df70d04b6"
+      },
+      {
+        "path": "sub-ER019/ses-1/func/sub-ER019_ses-1_task-emoregRun1_bold.nii",
+        "sha": "92fff0936079c2c7783ada67d04ba47c4c4c9271"
+      },
+      {
+        "path": "sub-ER019/ses-1/func/sub-ER019_ses-1_task-emoregRun2_bold.nii",
+        "sha": "6c495416db91dc44cf8608f2ff5f9af538d7b2cc"
+      },
+      {
+        "path": "sub-ER019/ses-1/func/sub-ER019_ses-1_task-emoregRun3_bold.nii",
+        "sha": "cb05229a7c7a3631f74f53c413bff86a68b87909"
+      },
+      {
+        "path": "sub-ER019/ses-1/func/sub-ER019_ses-1_task-emoregRun4_bold.nii",
+        "sha": "621e10c53a407133c3807c3614ca12e1b295904e"
+      },
+      {
+        "path": "sub-ER021/ses-1/func/sub-ER021_ses-1_task-emoregRun1_bold.nii",
+        "sha": "fa7b2ff495a987730eb3a0c944c7ca2eab725162"
+      },
+      {
+        "path": "sub-ER021/ses-1/func/sub-ER021_ses-1_task-emoregRun2_bold.nii",
+        "sha": "131169a1157ca21c8b50bb5a81b0cc6b00109b94"
+      },
+      {
+        "path": "sub-ER021/ses-1/func/sub-ER021_ses-1_task-emoregRun3_bold.nii",
+        "sha": "989413e8a6cb623f310614fd9e4c7266529c3899"
+      },
+      {
+        "path": "sub-ER021/ses-1/func/sub-ER021_ses-1_task-emoregRun4_bold.nii",
+        "sha": "5904bcdd71c78959059248b47d6274c20c89b7e8"
+      },
+      {
+        "path": "sub-ER024/ses-1/func/sub-ER024_ses-1_task-emoregRun1_bold.nii",
+        "sha": "e4ba54231f993ae009db4e92ba34608f542d7a69"
+      },
+      {
+        "path": "sub-ER024/ses-1/func/sub-ER024_ses-1_task-emoregRun2_bold.nii",
+        "sha": "727703253d8b03948e91e8b920e840716b5eb04b"
+      },
+      {
+        "path": "sub-ER024/ses-1/func/sub-ER024_ses-1_task-emoregRun3_bold.nii",
+        "sha": "6e66fb8eda3b42de020594d3cea67a6383554454"
+      },
+      {
+        "path": "sub-ER024/ses-1/func/sub-ER024_ses-1_task-emoregRun4_bold.nii",
+        "sha": "4151abcc2e9e843782a97c2a8e42de8c9f598e56"
+      },
+      {
+        "path": "sub-ER026/ses-1/func/sub-ER026_ses-1_task-emoregRun1_bold.nii",
+        "sha": "90afe593d5e92e651138afe429d4d0d290b65f7e"
+      },
+      {
+        "path": "sub-ER026/ses-1/func/sub-ER026_ses-1_task-emoregRun2_bold.nii",
+        "sha": "c212480915de20a7c2c5648725b9304831dba3de"
+      },
+      {
+        "path": "sub-ER026/ses-1/func/sub-ER026_ses-1_task-emoregRun3_bold.nii",
+        "sha": "65c489fb4fc3abd2a12569dc93ec671aa26db74f"
+      },
+      {
+        "path": "sub-ER026/ses-1/func/sub-ER026_ses-1_task-emoregRun4_bold.nii",
+        "sha": "252f39d2d53ae079e6fbedea3b35942932c2a678"
+      },
+      {
+        "path": "sub-ER028/ses-1/func/sub-ER028_ses-1_task-emoregRun1_bold.nii",
+        "sha": "b6c91fe6e7aac9fe758972c111725b0eb93ea909"
+      },
+      {
+        "path": "sub-ER028/ses-1/func/sub-ER028_ses-1_task-emoregRun2_bold.nii",
+        "sha": "b0c961922720aeb7ee1dd7191c455f0212451216"
+      },
+      {
+        "path": "sub-ER028/ses-1/func/sub-ER028_ses-1_task-emoregRun3_bold.nii",
+        "sha": "c21b49f482e0c20c540bb5a756d6f34e94eaa564"
+      },
+      {
+        "path": "sub-ER028/ses-1/func/sub-ER028_ses-1_task-emoregRun4_bold.nii",
+        "sha": "429b0290d152fb732c90fb4055d4ed1e7420f4bf"
+      },
+      {
+        "path": "sub-ER029/ses-1/func/sub-ER029_ses-1_task-emoregRun1_bold.nii",
+        "sha": "49650b3d9502fe6f0d4be9f967c652798023cfea"
+      },
+      {
+        "path": "sub-ER029/ses-1/func/sub-ER029_ses-1_task-emoregRun2_bold.nii",
+        "sha": "1a7eac28af46badcd3f817076170e9ff0634884d"
+      },
+      {
+        "path": "sub-ER029/ses-1/func/sub-ER029_ses-1_task-emoregRun3_bold.nii",
+        "sha": "df6d19f4b5fdd5f01e292619dcf8b6562b4d6ce2"
+      },
+      {
+        "path": "sub-ER029/ses-1/func/sub-ER029_ses-1_task-emoregRun4_bold.nii",
+        "sha": "369dafc59396978b70f9148ac8776e9360661d40"
+      },
+      {
+        "path": "sub-ER032/ses-1/func/sub-ER032_ses-1_task-emoregRun1_bold.nii",
+        "sha": "094b6d59d1005becbd784d148cdcbe0c4e6c5eaa"
+      },
+      {
+        "path": "sub-ER032/ses-1/func/sub-ER032_ses-1_task-emoregRun2_bold.nii",
+        "sha": "626c6c689e108e667efc3daec774ed1744bdc3c9"
+      },
+      {
+        "path": "sub-ER032/ses-1/func/sub-ER032_ses-1_task-emoregRun3_bold.nii",
+        "sha": "eeaf7aabe63029ebe0f8a4a2e5663e476560366f"
+      },
+      {
+        "path": "sub-ER032/ses-1/func/sub-ER032_ses-1_task-emoregRun4_bold.nii",
+        "sha": "94c728db9183b45bddf2d0ca77048872967cf697"
+      },
+      {
+        "path": "sub-ER033/ses-1/func/sub-ER033_ses-1_task-emoregRun1_bold.nii",
+        "sha": "a3e237f9811b83a56c7cd1bbc7d6dff8b5ad7e36"
+      },
+      {
+        "path": "sub-ER033/ses-1/func/sub-ER033_ses-1_task-emoregRun2_bold.nii",
+        "sha": "d1cec9190d759c7c444b809ddcf27f089cd885ff"
+      },
+      {
+        "path": "sub-ER033/ses-1/func/sub-ER033_ses-1_task-emoregRun3_bold.nii",
+        "sha": "cddf64bbab8ea4676d6a3f582e0b5412b7ebb390"
+      },
+      {
+        "path": "sub-ER033/ses-1/func/sub-ER033_ses-1_task-emoregRun4_bold.nii",
+        "sha": "f1245e3564e0a9224496f14ed8472852e2b7887e"
+      },
+      {
+        "path": "sub-ER037/ses-1/func/sub-ER037_ses-1_task-emoregRun1_bold.nii",
+        "sha": "f846eb9a71d90b76593450dd30f37ab52084e8e1"
+      },
+      {
+        "path": "sub-ER037/ses-1/func/sub-ER037_ses-1_task-emoregRun2_bold.nii",
+        "sha": "c1989ebab93919488d7c2bd71bb917a168b5aa4a"
+      },
+      {
+        "path": "sub-ER037/ses-1/func/sub-ER037_ses-1_task-emoregRun3_bold.nii",
+        "sha": "587f88c1c11518993fa754a7e07b87e492e6ad0c"
+      },
+      {
+        "path": "sub-ER037/ses-1/func/sub-ER037_ses-1_task-emoregRun4_bold.nii",
+        "sha": "cde5bbaa341446141e0658bd2ddd565db2d83572"
+      },
+      {
+        "path": "sub-ER038/ses-1/func/sub-ER038_ses-1_task-emoregRun1_bold.nii",
+        "sha": "88ed010922dad54167ddaaf04fa569f81d4de7fc"
+      },
+      {
+        "path": "sub-ER038/ses-1/func/sub-ER038_ses-1_task-emoregRun2_bold.nii",
+        "sha": "9b96d61ff49a7081b50c306451221c72963f6dc8"
+      },
+      {
+        "path": "sub-ER038/ses-1/func/sub-ER038_ses-1_task-emoregRun3_bold.nii",
+        "sha": "7f3eeb8c3c3ff674d825c72b26b4288bcee34d34"
+      },
+      {
+        "path": "sub-ER038/ses-1/func/sub-ER038_ses-1_task-emoregRun4_bold.nii",
+        "sha": "38159bdff4ded282b3b7fffedcf5fa464c953181"
+      },
+      {
+        "path": "sub-ER039/ses-1/func/sub-ER039_ses-1_task-emoregRun1_bold.nii",
+        "sha": "7026743cd0d2efc22f31ee43950989dc821c50e8"
+      },
+      {
+        "path": "sub-ER039/ses-1/func/sub-ER039_ses-1_task-emoregRun2_bold.nii",
+        "sha": "f119eb55b50579851104d4ccdd0d12092e7ab077"
+      },
+      {
+        "path": "sub-ER039/ses-1/func/sub-ER039_ses-1_task-emoregRun3_bold.nii",
+        "sha": "d7fe78af649c8ea6a52c0df9fbaa446686fd3045"
+      },
+      {
+        "path": "sub-ER039/ses-1/func/sub-ER039_ses-1_task-emoregRun4_bold.nii",
+        "sha": "c80781bd4798e25bc124ff0e2f58b4daab85babd"
+      },
+      {
+        "path": "sub-ER040/ses-1/func/sub-ER040_ses-1_task-emoregRun1_bold.nii",
+        "sha": "d8f1128dbf6b604d14031a4b65714273e419c1d4"
+      },
+      {
+        "path": "sub-ER040/ses-1/func/sub-ER040_ses-1_task-emoregRun2_bold.nii",
+        "sha": "1d31fe1d97a659adb476ec67a208bbd2f6ed07c1"
+      },
+      {
+        "path": "sub-ER040/ses-1/func/sub-ER040_ses-1_task-emoregRun3_bold.nii",
+        "sha": "e5a8ba1371fe8157827cb132b9597bb0be7cd0a5"
+      },
+      {
+        "path": "sub-ER040/ses-1/func/sub-ER040_ses-1_task-emoregRun4_bold.nii",
+        "sha": "ba77d52481d3c5dd4799c9fb84aca0ecc40ebfee"
+      },
+      {
+        "path": "sub-ER041/ses-1/func/sub-ER041_ses-1_task-emoregRun1_bold.nii",
+        "sha": "fa2a9e32fea71c595b46cf9898f779b980eed5ea"
+      },
+      {
+        "path": "sub-ER041/ses-1/func/sub-ER041_ses-1_task-emoregRun2_bold.nii",
+        "sha": "3f77f241e965dae9932e11d3f61a7e131b84419f"
+      },
+      {
+        "path": "sub-ER041/ses-1/func/sub-ER041_ses-1_task-emoregRun3_bold.nii",
+        "sha": "8cce15844634ff7291d4c4ad028bd6e4bf59dfcc"
+      },
+      {
+        "path": "sub-ER041/ses-1/func/sub-ER041_ses-1_task-emoregRun4_bold.nii",
+        "sha": "8e6471243d23a8af962f4cd3c280261823a622b9"
+      },
+      {
+        "path": "sub-ER042/ses-1/func/sub-ER042_ses-1_task-emoregRun1_bold.nii",
+        "sha": "0bfa2d92ed826fc418e1fcf53a4e418e1f81bcd4"
+      },
+      {
+        "path": "sub-ER042/ses-1/func/sub-ER042_ses-1_task-emoregRun2_bold.nii",
+        "sha": "154f8a0475bf6adba95ee4fea8db6f52cb3889c2"
+      },
+      {
+        "path": "sub-ER042/ses-1/func/sub-ER042_ses-1_task-emoregRun3_bold.nii",
+        "sha": "db1fe63a2f6228d10e6a66510f61b320027588e7"
+      },
+      {
+        "path": "sub-ER042/ses-1/func/sub-ER042_ses-1_task-emoregRun4_bold.nii",
+        "sha": "6d3784407b3af31940920e394c46354c6de52a13"
+      },
+      {
+        "path": "sub-ER043/ses-1/func/sub-ER043_ses-1_task-emoregRun1_bold.nii",
+        "sha": "ac8340615fc746a67897eeaccdbb5a7501db60ff"
+      },
+      {
+        "path": "sub-ER043/ses-1/func/sub-ER043_ses-1_task-emoregRun2_bold.nii",
+        "sha": "55def2cef43a1d073e8ec59e16bd2af90f7b108b"
+      },
+      {
+        "path": "sub-ER043/ses-1/func/sub-ER043_ses-1_task-emoregRun3_bold.nii",
+        "sha": "2798325206175a7571853c84ad8edb17177a57a0"
+      },
+      {
+        "path": "sub-ER043/ses-1/func/sub-ER043_ses-1_task-emoregRun4_bold.nii",
+        "sha": "751bc517faa06c3059d03be3db3ecc17c796d0c2"
+      },
+      {
+        "path": "sub-ER046/ses-1/func/sub-ER046_ses-1_task-emoregRun1_bold.nii",
+        "sha": "a43069e8cf2d690be6aaf32869fbc094035619f7"
+      },
+      {
+        "path": "sub-ER046/ses-1/func/sub-ER046_ses-1_task-emoregRun2_bold.nii",
+        "sha": "87f6b71c40f74ede640fbd9d0abbab35b1448ded"
+      },
+      {
+        "path": "sub-ER046/ses-1/func/sub-ER046_ses-1_task-emoregRun3_bold.nii",
+        "sha": "fe48a5493633d85df4ae4d49f143be4e1a305786"
+      },
+      {
+        "path": "sub-ER046/ses-1/func/sub-ER046_ses-1_task-emoregRun4_bold.nii",
+        "sha": "68dff37370320149142cacbcf2e511d65d7af98c"
+      },
+      {
+        "path": "sub-ER047/ses-1/func/sub-ER047_ses-1_task-emoregRun1_bold.nii",
+        "sha": "b7314a5d9566759b5bc3ff1ce829e37cbda68c61"
+      },
+      {
+        "path": "sub-ER047/ses-1/func/sub-ER047_ses-1_task-emoregRun2_bold.nii",
+        "sha": "5b7b97f45bff3852bc5eb9798b317ebe94949743"
+      },
+      {
+        "path": "sub-ER047/ses-1/func/sub-ER047_ses-1_task-emoregRun3_bold.nii",
+        "sha": "ed5a5128b9df75ca9dfb2872b65a679a7c34a8a3"
+      },
+      {
+        "path": "sub-ER047/ses-1/func/sub-ER047_ses-1_task-emoregRun4_bold.nii",
+        "sha": "7f9b9116a92f486dd61d9738306ad83cb350014e"
+      },
+      {
+        "path": "sub-ER048/ses-1/func/sub-ER048_ses-1_task-emoregRun1_bold.nii",
+        "sha": "9dd73925d02d97b7a5951ad651266071146e003d"
+      },
+      {
+        "path": "sub-ER048/ses-1/func/sub-ER048_ses-1_task-emoregRun2_bold.nii",
+        "sha": "0ca61ccfe97e51080bda62b4f583577edfa282c1"
+      },
+      {
+        "path": "sub-ER048/ses-1/func/sub-ER048_ses-1_task-emoregRun3_bold.nii",
+        "sha": "ddf0e6d4137958c91568aa6f23896d51b3b6a5bc"
+      },
+      {
+        "path": "sub-ER048/ses-1/func/sub-ER048_ses-1_task-emoregRun4_bold.nii",
+        "sha": "9389f76f2f0692693dc3b94dea3c17cef595a18e"
+      },
+      {
+        "path": "sub-ER050/ses-1/func/sub-ER050_ses-1_task-emoregRun1_bold.nii",
+        "sha": "67d942d03bd0de29b5aa0fce43329135cac8d394"
+      },
+      {
+        "path": "sub-ER050/ses-1/func/sub-ER050_ses-1_task-emoregRun2_bold.nii",
+        "sha": "06108a70fe8f97996d9cf41e381536f7c6f85b3b"
+      },
+      {
+        "path": "sub-ER050/ses-1/func/sub-ER050_ses-1_task-emoregRun3_bold.nii",
+        "sha": "a85827371858dce394e45bc05400ad6816a4711f"
+      },
+      {
+        "path": "sub-ER050/ses-1/func/sub-ER050_ses-1_task-emoregRun4_bold.nii",
+        "sha": "7fbd7b475237a29249e1ac41fcef5784fd48b449"
+      },
+      {
+        "path": "sub-ER051/ses-1/func/sub-ER051_ses-1_task-emoregRun1_bold.nii",
+        "sha": "86c0d0f5abb44b47de82d42f5a6c8b11a8f0b983"
+      },
+      {
+        "path": "sub-ER051/ses-1/func/sub-ER051_ses-1_task-emoregRun2_bold.nii",
+        "sha": "124991db4d44b4e90522f08c6b0ca38a4272ab39"
+      },
+      {
+        "path": "sub-ER051/ses-1/func/sub-ER051_ses-1_task-emoregRun3_bold.nii",
+        "sha": "567530501b88e507c2f9ebb1825b54f6f6a51929"
+      },
+      {
+        "path": "sub-ER051/ses-1/func/sub-ER051_ses-1_task-emoregRun4_bold.nii",
+        "sha": "01660af2ceaa853127dd6e7bdf34d7b7c93275eb"
+      },
+      {
+        "path": "sub-ER058/ses-1/func/sub-ER058_ses-1_task-emoregRun1_bold.nii",
+        "sha": "f92990f860fed8d5f788888f76085afdfca6234a"
+      },
+      {
+        "path": "sub-ER058/ses-1/func/sub-ER058_ses-1_task-emoregRun2_bold.nii",
+        "sha": "62aadb2ff417a711f6172642470abcb17c0dc6e4"
+      },
+      {
+        "path": "sub-ER058/ses-1/func/sub-ER058_ses-1_task-emoregRun3_bold.nii",
+        "sha": "92ff9b4f968ff09f66d6dfd8ac49ea3faa3ef6e3"
+      },
+      {
+        "path": "sub-ER058/ses-1/func/sub-ER058_ses-1_task-emoregRun4_bold.nii",
+        "sha": "7715107441a7684ec019f92d8169d3cd7061a0c9"
+      },
+      {
+        "path": "sub-ER067/ses-1/func/sub-ER067_ses-1_task-emoregRun1_bold.nii",
+        "sha": "eb8a3e814058e19ec16976487f97ec320568bbe2"
+      },
+      {
+        "path": "sub-ER067/ses-1/func/sub-ER067_ses-1_task-emoregRun2_bold.nii",
+        "sha": "7b4b35fd8c3815f93ebcb6c6ee367ddd3d6c72ba"
+      },
+      {
+        "path": "sub-ER067/ses-1/func/sub-ER067_ses-1_task-emoregRun3_bold.nii",
+        "sha": "45d559c87846e319dcb56cf2e91a600862da76ff"
+      },
+      {
+        "path": "sub-ER067/ses-1/func/sub-ER067_ses-1_task-emoregRun4_bold.nii",
+        "sha": "6ed0838f4742cb7a45f001fa45d0f14aa4ff2b30"
+      },
+      {
+        "path": "sub-ER069/ses-1/func/sub-ER069_ses-1_task-emoregRun1_bold.nii",
+        "sha": "848c9ad35b07b255813fcdc08a79f4e9c1da09c8"
+      },
+      {
+        "path": "sub-ER069/ses-1/func/sub-ER069_ses-1_task-emoregRun2_bold.nii",
+        "sha": "170b3c3a04e22c3dfcba4e887bd8c09cfe1b670b"
+      },
+      {
+        "path": "sub-ER069/ses-1/func/sub-ER069_ses-1_task-emoregRun3_bold.nii",
+        "sha": "d9d317a2a9cd563756dbc110cc071f72868707fe"
+      },
+      {
+        "path": "sub-ER069/ses-1/func/sub-ER069_ses-1_task-emoregRun4_bold.nii",
+        "sha": "5338a0ee63824b2d045fc8916e8a8ac17d4655a6"
+      }
+    ]
+  },
+  "pd": {
+    "child": "ds007020",
+    "parent": "ds008768",
+    "note": "Matching public S3 signal ETag and content length from BrainVision metadata/HEAD requests.",
+    "matches": [
+      {
+        "child": "ds007020/sub-PD1101/ses-01/eeg/sub-PD1101_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-194/ses-01/eeg/sub-194_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"2e53f1dab0586560b88f3345cc360deb\"",
+        "bytes": 19671120
+      },
+      {
+        "child": "ds007020/sub-PD1081/ses-01/eeg/sub-PD1081_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-192/ses-01/eeg/sub-192_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"dd999a66986afbc255954be4b86b10a2\"",
+        "bytes": 31268160
+      },
+      {
+        "child": "ds007020/sub-PD1011/ses-01/eeg/sub-PD1011_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-185/ses-01/eeg/sub-185_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"7423e451ddd3fff0126c930e8fcfb2db\"",
+        "bytes": 41081040
+      },
+      {
+        "child": "ds007020/sub-PD1121/ses-01/eeg/sub-PD1121_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-196/ses-01/eeg/sub-196_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"26512bce72009313f7e3f0a932bf9969\"",
+        "bytes": 15505560
+      },
+      {
+        "child": "ds007020/sub-PD1111/ses-01/eeg/sub-PD1111_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-195/ses-01/eeg/sub-195_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"06222ef7880c174650135b9821dadc0b\"",
+        "bytes": 15190560
+      },
+      {
+        "child": "ds007020/sub-PD1031/ses-01/eeg/sub-PD1031_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-187/ses-01/eeg/sub-187_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"d375c1b175d459cf407d006984fb1775\"",
+        "bytes": 33258960
+      },
+      {
+        "child": "ds007020/sub-PD1021/ses-01/eeg/sub-PD1021_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-186/ses-01/eeg/sub-186_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"8a398ee578116716b2594bc1858efdd8\"",
+        "bytes": 31797360
+      },
+      {
+        "child": "ds007020/sub-PD1051/ses-01/eeg/sub-PD1051_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-189/ses-01/eeg/sub-189_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"ebcad458ee00fe9b8887a9426cedaead\"",
+        "bytes": 33019560
+      },
+      {
+        "child": "ds007020/sub-PD1071/ses-01/eeg/sub-PD1071_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-191/ses-01/eeg/sub-191_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"ef11172a2ee6a58ef92c67952c10a03a\"",
+        "bytes": 29544480
+      },
+      {
+        "child": "ds007020/sub-PD1001/ses-01/eeg/sub-PD1001_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-184/ses-01/eeg/sub-184_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"e52bc851fe8cee5c48ff4440e0ae7b03\"",
+        "bytes": 35489160
+      },
+      {
+        "child": "ds007020/sub-PD1151/ses-01/eeg/sub-PD1151_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-199/ses-01/eeg/sub-199_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"ba67d139bcb7e71016a5d4a9a09baedc\"",
+        "bytes": 15329160
+      },
+      {
+        "child": "ds007020/sub-PD1161/ses-01/eeg/sub-PD1161_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-200/ses-01/eeg/sub-200_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"0b374bfe6b0b09d4a6728ec6fa2d896b\"",
+        "bytes": 23337720
+      },
+      {
+        "child": "ds007020/sub-PD1041/ses-01/eeg/sub-PD1041_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-188/ses-01/eeg/sub-188_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"d181c39e1703c24d07d64bdc427611c7\"",
+        "bytes": 31442040
+      },
+      {
+        "child": "ds007020/sub-PD1061/ses-01/eeg/sub-PD1061_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-190/ses-01/eeg/sub-190_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"0c9631a22516992ea8d8b7432590555b\"",
+        "bytes": 30217320
+      },
+      {
+        "child": "ds007020/sub-PD1201/ses-01/eeg/sub-PD1201_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-204/ses-01/eeg/sub-204_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"af213dd3c7f3a5c6c154b842a665e7ec\"",
+        "bytes": 20076840
+      },
+      {
+        "child": "ds007020/sub-PD1091/ses-01/eeg/sub-PD1091_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-193/ses-01/eeg/sub-193_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"1e09811109f12786a097b194e7247fc4\"",
+        "bytes": 43180200
+      },
+      {
+        "child": "ds007020/sub-PD1131/ses-01/eeg/sub-PD1131_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-197/ses-01/eeg/sub-197_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"a23337b449d162945df82b1cc24cdd14\"",
+        "bytes": 15825600
+      },
+      {
+        "child": "ds007020/sub-PD1141/ses-01/eeg/sub-PD1141_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-198/ses-01/eeg/sub-198_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"037391baec6ff2b3ce2712c6abf0c226\"",
+        "bytes": 15223320
+      },
+      {
+        "child": "ds007020/sub-PD1191/ses-01/eeg/sub-PD1191_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-203/ses-01/eeg/sub-203_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"bce84550deb3b4b778bffc0cbada3d3c\"",
+        "bytes": 22828680
+      },
+      {
+        "child": "ds007020/sub-PD1181/ses-01/eeg/sub-PD1181_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-202/ses-01/eeg/sub-202_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"37cb145208b2e9fa0a2beaae03d8804e\"",
+        "bytes": 23446080
+      },
+      {
+        "child": "ds007020/sub-PD1281/ses-01/eeg/sub-PD1281_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-212/ses-01/eeg/sub-212_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"b3bce52df94b6e252b2892e7e7cb16e3\"",
+        "bytes": 25620840
+      },
+      {
+        "child": "ds007020/sub-PD1211/ses-01/eeg/sub-PD1211_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-205/ses-01/eeg/sub-205_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"18a3d5ebe3f63151d09400496bbd26cd\"",
+        "bytes": 19371240
+      },
+      {
+        "child": "ds007020/sub-PD1171/ses-01/eeg/sub-PD1171_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-201/ses-01/eeg/sub-201_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"a59b4111b0c19ac115f1e4c021088e5f\"",
+        "bytes": 19096560
+      },
+      {
+        "child": "ds007020/sub-PD1221/ses-01/eeg/sub-PD1221_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-206/ses-01/eeg/sub-206_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"882cd5cafd54ccbaef7f970a99d0a6cf\"",
+        "bytes": 21306600
+      },
+      {
+        "child": "ds007020/sub-PD1231/ses-01/eeg/sub-PD1231_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-207/ses-01/eeg/sub-207_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"05390b69ba3eec9e7b05a453e29ad9db\"",
+        "bytes": 19063800
+      },
+      {
+        "child": "ds007020/sub-PD1261/ses-01/eeg/sub-PD1261_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-210/ses-01/eeg/sub-210_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"dd0e900bef7ccc17f040b07666a60ee4\"",
+        "bytes": 15271200
+      },
+      {
+        "child": "ds007020/sub-PD1241/ses-01/eeg/sub-PD1241_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-208/ses-01/eeg/sub-208_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"bb7e43e29ab3f7ac17d370f5dd980a25\"",
+        "bytes": 20651400
+      },
+      {
+        "child": "ds007020/sub-PD1291/ses-01/eeg/sub-PD1291_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-213/ses-01/eeg/sub-213_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"97ba90e3d8d73b7487ea468d76f50072\"",
+        "bytes": 22193640
+      },
+      {
+        "child": "ds007020/sub-PD1301/ses-01/eeg/sub-PD1301_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-214/ses-01/eeg/sub-214_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"00454fd861d17640a1f26bc268fed6d6\"",
+        "bytes": 22848840
+      },
+      {
+        "child": "ds007020/sub-PD1311/ses-01/eeg/sub-PD1311_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-215/ses-01/eeg/sub-215_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"8527692bf4e7e89819d62f7bdde21025\"",
+        "bytes": 19101600
+      },
+      {
+        "child": "ds007020/sub-PD1391/ses-01/eeg/sub-PD1391_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-223/ses-01/eeg/sub-223_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"0d420f11be4e6474d79cd83e81973118\"",
+        "bytes": 17302320
+      },
+      {
+        "child": "ds007020/sub-PD1321/ses-01/eeg/sub-PD1321_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-216/ses-01/eeg/sub-216_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"91acbcdc137f4bfe32a0a0f605a33017\"",
+        "bytes": 16551360
+      },
+      {
+        "child": "ds007020/sub-PD1331/ses-01/eeg/sub-PD1331_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-217/ses-01/eeg/sub-217_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"99cad016a2af74559fd0dc5ffb101c21\"",
+        "bytes": 22037400
+      },
+      {
+        "child": "ds007020/sub-PD1341/ses-01/eeg/sub-PD1341_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-218/ses-01/eeg/sub-218_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"7ef2c683e96c52b56cd5da3ea9fa1274\"",
+        "bytes": 25507440
+      },
+      {
+        "child": "ds007020/sub-PD1351/ses-01/eeg/sub-PD1351_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-219/ses-01/eeg/sub-219_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"fd4f3a802eec2c844d7010e55fb8e8c2\"",
+        "bytes": 15336720
+      },
+      {
+        "child": "ds007020/sub-PD1271/ses-01/eeg/sub-PD1271_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-211/ses-01/eeg/sub-211_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"77d85a4a65db259d0ff0101b2c74408f\"",
+        "bytes": 19479600
+      },
+      {
+        "child": "ds007020/sub-PD1361/ses-01/eeg/sub-PD1361_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-220/ses-01/eeg/sub-220_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"baa15a5c93fe713c06fb5c9daf59c32f\"",
+        "bytes": 16349760
+      },
+      {
+        "child": "ds007020/sub-PD1381/ses-01/eeg/sub-PD1381_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-222/ses-01/eeg/sub-222_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"48ba31e18f959b04b179f8155f34c27c\"",
+        "bytes": 20830320
+      },
+      {
+        "child": "ds007020/sub-PD1461/ses-01/eeg/sub-PD1461_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-230/ses-01/eeg/sub-230_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"f8250fe971f1bdb5d5b6ab404deb052d\"",
+        "bytes": 16498440
+      },
+      {
+        "child": "ds007020/sub-PD1411/ses-01/eeg/sub-PD1411_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-225/ses-01/eeg/sub-225_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"bbfd4dcf1fb65d5207a81ea194b2d2a2\"",
+        "bytes": 18479160
+      },
+      {
+        "child": "ds007020/sub-PD1371/ses-01/eeg/sub-PD1371_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-221/ses-01/eeg/sub-221_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"97402a028635b2d9d9d75bfff5db7e00\"",
+        "bytes": 17141040
+      },
+      {
+        "child": "ds007020/sub-PD1431/ses-01/eeg/sub-PD1431_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-227/ses-01/eeg/sub-227_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"b833dcfb66e3a020280883993b1310bd\"",
+        "bytes": 17577000
+      },
+      {
+        "child": "ds007020/sub-PD1451/ses-01/eeg/sub-PD1451_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-229/ses-01/eeg/sub-229_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"5c424672f723c93625658148fe8ca06c\"",
+        "bytes": 16541280
+      },
+      {
+        "child": "ds007020/sub-PD1441/ses-01/eeg/sub-PD1441_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-228/ses-01/eeg/sub-228_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"f325d056d7df9140541fd5b513f8cafd\"",
+        "bytes": 18312840
+      },
+      {
+        "child": "ds007020/sub-PD1481/ses-01/eeg/sub-PD1481_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-232/ses-01/eeg/sub-232_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"8e35c47b0724db5928f1879b4532b5e5\"",
+        "bytes": 15572480
+      },
+      {
+        "child": "ds007020/sub-PD1531/ses-01/eeg/sub-PD1531_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-237/ses-01/eeg/sub-237_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"b4f944bfb6bffc7facd87831eb13f7ac\"",
+        "bytes": 15750000
+      },
+      {
+        "child": "ds007020/sub-PD1501/ses-01/eeg/sub-PD1501_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-234/ses-01/eeg/sub-234_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"d4ba6df90d6b5df58ea549ede083a871\"",
+        "bytes": 15681960
+      },
+      {
+        "child": "ds007020/sub-PD1541/ses-01/eeg/sub-PD1541_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-238/ses-01/eeg/sub-238_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"02672e27222c13a5bd24fbf0276eb708\"",
+        "bytes": 15669360
+      },
+      {
+        "child": "ds007020/sub-PD1491/ses-01/eeg/sub-PD1491_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-233/ses-01/eeg/sub-233_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"8a159a6138b63ef795ee71062b01fffd\"",
+        "bytes": 15928320
+      },
+      {
+        "child": "ds007020/sub-PD1421/ses-01/eeg/sub-PD1421_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-226/ses-01/eeg/sub-226_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"9049e8ef510389c4f983d6856a2c770a\"",
+        "bytes": 16538760
+      },
+      {
+        "child": "ds007020/sub-PD1521/ses-01/eeg/sub-PD1521_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-236/ses-01/eeg/sub-236_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"b08f93bb7dd44ff22b22a5facf7db781\"",
+        "bytes": 15931440
+      },
+      {
+        "child": "ds007020/sub-PD1511/ses-01/eeg/sub-PD1511_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-235/ses-01/eeg/sub-235_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"3e7bfe25a2ffc1146fa40c2d203026f0\"",
+        "bytes": 16498440
+      },
+      {
+        "child": "ds007020/sub-PD1471/ses-01/eeg/sub-PD1471_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-231/ses-01/eeg/sub-231_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"b680730f774338b4b73f5e5f2b31aa8e\"",
+        "bytes": 29990520
+      },
+      {
+        "child": "ds007020/sub-PD1551/ses-01/eeg/sub-PD1551_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-239/ses-01/eeg/sub-239_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"41afcca5e712d62461daae7bfa6294e9\"",
+        "bytes": 17536680
+      },
+      {
+        "child": "ds007020/sub-PD1651/ses-01/eeg/sub-PD1651_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-249/ses-01/eeg/sub-249_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"869c5053d84bc99fb6ab6ed0771a976c\"",
+        "bytes": 17743360
+      },
+      {
+        "child": "ds007020/sub-PD1571/ses-01/eeg/sub-PD1571_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-241/ses-01/eeg/sub-241_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"57e9c403e886c58e3e046ef41f036588\"",
+        "bytes": 15765120
+      },
+      {
+        "child": "ds007020/sub-PD1611/ses-01/eeg/sub-PD1611_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-245/ses-01/eeg/sub-245_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"0a7ca5fd7098007da5df694e64b6c056\"",
+        "bytes": 15760080
+      },
+      {
+        "child": "ds007020/sub-PD1601/ses-01/eeg/sub-PD1601_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-244/ses-01/eeg/sub-244_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"10d4a818d35a786e94ca6a5df79a4b00\"",
+        "bytes": 15750000
+      },
+      {
+        "child": "ds007020/sub-PD1591/ses-01/eeg/sub-PD1591_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-243/ses-01/eeg/sub-243_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"74e88880b69e8d62a0a2b5f5adb30ac4\"",
+        "bytes": 18461520
+      },
+      {
+        "child": "ds007020/sub-PD1621/ses-01/eeg/sub-PD1621_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-246/ses-01/eeg/sub-246_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"81465d0289d2091b739e8ab7382fc642\"",
+        "bytes": 19698840
+      },
+      {
+        "child": "ds007020/sub-PD1641/ses-01/eeg/sub-PD1641_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-248/ses-01/eeg/sub-248_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"74ec49390ecc3abcc62210a069d80ad9\"",
+        "bytes": 15854080
+      },
+      {
+        "child": "ds007020/sub-PD1691/ses-01/eeg/sub-PD1691_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-152/ses-02/eeg/sub-152_ses-02_task-rest_eeg.vhdr",
+        "etag": "\"5db1e0ed78d962394cbe859a3d22b99c\"",
+        "bytes": 15293880
+      },
+      {
+        "child": "ds007020/sub-PD1581/ses-01/eeg/sub-PD1581_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-242/ses-01/eeg/sub-242_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"8658aa7ab4bd0ba1e97fabda791ddbe2\"",
+        "bytes": 17098200
+      },
+      {
+        "child": "ds007020/sub-PD1681/ses-01/eeg/sub-PD1681_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-252/ses-01/eeg/sub-252_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"ad6d0de8276a3a35d28c87356bde6087\"",
+        "bytes": 16194560
+      },
+      {
+        "child": "ds007020/sub-PD1761/ses-01/eeg/sub-PD1761_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-258/ses-01/eeg/sub-258_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"d884412ea6bed0ca28d2d4323bec7f96\"",
+        "bytes": 20766720
+      },
+      {
+        "child": "ds007020/sub-PD1631/ses-01/eeg/sub-PD1631_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-247/ses-01/eeg/sub-247_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"a2a23a2d963be60e196d5b0fe012bf36\"",
+        "bytes": 20364120
+      },
+      {
+        "child": "ds007020/sub-PD1711/ses-01/eeg/sub-PD1711_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-254/ses-01/eeg/sub-254_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"224abebbf02a1ba4cf3d944c8f070cc4\"",
+        "bytes": 19094040
+      },
+      {
+        "child": "ds007020/sub-PD1661/ses-01/eeg/sub-PD1661_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-250/ses-01/eeg/sub-250_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"6f6889e778b24bfdab8e1385862c3ae9\"",
+        "bytes": 16216200
+      },
+      {
+        "child": "ds007020/sub-PD1701/ses-01/eeg/sub-PD1701_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-253/ses-01/eeg/sub-253_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"43c77a26b3979eb08bce993c76e662f0\"",
+        "bytes": 17168760
+      },
+      {
+        "child": "ds007020/sub-PD1741/ses-01/eeg/sub-PD1741_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-256/ses-01/eeg/sub-256_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"8f6d3dc925f25387844f4eafd131b266\"",
+        "bytes": 16584120
+      },
+      {
+        "child": "ds007020/sub-PD1721/ses-01/eeg/sub-PD1721_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-155/ses-02/eeg/sub-155_ses-02_task-rest_eeg.vhdr",
+        "etag": "\"932aca5e0a3ef4d6b57c713f202f8ef3\"",
+        "bytes": 16805880
+      },
+      {
+        "child": "ds007020/sub-PD1731/ses-01/eeg/sub-PD1731_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-255/ses-01/eeg/sub-255_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"a15cb7ba61bee4944e73298b9c128b8b\"",
+        "bytes": 17627400
+      },
+      {
+        "child": "ds007020/sub-PD1801/ses-01/eeg/sub-PD1801_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-262/ses-01/eeg/sub-262_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"670f4eb749210d65c8c6ac75a254b4c4\"",
+        "bytes": 16506000
+      },
+      {
+        "child": "ds007020/sub-PD1781/ses-01/eeg/sub-PD1781_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-260/ses-01/eeg/sub-260_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"0c28b62aac9dcbbef31150831d19bc27\"",
+        "bytes": 20344320
+      },
+      {
+        "child": "ds007020/sub-PD1751/ses-01/eeg/sub-PD1751_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-257/ses-01/eeg/sub-257_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"81835202e005d64723557dc1b1e1934a\"",
+        "bytes": 16644600
+      },
+      {
+        "child": "ds007020/sub-PD1841/ses-01/eeg/sub-PD1841_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-266/ses-01/eeg/sub-266_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"92240a74351354033f05cc7acc46e7e4\"",
+        "bytes": 16027200
+      },
+      {
+        "child": "ds007020/sub-PD1791/ses-01/eeg/sub-PD1791_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-261/ses-01/eeg/sub-261_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"66b3a4a04679e180c3ab4ca650783322\"",
+        "bytes": 18539640
+      },
+      {
+        "child": "ds007020/sub-PD1771/ses-01/eeg/sub-PD1771_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-259/ses-01/eeg/sub-259_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"f3dde154448bc6442eaeecbbf7eee20d\"",
+        "bytes": 18670080
+      },
+      {
+        "child": "ds007020/sub-PD1831/ses-01/eeg/sub-PD1831_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-265/ses-01/eeg/sub-265_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"6ccd1f404b5b353f1e36ec67103ffa2e\"",
+        "bytes": 15807960
+      },
+      {
+        "child": "ds007020/sub-PD1911/ses-01/eeg/sub-PD1911_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-160/ses-02/eeg/sub-160_ses-02_task-rest_eeg.vhdr",
+        "etag": "\"8d6ebc92189ec1d44392c0f0c0f25e0c\"",
+        "bytes": 15564800
+      },
+      {
+        "child": "ds007020/sub-PD1921/ses-01/eeg/sub-PD1921_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-154/ses-02/eeg/sub-154_ses-02_task-rest_eeg.vhdr",
+        "etag": "\"42e9b14c7eb3bf846cfbd90187f51daa\"",
+        "bytes": 16926720
+      },
+      {
+        "child": "ds007020/sub-PD1821/ses-01/eeg/sub-PD1821_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-264/ses-01/eeg/sub-264_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"66918be6eca3de58fabb115249c629b1\"",
+        "bytes": 23090760
+      },
+      {
+        "child": "ds007020/sub-PD1861/ses-01/eeg/sub-PD1861_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-268/ses-01/eeg/sub-268_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"00671759ccdca3cc20581bd238ff027c\"",
+        "bytes": 15966720
+      },
+      {
+        "child": "ds007020/sub-PD1811/ses-01/eeg/sub-PD1811_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-263/ses-01/eeg/sub-263_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"42fdd91fe7be5e62fb1f1962a9b63314\"",
+        "bytes": 20238120
+      },
+      {
+        "child": "ds007020/sub-PD1901/ses-01/eeg/sub-PD1901_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-271/ses-01/eeg/sub-271_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"9263fe6aba48ecfdeaabf7aca9edcd65\"",
+        "bytes": 15539200
+      },
+      {
+        "child": "ds007020/sub-PD1991/ses-01/eeg/sub-PD1991_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-168/ses-02/eeg/sub-168_ses-02_task-rest_eeg.vhdr",
+        "etag": "\"b99fc8e0f4f2bbc56fe53774d005f275\"",
+        "bytes": 17587080
+      },
+      {
+        "child": "ds007020/sub-PD1931/ses-01/eeg/sub-PD1931_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-157/ses-02/eeg/sub-157_ses-02_task-rest_eeg.vhdr",
+        "etag": "\"1ab08b50cee9d938b671dc7f9c227bad\"",
+        "bytes": 18319360
+      },
+      {
+        "child": "ds007020/sub-PD1851/ses-01/eeg/sub-PD1851_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-267/ses-01/eeg/sub-267_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"b5a679537d96397b70e67f5f13a77858\"",
+        "bytes": 19550160
+      },
+      {
+        "child": "ds007020/sub-PD1941/ses-01/eeg/sub-PD1941_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-272/ses-01/eeg/sub-272_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"ab271947d5bdb9e370da8a49f0cadf86\"",
+        "bytes": 15787520
+      },
+      {
+        "child": "ds007020/sub-PD1891/ses-01/eeg/sub-PD1891_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-153/ses-02/eeg/sub-153_ses-02_task-rest_eeg.vhdr",
+        "etag": "\"f0fba84538a1e7ac0051c3a6bf806e92\"",
+        "bytes": 18152960
+      },
+      {
+        "child": "ds007020/sub-PD1881/ses-01/eeg/sub-PD1881_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-270/ses-01/eeg/sub-270_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"1d7a47de0caa4d50e040eccb9238c77f\"",
+        "bytes": 20080640
+      },
+      {
+        "child": "ds007020/sub-PD1961/ses-01/eeg/sub-PD1961_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-274/ses-01/eeg/sub-274_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"157c30000b9ff39d02ecdd6249714599\"",
+        "bytes": 20428800
+      },
+      {
+        "child": "ds007020/sub-PD1971/ses-01/eeg/sub-PD1971_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-275/ses-01/eeg/sub-275_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"776cb142561d7f01c93ea7c8d9a210c3\"",
+        "bytes": 15618560
+      },
+      {
+        "child": "ds007020/sub-PD1981/ses-01/eeg/sub-PD1981_ses-01_task-rest_eeg.vhdr",
+        "parent": "ds008768/sub-276/ses-01/eeg/sub-276_ses-01_task-rest_eeg.vhdr",
+        "etag": "\"f067ae06e0a95d934e1d5f4c82442ca4\"",
+        "bytes": 15644160
+      }
+    ]
+  }
+}

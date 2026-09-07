@@ -1,5 +1,39 @@
 # BIG DATA · EEG + fMRI
 
+## 当前检索网站：2026-09-06 设计与目录更新
+
+当前主目录为 **569 条 EEG / 784 条 fMRI**。本轮新增 6 个 EEG、3 个 fMRI 入口，并合并两组已确认重复。设计、证据和后续核查清单见 [更新报告](CATALOG_IMPROVEMENTS_20260906.zh-CN.md)。下文旧版数量、时长和下载进度是历史快照，不能作为当前主目录总量。
+
+- 主界面：`app/CatalogLanding.tsx`、`app/CatalogBrowser.tsx`；筛选后汇总全部结果，支持 2–4 项对比、深链接、CSV/JSON 导出与按需加载详情。
+- 当前数据入口：`data/current-catalog.ts`，组合原 EEG/fMRI 目录与 `data/catalog-revisions.json` 的修订、别名合并及来源关系。保留 `public/catalog-data.json` 不变，历史预处理与下载记录移入可展开区域。
+- 来源证据：`data/catalog-revision-evidence.json` 保留文件头核查覆盖、失败记录、清单哈希及交集摘要；来源网页与论文记录在修订详情中。
+- 构建前由 `scripts/generate_catalog.mjs` 生成网页索引、逐条详情、CSV/JSON 和 manifest；生成物不入 Git，`dev`、两种 `build` 均自动生成。当前 XLSX 和版本侧文件入库，构建检查其版本，避免网页更新而工作簿过期。
+- 分清目录条目、来源家族、受试者条目、记录数、小时和本地已获取时长。未知保持 `null`；已确认子集只在父库同时出现且对应指标有值时排除，部分重叠仍提示。
+
+```powershell
+npm run catalog:generate
+# 目录数值或导出列变更后，用已安装的 @oai/artifact-tool 重新生成 XLSX
+npm run catalog:workbook
+npm test
+npm run lint
+npx tsc --noEmit
+npm run build:vercel
+npm run dev -- --host 127.0.0.1
+```
+
+工作簿脚本可用 `CATALOG_ARTIFACT_TOOL_MODULE` 指定 `@oai/artifact-tool` 的绝对模块路径。研究脚本的原始请求缓存位于忽略的 `outputs/`；`curate_20260906.mjs` 是本轮策展过程记录，需要对应缓存，日常构建直接读取已提交的修订 JSON。重新联网审计属于显式维护操作，不会在站点构建时触发。
+
+`scripts/lib/signal-headers.mjs` 支持有界文件头读取、NIfTI-1/2、多回波采集去重及嵌套 BIDS 根目录发现。抽样结果保持 `estimated`，不推断为完整实际小时。Cloudflare 类型由当前生产构建配置生成；如兼容日期变化，在完成构建后运行 `npx wrangler types worker-configuration.d.ts --config dist/server/wrangler.json --include-env false`。
+
+## 2026-09-06 网站复核与 HEEDB 团队分类
+
+- 设计建议、EEG/fMRI 查重证据和待补候选见 `WEBSITE_REVIEW_20260906.zh-CN.md`；本轮没有新增候选数据集或删除疑似重复行。
+- 根据项目负责人确认，HEEDB（EEG-0012）在本网站归入“意识与状态 / Sleep_Staging”，重点清单分组为“睡眠”。这是团队分类，官方临床人群描述、原始任务与访问限制保留。
+- 当前网页的医疗与疾病大类为 96，意识与状态为 64；疾病/临床汇总为 109 个单元、75 个有时长，已知时长约 541,757.5 h。HEEDB 移出后，I-CARE 在疾病范围内不再被扣除；全目录来源级既有估计仍为 3,821,689.4 h。
+- `public/catalog-data.json` 是保留的历史快照；`data/eeg-classification.ts` 应用当前分类修订，`data/eeg-duration.ts` 统一导出网页目录与重点清单。不得把原始快照直接当作当前分类。
+- 当前 XLSX 入口改为 `public/EEG_catalog_20260906.xlsx`，仅同步分类及其直接影响的说明；其余数据仍是原工作簿快照，不包含网页所有时长叠加证据。`public/download-checklist.csv` 同步 HEEDB 分类。历史工作簿保留。
+- 本轮只调整网站分类，不移动或重命名服务器数据目录。既有本地未提交修改保留；线上版本未在本轮发布。
+
 统一的公共脑数据集门户：`/` 保留原有 EEG 数据集总表、下载清单与工作簿功能，`/fmri` 提供来源可追溯的公共人类 fMRI 数据集目录。网站名称已从 **Big EEG Data** 更新为 **Big Data**，两个页面分别为 **Big Data of EEG** 与 **Big Data of fMRI**。
 
 原 EEG 数据文件 `public/catalog-data.json` 没有改动；当前 SHA-256 为 `2945590BBA5D852A1A838431C6861B7BE0623F4BAAC63CC5D3DE83F10D7F54D9`。原 EEG 工作簿、下载清单、分类和统计口径继续保留。
@@ -7,7 +41,7 @@
 ## Portal 架构
 
 - EEG 页面：`app/page.tsx`，继续读取 `public/catalog-data.json`，沿用既有 `CatalogExplorer` 与 `DownloadChecklist`。
-- EEG 首页先展示完整目录、疾病/健康下载清单和研究对照，最后才展示“数据预处理”；完整总表与下载执行清单默认均为每页 5 行，仍可分页浏览全部数据。
+- EEG 首页先展示完整目录、临床/健康/睡眠重点下载清单和研究对照，最后才展示“数据预处理”；完整总表与下载执行清单默认均为每页 5 行，仍可分页浏览全部数据。
 - fMRI 页面：`app/fmri/page.tsx`；交互目录与详情面板位于 `app/fmri/FmriExplorer.tsx`。
 - 模态切换：`app/ModalitySwitcher.tsx`，在 EEG / fMRI 页面共享。
 - fMRI 完整 schema：`data/fmri-schema.ts`。
@@ -89,7 +123,7 @@ npm run verify:openneuro
 - EEG 论文时长 overlay：`data/eeg-literature-duration-audit.json`（SingLEM Table I 的记录小时；不使用 single-channel hours）
 - EEG 独立官网/论文复核：`data/eeg-independent-duration-audit.ts`（BDSP、SleepFM、NeuroLM；同时追加新发布 Neurotech，但不改原始 JSON）
 - EEG 基础模型论文口径：`data/eeg-foundation-paper-audit.ts`
-- EEG–fMRI 配对数据集 survey：`data/eeg-fmri-pairs.ts`
+- EEG–fMRI 配对数据集 survey：`data/eeg-fmri-pairs.ts`（保留为内部审计资料，不再渲染于 EEG 首页）
 - EEG 时长审计脚本：`scripts/audit_openneuro_eeg_durations.mjs`
 - 全目录获取/预处理快照：`data/eeg-progress.ts`
 - 下载清单：`public/download-checklist.csv`
@@ -125,6 +159,14 @@ NeuroAtlas 的 42 个评测来源中，原目录已经覆盖 36 个，本轮补�
 按数据源去重，NeuroAtlas 癫痫与睡眠域约 259,000 h；脑龄约 193,000 h 复用睡眠队列，不重复相加。用完整 TUEG 父集替换 TUSZ 子集，并加入不重叠的 I-CARE 后，核心疾病/健康并集约 341,253.3 h；再加入现有独有审计来源、HBN 和 EEG-Bench 后，扩展覆盖约 346,490.7 h。该数字是文献/官方来源覆盖估计，不是本地已下载文件的精确总时长。
 
 ## 当前下载状态
+
+### 2026-09-01 分类口径与服务器生产表复核
+
+- 网站大类卡片的“医疗与疾病 97”来自原始目录 96 行加证据层新增 Neurotech 1 行；“健康与人群”是另一个完整目录大类，共 21 行。
+- 旧版重点下载清单的 147 行不是 97 + 21，而是 96 个医疗与疾病 + 21 个健康与人群 + 30 个意识与状态中的睡眠数据集。按清单的第二轴标签，这 147 行又分成 109 个“疾病/临床”和 38 个“健康/人群”。若把新增 Neurotech 纳入当前重点范围，则是 148 = 110 + 38。
+- SeaWulf 生产 registry 有 109 行，其中 8 行是重复项，故有效预处理分母为 101。逐 ID 映射后，其中 81 个属于疾病/临床主题，20 个并非疾病主题：健康与人群 6、认知与情感 8、运动/BCI 5、通用 1。服务器旧目录名是历史生产分组，不能当作医学分类。
+- 101 个 canonical 单元中 75 个已完成获取，26 个仍待获取：22 个等待申请/登录，2 个需人工复核，2 个发现失败。生产层级为 55 个 disease-v1、5 个 baseline、11 个待内容审计、4 个 adapter-review-ready、26 个 acquisition-pending；另有 1 个不在当前 catalog 的 EEG-0582 已通过 disease-v1 验证，因此 registry 的严格已验证下限记为 61。
+- HEEDB 的约 330 万小时来自 [BDSP Neurotech 官方对照页](https://bdsp.io/content/nf89816gtxbon11kbr9a/1.0/)，是约 329,000 recordings 的整库近似规模；[HEEDB v4.1](https://bdsp.io/content/harvard-eeg-db/4.1/) 则报告 284,343 studies / 109,178 patients，但没有给出精确总小时。该数字不等于本地已下载或可立即用于训练的数据量；完整访问需要 BDSP credentialing、DUA 与许可合规。公开的 [MORGOTH v1.0 release](https://www.bdsp.io/content/morgoth1/1.0.0/) 明确提供的是 9,242 个自监督预训练 EEG 文件，可作为获批后的可操作子集参考。
 
 ### 2026-08-31 全类别目录与数据预处理口径
 

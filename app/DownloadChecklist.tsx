@@ -77,16 +77,16 @@ export function DownloadChecklist({ rows }: { rows: ChecklistRow[] }) {
         ))}
       </div>
 
-      <form className="download-filters" onSubmit={(event) => event.preventDefault()} aria-label="筛选疾病和健康下载清单">
+      <form className="download-filters" onSubmit={(event) => event.preventDefault()} aria-label="筛选临床、健康与睡眠重点下载清单">
         <label><span>搜索</span><input value={query} onChange={(event) => update(() => setQuery(event.target.value))} placeholder="数据集、ID、状态或下一步" /></label>
-        <label><span>队列属性</span><select value={focus} onChange={(event) => update(() => setFocus(event.target.value))}><option value={ALL}>全部</option><option value="疾病/临床">疾病/临床</option><option value="健康/人群">健康/人群</option></select></label>
+        <label><span>目录分组</span><select value={focus} onChange={(event) => update(() => setFocus(event.target.value))}><option value={ALL}>全部</option>{[...new Set(rows.map((row) => row.focusType))].map((value) => <option key={value} value={value}>{value}</option>)}</select></label>
         <a className="button secondary checklist-export" href="/download-checklist.csv" download>下载 CSV 清单</a>
       </form>
 
       <div className="result-line" aria-live="polite"><p><strong>{filtered.length}</strong> 行 · 当前显示 {groupLabels[group]}</p><p>默认顺序：P0 审计 → P1 可下载 → P2 等待/复核 → P3 新申请</p></div>
-      <div className="table-shell checklist-shell" role="region" aria-label="疾病和健康数据下载执行清单，可横向滚动">
+      <div className="table-shell checklist-shell" role="region" aria-label="临床、健康与睡眠重点数据下载执行清单，可横向滚动">
         <table className="checklist-table">
-          <caption className="sr-only">疾病和健康 EEG 数据下载执行清单</caption>
+          <caption className="sr-only">临床、健康与睡眠重点 EEG 数据下载执行清单</caption>
           <thead><tr><th scope="col">优先级</th><th scope="col">数据集</th><th scope="col">当前决策</th><th scope="col">队列</th><th scope="col">已知规模</th><th scope="col">获取方式</th><th scope="col">下一步</th></tr></thead>
           <tbody>
             {visible.map((row) => {

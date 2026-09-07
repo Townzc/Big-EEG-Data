@@ -1,0 +1,1429 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-09-06",
+  "entries": [
+    {
+      "id": "EEG-NEW-0002",
+      "modality": "eeg",
+      "patch": {
+        "name": "Resting-State EEG in Parkinson's Disease and Healthy Controls",
+        "family": "iowa-pd",
+        "aliases": [
+          "ds008768"
+        ],
+        "release": "OpenNeuro 1.0.0",
+        "category": "医疗与疾病",
+        "subcategory": "Parkinsons_Disease",
+        "diseases": [
+          "帕金森"
+        ],
+        "tasks": [
+          "rest"
+        ],
+        "population": "患者与对照混合",
+        "subjects": 312,
+        "subjectScope": "312 名独立参与者：202 PD、110 对照；358 次记录。",
+        "access": "公开下载",
+        "bids": "Yes",
+        "rawProcessed": "Raw",
+        "format": "BrainVision",
+        "ageMin": 40,
+        "ageMax": 92.5,
+        "sizeGb": 63.6,
+        "verified": "2026-09-06",
+        "url": "https://openneuro.org/datasets/ds008768/versions/1.0.0",
+        "search": "ds008768",
+        "hours": 20.23492777777779,
+        "evidence": "calculated",
+        "hoursScope": "357/358 个 EEG 文件头；部分可读记录，仍有文件缺失。",
+        "records": 358,
+        "channels": 63,
+        "channelMax": 64,
+        "sampling": 500,
+        "samplingMax": 25000,
+        "longitudinal": "Yes"
+      },
+      "datasetDois": [
+        "10.18112/openneuro.ds008768.v1.0.0"
+      ],
+      "paperDois": [],
+      "license": "CC0",
+      "sources": [
+        {
+          "label": "版本与元数据",
+          "url": "https://openneuro.org/datasets/ds008768/versions/1.0.0"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://s3.amazonaws.com/openneuro.org/ds008768/README"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://s3.amazonaws.com/openneuro.org/ds008768/dataset_description.json"
+        },
+        {
+          "label": "公开 BIDS 文件头与文件清单",
+          "url": "https://openneuro.org/datasets/ds008768",
+          "note": "357/358 个 EEG 文件头；部分可读记录，仍有文件缺失。"
+        }
+      ],
+      "notes": [
+        "357/358 个 EEG 文件头；部分可读记录，仍有文件缺失。",
+        "ds008768/sub-172/ses-03/eeg/sub-172_ses-03_task-rest_eeg.vhdr: Signal HEAD HTTP 404",
+        "现有 ds007020 的 94 份信号与本发布的 S3 ETag / 字节数全部匹配。不是新增 312 + 94 个独立参加者。"
+      ]
+    },
+    {
+      "id": "EEG-NEW-0003",
+      "modality": "eeg",
+      "patch": {
+        "name": "ValidPain2 - Performance of the Nociception Level Index and the PainSensor to predict and detect responsiveness to nociceptive procedures in critical care patients",
+        "family": "ds008115",
+        "aliases": [
+          "ds008115"
+        ],
+        "release": "OpenNeuro 1.0.0",
+        "category": "医疗与疾病",
+        "subcategory": "Pain_and_Critical_Care",
+        "diseases": [
+          "疼痛 / 重症"
+        ],
+        "tasks": [
+          "EndotrachealSuction",
+          "Other",
+          "Positioning"
+        ],
+        "population": "临床患者",
+        "subjects": 180,
+        "subjectScope": "公开版本 180 人；对应论文总体为 196 人。两者范围不同。",
+        "access": "访问待确认",
+        "bids": "Yes",
+        "rawProcessed": "Raw",
+        "format": "EDF",
+        "ageMin": null,
+        "ageMax": null,
+        "sizeGb": 0.1,
+        "verified": "2026-09-06",
+        "url": "https://openneuro.org/datasets/ds008115/versions/1.0.0",
+        "search": "ds008115"
+      },
+      "datasetDois": [
+        "10.18112/openneuro.ds008115.v1.0.0"
+      ],
+      "paperDois": [
+        "10.1016/j.jcrc.2025.155090"
+      ],
+      "license": "CC0",
+      "sources": [
+        {
+          "label": "版本与元数据",
+          "url": "https://openneuro.org/datasets/ds008115/versions/1.0.0"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://raw.githubusercontent.com/OpenNeuroDatasets/ds008115/master/README"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://raw.githubusercontent.com/OpenNeuroDatasets/ds008115/master/dataset_description.json"
+        },
+        {
+          "label": "原始论文",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40245519/"
+        }
+      ],
+      "notes": [
+        "已核对发布者 README、论文和 180 个 EDF 路径。S3 对元数据请求返回 403，未确认文件可下载，总时长保持未知。"
+      ],
+      "metrics": [
+        {
+          "label": "论文研究总体",
+          "value": "196 名重症患者；不是当前公开版人数",
+          "source": "https://pubmed.ncbi.nlm.nih.gov/40245519/"
+        }
+      ]
+    },
+    {
+      "id": "EEG-NEW-0004",
+      "modality": "eeg",
+      "patch": {
+        "name": "A Comprehensive Multimodal Dataset for Investigating Cognitive Impairment in Obstructive Sleep Apnea",
+        "family": "ds008108",
+        "aliases": [
+          "ds008108"
+        ],
+        "release": "OpenNeuro 1.0.0",
+        "category": "医疗与疾病",
+        "subcategory": "Sleep_Staging",
+        "diseases": [
+          "睡眠呼吸障碍"
+        ],
+        "tasks": [
+          "rest",
+          "sleep"
+        ],
+        "population": "患者与对照混合",
+        "subjects": 142,
+        "subjectScope": "142 名参与者：56 OSA、86 对照；夜间 PSG，不与午睡后 fMRI 同步。",
+        "access": "公开下载",
+        "bids": "Yes",
+        "rawProcessed": "Raw",
+        "format": "EDF",
+        "ageMin": 19,
+        "ageMax": 65,
+        "sizeGb": 75.1,
+        "verified": "2026-09-06",
+        "url": "https://openneuro.org/datasets/ds008108/versions/1.0.0",
+        "search": "ds008108",
+        "hours": 1119.6083333333333,
+        "evidence": "calculated",
+        "hoursScope": "142/142 个 EEG 文件头；公开清单全部文件。",
+        "records": 142
+      },
+      "datasetDois": [
+        "10.18112/openneuro.ds008108.v1.0.0"
+      ],
+      "paperDois": [],
+      "license": "CC0",
+      "sources": [
+        {
+          "label": "版本与元数据",
+          "url": "https://openneuro.org/datasets/ds008108/versions/1.0.0"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://s3.amazonaws.com/openneuro.org/ds008108/README.md"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://s3.amazonaws.com/openneuro.org/ds008108/dataset_description.json"
+        },
+        {
+          "label": "公开 BIDS 文件头与文件清单",
+          "url": "https://openneuro.org/datasets/ds008108",
+          "note": "142/142 个 EEG 文件头；公开清单全部文件。"
+        }
+      ],
+      "notes": [
+        "142/142 个 EEG 文件头；公开清单全部文件。",
+        "EEG 与 fMRI 来自不同时间点。"
+      ],
+      "metrics": [
+        {
+          "label": "临床 / 对照",
+          "value": "56 OSA / 86 control",
+          "source": "https://raw.githubusercontent.com/OpenNeuroDatasets/ds008108/master/participants.tsv"
+        }
+      ]
+    },
+    {
+      "id": "EEG-NEW-0005",
+      "modality": "eeg",
+      "patch": {
+        "name": "EEG: Probabilistic Selection and Depression",
+        "family": "ds003474",
+        "aliases": [
+          "ds003474"
+        ],
+        "release": "OpenNeuro 1.1.0",
+        "category": "医疗与疾病",
+        "subcategory": "Depression",
+        "diseases": [
+          "抑郁 / 焦虑"
+        ],
+        "tasks": [
+          "ProbabilisticSelection"
+        ],
+        "population": "症状分层（非全部确诊）",
+        "subjects": 122,
+        "subjectScope": "当前发布 BIDS participants；不是疾病确诊人数。",
+        "access": "公开下载",
+        "bids": "Yes",
+        "rawProcessed": "Processed",
+        "format": "EEGLAB .set",
+        "ageMin": null,
+        "ageMax": null,
+        "sizeGb": 17.9,
+        "verified": "2026-09-06",
+        "url": "https://openneuro.org/datasets/ds003474/versions/1.1.0",
+        "search": "ds003474"
+      },
+      "datasetDois": [
+        "10.18112/openneuro.ds003474.v1.1.0"
+      ],
+      "paperDois": [
+        "10.1162/cpsy_a_00024"
+      ],
+      "license": "CC0",
+      "sources": [
+        {
+          "label": "版本与元数据",
+          "url": "https://openneuro.org/datasets/ds003474/versions/1.1.0"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://s3.amazonaws.com/openneuro.org/ds003474/README"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://s3.amazonaws.com/openneuro.org/ds003474/dataset_description.json"
+        }
+      ],
+      "notes": [
+        "根据 BDI 高低筛选，不把 122 人全部标为 MDD 患者。部分通道已插值，发布者说明无更早原始文件可回退。"
+      ]
+    },
+    {
+      "id": "EEG-NEW-0006",
+      "modality": "eeg",
+      "patch": {
+        "name": "Healthy Brain Network (HBN) EEG - Release 10",
+        "family": "hbn",
+        "aliases": [
+          "ds005515"
+        ],
+        "release": "OpenNeuro 1.0.1",
+        "category": "健康与人群",
+        "subcategory": "Neurodevelopment",
+        "diseases": [],
+        "tasks": [
+          "DespicableMe",
+          "surroundSupp",
+          "FunwithFractals",
+          "ThePresent",
+          "symbolSearch",
+          "contrastChangeDetection",
+          "DiaryOfAWimpyKid",
+          "RestingState"
+        ],
+        "population": "人群队列",
+        "subjects": 533,
+        "subjectScope": "当前发布 BIDS participants；不是疾病确诊人数。",
+        "access": "公开下载",
+        "bids": "Yes",
+        "rawProcessed": "Processed",
+        "format": "EEGLAB .set",
+        "ageMin": 5,
+        "ageMax": 21,
+        "sizeGb": 172.4,
+        "verified": "2026-09-06",
+        "url": "https://openneuro.org/datasets/ds005515/versions/1.0.1",
+        "search": "ds005515"
+      },
+      "datasetDois": [
+        "10.18112/openneuro.ds005515.v1.0.1"
+      ],
+      "paperDois": [],
+      "license": "CC-BY-SA 4.0",
+      "sources": [
+        {
+          "label": "版本与元数据",
+          "url": "https://openneuro.org/datasets/ds005515/versions/1.0.1"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://s3.amazonaws.com/openneuro.org/ds005515/README"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://s3.amazonaws.com/openneuro.org/ds005515/dataset_description.json"
+        }
+      ],
+      "notes": [
+        "与现有 HBN Releases 1–9 的公开 participant 标签交集为 0；仍共享同一 HBN 来源家族，不声称与其他模态或外部队列已去重。"
+      ]
+    },
+    {
+      "id": "EEG-NEW-0007",
+      "modality": "eeg",
+      "patch": {
+        "name": "Healthy Brain Network (HBN) EEG - Release 11",
+        "family": "hbn",
+        "aliases": [
+          "ds005516"
+        ],
+        "release": "OpenNeuro 1.0.1",
+        "category": "健康与人群",
+        "subcategory": "Neurodevelopment",
+        "diseases": [],
+        "tasks": [
+          "DespicableMe",
+          "surroundSupp",
+          "FunwithFractals",
+          "ThePresent",
+          "symbolSearch",
+          "contrastChangeDetection",
+          "DiaryOfAWimpyKid",
+          "RestingState"
+        ],
+        "population": "人群队列",
+        "subjects": 430,
+        "subjectScope": "当前发布 BIDS participants；不是疾病确诊人数。",
+        "access": "访问待确认",
+        "bids": "Yes",
+        "rawProcessed": "Processed",
+        "format": "EEGLAB .set",
+        "ageMin": 5,
+        "ageMax": 22,
+        "sizeGb": 235.3,
+        "verified": "2026-09-06",
+        "url": "https://openneuro.org/datasets/ds005516/versions/1.0.1",
+        "search": "ds005516"
+      },
+      "datasetDois": [
+        "10.18112/openneuro.ds005516.v1.0.1"
+      ],
+      "paperDois": [],
+      "license": "CC-BY-SA 4.0",
+      "sources": [
+        {
+          "label": "版本与元数据",
+          "url": "https://openneuro.org/datasets/ds005516/versions/1.0.1"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://raw.githubusercontent.com/OpenNeuroDatasets/ds005516/master/README"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://raw.githubusercontent.com/OpenNeuroDatasets/ds005516/master/dataset_description.json"
+        }
+      ],
+      "notes": [
+        "与现有 HBN Releases 1–9 的公开 participant 标签交集为 0；仍共享同一 HBN 来源家族，不声称与其他模态或外部队列已去重。",
+        "公开 Git 清单登记 EEG .set 链接，当前 S3 完整清单仅找到辅助元数据；信号获取待确认，未补总小时。"
+      ]
+    },
+    {
+      "id": "EEG-0093",
+      "modality": "eeg",
+      "patch": {
+        "hours": 4.106461111111114,
+        "evidence": "calculated",
+        "hoursScope": "94/94 个 EEG 文件头；公开清单全部文件。",
+        "records": 94,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "公开 BIDS 文件头与文件清单",
+          "url": "https://openneuro.org/datasets/ds007020",
+          "note": "94/94 个 EEG 文件头；公开清单全部文件。"
+        }
+      ],
+      "notes": [
+        "94/94 个 EEG 文件头；公开清单全部文件。"
+      ]
+    },
+    {
+      "id": "EEG-0106",
+      "modality": "eeg",
+      "patch": {
+        "subjects": 2417,
+        "hours": 625,
+        "evidence": "reported",
+        "hoursScope": "原始论文报告约 625 h；近似整库规模。",
+        "records": 2417,
+        "channels": 19,
+        "channelMax": 19,
+        "sampling": 200,
+        "samplingMax": 200,
+        "verified": "2026-09-06",
+        "release": "NMT v1.0（2022 原论文口径）"
+      },
+      "sources": [
+        {
+          "label": "NMT 原始数据论文",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8766964/"
+        },
+        {
+          "label": "NMT-4K 相关新版 v1.2（受控）",
+          "url": "https://zenodo.org/records/21405022"
+        },
+        {
+          "label": "作者新版代码与数据说明",
+          "url": "https://github.com/dll-ncai/NMT-4k-EEG-Dataset"
+        }
+      ],
+      "notes": [
+        "约 625 h 是作者报告的记录小时；不把每个电极的小时重复相加。",
+        "此次 2,417 人 / 约 625 h 明确限定为 NMT 原论文版本。另发现 NMT-4K v1.2，先保留独立版本证据和受控入口；核对发布清单与旧库交集后再确定替换或新增关系。"
+      ],
+      "metrics": [
+        {
+          "label": "相关新版，未计入本条汇总",
+          "value": "NMT-4K v1.2：4,500 条 / 独立受试者；3,336 normal + 1,164 abnormal",
+          "source": "https://zenodo.org/records/21405022",
+          "note": "Zenodo 元数据标为 restricted，未公开文件列表；尚未核实与旧 NMT 的交集，不与旧版人数小时累加。"
+        }
+      ]
+    },
+    {
+      "id": "EEG-0125",
+      "modality": "eeg",
+      "patch": {
+        "hours": 1144.2188888888888,
+        "evidence": "calculated",
+        "hoursScope": "PhysioNet v1.1 RECORDS 清单全部 151 个 EDF 文件头。",
+        "records": 151,
+        "release": "PhysioNet v1.1",
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "完整 RECORDS 清单",
+          "url": "https://physionet.org/files/hmc-sleep-staging/1.1/RECORDS"
+        }
+      ],
+      "notes": [
+        "只读取 EDF 头部记录数与每记录秒数；没有下载完整 PSG 信号。"
+      ]
+    },
+    {
+      "id": "EEG-0011",
+      "modality": "eeg",
+      "patch": {
+        "subjects": 275,
+        "subjectScope": "2012 年原始数据库 275 人；当前可申请子集另计。",
+        "hours": null,
+        "evidence": "unavailable",
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "EPILEPSIAE 原始论文",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22738131/"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "历史全库规模",
+          "value": "275 人；头皮与颅内 EEG 混合",
+          "source": "https://pubmed.ncbi.nlm.nih.gov/22738131/"
+        }
+      ],
+      "notes": [
+        "补回原论文人数。不同研究使用的 30 人头皮子集与全库不是同一范围；未将这些论文的小时直接填为当前可获取总量。"
+      ]
+    },
+    {
+      "id": "EEG-0102",
+      "modality": "eeg",
+      "patch": {
+        "family": "brainlat",
+        "subjects": null,
+        "subjectScope": "780 为全模态队列；表4 EEG分组合计157，表5合计156，待按 BrainLat_records.csv 核对。",
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "BrainLat 原始论文",
+          "url": "https://www.nature.com/articles/s41597-023-02806-8"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "全模态研究队列",
+          "value": "780 人（不是 EEG 可用人数）",
+          "source": "https://www.nature.com/articles/s41597-023-02806-8"
+        },
+        {
+          "label": "EEG 采集协议",
+          "value": "闭眼静息 10 分钟；不是包含准备工作的 2 小时访问",
+          "source": "https://www.nature.com/articles/s41597-023-02806-8"
+        },
+        {
+          "label": "EEG 表格计数待核",
+          "value": "表4：35 AD + 19 bvFTD + 29 PD + 32 MS + 42 HC = 157；表5 PD 为 28",
+          "source": "https://www.nature.com/articles/s41597-023-02806-8"
+        }
+      ],
+      "notes": [
+        "移除将 780 名全模态参加者当作 EEG 人数的旧统计。原论文表格有计数差异，实际可用 EEG 人数与小时保留未知，不按 780 × 10 分钟估算。"
+      ]
+    },
+    {
+      "id": "EEG-0127",
+      "modality": "eeg",
+      "patch": {
+        "family": "hsp",
+        "release": "HSP v3.0",
+        "subjects": null,
+        "subjectScope": "90,166 为 PSG + HSAT 全队列人数；有 EEG 的独立人数尚未单列。",
+        "hours": null,
+        "evidence": "unavailable",
+        "hoursScope": "v3.0 EEG 总时长未知；旧版 190,732 h 不套用于新版人数。",
+        "records": 115129,
+        "verified": "2026-09-06",
+        "url": "https://bdsp.io/content/hsp/3.0/"
+      },
+      "sources": [
+        {
+          "label": "HSP v3.0",
+          "url": "https://bdsp.io/content/hsp/3.0/"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "v3.0 全部患者",
+          "value": "90,166（含无 EEG 的 HSAT）"
+        },
+        {
+          "label": "v3.0 全部记录",
+          "value": "119,234 = 115,129 PSG + 4,105 HSAT"
+        },
+        {
+          "label": "旧版本历史证据",
+          "value": "18,973 人 / 190,732 h（SleepFM 对旧版的引用；不进入 v3.0 汇总）"
+        }
+      ],
+      "notes": [
+        "版本更新覆盖原 HSP 入口；未另建一个独立队列。HSAT 不含 EEG。"
+      ]
+    },
+    {
+      "id": "EEG-0012",
+      "modality": "eeg",
+      "patch": {
+        "family": "heedb",
+        "subjects": 109178,
+        "subjectScope": "HEEDB v4.1 官方 patients；不是全部睡眠或 PSG 患者。",
+        "release": "v4.1 人数；总小时来自未注明版本的官方近似比较",
+        "records": 284343,
+        "verified": "2026-09-06",
+        "category": "意识与状态",
+        "subcategory": "Sleep_Staging",
+        "diseases": [],
+        "hoursScope": "官方比较页约 330 万 h，未绑定 v4.1 精确版本；整库临床 EEG。"
+      },
+      "sources": [
+        {
+          "label": "HEEDB v4.1",
+          "url": "https://bdsp.io/content/harvard-eeg-db/4.1/"
+        }
+      ],
+      "notes": [
+        "按团队口径归入睡眠，不进入疾病主题汇总；官方属性仍为临床 EEG。"
+      ]
+    },
+    {
+      "id": "EEG-0020",
+      "modality": "eeg",
+      "patch": {
+        "records": 143,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0021",
+      "modality": "eeg",
+      "patch": {
+        "records": 758,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0022",
+      "modality": "eeg",
+      "patch": {
+        "records": 1940,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0023",
+      "modality": "eeg",
+      "patch": {
+        "records": 636,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0024",
+      "modality": "eeg",
+      "patch": {
+        "records": 2125,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0025",
+      "modality": "eeg",
+      "patch": {
+        "records": 100,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0026",
+      "modality": "eeg",
+      "patch": {
+        "records": 100,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0027",
+      "modality": "eeg",
+      "patch": {
+        "records": 208,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0028",
+      "modality": "eeg",
+      "patch": {
+        "records": 4886,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0103",
+      "modality": "eeg",
+      "patch": {
+        "records": 14500,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ],
+      "metrics": [
+        {
+          "label": "预训练文件发布范围",
+          "value": "官网文件布局列 9,242 个预训练文件，与论文 14,500 人训练总体不同",
+          "source": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ]
+    },
+    {
+      "id": "EEG-0104",
+      "modality": "eeg",
+      "patch": {
+        "records": 8527,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0105",
+      "modality": "eeg",
+      "patch": {
+        "records": 10851,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "MORGOTH 官方 Table 1",
+          "url": "https://bdsp.io/content/morgoth1/1.0.0/"
+        }
+      ],
+      "notes": [
+        "官网明确列出患者与 EEG 记录数；片段长度与每人原始记录总时长不同，未用片段长度乘人数伪造整库小时。"
+      ]
+    },
+    {
+      "id": "EEG-0053",
+      "modality": "eeg",
+      "patch": {},
+      "notes": [
+        "2026-09-06 再查来源：未获得可对应当前发布范围的整库记录小时，保留未知。"
+      ]
+    },
+    {
+      "id": "EEG-0043",
+      "modality": "eeg",
+      "patch": {},
+      "notes": [
+        "2026-09-06 再查来源：未获得可对应当前发布范围的整库记录小时，保留未知。"
+      ]
+    },
+    {
+      "id": "EEG-0493",
+      "modality": "eeg",
+      "patch": {},
+      "notes": [
+        "2026-09-06 再查来源：未获得可对应当前发布范围的整库记录小时，保留未知。"
+      ]
+    },
+    {
+      "id": "ds005899",
+      "modality": "fmri",
+      "patch": {
+        "name": "ADHD Dualcontrol Dataset",
+        "family": "ds005899",
+        "aliases": [
+          "ds005899"
+        ],
+        "release": "OpenNeuro 1.0.2",
+        "category": "医疗与疾病",
+        "subcategory": "Attention / executive",
+        "tasks": [
+          "Task-evoked",
+          "Attention / executive"
+        ],
+        "subjects": 61,
+        "subjectScope": "公开清单有 FMRI 信号的 participant 标签数；未经 QC 排除。",
+        "access": "公开下载",
+        "bids": "Yes",
+        "rawProcessed": "Raw",
+        "format": "NIfTI",
+        "verified": "2026-09-06",
+        "url": "https://openneuro.org/datasets/ds005899",
+        "search": "ds005899",
+        "diseases": [
+          "ADHD"
+        ],
+        "population": "患者与对照混合",
+        "ageMin": 9,
+        "ageMax": 12,
+        "hours": 10.660766874154408,
+        "evidence": "calculated",
+        "hoursScope": "122/122 个 BOLD 文件头；公开清单全部文件。",
+        "records": 122
+      },
+      "datasetDois": [
+        "10.18112/openneuro.ds005899.v1.0.2"
+      ],
+      "license": "CC0",
+      "sources": [
+        {
+          "label": "发布者说明",
+          "url": "https://raw.githubusercontent.com/OpenNeuroDatasets/ds005899/master/dataset_description.json"
+        },
+        {
+          "label": "公开 BIDS 文件头与文件清单",
+          "url": "https://openneuro.org/datasets/ds005899",
+          "note": "122/122 个 BOLD 文件头；公开清单全部文件。"
+        }
+      ],
+      "notes": [
+        "嵌套 openneuro/sub-* 目录已发现并完成全部 BOLD 文件头核对。",
+        "122/122 个 BOLD 文件头；公开清单全部文件。"
+      ]
+    },
+    {
+      "id": "ds004192",
+      "modality": "fmri",
+      "patch": {
+        "name": "THINGS-fMRI",
+        "family": "ds004192",
+        "aliases": [
+          "ds004192"
+        ],
+        "release": "OpenNeuro 1.0.7",
+        "category": "认知与脑功能",
+        "subcategory": "Task fMRI",
+        "tasks": [
+          "Task-evoked",
+          "Resting-state"
+        ],
+        "subjects": 3,
+        "subjectScope": "公开 BOLD 文件对应的参与者目录",
+        "access": "公开下载",
+        "bids": "Yes",
+        "rawProcessed": "Both",
+        "format": "NIfTI",
+        "verified": "2026-09-06",
+        "url": "https://openneuro.org/datasets/ds004192",
+        "search": "ds004192",
+        "population": "健康",
+        "ageMin": 23,
+        "ageMax": 29,
+        "longitudinal": "Yes",
+        "hours": 49.99666666666667,
+        "evidence": "calculated",
+        "hoursScope": "435/435 个 BOLD 文件头；公开清单全部文件。",
+        "records": 435
+      },
+      "datasetDois": [
+        "10.18112/openneuro.ds004192.v1.0.7"
+      ],
+      "license": "CC0",
+      "sources": [
+        {
+          "label": "发布者说明",
+          "url": "https://s3.amazonaws.com/openneuro.org/ds004192/README"
+        },
+        {
+          "label": "发布者说明",
+          "url": "https://s3.amazonaws.com/openneuro.org/ds004192/dataset_description.json"
+        },
+        {
+          "label": "公开 BIDS 文件头与文件清单",
+          "url": "https://openneuro.org/datasets/ds004192",
+          "note": "435/435 个 BOLD 文件头；公开清单全部文件。"
+        }
+      ],
+      "notes": [
+        "3 人各 12 次图像任务 session；另有 localizer、retinotopy 和 rest。与 THINGS-EEG/MEG 共享项目主题，不是同一模态记录。",
+        "435/435 个 BOLD 文件头；公开清单全部文件。"
+      ],
+      "paperDois": [
+        "10.7554/eLife.82580"
+      ]
+    },
+    {
+      "id": "brainlat",
+      "modality": "fmri",
+      "patch": {
+        "name": "BrainLat — neurodegeneration resting-state fMRI",
+        "family": "brainlat",
+        "aliases": [
+          "syn51549340"
+        ],
+        "release": "2023 原始数据论文",
+        "category": "医疗与疾病",
+        "subcategory": "Resting-state",
+        "tasks": [
+          "Resting-state"
+        ],
+        "diseases": [
+          "阿尔茨海默 / 认知障碍",
+          "帕金森",
+          "多发性硬化"
+        ],
+        "population": "患者与对照混合",
+        "subjects": null,
+        "subjectScope": "原论文 780 人为全模态队列；fMRI 分表计数有差异，等待源记录清单。",
+        "hours": null,
+        "evidence": "unavailable",
+        "hoursScope": "站点协议与实际完成情况不同，整库小时未核实。",
+        "access": "需要申请",
+        "field": "1.5T / 3T",
+        "sites": "多中心",
+        "bids": "Yes",
+        "format": "NIfTI",
+        "verified": "2026-09-06",
+        "url": "https://www.synapse.org/Synapse:syn51549340",
+        "search": "BrainLat neurodegeneration"
+      },
+      "paperDois": [
+        "10.1038/s41597-023-02806-8"
+      ],
+      "datasetDois": [
+        "10.7303/syn51549340"
+      ],
+      "sources": [
+        {
+          "label": "原始数据论文",
+          "url": "https://www.nature.com/articles/s41597-023-02806-8"
+        },
+        {
+          "label": "官方数据页",
+          "url": "https://www.synapse.org/Synapse:syn51549340"
+        }
+      ],
+      "notes": [
+        "原论文确认含静息态 BOLD；不是结构 MRI 候选。EEG 已有入口，此次补 fMRI 视图并共享来源家族。"
+      ]
+    },
+    {
+      "id": "ds008108",
+      "modality": "fmri",
+      "patch": {
+        "hours": 15.891227627727721,
+        "evidence": "calculated",
+        "hoursScope": "124/124 个 BOLD 文件头；公开清单全部文件。",
+        "records": 124,
+        "verified": "2026-09-06",
+        "subjects": 124,
+        "subjectScope": "公开清单有 FMRI 信号的 participant 标签数；未经 QC 排除。",
+        "family": "ds008108",
+        "population": "患者与对照混合",
+        "category": "医疗与疾病",
+        "diseases": [
+          "睡眠呼吸障碍"
+        ],
+        "ageMin": 19,
+        "ageMax": 65
+      },
+      "sources": [
+        {
+          "label": "公开 BIDS 文件头与文件清单",
+          "url": "https://openneuro.org/datasets/ds008108",
+          "note": "124/124 个 BOLD 文件头；公开清单全部文件。"
+        }
+      ],
+      "notes": [
+        "124/124 个 BOLD 文件头；公开清单全部文件。"
+      ]
+    },
+    {
+      "id": "ds000030",
+      "modality": "fmri",
+      "patch": {
+        "hours": 225.86074074074077,
+        "evidence": "estimated",
+        "hoursScope": "抽样 3/272 人的全部 21 个 BOLD 文件头、21 个采集 run；多回波计一次，以每人均值外推。",
+        "records": null,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "公开 BIDS 文件头与文件清单",
+          "url": "https://openneuro.org/datasets/ds000030",
+          "note": "抽样 3/272 人的全部 21 个 BOLD 文件头、21 个采集 run；多回波计一次，以每人均值外推。"
+        }
+      ],
+      "notes": [
+        "抽样 3/272 人的全部 21 个 BOLD 文件头、21 个采集 run；多回波计一次，以每人均值外推。"
+      ]
+    },
+    {
+      "id": "ds004627",
+      "modality": "fmri",
+      "patch": {
+        "hours": 117.67407407407406,
+        "evidence": "estimated",
+        "hoursScope": "抽样 3/130 人的全部 40 个 BOLD 文件头、16 个采集 run；多回波计一次，以每人均值外推。",
+        "records": null,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "公开 BIDS 文件头与文件清单",
+          "url": "https://openneuro.org/datasets/ds004627",
+          "note": "抽样 3/130 人的全部 40 个 BOLD 文件头、16 个采集 run；多回波计一次，以每人均值外推。"
+        }
+      ],
+      "notes": [
+        "抽样 3/130 人的全部 40 个 BOLD 文件头、16 个采集 run；多回波计一次，以每人均值外推。"
+      ]
+    },
+    {
+      "id": "ds001734",
+      "modality": "fmri",
+      "patch": {
+        "hours": 54.36,
+        "evidence": "estimated",
+        "hoursScope": "抽样 3/108 人的全部 12 个 BOLD 文件头、12 个采集 run；多回波计一次，以每人均值外推。",
+        "records": null,
+        "verified": "2026-09-06"
+      },
+      "sources": [
+        {
+          "label": "公开 BIDS 文件头与文件清单",
+          "url": "https://openneuro.org/datasets/ds001734",
+          "note": "抽样 3/108 人的全部 12 个 BOLD 文件头、12 个采集 run；多回波计一次，以每人均值外推。"
+        }
+      ],
+      "notes": [
+        "抽样 3/108 人的全部 12 个 BOLD 文件头、12 个采集 run；多回波计一次，以每人均值外推。"
+      ]
+    },
+    {
+      "id": "ds002620",
+      "modality": "fmri",
+      "patch": {
+        "subjectScope": "82 个 BOLD 信号目录；participants.tsv 只有34行，元数据不完整。"
+      },
+      "notes": [
+        "ds002366 全部 136 个 BOLD 的路径与 Git blob SHA 包含于此发布；已作为别名归并。人数以 BOLD 目录计数，不能将 participants.tsv 的缺行当作无信号。"
+      ]
+    },
+    {
+      "id": "ds004484",
+      "modality": "fmri",
+      "patch": {
+        "name": "Neural activity induced by sensory stimulation can drive large-scale cerebrospinal fluid flow during wakefulness in humans — 7T / 20 participants"
+      }
+    },
+    {
+      "id": "ds004493",
+      "modality": "fmri",
+      "patch": {
+        "name": "Neural activity induced by sensory stimulation can drive large-scale cerebrospinal fluid flow during wakefulness in humans — 3T / 16 participants"
+      }
+    },
+    {
+      "id": "ds004478",
+      "modality": "fmri",
+      "patch": {
+        "name": "Neural activity induced by sensory stimulation can drive large-scale cerebrospinal fluid flow during wakefulness in humans — simultaneous EEG-fMRI / 6 participants"
+      }
+    },
+    {
+      "id": "ds006265",
+      "modality": "fmri",
+      "patch": {
+        "name": "TOAM – Trajectory of a Memory Trace. Human episodic memory 7T fMRI dataset — small-FOV"
+      }
+    },
+    {
+      "id": "ds006266",
+      "modality": "fmri",
+      "patch": {
+        "name": "TOAM – Trajectory of a Memory Trace. Human episodic memory 7T fMRI dataset — whole-brain"
+      }
+    },
+    {
+      "id": "ds005896",
+      "modality": "fmri",
+      "patch": {
+        "family": "ahdc"
+      },
+      "notes": [
+        "同一 AHDC 研究的相关发布；两份 BOLD 目录有114个共享participant标签，但无相同Git信号链接。当前保留两个观测入口，不声称382名独立参加者。"
+      ]
+    },
+    {
+      "id": "ds005901",
+      "modality": "fmri",
+      "patch": {
+        "family": "ahdc"
+      },
+      "notes": [
+        "同一 AHDC 研究的相关发布；两份 BOLD 目录有114个共享participant标签，但无相同Git信号链接。当前保留两个观测入口，不声称382名独立参加者。"
+      ]
+    },
+    {
+      "id": "EEG-0582",
+      "modality": "eeg",
+      "patch": {
+        "family": "tuh"
+      }
+    },
+    {
+      "id": "EEG-0345",
+      "modality": "eeg",
+      "patch": {
+        "family": "hbn"
+      }
+    },
+    {
+      "id": "EEG-0594",
+      "modality": "eeg",
+      "patch": {
+        "family": "hbn"
+      }
+    },
+    {
+      "id": "EEG-0595",
+      "modality": "eeg",
+      "patch": {
+        "family": "hbn"
+      }
+    },
+    {
+      "id": "EEG-0596",
+      "modality": "eeg",
+      "patch": {
+        "family": "hbn"
+      }
+    },
+    {
+      "id": "EEG-0597",
+      "modality": "eeg",
+      "patch": {
+        "family": "hbn"
+      }
+    },
+    {
+      "id": "EEG-0598",
+      "modality": "eeg",
+      "patch": {
+        "family": "hbn"
+      }
+    },
+    {
+      "id": "EEG-0599",
+      "modality": "eeg",
+      "patch": {
+        "family": "hbn"
+      }
+    },
+    {
+      "id": "EEG-0600",
+      "modality": "eeg",
+      "patch": {
+        "family": "hbn"
+      }
+    },
+    {
+      "id": "EEG-0601",
+      "modality": "eeg",
+      "patch": {
+        "family": "hbn"
+      }
+    },
+    {
+      "id": "EEG-0592",
+      "modality": "eeg",
+      "patch": {
+        "url": "https://physionet.org/content/cps-dataset-sleep/1.0.0/",
+        "records": 113,
+        "subjects": null,
+        "subjectScope": "官网明确报告 113 次 PSG 记录；未将记录数直接改为独立人数。",
+        "verified": "2026-09-06"
+      },
+      "datasetDois": [
+        "10.13026/sxs0-h317"
+      ],
+      "sources": [
+        {
+          "label": "CPS 官方发布页",
+          "url": "https://physionet.org/content/cps-dataset-sleep/1.0.0/"
+        }
+      ],
+      "notes": [
+        "数据入口从个人账户设置页修正为实际发布页。官网未给出精确整库小时；保留未知。"
+      ]
+    }
+  ],
+  "merges": [
+    {
+      "from": "EEG-0488",
+      "into": "EEG-0064",
+      "modality": "eeg",
+      "note": "同一 bigP3BCI v1.0.0 / DOI:10.13026/0byy-ry86，Mainsah2025 为 MOABB 适配器；合并别名与工具入口。"
+    },
+    {
+      "from": "ds002366",
+      "into": "ds002620",
+      "modality": "fmri",
+      "note": "ds002366 的 136 个 BOLD 路径与 Git blob SHA 全部包含于 ds002620；旧 accession 保留为别名。"
+    }
+  ],
+  "relations": [
+    {
+      "from": "EEG-0004",
+      "to": "EEG-0582",
+      "modality": "eeg",
+      "kind": "subset",
+      "note": "TUH 文档确认的 TUEG 子集；父库也在筛选范围时不重复累加。",
+      "source": "https://isip.piconepress.com/projects/nedc/html/tuh_eeg/index.shtml",
+      "family": "tuh"
+    },
+    {
+      "from": "EEG-0033",
+      "to": "EEG-0582",
+      "modality": "eeg",
+      "kind": "subset",
+      "note": "TUH 文档确认的 TUEG 子集；父库也在筛选范围时不重复累加。",
+      "source": "https://isip.piconepress.com/projects/nedc/html/tuh_eeg/index.shtml",
+      "family": "tuh"
+    },
+    {
+      "from": "EEG-0034",
+      "to": "EEG-0582",
+      "modality": "eeg",
+      "kind": "subset",
+      "note": "TUH 文档确认的 TUEG 子集；父库也在筛选范围时不重复累加。",
+      "source": "https://isip.piconepress.com/projects/nedc/html/tuh_eeg/index.shtml",
+      "family": "tuh"
+    },
+    {
+      "from": "EEG-0035",
+      "to": "EEG-0582",
+      "modality": "eeg",
+      "kind": "subset",
+      "note": "TUH 文档确认的 TUEG 子集；父库也在筛选范围时不重复累加。",
+      "source": "https://isip.piconepress.com/projects/nedc/html/tuh_eeg/index.shtml",
+      "family": "tuh"
+    },
+    {
+      "from": "EEG-0036",
+      "to": "EEG-0582",
+      "modality": "eeg",
+      "kind": "subset",
+      "note": "TUH 文档确认的 TUEG 子集；父库也在筛选范围时不重复累加。",
+      "source": "https://isip.piconepress.com/projects/nedc/html/tuh_eeg/index.shtml",
+      "family": "tuh"
+    },
+    {
+      "from": "EEG-0107",
+      "to": "EEG-0582",
+      "modality": "eeg",
+      "kind": "subset",
+      "note": "TUH 文档确认的 TUEG 子集；父库也在筛选范围时不重复累加。",
+      "source": "https://isip.piconepress.com/projects/nedc/html/tuh_eeg/index.shtml",
+      "family": "tuh"
+    },
+    {
+      "from": "EEG-0103",
+      "to": "EEG-0012",
+      "modality": "eeg",
+      "kind": "subset",
+      "note": "MORGOTH HEEDB 派生任务；母库在范围内时不独立累加。",
+      "source": "https://bdsp.io/content/morgoth1/1.0.0/",
+      "family": "heedb"
+    },
+    {
+      "from": "EEG-0104",
+      "to": "EEG-0012",
+      "modality": "eeg",
+      "kind": "subset",
+      "note": "MORGOTH HEEDB 派生任务；母库在范围内时不独立累加。",
+      "source": "https://bdsp.io/content/morgoth1/1.0.0/",
+      "family": "heedb"
+    },
+    {
+      "from": "EEG-0105",
+      "to": "EEG-0012",
+      "modality": "eeg",
+      "kind": "subset",
+      "note": "MORGOTH HEEDB 派生任务；母库在范围内时不独立累加。",
+      "source": "https://bdsp.io/content/morgoth1/1.0.0/",
+      "family": "heedb"
+    },
+    {
+      "from": "EEG-0150",
+      "to": "EEG-0012",
+      "modality": "eeg",
+      "kind": "overlap",
+      "note": "I-CARE 部分站点与 HEEDB 重叠；尚无精确文件交集，不整条扣除。",
+      "source": "https://physionet.org/content/i-care/2.1/",
+      "family": ""
+    },
+    {
+      "from": "EEG-0093",
+      "to": "EEG-NEW-0002",
+      "modality": "eeg",
+      "kind": "subset",
+      "note": "94/94 份 BrainVision 信号的 S3 ETag 与字节数在新库中匹配。保留死亡结局标签任务，父库在范围内时扣除子集。",
+      "source": "https://openneuro.org/datasets/ds008768",
+      "family": "iowa-pd"
+    },
+    {
+      "from": "EEG-0604",
+      "to": "EEG-0127",
+      "modality": "eeg",
+      "kind": "overlap",
+      "note": "Moody 2026 挑战与 HSP 来源关联；比赛记录数不代表新增独立患者。",
+      "source": "https://moody-challenge.physionet.org/2026/",
+      "family": "hsp"
+    },
+    {
+      "from": "ds005896",
+      "to": "ds005901",
+      "modality": "fmri",
+      "kind": "same-cohort",
+      "note": "114 个相同 participant 标签；人数标签并集268，尚无完整时间/扫描去重。",
+      "source": "https://github.com/OpenNeuroDatasets/ds005896",
+      "family": "ahdc"
+    },
+    {
+      "from": "ds005901",
+      "to": "ds005896",
+      "modality": "fmri",
+      "kind": "same-cohort",
+      "note": "114 个相同 participant 标签；人数标签并集268，尚无完整时间/扫描去重。",
+      "source": "https://github.com/OpenNeuroDatasets/ds005901",
+      "family": "ahdc"
+    },
+    {
+      "from": "ds002316",
+      "to": "ds002738",
+      "modality": "fmri",
+      "kind": "overlap",
+      "note": "同名 rewardBeast，任务不同；重叠待确认，保留入口。",
+      "source": "https://github.com/OpenNeuroDatasets/ds002316",
+      "family": "rewardbeast"
+    },
+    {
+      "from": "ds002738",
+      "to": "ds002316",
+      "modality": "fmri",
+      "kind": "overlap",
+      "note": "同名 rewardBeast，任务不同；重叠待确认，保留入口。",
+      "source": "https://github.com/OpenNeuroDatasets/ds002738",
+      "family": "rewardbeast"
+    }
+  ]
+}

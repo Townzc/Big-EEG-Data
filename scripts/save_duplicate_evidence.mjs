@@ -1,0 +1,16 @@
+import fs from 'node:fs/promises';
+const root=new URL('../',import.meta.url);
+const read=async path=>JSON.parse(await fs.readFile(new URL(path,root),'utf8'));
+const candidates=await read('outputs/catalog-review-20260906/candidate-file-evidence.json');
+const child=candidates.find(x=>x.id==='ds002366'),parent=candidates.find(x=>x.id==='ds002620');
+const bold=x=>x.files.filter(f=>/_bold\.nii(?:\.gz)?$/.test(f.path));
+const parentKeys=new Set(bold(parent).map(f=>`${f.path}|${f.sha}`));
+const fmriMatches=bold(child).filter(f=>parentKeys.has(`${f.path}|${f.sha}`));
+if(fmriMatches.length!==136||fmriMatches.length!==bold(child).length||child.truncated||parent.truncated)throw new Error('fMRI duplicate evidence changed');
+const pdParent=await read('outputs/catalog-update-20260906/ds008768-headers.json');
+const pdChild=await read('outputs/catalog-update-20260906/ds007020-headers.json');
+const pdMatches=pdChild.records.map(c=>({child:c.key,parent:pdParent.records.find(p=>p.etag===c.etag&&p.bytes===c.bytes)?.key,etag:c.etag,bytes:c.bytes}));
+if(pdMatches.length!==94||pdMatches.some(x=>!x.parent||!x.etag))throw new Error('PD duplicate evidence changed');
+const result={reviewDate:'2026-09-06',fmri:{child:{id:child.id,treeSha:child.commit,url:child.url},parent:{id:parent.id,treeSha:parent.commit,url:parent.url},note:'Matching Git object paths and SHA values for published BOLD links; no full signal downloads.',matches:fmriMatches.map(f=>({path:f.path,sha:f.sha}))},pd:{child:'ds007020',parent:'ds008768',note:'Matching public S3 signal ETag and content length from BrainVision metadata/HEAD requests.',matches:pdMatches}};
+await fs.writeFile(new URL('data/catalog-duplicate-evidence.json',root),JSON.stringify(result,null,2)+'\n');
+console.log(`Saved ${fmriMatches.length} BOLD identity matches and ${pdMatches.length} PD signal matches.`);

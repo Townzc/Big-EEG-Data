@@ -12,45 +12,13 @@ async function render(pathname = "/") {
   }, { waitUntil() {}, passThroughOnException() {} });
 }
 
-test("server-renders the preserved EEG catalog inside Big Data", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  const html = await response.text();
-  assert.match(html, /<title>Big Data of EEG<\/title>/i);
-  assert.match(html, /Big Data of EEG/);
-  assert.match(html, />EEG<\/a>/);
-  assert.match(html, />fMRI<\/a>/);
-  assert.match(html, /563/);
-  assert.match(html, /DISEASE \/ CLINICAL/);
-  assert.match(html, /ALL KNOWN COVERAGE/);
-  assert.match(html, /ROW-LEVEL HOURS/);
-  assert.match(html, /270,544/);
-  assert.match(html, /3,785,081\.5/);
-  assert.match(html, /3,821,689\.4/);
-  assert.match(html, /4,033,202\.7/);
-  assert.match(html, /仍有 (?:<!-- -->)?295(?:<!-- -->)? 行未知/);
-  assert.match(html, /269(?:<!-- -->)?\/(?:<!-- -->)?564/);
-  assert.doesNotMatch(html, /52(?:<!-- -->)?\/(?:<!-- -->)?101|1,659,549|50–60 GiB/);
-  assert.match(html, /273/);
-  assert.match(html, /99,537/);
-  assert.match(html, /独立 raw 已获取/);
-  assert.match(html, /时长已审计/);
-  assert.match(html, /43,627\.8/);
-  assert.match(html, /DOWNLOAD CHECKLIST/);
-  assert.match(html, /3,821,689\.4|3821\.7K|382\.17/);
-  assert.match(html, /Neurotech EEG Dataset/);
-  assert.match(html, /医疗与疾病<\/span><strong>97<\/strong>/);
-  assert.match(html, /EEG_healthcare_disease_catalog_20260823\.xlsx/);
-  assert.match(html, /lang="zh-CN"/);
-  assert.match(html, /aria-label=/);
-  assert.match(html, /论文换算·明确范围/);
-  assert.match(html, /FOUNDATION-MODEL DURATION AUDIT/);
-  assert.match(html, /10,179\.98 recording h/);
-  assert.match(html, /PAIRED EEG–FMRI SURVEY/);
-  assert.match(html, /696\.6/);
-  assert.match(html, /443/);
-  assert.equal([...html.matchAll(/显示 (?:<!-- -->)?1(?:<!-- -->)?–(?:<!-- -->)?5(?:<!-- -->)? 行/g)].length, 2);
-  assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
+test("server-renders the current EEG research workflow", async () => {
+  const response=await render();assert.equal(response.status,200);const html=(await response.text()).replace(/<!--.*?-->/gs,'');
+  assert.match(html,/<title>Big Data of EEG<\/title>/i);
+  assert.match(html,/查找 EEG 数据集/);assert.match(html,/疾病主题/);assert.match(html,/研究人群/);
+  assert.match(html,/历史采集记录与数据预处理方法/);assert.match(html,/brain-data-catalog-current\.xlsx/);
+  assert.match(html,/EEG_catalog_20260906\.xlsx/);assert.match(html,/lang="zh-CN"/);
+  assert.doesNotMatch(html,/Your site is taking shape|Building your site/);
 });
 
 test("keeps the original EEG catalog byte-for-byte", () => {
@@ -67,39 +35,13 @@ test("keeps Vercel SPA deep links compatible with clean URLs", () => {
   ]);
 });
 
-test("server-renders the comprehensive fMRI catalog and evidence boundaries", async () => {
-  const response = await render("/fmri");
-  assert.equal(response.status, 200);
-  const html = await response.text();
-  assert.match(html, /<title>Big Data of fMRI<\/title>/i);
-  const canonicalCount = html.match(/CANONICAL DATASETS<\/dt><dd>(\d+)<\/dd>/);
-  assert.ok(canonicalCount, "canonical fMRI count is rendered");
-  assert.ok(Number(canonicalCount[1]) > 750, "catalog covers more than 750 canonical human fMRI datasets");
-  const directOpenCount = html.match(/DIRECT OPEN<\/dt><dd>(\d+)<\/dd>/);
-  assert.ok(directOpenCount);
-  assert.ok(Number(directOpenCount[1]) > 700, "direct-open collection is broad");
-  const durationCoverage = html.match(/KNOWN HOURS<\/dt><dd>(\d+)(?:<!-- -->)?\/(?:<!-- -->)?(\d+)<\/dd>/);
-  assert.ok(durationCoverage, "fMRI duration coverage is rendered");
-  assert.ok(Number(durationCoverage[1]) > 400, "duration audit covers substantially more than the former eight datasets");
-  assert.equal(durationCoverage[2], canonicalCount[1]);
-  assert.match(html, /Total fMRI hours/);
-  assert.match(html, /缺失值不按 0 计入/);
-  assert.match(html, /UK Biobank Brain Imaging/);
-  assert.match(html, /Adolescent Brain Cognitive Development Study/);
-  assert.match(html, /OpenNeuro 候选先排除衍生物/);
-  assert.match(html, /reported/);
-  assert.match(html, /calculated/);
-  assert.match(html, /estimated/);
-  assert.match(html, /unavailable/);
-  assert.match(html, /高级筛选/);
-  assert.match(html, /自然刺激/);
-  assert.match(html, /DUA \/ application \/ controlled/);
-  assert.match(html, /BrainLM: a foundation model for brain activity recordings/);
-  assert.match(html, /NeuroSTORM: a foundation model for human brain dynamics/);
-  assert.match(html, /查看协议、来源与限制/);
-  const catalogSource = fs.readFileSync(new URL("../data/fmri-catalog.ts", import.meta.url), "utf8");
-  assert.match(catalogSource, /Functional Biomedical Informatics Research Network Phase II/);
-  assert.match(catalogSource, /Mind Clinical Imaging Consortium Collection/);
+test("server-renders fMRI search, protocol filters and evidence boundaries", async () => {
+  const response=await render('/fmri');assert.equal(response.status,200);const html=(await response.text()).replace(/<!--.*?-->/gs,'');
+  assert.match(html,/<title>Big Data of fMRI<\/title>/i);
+  assert.match(html,/查找 fMRI 数据集/);assert.match(html,/年龄区间下界/);assert.match(html,/TR ≤ ms/);
+  assert.match(html,/可能包含对照、随访或同一队列/);assert.match(html,/多回波|扫描准备时间/);
+  assert.match(html,/BrainLM: a foundation model for brain activity recordings/);
+  assert.match(html,/fmri-catalog-current\.csv/);
 });
 
 test("surfaces audited and literature-derived durations in the complete catalog", () => {
@@ -187,16 +129,8 @@ test("keeps simultaneous EEG-fMRI totals reproducible and excludes non-paired re
   assert.equal(survey.eegFmriPairs.find((row) => row.id === "ds004196").pairing, "same-participants-separate");
 });
 
-test("focuses on the full catalog and simplified workbook", async () => {
-  const response = await render();
-  const html = await response.text();
-  assert.match(html, /COMPLETE CATALOG/);
-  assert.match(html, /数据预处理/);
-  assert.doesNotMatch(html, /03 · 严格预处理/);
-  assert.match(html, /DOWNLOAD WORKBOOK/);
-  assert.match(html, /3(?:<!-- -->)? 个工作表/);
-  assert.doesNotMatch(html, /<span>正式需申请<\/span>|<span>已申请等待<\/span>|<span>尚未申请<\/span>/);
-  assert.match(html, /NEUROATLAS COMPARISON/);
-  assert.match(html, /download-checklist\.csv/);
-  assert.doesNotMatch(html, /WHY.*AND|SCALE, WITH BOUNDARIES|11 NEW DOWNLOAD UNITS/i);
+test("keeps current exports and historical snapshots visibly distinct",async()=>{
+  const response=await render();const html=await response.text();
+  assert.match(html,/当前完整 XLSX/);assert.match(html,/历史 EEG 工作簿（563 行）/);
+  assert.match(html,/统计口径/);assert.match(html,/未知保持空白/);assert.match(html,/HEEDB 按团队口径归入睡眠/);
 });

@@ -54,3 +54,10 @@ node.*.log
 /raw_data/
 /data_downloads/
 /ds00*/
+
+# Current catalog assets are reproducibly generated before dev/build.
+/public/catalog/
+/public/*-catalog-current.csv
+/public/*-catalog-current.json
+/public/*.inspect.ndjson
+*.tsbuildinfo

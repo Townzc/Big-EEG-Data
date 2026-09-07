@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 const catalogUrl = new URL("../public/catalog-data.json", import.meta.url);
 const outputUrl = new URL("../data/eeg-openneuro-duration-audit.json", import.meta.url);
 const endpoint = "https://openneuro.org/crn/graphql";
-const verifiedAt = "2026-08-31";
+const verifiedAt = new Date().toISOString().slice(0, 10);
 const args = new Map(process.argv.slice(2).map((arg) => {
   const [key, value = "true"] = arg.replace(/^--/, "").split("=", 2);
   return [key, value];

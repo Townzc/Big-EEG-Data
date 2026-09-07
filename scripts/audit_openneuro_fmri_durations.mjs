@@ -1,10 +1,10 @@
 import fs from "node:fs/promises";
-import { createGunzip } from "node:zlib";
+import { auditHeader, discoverBidsRoots, logicalBoldKey } from "./lib/signal-headers.mjs";
 
 const indexUrl = new URL("../data/openneuro-fmri-index.json", import.meta.url);
 const outputUrl = new URL("../data/openneuro-duration-audit.json", import.meta.url);
 const endpoint = "https://openneuro.org/crn/graphql";
-const verifiedAt = "2026-08-30";
+const verifiedAt = new Date().toISOString().slice(0, 10);
 const args = new Map(process.argv.slice(2).map((arg) => {
   const [key, value = "true"] = arg.replace(/^--/, "").split("=", 2);
   return [key, value];
@@ -88,78 +88,32 @@ const decodeXml = (value) => value
   .replaceAll("&quot;", "\"")
   .replaceAll("&apos;", "'");
 
+const rootsByAccession = new Map();
 async function listSubjectFiles(accession, subject) {
+  if (!rootsByAccession.has(accession)) rootsByAccession.set(accession, discoverBidsRoots(accession, async url => (await fetchWithRetry(url)).text()));
+  const roots = await rootsByAccession.get(accession);
+  if (!roots.length) throw new Error('BIDS root not found');
   const keys = [];
-  let continuation = "";
-  do {
-    const url = new URL("https://s3.amazonaws.com/openneuro.org/");
-    url.searchParams.set("list-type", "2");
-    url.searchParams.set("prefix", `${accession}/sub-${subject.replace(/^sub-/, "")}/`);
-    if (continuation) url.searchParams.set("continuation-token", continuation);
-    const response = await fetchWithRetry(url, { headers: { "user-agent": "Big-Data-fMRI-duration-auditor/2.0" } });
-    const xml = await response.text();
-    keys.push(...[...xml.matchAll(/<Key>(.*?)<\/Key>/g)].map((match) => decodeXml(match[1])));
-    continuation = decodeXml(xml.match(/<NextContinuationToken>(.*?)<\/NextContinuationToken>/)?.[1] ?? "");
-  } while (continuation);
-  return keys.filter((key) => !key.includes("/derivatives/") && /_bold\.nii(?:\.gz)?$/i.test(key));
-}
-
-function unzipHeader(bytes) {
-  return new Promise((resolve, reject) => {
-    const gunzip = createGunzip();
-    const chunks = [];
-    let length = 0;
-    let settled = false;
-    const finish = () => {
-      if (settled || length < 352) return;
-      settled = true;
-      resolve(Buffer.concat(chunks, length).subarray(0, 352));
-      gunzip.destroy();
-    };
-    gunzip.on("data", (chunk) => {
-      chunks.push(chunk);
-      length += chunk.length;
-      finish();
-    });
-    gunzip.on("error", (error) => {
-      if (!settled) reject(error);
-    });
-    gunzip.on("end", () => {
-      if (!settled) {
-        if (length >= 352) finish();
-        else reject(new Error("Incomplete NIfTI header"));
-      }
-    });
-    gunzip.end(bytes);
-  });
-}
-
-function parseNifti1(header) {
-  const little = header.readInt32LE(0) === 348;
-  const big = header.readInt32BE(0) === 348;
-  if (!little && !big) throw new Error("Unsupported NIfTI header");
-  const readInt16 = little ? Buffer.prototype.readInt16LE : Buffer.prototype.readInt16BE;
-  const readFloat = little ? Buffer.prototype.readFloatLE : Buffer.prototype.readFloatBE;
-  const volumes = readInt16.call(header, 48);
-  const temporalValue = readFloat.call(header, 92);
-  const units = header.readUInt8(123) & 0x38;
-  const scale = units === 16 ? 0.001 : units === 24 ? 0.000001 : 1;
-  let trSeconds = temporalValue * scale;
-  if (units === 0 && trSeconds > 30) trSeconds /= 1_000;
-  if (!Number.isFinite(volumes) || volumes <= 0 || !Number.isFinite(trSeconds) || trSeconds <= 0 || trSeconds > 30) {
-    throw new Error(`Implausible NIfTI timing (${volumes} volumes, TR ${trSeconds})`);
+  for (const root of roots) {
+    let continuation = '';
+    do {
+      const url = new URL('https://s3.amazonaws.com/openneuro.org/');
+      url.searchParams.set('list-type', '2');
+      url.searchParams.set('prefix', root + 'sub-' + subject.replace(/^sub-/, '') + '/');
+      if (continuation) url.searchParams.set('continuation-token', continuation);
+      const xml = await (await fetchWithRetry(url)).text();
+      keys.push(...[...xml.matchAll(/<Key>(.*?)<\/Key>/g)].map(match=>decodeXml(match[1])));
+      continuation = decodeXml(xml.match(/<NextContinuationToken>(.*?)<\/NextContinuationToken>/)?.[1] ?? '');
+    } while (continuation);
   }
-  return { volumes, trSeconds };
+  const bold = keys.filter(key=>!key.includes('/derivatives/') && /_bold\.nii(?:\.gz)?$/i.test(key)).sort();
+  const runs = new Map();
+  for(const key of bold)if(!runs.has(logicalBoldKey(key)))runs.set(logicalBoldKey(key),key);
+  return [...runs.values()];
 }
-
 async function readRunHeader(key) {
-  const path = key.split("/").map(encodeURIComponent).join("/");
-  const response = await fetchWithRetry(`https://s3.amazonaws.com/openneuro.org/${path}`, {
-    headers: { range: "bytes=0-262143", "user-agent": "Big-Data-fMRI-duration-auditor/2.0" },
-  });
-  const bytes = Buffer.from(await response.arrayBuffer());
-  const header = key.endsWith(".gz") ? await unzipHeader(bytes) : bytes.subarray(0, 352);
-  return parseNifti1(header);
+  const path=key.split('/').map(encodeURIComponent).join('/');
+  return withNetworkSlot(()=>auditHeader('https://s3.amazonaws.com/openneuro.org/'+path));
 }
 
 const taskFromKey = (key) => key.match(/_task-([^_/]+)/i)?.[1] ?? "unknown";
@@ -197,9 +151,8 @@ let existing = { records: [], failures: [] };
 if (resume) {
   try { existing = JSON.parse(await fs.readFile(outputUrl, "utf8")); } catch { /* start clean */ }
 }
-const candidateAccessions = new Set(candidates.map((dataset) => dataset.accession));
-const records = new Map((existing.records ?? []).filter((record) => candidateAccessions.has(record.accession)).map((record) => [record.accession, record]));
-const failures = new Map((existing.failures ?? []).filter((record) => candidateAccessions.has(record.accession)).map((record) => [record.accession, record]));
+const records = new Map((existing.records ?? []).map((record) => [record.accession, record]));
+const failures = new Map((existing.failures ?? []).map((record) => [record.accession, record]));
 if (replaceExisting) {
   for (const dataset of candidates) {
     records.delete(dataset.accession);
@@ -218,7 +171,7 @@ const save = async () => {
   await fs.writeFile(outputUrl, `${JSON.stringify(output, null, 2)}\n`, "utf8");
 };
 
-let completed = records.size + failures.size;
+let completed = candidates.filter(dataset => records.has(dataset.accession) || failures.has(dataset.accession)).length;
 const queue = withSubjects.filter((dataset) => !records.has(dataset.accession) && !failures.has(dataset.accession));
 await Promise.all(Array.from({ length: workerCount }, async () => {
   while (queue.length) {

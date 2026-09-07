@@ -1,0 +1,167 @@
+{
+  "date": "2026-09-06",
+  "headers": [
+    {
+      "accession": "ds008768",
+      "modality": "eeg",
+      "checkedAt": "2026-09-07T04:27:57.306Z",
+      "attempted": 358,
+      "readable": 357,
+      "logicalRuns": 357,
+      "failures": [
+        {
+          "key": "ds008768/sub-172/ses-03/eeg/sub-172_ses-03_task-rest_eeg.vhdr",
+          "error": "Signal HEAD HTTP 404"
+        }
+      ],
+      "totalFiles": 358,
+      "sampledSubjects": 312,
+      "signalSubjects": 312,
+      "sampled": false,
+      "hours": 20.23492777777779,
+      "source": "https://s3.amazonaws.com/openneuro.org/?list-type=2&prefix=ds008768/",
+      "manifestSha256": "ba398610f512f13e1fa8be4912f20f3edaa47ddac6cad8bd271d9a2219372051"
+    },
+    {
+      "accession": "ds007020",
+      "modality": "eeg",
+      "checkedAt": "2026-09-07T04:28:01.421Z",
+      "attempted": 94,
+      "readable": 94,
+      "logicalRuns": 94,
+      "failures": [],
+      "totalFiles": 94,
+      "sampledSubjects": 94,
+      "signalSubjects": 94,
+      "sampled": false,
+      "hours": 4.106461111111114,
+      "source": "https://s3.amazonaws.com/openneuro.org/?list-type=2&prefix=ds007020/",
+      "manifestSha256": "a5f6a461c365f8d61c3e669f52939b5950992d0be9c7f116ab2c4402abc6cf94"
+    },
+    {
+      "accession": "ds008108",
+      "modality": "eeg",
+      "checkedAt": "2026-09-07T04:28:06.632Z",
+      "attempted": 142,
+      "readable": 142,
+      "logicalRuns": 142,
+      "failures": [],
+      "totalFiles": 142,
+      "sampledSubjects": 142,
+      "signalSubjects": 142,
+      "sampled": false,
+      "hours": 1119.6083333333333,
+      "source": "https://s3.amazonaws.com/openneuro.org/?list-type=2&prefix=ds008108/",
+      "manifestSha256": "c4a01b1fe4f288360f08b033af6a11f67d1192a4d18004d8c1035355ddadcfe8"
+    },
+    {
+      "accession": "ds005899",
+      "modality": "fmri",
+      "checkedAt": "2026-09-07T04:28:08.987Z",
+      "attempted": 122,
+      "readable": 122,
+      "logicalRuns": 122,
+      "failures": [],
+      "totalFiles": 122,
+      "sampledSubjects": 61,
+      "signalSubjects": 61,
+      "sampled": false,
+      "hours": 10.660766874154408,
+      "source": "https://s3.amazonaws.com/openneuro.org/?list-type=2&prefix=ds005899/",
+      "manifestSha256": "688f57bb8e8cfe72bc310c024e4999070fe367161850a785639cb1020ce3ee56"
+    },
+    {
+      "accession": "ds004192",
+      "modality": "fmri",
+      "checkedAt": "2026-09-07T04:28:17.444Z",
+      "attempted": 435,
+      "readable": 435,
+      "logicalRuns": 435,
+      "failures": [],
+      "totalFiles": 435,
+      "sampledSubjects": 3,
+      "signalSubjects": 3,
+      "sampled": false,
+      "hours": 49.99666666666667,
+      "source": "https://s3.amazonaws.com/openneuro.org/?list-type=2&prefix=ds004192/",
+      "manifestSha256": "171b691cbeade35655751e26ecb80148a6d1493f8bd1a8b55eba9d1311e3bbdd"
+    },
+    {
+      "accession": "ds008108",
+      "modality": "fmri",
+      "checkedAt": "2026-09-07T04:28:06.632Z",
+      "attempted": 124,
+      "readable": 124,
+      "logicalRuns": 124,
+      "failures": [],
+      "totalFiles": 124,
+      "sampledSubjects": 124,
+      "signalSubjects": 124,
+      "sampled": false,
+      "hours": 15.891227627727721,
+      "source": "https://s3.amazonaws.com/openneuro.org/?list-type=2&prefix=ds008108/",
+      "manifestSha256": "ed2aa1f103b9228731461a9c948353dfe2f731feffc72fe3aaae894d8924c7e0"
+    },
+    {
+      "accession": "ds000030",
+      "modality": "fmri",
+      "checkedAt": "2026-09-07T04:28:19.952Z",
+      "attempted": 21,
+      "readable": 21,
+      "logicalRuns": 21,
+      "failures": [],
+      "totalFiles": 2004,
+      "sampledSubjects": 3,
+      "signalSubjects": 272,
+      "sampled": true,
+      "hours": 225.86074074074077,
+      "source": "https://s3.amazonaws.com/openneuro.org/?list-type=2&prefix=ds000030/",
+      "manifestSha256": "1a65c12998c86093ad92425336896d5cc733922d7a89ec77d4b79bca212d6e3b"
+    },
+    {
+      "accession": "ds004627",
+      "modality": "fmri",
+      "checkedAt": "2026-09-07T04:28:20.823Z",
+      "attempted": 40,
+      "readable": 40,
+      "logicalRuns": 16,
+      "failures": [],
+      "totalFiles": 2369,
+      "sampledSubjects": 3,
+      "signalSubjects": 130,
+      "sampled": true,
+      "hours": 117.67407407407406,
+      "source": "https://s3.amazonaws.com/openneuro.org/?list-type=2&prefix=ds004627/",
+      "manifestSha256": "c6cd94834dda7275b5c771614625339aa00f09113b717f776090b8b919d46c86"
+    },
+    {
+      "accession": "ds001734",
+      "modality": "fmri",
+      "checkedAt": "2026-09-07T04:28:21.090Z",
+      "attempted": 12,
+      "readable": 12,
+      "logicalRuns": 12,
+      "failures": [],
+      "totalFiles": 432,
+      "sampledSubjects": 3,
+      "signalSubjects": 108,
+      "sampled": true,
+      "hours": 54.36,
+      "source": "https://s3.amazonaws.com/openneuro.org/?list-type=2&prefix=ds001734/",
+      "manifestSha256": "ae6775495a0c3c3d6d6fa86e93a946224f36bb3f4724fbcf136c2c7e61339274"
+    }
+  ],
+  "hmc": {
+    "source": "https://physionet.org/files/hmc-sleep-staging/1.1/RECORDS",
+    "files": 151,
+    "hours": 1144.2188888888888
+  },
+  "pdOverlap": {
+    "compared": 94,
+    "matchingEtagsAndBytes": 94
+  },
+  "hbn": {
+    "releases": 11,
+    "intersections": 0
+  }
+}

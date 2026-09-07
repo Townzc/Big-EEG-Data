@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 
 const endpoint = "https://openneuro.org/crn/graphql";
 const outputUrl = new URL("../data/openneuro-fmri-index.json", import.meta.url);
-const verifiedAt = "2026-08-30";
+const verifiedAt = new Date().toISOString().slice(0, 10);
 const pageSize = 50;
 
 const query = `
@@ -117,7 +117,7 @@ const hasUsableDatasetIdentity = (node) => {
 };
 
 const compact = (items) => [...new Set((items ?? []).map((item) => String(item).trim()).filter(Boolean))];
-const numericAges = (items) => (items ?? []).map(Number).filter(Number.isFinite);
+const numericAges = (items) => (items ?? []).filter(value => value !== null && value !== undefined && String(value).trim() !== "").map(Number).filter(value => Number.isFinite(value) && value >= 0);
 const yearFrom = (value) => {
   const year = Number(String(value ?? "").slice(0, 4));
   return Number.isInteger(year) && year > 1900 ? year : null;

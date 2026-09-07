@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "version": "208f2520f6cf",
+  "reviewDate": "2026-09-06",
+  "modalities": {
+    "eeg": {
+      "count": 569,
+      "families": 548,
+      "included": 559,
+      "subjectIncluded": 559,
+      "subjects": 223387,
+      "hours": 3841860.8651056723,
+      "knownSubjects": 530,
+      "knownHours": 266,
+      "missingSubjects": 29,
+      "missingHours": 293,
+      "estimatedHours": 15385.970000000001,
+      "reportedHours": 3806494.873888887,
+      "calculatedHours": 19980.02121678666,
+      "partialHours": 11,
+      "public": 420,
+      "suppressed": [
+        "EEG-0004",
+        "EEG-0033",
+        "EEG-0034",
+        "EEG-0035",
+        "EEG-0036",
+        "EEG-0093",
+        "EEG-0103",
+        "EEG-0104",
+        "EEG-0105",
+        "EEG-0107"
+      ],
+      "overlap": [
+        "EEG-0150",
+        "EEG-0604"
+      ]
+    },
+    "fmri": {
+      "count": 784,
+      "families": 782,
+      "included": 784,
+      "subjectIncluded": 784,
+      "subjects": 171165,
+      "hours": 47989.52347598333,
+      "knownSubjects": 780,
+      "knownHours": 753,
+      "missingSubjects": 4,
+      "missingHours": 31,
+      "estimatedHours": 32020.174814814785,
+      "reportedHours": 0,
+      "calculatedHours": 15969.34866116855,
+      "partialHours": 0,
+      "public": 754,
+      "suppressed": [],
+      "overlap": [
+        "ds002316",
+        "ds002738",
+        "ds005896",
+        "ds005901"
+      ]
+    }
+  }
+}
