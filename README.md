@@ -1,18 +1,24 @@
 # BIG DATA · EEG + fMRI
 
-## 当前检索网站：2026-09-06 设计与目录更新
+## 当前检索网站：2026-09-08 reconciliation 更新
 
-当前主目录为 **569 条 EEG / 784 条 fMRI**。本轮新增 6 个 EEG、3 个 fMRI 入口，并合并两组已确认重复。设计、证据和后续核查清单见 [更新报告](CATALOG_IMPROVEMENTS_20260906.zh-CN.md)。下文旧版数量、时长和下载进度是历史快照，不能作为当前主目录总量。
+当前主目录为 **568 条 EEG / 784 条 fMRI**。EEG 由不可变的历史 563 行证据快照出发：排除非 EEG 的 EEG-0050，将 EEG-0488 合并为 EEG-0064 alias，纳入 1 个 evidence-layer supplemental release 和 6 个后续 revision entry。设计、证据和后续核查清单见 [更新报告](CATALOG_IMPROVEMENTS_20260906.zh-CN.md)；较早日期的小节是历史快照，不能覆盖本节的当前口径。
+
+- 当前 EEG 为 568 行、547 个 source family、553 个 acquisition package。八大类别行数为 `4 / 98 / 64 / 142 / 59 / 135 / 43 / 23`；bigP3BCI（EEG-0064）现归“运动与交互 / P300_BCI”。
+- 原始逐行有 541/568 行给出 subject，合计 261,018 个 dataset-subject entries；274/568 行有时长，逐行相加 3,845,506.57 h。按已记录 parent/child relation 抑制 10 个子集后，受试者条目为 223,167（531/558 有值），已知时长为 3,841,983.59 h（267/558 有值）。这不是跨数据库的全球唯一人数；未知不按 0 处理。
+- 重点下载清单为 145 个执行单元；80 个有服务器完成证据，74 个已取得独立 raw。精确时长审计工作量为 61 行 / 46,893.44 h，其中含 5 个 TUEG child；关系去重后约 56 项 / 43,474.55 h。19 个“已申请等待访问”是 logical rows，实际约 3 个申请流程/入口：一次 BDSP credential/application 覆盖 HEEDB + MORGOTH 16 行，另有 MESA 与 CAUEEG；22 个尚需申请/登录。另有 12 个可直接下载、2 个登录后可下载和 4 个需人工复核。
+- 严格 raw-continuous 预处理完成 62/99 个 canonical targets：136,214 outputs、21,777 adapter-level subject entries、43,182.68 signal-hours、3,464,162 event rows、1,686,520,768,213 derivative bytes。统计明确排除重复 EEG-0072 batch80 及 non-EEG / processed-only 目标。
+- NMT、M3CV、VEPCON EEG subset 已下载；AES、HMS、UPenn/Mayo、Schizophrenia 和 TDBRAIN 均已完成对应全量信号范围审计但门禁各异。AES 显示 publisher-declared 1,333.6667 h，并保留 header 重算多 2.757 s 的舍入差；mixed-species 与未知 unit/reference 仍阻断生产。Schizophrenia 的 11,527-output processed-trial scope 已通过 batch91 终端生产验证；它不增加严格 raw-continuous 62/99 KPI。GPFS 当前可用约 1.80 TiB；安全层另保留约 119.1 GB 已识别但尚未删除的失败 staging。详细状态由 `data/eeg-catalog-reconciliation.json` 驱动。
 
 - 主界面：`app/CatalogLanding.tsx`、`app/CatalogBrowser.tsx`；筛选后汇总全部结果，支持 2–4 项对比、深链接、CSV/JSON 导出与按需加载详情。
 - 当前数据入口：`data/current-catalog.ts`，组合原 EEG/fMRI 目录与 `data/catalog-revisions.json` 的修订、别名合并及来源关系。保留 `public/catalog-data.json` 不变，历史预处理与下载记录移入可展开区域。
 - 来源证据：`data/catalog-revision-evidence.json` 保留文件头核查覆盖、失败记录、清单哈希及交集摘要；来源网页与论文记录在修订详情中。
-- 构建前由 `scripts/generate_catalog.mjs` 生成网页索引、逐条详情、CSV/JSON 和 manifest；生成物不入 Git，`dev`、两种 `build` 均自动生成。当前 XLSX 和版本侧文件入库，构建检查其版本，避免网页更新而工作簿过期。
+- 构建前由 `scripts/generate_catalog.mjs` 生成网页索引、32-way 详情分片、CSV/JSON、排除审计和 manifest；生成物不入 Git，`dev`、两种 `build` 均自动生成。当前 XLSX 和版本侧文件入库，构建检查其版本，避免网页更新而工作簿过期。
 - 分清目录条目、来源家族、受试者条目、记录数、小时和本地已获取时长。未知保持 `null`；已确认子集只在父库同时出现且对应指标有值时排除，部分重叠仍提示。
 
 ```powershell
 npm run catalog:generate
-# 目录数值或导出列变更后，用已安装的 @oai/artifact-tool 重新生成 XLSX
+# 目录数值或导出列变更后，用项目内 ExcelJS 重新生成 XLSX
 npm run catalog:workbook
 npm test
 npm run lint
@@ -21,11 +27,11 @@ npm run build:vercel
 npm run dev -- --host 127.0.0.1
 ```
 
-工作簿脚本可用 `CATALOG_ARTIFACT_TOOL_MODULE` 指定 `@oai/artifact-tool` 的绝对模块路径。研究脚本的原始请求缓存位于忽略的 `outputs/`；`curate_20260906.mjs` 是本轮策展过程记录，需要对应缓存，日常构建直接读取已提交的修订 JSON。重新联网审计属于显式维护操作，不会在站点构建时触发。
+工作簿脚本使用项目内固定版本的 ExcelJS，列公式按 `exportColumns` 动态定位，避免新增字段后 subject/hour 列错位。研究脚本的原始请求缓存位于忽略的 `outputs/`；`curate_20260906.mjs` 是本轮策展过程记录，需要对应缓存，日常构建直接读取已提交的修订 JSON。重新联网审计属于显式维护操作，不会在站点构建时触发。
 
 `scripts/lib/signal-headers.mjs` 支持有界文件头读取、NIfTI-1/2、多回波采集去重及嵌套 BIDS 根目录发现。抽样结果保持 `estimated`，不推断为完整实际小时。Cloudflare 类型由当前生产构建配置生成；如兼容日期变化，在完成构建后运行 `npx wrangler types worker-configuration.d.ts --config dist/server/wrangler.json --include-env false`。
 
-## 2026-09-06 网站复核与 HEEDB 团队分类
+## 2026-09-06 历史网站复核与 HEEDB 团队分类
 
 - 设计建议、EEG/fMRI 查重证据和待补候选见 `WEBSITE_REVIEW_20260906.zh-CN.md`；本轮没有新增候选数据集或删除疑似重复行。
 - 根据项目负责人确认，HEEDB（EEG-0012）在本网站归入“意识与状态 / Sleep_Staging”，重点清单分组为“睡眠”。这是团队分类，官方临床人群描述、原始任务与访问限制保留。
@@ -158,7 +164,7 @@ NeuroAtlas 的 42 个评测来源中，原目录已经覆盖 36 个，本轮补�
 
 按数据源去重，NeuroAtlas 癫痫与睡眠域约 259,000 h；脑龄约 193,000 h 复用睡眠队列，不重复相加。用完整 TUEG 父集替换 TUSZ 子集，并加入不重叠的 I-CARE 后，核心疾病/健康并集约 341,253.3 h；再加入现有独有审计来源、HBN 和 EEG-Bench 后，扩展覆盖约 346,490.7 h。该数字是文献/官方来源覆盖估计，不是本地已下载文件的精确总时长。
 
-## 当前下载状态
+## 历史下载状态（当前值以文首 2026-09-08 reconciliation 为准）
 
 ### 2026-09-01 分类口径与服务器生产表复核
 

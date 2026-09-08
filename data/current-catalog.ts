@@ -1,4 +1,4 @@
-import { eegCatalogRows } from './eeg-duration';
+import { eegCatalogRows, eegReconciliation } from './eeg-duration';
 import { fmriDatasets } from './fmri-catalog';
 import revisions from './catalog-revisions.json';
 import { diseaseTags, doiList, type CatalogItem, type CatalogDetail, type Modality } from '../lib/catalog';
@@ -12,27 +12,36 @@ const numberRange = (value: unknown): [number|null,number|null] => {
   return match ? [Number(match[1]), Number(match[2] ?? match[1])] : [null,null];
 };
 function empty(id: string, modality: Modality): CatalogItem {
-  return { id, modality, name:'', aliases:[], family:id, release:'原目录版本；详见来源', category:'', subcategory:'', diseases:[], tasks:[], population:'未核实', subjects:null, subjectScope:'受试者条目；可能与其他队列重叠', hours:null, evidence:'unavailable', hoursScope:'范围未核实', records:null, localHours:null, access:'访问待确认', channels:null, channelMax:null, sampling:null, samplingMax:null, ageMin:null, ageMax:null, sizeGb:null, trMs:null, field:'Unknown', sites:'Unknown', bids:'Unknown', format:'Unknown', rawProcessed:'Unknown', longitudinal:'Unknown', verified:'', relations:[], url:'', search:'' };
+  return { id, modality, name:'', aliases:[], family:id, sourcePackageId:null, release:'原目录版本；详见来源', category:'', subcategory:'', diseases:[], tasks:[], population:'未核实', subjects:null, subjectScope:'受试者条目；可能与其他队列重叠', hours:null, evidence:'unavailable', hoursScope:'范围未核实', records:null, localHours:null, access:'访问待确认', acquisitionStatus:'未核实', acquisitionNote:'', localFiles:null, localBytes:null, channels:null, channelMax:null, sampling:null, samplingMax:null, ageMin:null, ageMax:null, sizeGb:null, trMs:null, field:'Unknown', sites:'Unknown', bids:'Unknown', format:'Unknown', rawProcessed:'Unknown', longitudinal:'Unknown', verified:'', relations:[], url:'', search:'' };
 }
 const details: CatalogDetail[] = eegCatalogRows.map(row => {
   const [channels,channelMax] = numberRange(row.channels); const [sampling,samplingMax] = numberRange(row.samplingRate);
   const accession = `${row.url} ${row.stableId}`.match(/ds\d{6}/)?.[0];
   const rawScope = `${row.durationBasis ?? ''} ${row.durationEvidence ?? ''}`;
   const item: CatalogItem = {
-    ...empty(row.id,'eeg'), name:row.name, family:accession ?? row.id,
+    ...empty(row.id,'eeg'), name:row.name, aliases:[...new Set(row.aliases ?? [])], family:accession ?? row.id,
     category:categoryNames[row.largeCategory.slice(0,2)] ?? row.largeCategory, subcategory:row.smallCategory,
     diseases:row.id==='EEG-0012'?[]:diseaseTags(`${row.name} ${row.task} ${row.smallCategory}`),
     tasks:[...new Set((row.task ?? '').split(/[；;]+/).map(x=>x.trim()).filter(Boolean))],
-    subjects:numberRange(row.subjectsDisplay)[0], subjectScope:`原始人数口径：${row.subjectsDisplay ?? '未知'}；含范围时取下界，不代表确诊患者数。`,
+    population:row.population ?? '未核实',
+    subjects:row.localObservedSubjects ?? numberRange(row.subjectsDisplay)[0],
+    subjectScope:row.subjectScope ?? (row.sourceSubjects != null && row.localObservedSubjects != null
+      ? `当前公开/本地范围 ${row.localObservedSubjects}；来源研究总体 ${row.sourceSubjects}，两者不相加。`
+      : `原始人数口径：${row.subjectsDisplay ?? '未知'}；含范围时取下界，不代表确诊患者数。`),
     hours:row.durationHours, evidence:row.durationSource ?? 'unavailable',
     hoursScope: /部分|PARTIAL/.test(rawScope) ? '部分已获取文件；不是整库总时长' : row.durationHours == null ? '未知' : row.durationSource==='estimated' ? '抽样外推或协议估算；非精确整库时长' : '原目录记录范围；详见证据',
-    localHours:/文件审计/.test(rawScope)?row.durationHours:null,
+    records:row.localObservedRecords ?? row.outputRecords ?? null,
+    localHours:row.localHours ?? (/文件审计/.test(rawScope)?row.durationHours:null),
     access:accessNames[row.access] ?? '访问待确认', channels,channelMax,sampling,samplingMax,
     format:row.format ?? 'Unknown', rawProcessed:row.rawProcessed ?? 'Unknown',
-    url:row.url, search:[row.stableId, row.channels, row.samplingRate].filter(Boolean).join(' '),
+    sourcePackageId:row.sourcePackageId ?? null,
+    acquisitionStatus:row.acquisitionStatus ?? '未核实', acquisitionNote:row.acquisitionNote ?? '',
+    localFiles:row.localFiles ?? null, localBytes:row.localBytes ?? null,
+    verified:row.acquisitionStatus || row.preprocessingStatus ? eegReconciliation.reconciledAt : '',
+    url:row.url, search:[row.stableId, row.channels, row.samplingRate, row.sourcePackageId, ...(row.aliases ?? [])].filter(Boolean).join(' '),
   };
   if (item.category==='医疗与疾病') item.population='临床相关（分组待核）';
-  return { item, sources:[{label:'数据入口',url:row.url},...(row.durationEvidenceUrl?[{label:'时长证据',url:row.durationEvidenceUrl,note:row.durationEvidence ?? undefined}]:[])], notes:[row.verification, row.durationBasis, row.durationEvidence].filter((x):x is string=>!!x), metrics:[{label:'原始人数',value:String(row.subjectsDisplay ?? '未知')},{label:'通道 / 采样率',value:`${row.channels ?? '未知'} / ${row.samplingRate ?? '未知'}`}], datasetDois:doiList(row.stableId).filter(x=>!doiList(row.paper).includes(x)), paperDois:doiList(row.paper), license:'见数据源许可条款', original:row };
+  return { item, sources:[{label:'数据入口',url:row.url},...(row.durationEvidenceUrl?[{label:'时长证据',url:row.durationEvidenceUrl,note:row.durationEvidence ?? undefined}]:[]),...(row.additionalSources ?? [])], notes:[row.verification, row.durationBasis, row.durationEvidence, row.acquisitionNote, row.physicalUnitStatus, row.reference].filter((x):x is string=>!!x), metrics:[{label:'原始人数',value:String(row.subjectsDisplay ?? '未知')},{label:'通道 / 采样率',value:`${row.channels ?? '未知'} / ${row.samplingRate ?? '未知'}`},...(row.localFiles != null ? [{label:'本地下载清单',value:`${row.localFiles.toLocaleString('en-US')} files / ${(row.localBytes ?? 0).toLocaleString('en-US')} bytes`}] : [])], datasetDois:doiList(row.stableId).filter(x=>!doiList(row.paper).includes(x)), paperDois:doiList(row.paper), license:'见数据源许可条款', original:row };
 });
 for (const row of fmriDatasets) {
   const [rawAgeMin,rawAgeMax] = numberRange(row.participants.ageRange);
@@ -73,11 +82,26 @@ for (const revision of revisions.entries as Revision[]) {
   if(revision.paperDois) detail.paperDois = revision.paperDois;
   if(revision.license) detail.license = revision.license;
 }
+const focusAcquisitionPatches = eegReconciliation.focusRowPatches as Record<string, {
+  auditPresence?: unknown;
+  acquisitionDecision?: unknown;
+}>;
+for (const [id, patch] of Object.entries(focusAcquisitionPatches)) {
+  const detail = details.find((entry) => entry.item.id === id && entry.item.modality === 'eeg');
+  if (!detail) continue;
+  if (detail.item.acquisitionStatus === '未核实') detail.item.acquisitionStatus = String(patch.auditPresence ?? detail.item.acquisitionStatus);
+  if (!detail.item.acquisitionNote) detail.item.acquisitionNote = String(patch.acquisitionDecision ?? detail.item.acquisitionNote);
+  detail.item.verified = eegReconciliation.reconciledAt;
+}
+for (const id of Object.keys(eegReconciliation.rowPatches)) {
+  const detail = details.find((entry) => entry.item.id === id && entry.item.modality === 'eeg');
+  if (detail) detail.item.verified = eegReconciliation.reconciledAt;
+}
 for (const merge of revisions.merges) {
   const target = details.find(x=>x.item.id===merge.into&&x.item.modality===merge.modality);
   const index = details.findIndex(x=>x.item.id===merge.from&&x.item.modality===merge.modality);
   if(!target || index<0) throw new Error(`Missing merge identity: ${merge.from}`);
-  const old = details[index]; target.item.aliases.push(old.item.id,old.item.name,...old.item.aliases);
+  const old = details[index]; target.item.aliases=[...new Set([...target.item.aliases,old.item.id,old.item.name,...old.item.aliases])];
   target.item.search += ` ${old.item.subcategory} ${old.item.tasks.join(' ')}`;
   target.sources.push({label:`旧入口 ${merge.from}`,url:old.item.url});
   target.notes.unshift(merge.note); details.splice(index,1);
@@ -87,6 +111,16 @@ for (const link of revisions.relations) {
   if(!detail) throw new Error(`Missing relation source: ${link.from}`);
   detail.item.relations.push({id:link.to,kind:link.kind as CatalogItem['relations'][number]['kind'],note:link.note,source:link.source});
   if (link.family) detail.item.family=link.family;
+}
+// Several logical MORGOTH task/cohort rows share one physical BDSP release.
+// Keep the rows searchable while exposing one acquisition package identity.
+for (const sourcePackage of eegReconciliation.sourcePackages) {
+  for (const id of sourcePackage.memberIds) {
+    const detail = details.find((entry) => entry.item.id === id && entry.item.modality === 'eeg');
+    if (!detail) throw new Error(`Missing source-package member: ${id}`);
+    detail.item.sourcePackageId = sourcePackage.sourcePackageId;
+    detail.notes.push(sourcePackage.note);
+  }
 }
 // Cross-modality links share one source identity; their hours stay separate.
 for (const detail of details) {

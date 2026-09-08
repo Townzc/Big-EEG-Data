@@ -1,0 +1,528 @@
+{
+  "schemaVersion": 1,
+  "reconciledAt": "2026-09-08",
+  "method": "Deterministic reconciliation overlay applied before current-catalog revisions. The historical public catalog remains an immutable evidence snapshot; canonical rows, aliases, exclusions, local acquisition state and shared source packages are reconciled in the generated current catalog.",
+  "aliases": [
+    {
+      "aliasId": "EEG-0488",
+      "canonicalId": "EEG-0064",
+      "relation": "software_adapter_alias",
+      "sourcePackageId": "PhysioNet:bigp3bci:v1.0.0",
+      "reason": "MOABB Mainsah2025 exposes studies from the same PhysioNet bigP3BCI release; both rows cite DOI 10.13026/0byy-ry86.",
+      "evidence": [
+        "https://physionet.org/content/bigp3bci/1.0.0/",
+        "https://moabb.neurotechx.com/docs/generated/moabb.datasets.mainsah2025.Mainsah2025.html"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "EEG-0050",
+      "disposition": "EXCLUDED_NON_EEG",
+      "dataPresence": "NO_EEG_EYE_TRACKING_ONLY",
+      "reason": "The acquired archive contains 125 SMI iView gaze/pupil files and no EEG channel; retain the catalog and audit evidence outside the canonical EEG count.",
+      "auditEvidence": {
+        "auditedFiles": 125,
+        "observedSubjectHeaders": 75,
+        "signalType": "eye_tracking_and_pupillometry",
+        "eegChannels": 0,
+        "auditBatch": "EEG-data-process batch85"
+      }
+    }
+  ],
+  "sourcePackages": [
+    {
+      "sourcePackageId": "BDSP:morgoth1:v1.0.0",
+      "name": "MORGOTH release 1.0.0",
+      "url": "https://bdsp.io/content/morgoth1/1.0.0/",
+      "relation": "logical_subsets_in_one_download_package",
+      "acquisitionUnitCount": 1,
+      "memberIds": [
+        "EEG-0020",
+        "EEG-0021",
+        "EEG-0022",
+        "EEG-0023",
+        "EEG-0024",
+        "EEG-0025",
+        "EEG-0026",
+        "EEG-0027",
+        "EEG-0028",
+        "EEG-0103",
+        "EEG-0104",
+        "EEG-0105",
+        "EEG-0131",
+        "EEG-0132",
+        "EEG-0133",
+        "EEG-0134"
+      ],
+      "note": "Keep the logical task/cohort rows, but count one acquisition package. Do not infer that their signals are exact duplicates."
+    }
+  ],
+  "legacyCatalogSubjectScale": {
+    "scope": "historical_563_row_layer_after_local_reconciliation_only",
+    "method": "Legacy-only cross-check: the prior audited category totals are adjusted for EEG-0050, the EEG-0488 lower-bound alias contribution and the M3CV subject correction. Current searchable totals are derived from data/current-catalog.ts and include later revision entries; these numbers must not drive the current hero or manifest.",
+    "subjectKnownUnits": 542,
+    "subjectEntryLowerBound": 265539,
+    "byCategory": {
+      "01": { "subjectKnownUnits": 4, "subjectEntries": 253 },
+      "02": { "subjectKnownUnits": 92, "subjectEntries": 181875 },
+      "03": { "subjectKnownUnits": 59, "subjectEntries": 47224 },
+      "04": { "subjectKnownUnits": 139, "subjectEntries": 7247 },
+      "05": { "subjectKnownUnits": 55, "subjectEntries": 1644 },
+      "06": { "subjectKnownUnits": 132, "subjectEntries": 3493 },
+      "07": { "subjectKnownUnits": 40, "subjectEntries": 2344 },
+      "08": { "subjectKnownUnits": 21, "subjectEntries": 21459 }
+    }
+  },
+  "storageSnapshot": {
+    "observedAt": "2026-09-08",
+    "gpfsFreeBytes": 1979141062656,
+    "retainedFailedStagingApproxGB": 119.1,
+    "note": "The free-space value is a live filesystem snapshot. Approximately 119.1 GB of precisely identified failed staging is retained by the safety layer and has not been deleted."
+  },
+  "rowPatches": {
+    "EEG-0006": {
+      "subjectsDisplay": "7 subjects (5 canine + 2 human); 8,002 signal MAT files",
+      "sourceSubjects": 7,
+      "localObservedSubjects": 7,
+      "localObservedRecords": 8002,
+      "localFiles": 8003,
+      "localBytes": 113622191443,
+      "durationHours": 1333.6666666666667,
+      "localHours": 1333.6666666666667,
+      "durationSource": "reported",
+      "durationBasis": "publisher MAT protocol duration·完整下载范围",
+      "durationEvidence": "PUBLISHER_DECLARED_4801200_SECONDS; HEADER_RECOMPUTE_4801202.757202148_SECONDS",
+      "acquisitionStatus": "DOWNLOAD_AND_FULL_SIGNAL_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "acquisitionNote": "Batch91 full audit PASS: 8,002 signal MAT files / 7 subjects (5 canine + 2 human) / 55,677,288,438 finite values. Labels are 3,766 interictal, 301 preictal and 3,935 hidden-test clips. The full materialized inventory is 8,003 files / 113,622,191,443 bytes. Mixed species and unknown unit/reference keep production blocked.",
+      "physicalUnitStatus": "not_encoded_unresolved",
+      "reference": "not encoded; unresolved",
+      "preprocessingStatus": "BLOCKED_MIXED_SPECIES_AND_UNKNOWN_UNIT_REFERENCE",
+      "verification": "Publisher-declared protocol duration is 4,801,200 s (1,333.6667 h). Header samples divided by rounded sampling rates give 4,801,202.757202148 s (1,333.6674 h), a 2.757-s rounding difference retained as provenance; the publisher-declared duration is the displayed value."
+    },
+    "EEG-0014": {
+      "subjectsDisplay": "1,950 patients; 17,301 local EEG Parquet files",
+      "sourceSubjects": 1950,
+      "localObservedSubjects": 1950,
+      "localObservedRecords": 17301,
+      "localFiles": 17301,
+      "localBytes": 26402595750,
+      "durationHours": 390.16,
+      "durationSource": "calculated",
+      "durationBasis": "文件审计·完整下载范围",
+      "durationEvidence": "FULL_KAGGLE_PAYLOAD_17301_EEG_PARQUET",
+      "acquisitionStatus": "DOWNLOAD_AND_FULL_SIGNAL_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "acquisitionNote": "All 17,301 EEG Parquet files were audited (17,300 train + 1 test; 1,950 patients; 1,404,576 s / 390.16 h; 106,800 annotation rows). train.csv references 17,089 EEGs and 211 train files are orphaned. Signal Parquet bytes are 19,065,327,419; the full materialized payload is 26,402,595,750 bytes. Production is gated on an explicit policy for 6,559,009 NaN and 7,916,310 ±9999 samples.",
+      "physicalUnitStatus": "publisher_documented_uV_but_not_encoded_in_parquet",
+      "reference": "not encoded in Parquet; publisher display uses exported longitudinal bipolar montage",
+      "preprocessingStatus": "GATED_MISSING_AND_SENTINEL_VALUE_POLICY",
+      "verification": "Full local Kaggle payload audit passed for 17,301 EEG Parquet files from 1,950 patients and 390.16 signal-hours. Acquisition is complete, but preprocessing is blocked until the documented NaN and ±9999 policy is approved."
+    },
+    "EEG-0018": {
+      "subjectsDisplay": "12 subjects (4 canine + 8 human); 58,837 one-second clips",
+      "sourceSubjects": 12,
+      "localObservedSubjects": 12,
+      "localObservedRecords": 58837,
+      "localFiles": 58837,
+      "localBytes": 11622171081,
+      "durationHours": 16.350194145529045,
+      "durationSource": "calculated",
+      "durationBasis": "文件审计·完整嵌套归档范围",
+      "durationEvidence": "FULL_NESTED_TAR_STREAM_AUDIT_58837_ONE_SECOND_MAT_CLIPS",
+      "acquisitionStatus": "DOWNLOAD_AND_FULL_SIGNAL_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "acquisitionNote": "The complete nested TAR payload was stream-audited: 58,837 finite MAT clips, 12 subjects (4 canine + 8 human), 58,860.698923904565 s / 16.3502 h. Labels cover 2,477 ictal + 23,445 interictal clips; 32,915 test labels are hidden. Nested clip bytes are 11,621,036,129; full materialized payload is 11,622,171,081 bytes. Mixed species plus unknown unit/reference keep production gated.",
+      "physicalUnitStatus": "not_encoded_unresolved",
+      "reference": "not encoded; unresolved",
+      "preprocessingStatus": "GATED_UNIT_AND_REFERENCE",
+      "verification": "Full stream audit passed without requiring materialization of every nested clip: 58,837 finite one-second MAT clips from 12 subjects (4 canine and 8 human), totaling 16.3502 h. Unit and reference remain unresolved."
+    },
+    "EEG-0047": {
+      "subjectsDisplay": "public release 4 participants (1 AD / 1 MCI / 1 SCD / 1 HC); source study cohort 230",
+      "sourceSubjects": 230,
+      "localObservedSubjects": 4,
+      "localObservedRecords": 9,
+      "localFiles": 4,
+      "localBytes": 2775782032,
+      "durationHours": 1.5,
+      "durationSource": "calculated",
+      "durationBasis": "文件审计·本地下载范围",
+      "durationEvidence": "LOCAL_DOWNLOADED_SCOPE_EXACT_9_SEGMENTS",
+      "physicalUnitStatus": "publisher_format_verified_uV",
+      "acquisitionReference": "Cz",
+      "publishedReference": "average rereference",
+      "access": "DOWNLOAD_PUBLIC",
+      "acquisitionStatus": "DOWNLOAD_AND_FULL_SIGNAL_SCOPE_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "acquisitionNote": "The local success manifest contains 4 MAT files / 2,775,782,032 bytes with 9 internal segments. Production remains gated on final identity/label-to-segment adapter validation.",
+      "preprocessingStatus": "GATED_FINAL_IDENTITY_LABEL_ADAPTER_VALIDATION",
+      "additionalSources": [
+        {
+          "label": "Original public-release paper",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7349850/",
+          "note": "Public four-participant release, cohort composition and acquisition context."
+        },
+        {
+          "label": "EGI Net Station 4.x file-format manual",
+          "url": "https://www.egi.com/images/stories/manuals/Net_Station_4.5/NS_4x_File_Formats_tman_8103212-00_20150313.pdf",
+          "note": "Pages 107–108 document the Net Station MATLAB export microvolt contract; this statement is not generalized to every EGI format."
+        }
+      ],
+      "verification": "The public release contains 4 participants (1 AD, 1 MCI, 1 SCD and 1 healthy control), 9 segments and 1.5 h; the source study cohort is 230 and is reported separately. EGI files establish microvolts; acquisition reference is Cz and the released signal is average-rereferenced."
+    },
+    "EEG-0064": {
+      "largeCategory": "06_Motor_and_Interaction",
+      "smallCategory": "P300_BCI",
+      "task": "P300/ERP brain-computer-interface benchmarking across 20 studies; clinical cohort is retained as a population facet",
+      "sourcePackageId": "PhysioNet:bigp3bci:v1.0.0",
+      "aliases": ["EEG-0488"],
+      "population": "多研究：患者与健康参与者混合",
+      "verification": "Canonical bigP3BCI release. EEG-0488/MOABB Mainsah2025 is retained as an alias, not a second dataset. The 336 value is a sum of study-participant entries, not globally unique people."
+    },
+    "EEG-0071": {
+      "aliases": ["EEG-0072"],
+      "verification": "EEG-0072 (MOABB BNCI2014_008 adapter name) is retained as an alias of canonical EEG-0071 / BNCI 008-2014."
+    },
+    "EEG-0073": {
+      "aliases": ["EEG-0088"],
+      "verification": "EEG-0088 (MOABB BNCI2015_013 adapter name) is retained as an alias of canonical EEG-0073 / BNCI2015_013."
+    },
+    "EEG-0077": {
+      "subjectsDisplay": "14",
+      "sourceSubjects": 14,
+      "localObservedSubjects": 14,
+      "localObservedRecords": 14,
+      "localFiles": 16,
+      "localBytes": 241948310,
+      "durationHours": 8.848888888888888,
+      "durationSource": "calculated",
+      "durationBasis": "文件审计·精确",
+      "durationEvidence": "14_MAT_FILES_31856_SIGNAL_SECONDS",
+      "durationEvidenceUrl": "https://zenodo.org/records/8188857",
+      "channels": "12 posterior EEG + HEOG/VEOG/stimulus/intention/feedback",
+      "samplingRate": "250 Hz",
+      "reference": "acquisition: right mastoid; no subsequent rereference reported (stored/final-reference inference, not directly declared)",
+      "acquisitionReference": "right mastoid",
+      "publishedFinalReferenceStatus": "not_reported_assumed_same_not_verified",
+      "physicalUnitStatus": "high_confidence_hardware_quantization_inference_uV_not_publisher_declared",
+      "labelStatus": "trial labels are yes/no intention and target side; no diagnostic labels",
+      "acquisitionStatus": "DOWNLOAD_AND_FULL_SIGNAL_SCOPE_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "acquisitionNote": "The success manifest contains 16 files / 241,948,310 bytes, including all 14 signal MAT files. Production remains gated on an explicit physical-unit declaration or approved inference policy.",
+      "preprocessingStatus": "GATED_UNIT_DECLARATION_OR_APPROVED_INFERENCE",
+      "additionalSources": [
+        {
+          "label": "Publisher DatasetDescription PDF",
+          "url": "https://zenodo.org/records/8188857/files/DatasetDescription.pdf",
+          "note": "Primary dataset description for task labels, channels, sampling and acquisition reference."
+        },
+        {
+          "label": "BrainAmp hardware specification",
+          "url": "https://www.brainproducts.com/solutions/brainamp/",
+          "note": "Supports the hardware/quantization unit inference only; it is not an explicit unit declaration for the distributed matrices."
+        }
+      ],
+      "verification": "All 14 MAT files were audited: 31,856 signal-seconds (8.8489 h), 12 posterior EEG channels at 250 Hz. The supplied paper documents right-mastoid acquisition reference and a 0.1-Hz acquisition high-pass, but does not report a later rereference; treating the stored matrix as unchanged is an inference, not a publisher declaration. Trial labels describe yes/no intention and target side; there are no diagnostic labels. Microvolts are a high-confidence hardware/quantization inference, not an explicit publisher unit declaration."
+    },
+    "EEG-0098": {
+      "subjectsDisplay": "103 participants (89 tinnitus + 14 controls); 877 records",
+      "sourceSubjects": 103,
+      "localObservedSubjects": 103,
+      "localObservedRecords": 877,
+      "durationHours": 100.31145833333333,
+      "durationSource": "calculated",
+      "durationBasis": "文件审计·完整生产范围",
+      "durationEvidence": "BATCH89_VALIDATED_877_RECORDS_361121.25_SECONDS",
+      "durationEvidenceUrl": "https://data.mendeley.com/datasets/kj443jc4yc",
+      "preprocessingStatus": "VALIDATED_COMPLETE",
+      "acquisitionStatus": "DOWNLOAD_SIGNAL_AND_PREPROCESSING_VALIDATED_COMPLETE",
+      "acquisitionNote": "Full downloaded scope and batch89 production outputs passed the terminal validator.",
+      "validatedBatch": "batch89",
+      "outputRecords": 877,
+      "eventRows": 251186,
+      "verification": "Batch89 terminal validator passed for all 877 records from 103 participants: 361,121.25 s (100.3115 h), 251,186 source events, 16 channels and file-verified microvolt scaling."
+    },
+    "EEG-0060": {
+      "subjectsDisplay": "40 participants with released trials/demographics (source title describes 81)",
+      "sourceSubjects": 81,
+      "localObservedSubjects": 40,
+      "localObservedRecords": 11527,
+      "localFiles": 45,
+      "localBytes": 20804666623,
+      "durationHours": 9.605833333333333,
+      "durationSource": "calculated",
+      "durationBasis": "文件审计·完整公开 single-trial 范围",
+      "durationEvidence": "FULL_KAGGLE_PAYLOAD_11527_TRIALS_40_OF_81_DEMOGRAPHIC_ROWS",
+      "acquisitionStatus": "DOWNLOAD_SIGNAL_AUDIT_AND_PROCESSED_TRIAL_PRODUCTION_VALIDATED",
+      "acquisitionNote": "The complete public payload passed signal audit: 11,527 finite trials / 34,581 s / 9.6058 h / 64 channels. Only 40 of the 81 title-level demographic records have released single-trial data (25 HC + 15 SZ). Publisher unit is microvolts and offline reference is averaged earlobes. Signal CSV bytes are 20,669,027,657; the full 45-file materialized payload is 20,804,666,623 bytes.",
+      "physicalUnitStatus": "publisher_documented_uV",
+      "reference": "offline averaged earlobes",
+      "preprocessingStatus": "VALIDATED_COMPLETE_PROCESSED_TRIAL_SCOPE",
+      "validatedBatch": "batch91",
+      "outputRecords": 11527,
+      "eventRows": 23054,
+      "verification": "Batch91 terminal validation passed for the full released processed-trial scope: 11,527 outputs / 40 participants / 34,581 s (9.6058 h) / 23,054 events / 1,753,531,217 output bytes, zero exact duplicates and all 40 source hashes unchanged. The source title's 81-person count is retained separately from the 40 people represented by released trial signals."
+    },
+    "EEG-0061": {
+      "subjectsDisplay": "1,274 source participants; 1,464 downloaded BDF records",
+      "sourceSubjects": 1274,
+      "localObservedSubjects": 1274,
+      "localObservedRecords": 1464,
+      "localFiles": 10306,
+      "localBytes": 21521819132,
+      "durationHours": 120.51638888888888,
+      "durationSource": "calculated",
+      "durationBasis": "文件审计·完整已解包 BDF 范围",
+      "durationEvidence": "FULL_EXTRACTED_PAYLOAD_10306_FILES_1464_BDF_RECORDS",
+      "acquisitionStatus": "EXTRACTION_AND_BDF_SIGNAL_AUDIT_COMPLETE_ADAPTER_REVIEW_PENDING",
+      "acquisitionNote": "All three authorized archives were extracted: 10,306 files / 21,521,819,132 bytes. Existing BDF audit covers 1,464 records and 120.5164 h; unit/reference/label policy remains a separate adapter gate.",
+      "preprocessingStatus": "GATED_UNIT_REFERENCE_LABEL_POLICY",
+      "verification": "All three authorized TDBRAIN archives are extracted (10,306 files / 21,521,819,132 bytes). The retained BDF audit covers 1,464 records and 120.5164 h; source participants remain 1,274 and are not replaced by the record count."
+    },
+    "EEG-0101": {
+      "url": "https://www.nemar.org/dataset/on003505",
+      "stableId": "NEMAR:on003505 | OpenNeuro:ds003505 | DOI:10.82901/nemar.on003505 | DOI:10.18112/openneuro.ds003505.v1.1.1",
+      "subjectsDisplay": "20",
+      "channels": "128 EEG (BioSemi) + multimodal anatomy/diffusion derivatives",
+      "format": "BIDS; preprocessed EEG trials + source-imaging derivatives",
+      "rawProcessed": "Preprocessed EEG and source-imaging derivatives",
+      "sourcePackageId": "NEMAR:on003505",
+      "acquisitionStatus": "DOWNLOADED_MANIFEST_VERIFIED_AUDIT_PENDING",
+      "acquisitionNote": "NEMAR on003505 EEG subset download completed: 568 files / 40,941,773,890 bytes. Signal/provenance audit remains separate from acquisition completion.",
+      "localFiles": 568,
+      "localBytes": 40941773890,
+      "verification": "Official NEMAR copy of OpenNeuro ds003505. The dataset contains high-density visual-evoked-potential EEG from 20 participants. The EEG subset download completed with 568 files / 40,941,773,890 bytes; VEPCON is not a non-EEG exclusion."
+    },
+    "EEG-0106": {
+      "url": "https://www.nemar.org/dataset/nm000181",
+      "stableId": "NEMAR:nm000181 | DOI:10.82901/nemar.nm000181 | Zenodo:10909103",
+      "subjectsDisplay": "2,417 clinical EEG participant/record entries; cross-record person identity not independently audited",
+      "channels": "19 EEG + 2 reference electrodes (standard 10-20 montage)",
+      "format": "BIDS EEG / EDF",
+      "rawProcessed": "EEG recordings; variable duration and sampling rate",
+      "sourcePackageId": "NEMAR:nm000181",
+      "access": "DOWNLOAD_PUBLIC",
+      "acquisitionStatus": "DOWNLOADED_MANIFEST_VERIFIED_AUDIT_PENDING",
+      "acquisitionNote": "Official NEMAR v1.0.0 download completed: 9,676 files / 14,819,739,145 bytes. File-level signal/duration audit remains pending.",
+      "localFiles": 9676,
+      "localBytes": 14819739145,
+      "verification": "Official NEMAR nm000181 release: 2,417 clinical normal/abnormal EEG entries, 19 EEG channels plus two references. Download completed with 9,676 files / 14,819,739,145 bytes; no exact total-hour value is inferred from bytes."
+    },
+    "EEG-0521": {
+      "subjectsDisplay": "71 older-adult participants; 1,182 continuous records",
+      "sourceSubjects": 71,
+      "localObservedSubjects": 71,
+      "localObservedRecords": 1182,
+      "durationHours": 61.09687916666667,
+      "durationSource": "calculated",
+      "durationBasis": "文件审计·完整生产范围",
+      "durationEvidence": "BATCH90_VALIDATED_1182_RECORDS_219948.765_SECONDS",
+      "durationEvidenceUrl": "https://openneuro.org/datasets/ds006095/versions/1.0.0",
+      "preprocessingStatus": "VALIDATED_COMPLETE",
+      "acquisitionStatus": "DOWNLOAD_SIGNAL_AND_PREPROCESSING_VALIDATED_COMPLETE",
+      "acquisitionNote": "Full downloaded scope and batch90 production outputs passed the terminal validator; publisher timing conflicts remain explicit provenance.",
+      "validatedBatch": "batch90",
+      "outputRecords": 1182,
+      "eventRows": 651125,
+      "verification": "Batch90 terminal validator passed: 1,182 continuous records, 71 participants, 219,948.765 s (61.0969 h) and 651,125 retained publisher event rows. Source timing conflicts remain explicit provenance rather than being rewritten."
+    },
+    "EEG-0522": {
+      "url": "https://fcon_1000.projects.nitrc.org/indi/cmi_eeg/",
+      "stableId": "NEMAR:nm000153 | CMI:MIPDB",
+      "subjectsDisplay": "118 participants; 1,515 EEG records",
+      "sourceSubjects": 118,
+      "population": "通常发育与临床参与者混合（来源队列；本地子集分组见 DX_Status）",
+      "localObservedSubjects": 118,
+      "localObservedRecords": 1515,
+      "subjectScope": "本地 legacy MAT：118 participants / 1,515 records / 126.0211 h；NEMAR BIDS：111 participants；官方 CMI 当前队列总数 126、旧发布 121。各 release 不相加。",
+      "localFiles": 5426,
+      "localBytes": 91963264503,
+      "durationHours": 126.02113,
+      "durationSource": "calculated",
+      "durationBasis": "文件审计·完整下载范围",
+      "durationEvidence": "BATCH60_FULL_AUDIT_1515_RECORDS_453676.068_SECONDS",
+      "durationEvidenceUrl": "https://fcon_1000.projects.nitrc.org/indi/cmi_eeg/",
+      "additionalSources": [
+        {
+          "label": "NEMAR official BIDS release",
+          "url": "https://www.nemar.org/dataset/nm000153",
+          "note": "111-participant NEMAR BIDS scope; channel metadata declares microvolts, while representative EEG JSON records EEGReference=n/a."
+        },
+        {
+          "label": "CMI / MIPDB release page",
+          "url": "https://fcon_1000.projects.nitrc.org/indi/cmi_eeg/",
+          "note": "Local legacy-MAT acquisition and audit scope."
+        },
+        {
+          "label": "Original CMI / MIPDB paper",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5387929/",
+          "note": "Primary cohort and Cz/vertex acquisition-reference evidence."
+        }
+      ],
+      "channels": "111 EEG",
+      "samplingRate": "500 Hz",
+      "reference": "original CMI acquisition: Cz/vertex; NEMAR sidecar: EEGReference=n/a; local legacy MAT final reference unresolved (EEG.ref='common' does not establish common-average)",
+      "physicalUnitStatus": "legacy_MAT_high_confidence_provenance_inference_uV; NEMAR_BIDS_verified_uV",
+      "acquisitionReference": "Cz",
+      "publishedFinalReferenceStatus": "legacy_MAT_final_reference_unresolved",
+      "labelStatus": "DX_Status_nonzero_derivation_only",
+      "preprocessingStatus": "GATED_PROVENANCE_REVIEW",
+      "acquisitionStatus": "DOWNLOAD_AND_FULL_SIGNAL_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "acquisitionNote": "Full local legacy-MAT scope is materialized and signal-audited; unit/reference and safe label derivation remain production gates.",
+      "verification": "Full local legacy-MAT audit: 118 participants, 1,515 records, 453,676.068 s (126.0211 h), 111 finite channels at 500 Hz. Official totals differ by release (126 current, 121 legacy; NEMAR BIDS has 111). NEMAR channel metadata declares microvolts, but its representative EEG JSON has EEGReference=n/a. The original CMI paper describes Cz/vertex acquisition; the local legacy MAT files have no unit field and EEG.ref='common' does not prove common-average, so their final reference remains unresolved. Public labels safely support only DX_Status != 0, so production remains provenance-gated."
+    },
+    "EEG-0524": {
+      "url": "https://www.nemar.org/dataset/nm000166",
+      "stableId": "NEMAR:nm000166 | DOI:10.82901/nemar.nm000166 | DOI:10.1016/j.neuroimage.2022.119666",
+      "subjectsDisplay": "95 participants; 2 sessions",
+      "sourceSubjects": 95,
+      "population": "健康",
+      "channels": "64 EEG (10-10)",
+      "samplingRate": "250 Hz",
+      "format": "BIDS EEG reconstructed as pseudo-continuous data from preprocessed epochs",
+      "rawProcessed": "Preprocessed epochs reconstructed to pseudo-continuous BIDS EEG",
+      "sourcePackageId": "NEMAR:nm000166",
+      "access": "DOWNLOAD_PUBLIC",
+      "acquisitionStatus": "DOWNLOADED_MANIFEST_VERIFIED_AUDIT_PENDING",
+      "acquisitionNote": "Official NEMAR nm000166 download completed: 18,048 files / 23,200,732,356 bytes. Preserve its processed-epoch provenance during audit.",
+      "localFiles": 18048,
+      "localBytes": 23200732356,
+      "verification": "Official NEMAR nm000166 v1.0.0: 95 participants, two sessions and 64 channels. NEMAR describes 14 signal types represented by 13 BIDS task labels. Download completed with 18,048 files / 23,200,732,356 bytes. The released BIDS signals are reconstructed from preprocessed epochs and are not counted as raw continuous EEG."
+    }
+  },
+  "focusRowPatches": {
+    "EEG-0006": {
+      "downloadedCountInTotal": true,
+      "downloadedHours": 1333.6666666666667,
+      "documentedHours": 1333.6666666666667,
+      "durationEvidence": "FULL_KAGGLE_PAYLOAD_SIGNAL_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "auditPresence": "EEG_SIGNAL_PRESENT_FULL_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "acquisitionDecision": "已下载·信号/时长已审计·生产门禁",
+      "acquisitionNextAction": "Do not redownload. Preserve publisher-declared duration and the 2.757-s header-rounding difference; resolve mixed-species policy plus unknown physical unit/reference before preprocessing.",
+      "serverCompleted": true,
+      "independentRawAcquired": true
+    },
+    "EEG-0014": {
+      "downloadedCountInTotal": true,
+      "downloadedHours": 390.16,
+      "documentedHours": 390.16,
+      "durationEvidence": "FULL_KAGGLE_PAYLOAD_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "auditPresence": "EEG_SIGNAL_PRESENT_FULL_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "acquisitionDecision": "已下载·信号/时长已审计·生产门禁",
+      "serverCompleted": true,
+      "independentRawAcquired": true
+    },
+    "EEG-0018": {
+      "downloadedCountInTotal": true,
+      "downloadedHours": 16.350194145529045,
+      "documentedHours": 16.350194145529045,
+      "durationEvidence": "FULL_NESTED_TAR_STREAM_SIGNAL_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "auditPresence": "EEG_SIGNAL_PRESENT_FULL_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "acquisitionDecision": "已下载·信号/时长已审计·生产门禁",
+      "serverCompleted": true,
+      "independentRawAcquired": true
+    },
+    "EEG-0060": {
+      "downloadedCountInTotal": true,
+      "downloadedHours": 9.605833333333333,
+      "documentedHours": 9.605833333333333,
+      "durationEvidence": "FULL_KAGGLE_PAYLOAD_AND_PROCESSED_TRIAL_PRODUCTION_VALIDATED",
+      "auditPresence": "EEG_SIGNAL_PRESENT_PROCESSED_TRIAL_PRODUCTION_VALIDATED",
+      "acquisitionDecision": "已下载·processed-trial 生产验证完成",
+      "serverCompleted": true,
+      "independentRawAcquired": true
+    },
+    "EEG-0061": {
+      "downloadedCountInTotal": true,
+      "downloadedHours": 120.51638888888888,
+      "documentedHours": 120.51638888888888,
+      "durationEvidence": "AUTHORIZED_ARCHIVES_EXTRACTED_BDF_AUDIT_COMPLETE_ADAPTER_GATED",
+      "auditPresence": "EEG_SIGNAL_PRESENT_FULL_AUDIT_COMPLETE_ADAPTER_GATED",
+      "acquisitionDecision": "已解包·信号/时长已审计·adapter 门禁",
+      "serverCompleted": true,
+      "independentRawAcquired": true
+    },
+    "EEG-0098": {
+      "subjectNumeric": 103,
+      "observedSubject": 103,
+      "downloadedHours": 100.31145833333333,
+      "documentedHours": 100.31145833333333,
+      "durationEvidence": "BATCH89_VALIDATED_COMPLETE",
+      "acquisitionDecision": "已下载·完整生产范围已审计",
+      "serverCompleted": true,
+      "independentRawAcquired": true
+    },
+    "EEG-0106": {
+      "subjectNumeric": 2417,
+      "documentedHours": 625,
+      "url": "https://www.nemar.org/dataset/nm000181",
+      "stableId": "NEMAR:nm000181 | DOI:10.82901/nemar.nm000181 | Zenodo:10909103",
+      "acquisitionDecision": "已下载·待信号/时长审计",
+      "acquisitionPriority": "P0",
+      "acquisitionNextAction": "NEMAR nm000181 download is complete; audit EDF headers, duration, labels and duplicates before preprocessing promotion.",
+      "auditPresence": "DOWNLOAD_COMPLETE_MANIFEST_VERIFIED_SIGNAL_AUDIT_PENDING",
+      "serverCompleted": true,
+      "independentRawAcquired": true
+    },
+    "EEG-0521": {
+      "subjectNumeric": 71,
+      "observedSubject": 71,
+      "downloadedHours": 61.09687916666667,
+      "documentedHours": 61.09687916666667,
+      "durationEvidence": "BATCH90_VALIDATED_COMPLETE",
+      "acquisitionDecision": "已下载·完整生产范围已审计",
+      "serverCompleted": true,
+      "independentRawAcquired": true
+    },
+    "EEG-0522": {
+      "subjectNumeric": 118,
+      "observedSubject": 118,
+      "downloadedHours": 126.02113,
+      "documentedHours": 126.02113,
+      "durationEvidence": "BATCH60_FULL_AUDIT_COMPLETE_PRODUCTION_GATED",
+      "acquisitionDecision": "已下载·信号范围已审计",
+      "serverCompleted": true,
+      "independentRawAcquired": true
+    }
+  },
+  "activeAcquisitionTasks": [
+    {
+      "ids": "EEG-0106",
+      "name": "NMT",
+      "status": "下载完成；9,676 files / 14,819,739,145 B，待信号与时长审计",
+      "sourcePackageId": "NEMAR:nm000181"
+    },
+    {
+      "ids": "EEG-0524",
+      "name": "M3CV",
+      "status": "下载完成；18,048 files / 23,200,732,356 B，待 processed-epoch provenance 审计",
+      "sourcePackageId": "NEMAR:nm000166"
+    },
+    {
+      "ids": "EEG-0101",
+      "name": "VEPCON EEG subset",
+      "status": "EEG 子集下载完成；568 files / 40,941,773,890 B，待信号审计",
+      "sourcePackageId": "NEMAR:on003505"
+    },
+    {
+      "ids": "EEG-0006 / EEG-0014 / EEG-0018 / EEG-0060",
+      "name": "4 个 Kaggle 项目",
+      "status": "4 项全量信号审计均完成：AES 7 subjects / 8,002 signal MAT / 1,333.6667 h，HMS 1,950 / 17,301 / 390.16 h，UPenn 12 / 58,837 / 16.3502 h；三者保持生产门禁。Schizophrenia 的 11,527-output processed-trial scope 已通过 batch91 终端生产验证",
+      "sourcePackageId": "Kaggle:four-project-batch"
+    },
+    {
+      "ids": "EEG-0061",
+      "name": "TDBRAIN",
+      "status": "3 个授权归档已全部解包（10,306 files / 21,521,819,132 B）；1,464 个 BDF 记录、120.5164 h 已审计，adapter provenance 门禁仍保留",
+      "sourcePackageId": "TDBRAIN:DUA-release"
+    }
+  ],
+  "preprocessing": {
+    "metricScope": "strict_raw_continuous_canonical_targets",
+    "strictCompleteTargets": 62,
+    "effectiveTargets": 99,
+    "outputs": 136214,
+    "subjectEntries": 21777,
+    "signalHours": 43182.68243472222,
+    "eventRows": 3464162,
+    "derivativeBytes": 1686520768213,
+    "deduplicationNote": "Validated production totals include batches through EEG-0098 batch89 and EEG-0521 batch90, and exclude duplicate EEG-0072 batch80. The denominator also excludes confirmed duplicate/non-EEG/processed-only targets from the raw-continuous KPI."
+  }
+}

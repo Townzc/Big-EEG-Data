@@ -1,23 +1,83 @@
 {
-  "schemaVersion": 1,
-  "version": "208f2520f6cf",
-  "reviewDate": "2026-09-06",
+  "schemaVersion": 2,
+  "version": "daa9fcf0047b",
+  "reviewDate": "2026-09-08",
+  "reconciliation": {
+    "historicalEegSnapshotRows": 563,
+    "aliases": [
+      {
+        "aliasId": "EEG-0488",
+        "canonicalId": "EEG-0064",
+        "relation": "software_adapter_alias",
+        "sourcePackageId": "PhysioNet:bigp3bci:v1.0.0",
+        "reason": "MOABB Mainsah2025 exposes studies from the same PhysioNet bigP3BCI release; both rows cite DOI 10.13026/0byy-ry86.",
+        "evidence": [
+          "https://physionet.org/content/bigp3bci/1.0.0/",
+          "https://moabb.neurotechx.com/docs/generated/moabb.datasets.mainsah2025.Mainsah2025.html"
+        ]
+      }
+    ],
+    "exclusions": [
+      {
+        "id": "EEG-0050",
+        "disposition": "EXCLUDED_NON_EEG",
+        "dataPresence": "NO_EEG_EYE_TRACKING_ONLY",
+        "reason": "The acquired archive contains 125 SMI iView gaze/pupil files and no EEG channel; retain the catalog and audit evidence outside the canonical EEG count.",
+        "auditEvidence": {
+          "auditedFiles": 125,
+          "observedSubjectHeaders": 75,
+          "signalType": "eye_tracking_and_pupillometry",
+          "eegChannels": 0,
+          "auditBatch": "EEG-data-process batch85"
+        }
+      }
+    ],
+    "sourcePackages": [
+      {
+        "sourcePackageId": "BDSP:morgoth1:v1.0.0",
+        "name": "MORGOTH release 1.0.0",
+        "url": "https://bdsp.io/content/morgoth1/1.0.0/",
+        "relation": "logical_subsets_in_one_download_package",
+        "acquisitionUnitCount": 1,
+        "memberIds": [
+          "EEG-0020",
+          "EEG-0021",
+          "EEG-0022",
+          "EEG-0023",
+          "EEG-0024",
+          "EEG-0025",
+          "EEG-0026",
+          "EEG-0027",
+          "EEG-0028",
+          "EEG-0103",
+          "EEG-0104",
+          "EEG-0105",
+          "EEG-0131",
+          "EEG-0132",
+          "EEG-0133",
+          "EEG-0134"
+        ],
+        "note": "Keep the logical task/cohort rows, but count one acquisition package. Do not infer that their signals are exact duplicates."
+      }
+    ]
+  },
   "modalities": {
     "eeg": {
-      "count": 569,
-      "families": 548,
-      "included": 559,
-      "subjectIncluded": 559,
-      "subjects": 223387,
-      "hours": 3841860.8651056723,
-      "knownSubjects": 530,
-      "knownHours": 266,
-      "missingSubjects": 29,
-      "missingHours": 293,
+      "count": 568,
+      "families": 547,
+      "acquisitionPackages": 553,
+      "included": 558,
+      "subjectIncluded": 558,
+      "subjects": 223167,
+      "hours": 3841983.586550394,
+      "knownSubjects": 531,
+      "knownHours": 267,
+      "missingSubjects": 27,
+      "missingHours": 291,
       "estimatedHours": 15385.970000000001,
-      "reportedHours": 3806494.873888887,
-      "calculatedHours": 19980.02121678666,
-      "partialHours": 11,
+      "reportedHours": 3807828.5405555535,
+      "calculatedHours": 18769.075994842213,
+      "partialHours": 10,
       "public": 420,
       "suppressed": [
         "EEG-0004",
@@ -34,11 +94,161 @@
       "overlap": [
         "EEG-0150",
         "EEG-0604"
-      ]
+      ],
+      "rawRows": {
+        "knownSubjects": 541,
+        "subjects": 261018,
+        "knownHours": 274,
+        "hours": 3845506.5699559534
+      },
+      "categories": [
+        {
+          "code": "01",
+          "label": "信号可靠性",
+          "units": 4,
+          "subjectKnownUnits": 4,
+          "subjectEntries": 253,
+          "durationKnownUnits": 1,
+          "hours": 99.98
+        },
+        {
+          "code": "02",
+          "label": "医疗与疾病",
+          "units": 98,
+          "subjectKnownUnits": 91,
+          "subjectEntries": 86433,
+          "durationKnownUnits": 73,
+          "hours": 329985.99929456454
+        },
+        {
+          "code": "03",
+          "label": "意识与状态",
+          "units": 64,
+          "subjectKnownUnits": 59,
+          "subjectEntries": 137707,
+          "durationKnownUnits": 28,
+          "hours": 3472504.5633333335
+        },
+        {
+          "code": "04",
+          "label": "认知与情感",
+          "units": 142,
+          "subjectKnownUnits": 138,
+          "subjectEntries": 6761,
+          "durationKnownUnits": 70,
+          "hours": 13874.95888888889
+        },
+        {
+          "code": "05",
+          "label": "自然刺激解码",
+          "units": 59,
+          "subjectKnownUnits": 55,
+          "subjectEntries": 1626,
+          "durationKnownUnits": 31,
+          "hours": 2357.41
+        },
+        {
+          "code": "06",
+          "label": "运动与交互",
+          "units": 135,
+          "subjectKnownUnits": 131,
+          "subjectEntries": 3473,
+          "durationKnownUnits": 24,
+          "hours": 2097.9249704444333
+        },
+        {
+          "code": "07",
+          "label": "通用与多范式",
+          "units": 43,
+          "subjectKnownUnits": 40,
+          "subjectEntries": 2343,
+          "durationKnownUnits": 31,
+          "hours": 861.37
+        },
+        {
+          "code": "08",
+          "label": "健康与人群",
+          "units": 23,
+          "subjectKnownUnits": 23,
+          "subjectEntries": 22422,
+          "durationKnownUnits": 16,
+          "hours": 23724.363468722226
+        }
+      ],
+      "acquisition": {
+        "catalogUnits": 568,
+        "acquisitionPackages": 553,
+        "legacyCatalogUnitsWithCompletionEvidence": 273,
+        "focusExecutionUnits": 145,
+        "focusServerCompletedUnits": 80,
+        "focusIndependentRawUnits": 74,
+        "focusExactDurationAuditUnits": 61,
+        "focusExactDurationAuditHours": 46893.44359662,
+        "focusRelationAwareExactDurationAuditUnits": 56,
+        "focusRelationAwareExactDurationAuditHours": 43474.54665217556,
+        "focusAppliedWaitingUnits": 19,
+        "focusAppliedWaitingWorkflowsApprox": 3,
+        "focusNotYetAppliedUnits": 22,
+        "focusDirectDownloadUnits": 12,
+        "focusLoginDownloadUnits": 2,
+        "focusManualReviewUnits": 4,
+        "focusDiscardedUnits": 4,
+        "gpfsFreeBytes": 1979141062656,
+        "gpfsFreeTiB": 1.800018310546875,
+        "retainedFailedStagingApproxGB": 119.1,
+        "activeTasks": [
+          {
+            "ids": "EEG-0106",
+            "name": "NMT",
+            "status": "下载完成；9,676 files / 14,819,739,145 B，待信号与时长审计",
+            "sourcePackageId": "NEMAR:nm000181"
+          },
+          {
+            "ids": "EEG-0524",
+            "name": "M3CV",
+            "status": "下载完成；18,048 files / 23,200,732,356 B，待 processed-epoch provenance 审计",
+            "sourcePackageId": "NEMAR:nm000166"
+          },
+          {
+            "ids": "EEG-0101",
+            "name": "VEPCON EEG subset",
+            "status": "EEG 子集下载完成；568 files / 40,941,773,890 B，待信号审计",
+            "sourcePackageId": "NEMAR:on003505"
+          },
+          {
+            "ids": "EEG-0006 / EEG-0014 / EEG-0018 / EEG-0060",
+            "name": "4 个 Kaggle 项目",
+            "status": "4 项全量信号审计均完成：AES 7 subjects / 8,002 signal MAT / 1,333.6667 h，HMS 1,950 / 17,301 / 390.16 h，UPenn 12 / 58,837 / 16.3502 h；三者保持生产门禁。Schizophrenia 的 11,527-output processed-trial scope 已通过 batch91 终端生产验证",
+            "sourcePackageId": "Kaggle:four-project-batch"
+          },
+          {
+            "ids": "EEG-0061",
+            "name": "TDBRAIN",
+            "status": "3 个授权归档已全部解包（10,306 files / 21,521,819,132 B）；1,464 个 BDF 记录、120.5164 h 已审计，adapter provenance 门禁仍保留",
+            "sourcePackageId": "TDBRAIN:DUA-release"
+          }
+        ],
+        "note": "The 273 value is a retained historical completion-evidence audit. Current focus counts are recomputed from the reconciled checklist; a download marker is not a signal audit or preprocessing completion result. The 19 applied/waiting rows correspond to about three access workflows (one BDSP credential/application covers HEEDB plus 16 MORGOTH logical rows, plus MESA and CAUEEG). Exact-audit workload retains five TUEG child rows; relation-aware totals exclude them."
+      },
+      "preprocessing": {
+        "metricScope": "strict_raw_continuous_canonical_targets",
+        "strictCompleteTargets": 62,
+        "effectiveTargets": 99,
+        "outputs": 136214,
+        "subjectEntries": 21777,
+        "signalHours": 43182.68243472222,
+        "eventRows": 3464162,
+        "derivativeBytes": 1686520768213,
+        "deduplicationNote": "Validated production totals include batches through EEG-0098 batch89 and EEG-0521 batch90, and exclude duplicate EEG-0072 batch80. The denominator also excludes confirmed duplicate/non-EEG/processed-only targets from the raw-continuous KPI.",
+        "completionPercent": 62.62626262626263,
+        "derivativeTiB": 1.5338817031197323,
+        "note": "Subject entries are adapter-level entries, not globally unique people. Strict totals exclude smoke outputs, partial shards, confirmed duplicate batch80 and processed-only/non-EEG targets from the raw-continuous KPI."
+      }
     },
     "fmri": {
       "count": 784,
       "families": 782,
+      "acquisitionPackages": 784,
       "included": 784,
       "subjectIncluded": 784,
       "subjects": 171165,

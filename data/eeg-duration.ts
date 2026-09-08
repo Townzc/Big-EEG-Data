@@ -1,6 +1,7 @@
 import catalog from "../public/catalog-data.json";
 import openNeuroAudit from "./eeg-openneuro-duration-audit.json";
 import literatureAudit from "./eeg-literature-duration-audit.json";
+import reconciliation from "./eeg-catalog-reconciliation.json";
 import { applyCatalogClassification, applyChecklistClassification, heedbClassification } from "./eeg-classification";
 import {
   independentDurationAudit,
@@ -19,6 +20,13 @@ type AuditedCatalogRow = {
   durationHours: number | null; completenessScore: number; completenessMax: number;
   durationBasis?: string | null; durationEvidence?: string | null; durationEvidenceUrl?: string | null;
   durationSource?: "reported" | "calculated" | "estimated";
+  sourcePackageId?: string; aliases?: string[]; acquisitionStatus?: string; acquisitionNote?: string;
+  localFiles?: number; localBytes?: number; sourceSubjects?: number; localObservedSubjects?: number;
+  localObservedRecords?: number; reference?: string; physicalUnitStatus?: string;
+  preprocessingStatus?: string; validatedBatch?: string; outputRecords?: number; eventRows?: number;
+  additionalSources?: { label: string; url: string; note?: string }[];
+  subjectScope?: string; population?: string;
+  localHours?: number;
 };
 
 const auditById = new Map<string, DurationAuditRecord>(
@@ -31,18 +39,30 @@ const independentById = new Map<string, IndependentAuditRecord>(
   independentDurationRecords.map((record) => [record.id, record]),
 );
 
+const rowPatches = reconciliation.rowPatches as Record<string, Partial<AuditedCatalogRow>>;
+const excludedIds = new Set(reconciliation.exclusions.map((entry) => entry.id));
+const reconciledOriginalRows = catalog.catalogRows
+  .filter((row) => !excludedIds.has(row.id))
+  .map((row) => ({ ...row, ...(rowPatches[row.id] ?? {}) })) as AuditedCatalogRow[];
+
+export const eegExcludedRows = reconciliation.exclusions.map((entry) => ({
+  ...entry,
+  original: catalog.catalogRows.find((row) => row.id === entry.id) ?? null,
+}));
+export const eegReconciliation = reconciliation;
+
 const appliedAuditRecords = openNeuroAudit.records.filter((record) => {
-  const row = catalog.catalogRows.find((item) => item.id === record.id);
+  const row = reconciledOriginalRows.find((item) => item.id === record.id);
   return row != null && row.durationHours == null;
 });
 
 const appliedLiteratureRecords = literatureAudit.records.filter((record) => {
-  const row = catalog.catalogRows.find((item) => item.id === record.id);
+  const row = reconciledOriginalRows.find((item) => item.id === record.id);
   return row != null && row.durationHours == null && !auditById.has(record.id) && !independentById.has(record.id);
 });
 
 const appliedIndependentRecords = independentDurationRecords.filter((record) => {
-  const row = catalog.catalogRows.find((item) => item.id === record.id);
+  const row = reconciledOriginalRows.find((item) => item.id === record.id);
   return row != null && row.durationHours == null && !auditById.has(record.id);
 });
 
@@ -59,7 +79,7 @@ const auditEvidence = (record: DurationAuditRecord) => {
     : `estimated · 均匀抽取 ${participants}/${available} 名 BIDS 被试、${files} 个信号文件`;
 };
 
-const auditedOriginalRows = catalog.catalogRows.map((row): AuditedCatalogRow => {
+const auditedOriginalRows = reconciledOriginalRows.map((row): AuditedCatalogRow => {
   const audit = auditById.get(row.id);
   if (audit && row.durationHours == null) {
     return {
@@ -102,9 +122,9 @@ const auditedOriginalRows = catalog.catalogRows.map((row): AuditedCatalogRow => 
   };
 });
 
-// The immutable 563-row JSON remains untouched. A newly released 2026 corpus
-// is appended in this evidence layer so it is searchable without rewriting the
-// user's original catalog.
+// The historical 563-row JSON remains untouched. Confirmed non-EEG rows are
+// removed in this evidence layer, while exclusions retain their original row
+// and audit record above. A newly released 2026 corpus is then appended.
 export const eegCatalogRows: AuditedCatalogRow[] = [
   ...auditedOriginalRows.map(applyCatalogClassification),
   neurotechSupplementalCatalogRow,
@@ -130,7 +150,45 @@ export const eegCategoryStats = catalog.categoryStats.map((category) => {
   };
 });
 
-export const eegDownloadChecklistRows = catalog.downloadChecklist.rows.map(applyChecklistClassification);
+type ChecklistRow = Omit<(typeof catalog.downloadChecklist.rows)[number], "auditedHours" | "documentedHours"> & {
+  auditedHours: number | null;
+  documentedHours: number | null;
+};
+const focusRowPatches = reconciliation.focusRowPatches as Record<string, Record<string, unknown>>;
+const hasOwn = (value: object, key: string) => Object.prototype.hasOwnProperty.call(value, key);
+export const eegDownloadChecklistRows = catalog.downloadChecklist.rows
+  .filter((row) => !excludedIds.has(row.id) && row.id !== "EEG-0064")
+  .map((row): ChecklistRow => {
+    const focusPatch = focusRowPatches[row.id] ?? {};
+    const catalogPatch = rowPatches[row.id] ?? {};
+    const auditedHours = hasOwn(focusPatch, "downloadedHours")
+      ? (focusPatch.downloadedHours as number | null)
+      : row.auditedHours;
+    const documentedHours = hasOwn(focusPatch, "documentedHours")
+      ? (focusPatch.documentedHours as number | null)
+      : catalogPatch.durationHours ?? row.documentedHours;
+    const nextAction = (focusPatch.acquisitionNextAction as string | undefined) ?? row.nextAction;
+    return {
+      ...row,
+      name: catalogPatch.name ?? row.name,
+      url: catalogPatch.url ?? row.url,
+      decision: (focusPatch.acquisitionDecision as string | undefined) ?? row.decision,
+      priority: (focusPatch.acquisitionPriority as string | undefined)
+        ?? (String(focusPatch.auditPresence ?? "").includes("PENDING") || String(focusPatch.auditPresence ?? "").includes("PROGRESS") ? "P0" : row.priority),
+      serverStatus: (focusPatch.auditPresence as string | undefined) ?? row.serverStatus,
+      serverCompleted: (focusPatch.serverCompleted as boolean | undefined) ?? row.serverCompleted,
+      independentAcquired: (focusPatch.independentRawAcquired as boolean | undefined) ?? row.independentAcquired,
+      exactDurationAudited: auditedHours != null && focusPatch.downloadedCountInTotal !== false,
+      auditedHours,
+      documentedHours,
+      physicalSizeGB: catalogPatch.localBytes == null ? row.physicalSizeGB : catalogPatch.localBytes / 1e9,
+      access: catalogPatch.access ?? row.access,
+      accessLabel: catalogPatch.access === "DOWNLOAD_PUBLIC" ? "公开/登录后下载" : row.accessLabel,
+      downloadMethod: row.id === "EEG-0106" ? "NEMAR CLI：nemar dataset download nm000181" : row.downloadMethod,
+      nextAction,
+    };
+  })
+  .map(applyChecklistClassification);
 const focusTypeById = new Map(eegDownloadChecklistRows.map((row) => [row.id, row.focusType]));
 const diseaseRows = eegCatalogRows.filter((row) =>
   focusTypeById.get(row.id) === "疾病/临床" || row.id === neurotechSupplementalCatalogRow.id
@@ -144,7 +202,7 @@ const tuegChildOverlapIds = new Set(["EEG-0033", "EEG-0034", "EEG-0035", "EEG-00
 const diseaseIncludesHeedb = diseaseRows.some((row) => row.id === heedbClassification.id);
 const knownClinicalOverlapIds = new Set([...tuegChildOverlapIds, ...(diseaseIncludesHeedb ? ["EEG-0150"] : [])]);
 const nonFocusOpenNeuroHours = appliedAuditRecords.reduce((sum, record) => sum + record.durationHours, 0);
-const focusIds = new Set(catalog.downloadChecklist.rows.map((row) => row.id));
+const focusIds = new Set(eegDownloadChecklistRows.map((row) => row.id));
 const nonFocusLiteratureRecords = appliedLiteratureRecords.filter((record) => !focusIds.has(record.id));
 const nonFocusLiteratureHours = nonFocusLiteratureRecords.reduce((sum, record) => sum + record.durationHours, 0);
 const independentNonFocusRecords = appliedIndependentRecords.filter((record) => !focusIds.has(record.id));
@@ -170,7 +228,11 @@ export const eegDurationSummary = {
   },
   catalog: {
     units: eegCatalogRows.length,
+    // The immutable evidence snapshot remains 563 rows.  One audited non-EEG
+    // row is retained in the exclusion ledger rather than the searchable EEG
+    // layer, hence 562 retained original rows.
     preservedOriginalUnits: catalog.catalogRows.length,
+    retainedOriginalUnits: reconciledOriginalRows.length,
     supplementalUnits: independentDurationAudit.supplementalRows.length,
     rowLevelKnownUnits,
     rowLevelMissingUnits: eegCatalogRows.length - rowLevelKnownUnits,
@@ -181,7 +243,7 @@ export const eegDurationSummary = {
       + nonFocusLiteratureHours
       + independentDurationAudit.sourceLevelIncrementHours,
     sourceLevelFocusHours: catalog.neuroAtlasComparison.sourceUnion.extendedHours + independentFocusIncrementHours,
-    sourceLevelCoveredFocusUnits: catalog.neuroAtlasComparison.focusCoverage.units + independentDurationAudit.supplementalRows.length,
+    sourceLevelCoveredFocusUnits: eegDownloadChecklistRows.length + independentDurationAudit.supplementalRows.length,
     sourceLevelCoveredNonFocusUnits:
       appliedAuditRecords.length + nonFocusLiteratureRecords.length + independentNonFocusRecords.length,
   },

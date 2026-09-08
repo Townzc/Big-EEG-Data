@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {filterCatalog,filtersFromUrl,filtersToUrl,initialFilters,summarize,catalogCsv,exportRows,doiList,safeExternalUrl} from '../lib/catalog.ts';
+import {filterCatalog,filtersFromUrl,filtersToUrl,initialFilters,summarize,catalogCsv,catalogDetailShard,catalogDetailShardCount,exportRows,doiList,safeExternalUrl} from '../lib/catalog.ts';
 import {parseNifti,uniqueBoldRuns,discoverBidsRoots} from '../scripts/lib/signal-headers.mjs';
 const load=path=>JSON.parse(fs.readFileSync(new URL(path,import.meta.url),'utf8'));
 const eeg=load('../public/catalog/eeg/index.json').rows;const fmri=load('../public/catalog/fmri/index.json').rows;
@@ -55,6 +55,23 @@ test('canonical identities retain aliases and cross-modality views without dupli
   assert.equal(osaEeg.family,osaFmri.family);assert.equal(osaEeg.subjects,142);assert.equal(osaFmri.subjects,124);
   assert.ok(Math.abs(osaFmri.hours-15.891227627727721)<1e-8);
   assert.equal(eeg.find(x=>x.id==='EEG-0127').hours,null,'HSP v3 does not inherit old release hours');
+  assert.ok(!eeg.some(x=>x.id==='EEG-0050'),'confirmed eye-tracking-only row is excluded from EEG search');
+  assert.equal(eeg.find(x=>x.id==='EEG-0064').category,'运动与交互');
+  assert.equal(summarize(eeg).acquisitionPackages,553,'only explicit sourcePackageId collapses acquisition packages');
+});
+test('sharded details cover every current row and use the same catalog version',()=>{
+  const manifest=load('../data/catalog-manifest.json');
+  for(const [modality,rows]of [['eeg',eeg],['fmri',fmri]]){
+    const found=new Set();
+    for(let index=0;index<catalogDetailShardCount;index++){
+      const shard=String(index).padStart(2,'0');const payload=load(`../public/catalog/${modality}/details-${shard}.json`);
+      assert.equal(payload.version,manifest.version);
+      for(const [id,detail]of Object.entries(payload.details)){assert.equal(catalogDetailShard(id),shard);assert.equal(detail.item.id,id);found.add(id);}
+    }
+    assert.deepEqual([...found].sort(),rows.map(row=>row.id).sort());
+  }
+  const excluded=load('../public/catalog/eeg/excluded.json');
+  assert.equal(excluded.version,manifest.version);assert.equal(excluded.rows[0].id,'EEG-0050');
 });
 test('current exports match the displayed dataset values and guard spreadsheet formulas',()=>{
   const manifest=load('../data/catalog-manifest.json');const workbook=load('../data/catalog-workbook-version.json');

@@ -3,6 +3,8 @@ export type Evidence = 'reported' | 'calculated' | 'estimated' | 'unavailable';
 export type Relation = { id: string; kind: 'subset' | 'overlap' | 'same-cohort' | 'multimodal'; note: string; source: string };
 export type CatalogItem = {
   id: string; modality: Modality; name: string; aliases: string[]; family: string; release: string;
+  sourcePackageId: string | null; acquisitionStatus: string; acquisitionNote: string;
+  localFiles: number | null; localBytes: number | null;
   category: string; subcategory: string; diseases: string[]; tasks: string[]; population: string;
   subjects: number | null; subjectScope: string; hours: number | null; evidence: Evidence;
   hoursScope: string; records: number | null; localHours: number | null;
@@ -118,7 +120,12 @@ export function summarize(items: CatalogItem[]) {
   const knownSubjects = subjectRows.filter(x => x.subjects != null).length; const knownHours = kept.filter(x => x.hours != null).length;
   const overlaps = items.filter(x => x.relations.some(r => ['overlap','same-cohort'].includes(r.kind) && ids.has(r.id)));
   return {
-    count: items.length, families: new Set(items.map(x=>x.family)).size, included: kept.length, subjectIncluded:subjectRows.length,
+    count: items.length, families: new Set(items.map(x=>x.family)).size,
+    // `family` describes source/cohort relationships and is intentionally
+    // broader than a physical download package.  Only an explicit package ID
+    // may collapse rows for acquisition accounting.
+    acquisitionPackages: new Set(items.map(x=>x.sourcePackageId ?? x.id)).size,
+    included: kept.length, subjectIncluded:subjectRows.length,
     subjects: knownSubjects ? sum(subjectRows,'subjects') : null, hours: knownHours ? sum(kept,'hours') : null,
     knownSubjects, knownHours, missingSubjects: subjectRows.length-knownSubjects, missingHours: kept.length-knownHours,
     estimatedHours: sum(kept.filter(x=>x.evidence==='estimated'),'hours'), reportedHours: sum(kept.filter(x=>x.evidence==='reported'),'hours'), calculatedHours: sum(kept.filter(x=>x.evidence==='calculated'),'hours'),
@@ -133,7 +140,13 @@ export function doiList(value: unknown): string[] {
 export function safeExternalUrl(url: string | null | undefined): string | null {
   try { const parsed = new URL(url ?? ''); return ['http:','https:'].includes(parsed.protocol) ? parsed.href : null; } catch { return null; }
 }
-export const exportColumns = ['id','modality','name','family','release','category','subcategory','diseases','population','subjects','subjectScope','records','hours','evidence','hoursScope','localHours','access','channels','channelMax','sampling','samplingMax','ageMin','ageMax','field','bids','rawProcessed','verified','url','aliases','relations','tasks','sizeGb','trMs','sites','format','longitudinal'] as const;
+export const exportColumns = ['id','modality','name','family','sourcePackageId','release','category','subcategory','diseases','population','subjects','subjectScope','records','hours','evidence','hoursScope','localHours','access','acquisitionStatus','acquisitionNote','localFiles','localBytes','channels','channelMax','sampling','samplingMax','ageMin','ageMax','field','bids','rawProcessed','verified','url','aliases','relations','tasks','sizeGb','trMs','sites','format','longitudinal'] as const;
+export const catalogDetailShardCount = 32;
+export function catalogDetailShard(id: string) {
+  let hash = 0;
+  for (const character of id) hash = (Math.imul(hash, 31) + character.charCodeAt(0)) >>> 0;
+  return String(hash % catalogDetailShardCount).padStart(2, '0');
+}
 export function exportRows(items: CatalogItem[]) {
   return items.map(item => Object.fromEntries(exportColumns.map(key => [key, Array.isArray(item[key]) ? key === 'relations' ? JSON.stringify(item[key]) : (item[key] as string[]).join(' | ') : item[key]])));
 }

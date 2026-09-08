@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex -- the labelled result region must be focusable for keyboard horizontal scrolling */
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { catalogCsv, evidenceLabels, exportRows, filterCatalog, filtersFromUrl, filtersToUrl, formatNumber, initialFilters, safeExternalUrl, summarize, type CatalogDetail, type CatalogItem, type Filters, type Modality } from '../lib/catalog';
+import { catalogCsv, catalogDetailShard, evidenceLabels, exportRows, filterCatalog, filtersFromUrl, filtersToUrl, formatNumber, initialFilters, safeExternalUrl, summarize, type CatalogDetail, type CatalogItem, type Filters, type Modality } from '../lib/catalog';
 
 function download(name:string,body:string,type:string) {
   const url=URL.createObjectURL(new Blob([body],{type})); const anchor=document.createElement('a');
@@ -39,6 +39,7 @@ function Detail({detail,onRelated}:{detail:CatalogDetail;onRelated:(id:string)=>
       <div><dt>记录时长 · h</dt><dd>{formatNumber(x.hours,2)}</dd><small>{evidenceLabels[x.evidence]} · {x.hoursScope}</small></div>
       <div><dt>记录 / run 数</dt><dd>{formatNumber(x.records,0)}</dd><small>依当前来源定义，不能直接等同人数</small></div>
       <div><dt>本地已获取 · h</dt><dd>{formatNumber(x.localHours,2)}</dd><small>有文件审计证据才填写；未知不代表未下载</small></div>
+      <div><dt>本地文件</dt><dd>{formatNumber(x.localFiles,0)}</dd><small>{x.localBytes==null?'字节数待核验':`${x.localBytes.toLocaleString('en-US')} bytes`}</small></div>
     </dl>
     <section><h3>采集协议</h3><dl className="db-kv">
       {x.modality==='eeg'?<>
@@ -52,7 +53,7 @@ function Detail({detail,onRelated}:{detail:CatalogDetail;onRelated:(id:string)=>
       <div><dt>发布数据体积</dt><dd>{x.sizeGb==null?'未知':`${formatNumber(x.sizeGb,2)} GB`}</dd></div>
     </dl></section>
     <div className="db-detail-columns">
-      <section><h3>采集与使用</h3><dl className="db-kv"><div><dt>访问</dt><dd>{x.access}</dd></div><div><dt>许可</dt><dd>{detail.license}</dd></div><div><dt>格式 / 处理</dt><dd>{x.format} · {x.rawProcessed}</dd></div><div><dt>年龄覆盖</dt><dd>{x.ageMin==null||x.ageMax==null?'未知':`${x.ageMin}–${x.ageMax} 岁`}</dd></div><div><dt>核查日期</dt><dd>{x.verified||'原目录；日期未单列'}</dd></div><div><dt>任务</dt><dd>{x.tasks.join(' / ')||'未标注'}</dd></div></dl><p><External href={x.url}>打开数据与申请入口</External></p></section>
+      <section><h3>采集与使用</h3><dl className="db-kv"><div><dt>访问</dt><dd>{x.access}</dd></div><div><dt>本地获取状态</dt><dd>{x.acquisitionStatus}</dd><small>{x.acquisitionNote||'未单列本地状态'}</small></div><div><dt>来源包</dt><dd>{x.sourcePackageId??'按单条数据集计'}</dd></div><div><dt>许可</dt><dd>{detail.license}</dd></div><div><dt>格式 / 处理</dt><dd>{x.format} · {x.rawProcessed}</dd></div><div><dt>年龄覆盖</dt><dd>{x.ageMin==null||x.ageMax==null?'未知':`${x.ageMin}–${x.ageMax} 岁`}</dd></div><div><dt>核查日期</dt><dd>{x.verified||'原目录；日期未单列'}</dd></div><div><dt>任务</dt><dd>{x.tasks.join(' / ')||'未标注'}</dd></div></dl><p><External href={x.url}>打开数据与申请入口</External></p></section>
       <section><h3>范围与限制</h3><ul>{detail.notes.map((note,i)=><li key={i}>{note}</li>)}</ul></section>
     </div>
     {x.relations.length>0&&<section><h3>相关数据与重叠</h3><ul className="db-relations">{x.relations.map((r,i)=><li key={i}>{r.kind==='multimodal'?<a href={`${x.modality==='eeg'?'/fmri':'/'}?detail=${encodeURIComponent(r.id)}`}>{r.id} · 另一模态</a>:<button type="button" className="db-link" onClick={()=>onRelated(r.id)}>{r.id}</button>}<p>{r.note}</p><External href={r.source}>关系证据</External></li>)}</ul></section>}
@@ -99,10 +100,12 @@ export function CatalogBrowser({modality,version,count}:{modality:Modality;versi
     Promise.resolve().then(async()=>{
       setDetail(null);setDetailError('');
       if(cached){setDetail(cached);return;}
-      const r=await fetch(`/catalog/${modality}/${encodeURIComponent(selectedId)}.json?v=${version}`,{signal:controller.signal});
+      const shard=catalogDetailShard(selectedId);
+      const r=await fetch(`/catalog/${modality}/details-${shard}.json?v=${version}`,{signal:controller.signal});
       if(!r.ok)throw new Error('未找到该数据集，或详情暂时不可用');
-      const data=await r.json() as CatalogDetail & {version:string};if(data.version!==version)throw new Error('详情版本不一致，请刷新页面');
-      if(!controller.signal.aborted){cache.current.set(selectedId,data);setDetail(data);}
+      const payload=await r.json() as {version:string;details:Record<string,CatalogDetail>};if(payload.version!==version)throw new Error('详情版本不一致，请刷新页面');
+      const data=payload.details[selectedId];if(!data)throw new Error('未找到该数据集，或详情暂时不可用');
+      if(!controller.signal.aborted){for(const [id,value] of Object.entries(payload.details))cache.current.set(id,value);setDetail(data);}
     }).catch(e=>{if(e.name!=='AbortError')setDetailError(e.message);});
     return()=>controller.abort();
   },[selectedId,modality,version,retry]);
