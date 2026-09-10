@@ -1,0 +1,242 @@
+{
+  "created_utc": "2026-09-10T09:27:28.617091+00:00",
+  "vitaldb_source_accounting": {
+    "passed": true,
+    "source_cases": 6388,
+    "source_case_status_counts": {
+      "processed": 5565,
+      "no_eeg_waveforms": 822,
+      "quarantined_ambiguous_native_packet_clock": 1
+    },
+    "eeg_cases": 5565,
+    "eeg_patients": 5344,
+    "cases_with_native_eeg_tracks": 5566,
+    "patients_with_native_eeg_tracks": 5345,
+    "quarantined_clock_cases": [
+      4552
+    ],
+    "continuous_segments": 16785,
+    "source_eeg_hours": 18110.729014756944,
+    "paired_source_eeg_hours": 18099.839813368057,
+    "retained_source_eeg_hours": 18097.513250868054,
+    "output_hours": 18097.513248611118,
+    "excluded_nonfinite_or_singleton_samples_per_channel": 18032,
+    "cases_requiring_exact_packet_alignment": 7,
+    "excluded_unpaired_samples_by_channel": [
+      32,
+      80
+    ],
+    "exact_duplicate_packets_removed_by_channel": [
+      313607,
+      313607
+    ],
+    "exact_duplicate_samples_removed_by_channel": [
+      5017712,
+      5017712
+    ],
+    "cases_with_interleaved_clock_chains": 58,
+    "union_case_clock_coverage_hours": 18084.629427257114,
+    "segments_shorter_than_33_second_highpass_kernel": 307,
+    "source_publisher_sha256_verified": true,
+    "cross_split_patients": 0,
+    "source_clock_policy": "retain native packet timestamps, split discontinuities; no fabricated samples or phase labels",
+    "code_version": "0.4.55-vitaldb"
+  },
+  "vitaldb_consolidation": {
+    "created_utc": "2026-09-10T09:25:16.685782+00:00",
+    "passed": true,
+    "outputs": 16785,
+    "subjects": 5344,
+    "events": 0,
+    "total_duration_seconds": 65151047.694999985,
+    "hours": 18097.513248611107,
+    "one_second_patches": 65144593,
+    "output_npz_json_bytes": 96852696463,
+    "dataset_output_counts": {
+      "vitaldb_perioperative_bis_eeg": 16785
+    },
+    "label_counts": {
+      "": 16785
+    },
+    "qc_flag_counts": {
+      "all_zero_channel": 13,
+      "continuous_segment_shorter_than_highpass_kernel": 307,
+      "flatline_ge_5s": 9,
+      "interleaved_native_clock_chains_preserved_separately": 320,
+      "native_BIS_reference_electrode_derivation_unspecified": 16785,
+      "native_packet_clock_overlap_preserved_as_separate_segment": 437,
+      "near_constant_channel": 13,
+      "one_sided_packet_loss_audited_no_imputation": 26
+    },
+    "split_output_counts": {
+      "test": 1567,
+      "train": 13550,
+      "validation": 1668
+    },
+    "exact_duplicate_report_rows": 40,
+    "duplicate_split_moves": 0,
+    "code_version": "0.4.55-vitaldb"
+  },
+  "vitaldb_validation": {
+    "created_utc": "2026-09-10T09:25:50.759487+00:00",
+    "manifest": "/gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/EEG-data-process/results/consciousness_v1/batch112/preprocessing_manifest.csv",
+    "manifest_sha256": "ceb337497d8acaa8eb023f4d732eaa24f3c2360120146fbf6df32f789edd63da",
+    "passed": true,
+    "manifest_rows": 16785,
+    "validated_outputs": 16785,
+    "total_output_bytes": 96852696463,
+    "exact_signal_duplicate_groups": 20,
+    "errors": [],
+    "validator": "unchanged validate_results.py full numeric/hash checks in disjoint partitions plus global split/identity checks",
+    "parallel_workers": 32,
+    "cross_split_subjects": 0,
+    "cross_split_exact_signals": 0
+  },
+  "adhd_validation": {
+    "passed": true,
+    "validated_outputs": 121,
+    "subjects": 121,
+    "labels": {
+      "adhd": 61,
+      "healthy_control": 60
+    },
+    "total_duration_seconds": 16924.895,
+    "source_duration_seconds": 16924.8671875,
+    "total_output_bytes": 240201245,
+    "qc_flag_counts": {
+      "physical_unit_unverified_quarantine": 121,
+      "unit_not_verified": 121
+    },
+    "output_unit": "native_numeric_unverified",
+    "exact_signal_duplicate_groups": 0,
+    "split_counts": {
+      "train": 98,
+      "validation": 7,
+      "test": 16
+    },
+    "training_eligibility": "quarantine_not_eligible_for_physical_scale_pooling",
+    "errors": []
+  },
+  "adhd_completion": {
+    "outputs": 121,
+    "subjects": 121,
+    "events": 121,
+    "output_hours": 4.7013597222222225,
+    "source_hours": 4.7013519965277775,
+    "one_second_patches": 16870,
+    "remainder_samples": 10979,
+    "bytes": 240201245,
+    "split_counts": {
+      "train": 98,
+      "validation": 7,
+      "test": 16
+    }
+  },
+  "execution_provenance": {
+    "status": "COMPLETE_WITH_DOCUMENTED_QUARANTINES",
+    "slurm_job_id": "2164504",
+    "node": "xm047",
+    "partition": "hbm-1tb-long-96core",
+    "vitaldb_shards": 64,
+    "superseded_pending_jobs": [
+      "2164086",
+      "2164396",
+      "2164103",
+      "2164104",
+      "2164176"
+    ],
+    "inspection_job": "2163803",
+    "versions": {
+      "numpy": "1.26.4",
+      "scipy": "1.13.1",
+      "mne": "1.6.1",
+      "vitaldb": "1.7.2",
+      "pandas": "2.2.3",
+      "PyYAML": "6.0.3"
+    },
+    "first_attempt_script_config_sha256": {
+      "eeg_preprocess.py": "3e1c9ee72db17728ad9aaa0e052ca8f71bd4b9c7054e1d89830a42b92bae14a2",
+      "eeg_preprocess_batch112.py": "a3dfc54b588df1a1827ec9f6792b9f43fb5a0c1e34d9e7dd31a4cd5bc255eb96",
+      "eeg_preprocess_batch113.py": "0ca3817921130d7a1621ddce50b4d6de5d2ad1a25540973842bfff2a7c039315",
+      "validate_results.py": "15e7772c2419c730fe1c42a28ac9df10605fcc7ad1f126a9157e540e7adb8ddd",
+      "validate_native_batch113.py": "e2feb938818189a7bdd97df7c338e43db96b01390fbf3c159696a4d60cd6089e",
+      "consolidate_sharded_batch.py": "d308322a03695700bd84b833ed0faecc91bb1627700c3c7b65bc880401198bbf",
+      "consolidate_vitaldb_batch112.py": "a1e38953d00db388ed69c4db2a8a8572b443554d2d11a6b08d9f07b5570a6ccc",
+      "run_new_datasets_node.py": "18f8926dfc6bd1a2075e2844639524d919a7bd7c6d35e56f7ab2c2c22fd5e32d",
+      "run_new_datasets_node.slurm": "a25216a6bbeb6530d845ec405d732590480fc12cdb90b1db2034f83304486df0",
+      "test_new_datasets_112_113.py": "b2bd142e1bb436c83361537f7f6225f97448b88f55f503e6a7741f0f2e954666",
+      "configs/new_datasets_batch112.yaml": "ad28c8ec7901ac5d20f911ae16cb0db5c197deb9c1703a1a5cca83d084c7c1a0",
+      "configs/new_datasets_batch113.yaml": "c38e40a585e9c6712cfe4bdb35c868a70bbfb073e14673c52cc0344bdf47eafb"
+    },
+    "completed_utc": "2026-09-10T09:27:28.600741+00:00",
+    "final_validation_job": "2164556",
+    "repair_job": "2164548",
+    "packet_reconstruction_revision": 2,
+    "initial_attempt_status": "dense overlap shards interrupted; verified normal outputs retained",
+    "script_config_sha256": {
+      "eeg_preprocess.py": "3e1c9ee72db17728ad9aaa0e052ca8f71bd4b9c7054e1d89830a42b92bae14a2",
+      "eeg_preprocess_batch112.py": "51f96fd92c2385de0926faab9b72ca1db11e0758a7196220e833f7648516c973",
+      "eeg_preprocess_batch113.py": "0ca3817921130d7a1621ddce50b4d6de5d2ad1a25540973842bfff2a7c039315",
+      "validate_results.py": "15e7772c2419c730fe1c42a28ac9df10605fcc7ad1f126a9157e540e7adb8ddd",
+      "validate_native_batch113.py": "e2feb938818189a7bdd97df7c338e43db96b01390fbf3c159696a4d60cd6089e",
+      "consolidate_sharded_batch.py": "d308322a03695700bd84b833ed0faecc91bb1627700c3c7b65bc880401198bbf",
+      "consolidate_vitaldb_batch112.py": "63a7901037189519ec9eb4091e9eeb7fcf9daceb19fcf4fc0545bef099d520b6",
+      "run_new_datasets_node.py": "18f8926dfc6bd1a2075e2844639524d919a7bd7c6d35e56f7ab2c2c22fd5e32d",
+      "run_new_datasets_node.slurm": "a25216a6bbeb6530d845ec405d732590480fc12cdb90b1db2034f83304486df0",
+      "test_new_datasets_112_113.py": "b39bf7227c60e84605ec9246f97a93f913ada3147a48e70b5a895ec19ac62a2c",
+      "configs/new_datasets_batch112.yaml": "ad28c8ec7901ac5d20f911ae16cb0db5c197deb9c1703a1a5cca83d084c7c1a0",
+      "configs/new_datasets_batch113.yaml": "c38e40a585e9c6712cfe4bdb35c868a70bbfb073e14673c52cc0344bdf47eafb",
+      "repair_vitaldb_batch112.py": "f8ae22dfa025fe38db6731ed3b6c6fc83feea9a04dfa889dbbdabd1d49262572",
+      "repair_vitaldb_batch112.slurm": "3d8778aae7ae478c723010991b2dca82973960574b82b0436ee45df7e0d03b1a",
+      "validate_vitaldb_clock_sources112.py": "cdc4768a230e4d8b010d23d6d9ad5271bfe81713781ab1f44e6ac34f74ed22f5",
+      "validate_results_parallel112.py": "ed886b9b2bf0b8b62bacb6451dc24d1d05965dc9330a423b9cac3bc92a5cf56c",
+      "test_parallel_validator112.py": "13ae3b3ea8d43b76e3a970dcab53b278c42d01d9139cd8fed3c8d86994237f49",
+      "audit_vitaldb_invalid_values112.py": "0d9a24d14b4a50e16c1d5fa97bd93badf5423a1a31bc2a3d064d7679be383b77",
+      "finalize_new_datasets_readme.py": "f63efb75c287b151966d0b757527eb3c2d27fb15eeac9680cf827a4b8eeab3e6"
+    },
+    "final_outputs": {
+      "VitalDB": 16785,
+      "ADHD": 121,
+      "VitalDB_clock_quarantine_cases": [
+        4552
+      ]
+    },
+    "validators_passed": true
+  },
+  "parallel_validator_negative_controls": {
+    "passed": true,
+    "tests": {
+      "same_signal_different_subjects": {
+        "global_leak_rejected": true,
+        "both_individual_full_validators_passed": true
+      },
+      "same_subject_different_signals": {
+        "global_leak_rejected": true,
+        "both_individual_full_validators_passed": true
+      }
+    }
+  },
+  "publisher_invalid_value_audit": {
+    "all_standard_source_QC_sidecars_checked": true,
+    "cases": [
+      {
+        "caseid": 2155,
+        "tracks": {
+          "BIS/EEG1_WAV": {
+            "min": -1447.25,
+            "max": 1627935547064320.0,
+            "official_invalid_gt_4e9": 112,
+            "extreme_negative_lt_minus4e9": 0
+          },
+          "BIS/EEG2_WAV": {
+            "min": -1461.550048828125,
+            "max": 1488772701093888.0,
+            "official_invalid_gt_4e9": 112,
+            "extreme_negative_lt_minus4e9": 0
+          }
+        }
+      }
+    ],
+    "official_rule": "vitaldb 1.7.2 get_track_samples maps positive waveform values > 4e9 and infinities to NaN"
+  }
+}
