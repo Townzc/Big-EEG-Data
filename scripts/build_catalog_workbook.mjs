@@ -4,9 +4,9 @@ import ExcelJS from 'exceljs';
 import { exportColumns as columns } from '../lib/catalog.ts';
 
 const root = new URL('../', import.meta.url);
-const out = new URL('outputs/catalog-update-20260908/', root);
-await fs.mkdir(out, { recursive: true });
 const manifest = JSON.parse(await fs.readFile(new URL('data/catalog-manifest.json', root)));
+const out = new URL(`outputs/catalog-update-${manifest.reviewDate.replaceAll('-', '')}/`, root);
+await fs.mkdir(out, { recursive: true });
 const workbook = new ExcelJS.Workbook();
 workbook.creator = 'Big EEG Data catalog generator';
 workbook.created = new Date(`${manifest.reviewDate}T00:00:00Z`);
@@ -100,8 +100,9 @@ for (const [offset, modality] of ['eeg', 'fmri'].entries()) {
 
 const notes = [
   ['统计范围', '此工作簿覆盖行数与网页相同。网页筛选汇总按当前范围处理已确认 parent/child；不要直接对全部行小时或人数求和并称为全站去重值。'],
-  ['当前 EEG', '568 行、547 source families、553 acquisition packages。关系去重统计由 manifest 提供；未知值保持空白。'],
-  ['排除与别名', '眼动-only EEG-0050 保留在 exclusion ledger，不进入 EEG 搜索；EEG-0488 合并为 EEG-0064 alias，EEG-0072/0088 也保留为旧 adapter ID alias。'],
+  ['当前 EEG', `${manifest.modalities.eeg.count} 行、${manifest.modalities.eeg.families} source families、${manifest.modalities.eeg.acquisitionPackages} acquisition packages。关系去重统计由 manifest 提供；未知值保持空白。`],
+  ['排除与别名', '眼动-only EEG-0050、无法恢复 EEG 波形的 BEED（EEG-0007）保留在 exclusion ledger，不进入当前 EEG 搜索与统计；EEG-0488 合并为 EEG-0064 alias，EEG-0072/0088 也保留为旧 adapter ID alias。'],
+  ['2026-09-10 更新', '新增 VitalDB（EEG-0609）：意识与状态 / Anesthesia，2 通道、128 Hz。EEG-0077 确认归 cognitive。AES、UPenn 的 μV/参考信息依据项目负责人确认登记；MODMA 等待作者邮件回复。EEG-0053 的 121 个原始 MAT 由公开镜像取得，官方 S3 仍为 403。'],
   ['时长证据', 'reported=来源报告；calculated=文件/协议计算；estimated=抽样或完成率假设估算；unavailable=未知。'],
   ['采集包', 'MORGOTH 的 16 个逻辑行保留检索，但只计一个 BDSP acquisition package。逻辑行、family、申请流程和物理下载包不是同一口径。'],
   ['预处理', '严格 raw-continuous KPI 为 62/99 canonical targets；排除 duplicate batch80、non-EEG、processed-only 及未通过 terminal validator 的部分输出。'],

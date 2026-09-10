@@ -1,0 +1,86 @@
+{
+  "all_cases": 6388,
+  "all_subjects": 6090,
+  "tracks": {
+    "BIS/EEG1_WAV": {
+      "tracks": 5871,
+      "cases": 5871,
+      "subjects": 5623
+    },
+    "BIS/EEG2_WAV": {
+      "tracks": 5871,
+      "cases": 5871,
+      "subjects": 5623
+    },
+    "BIS/BIS": {
+      "tracks": 5867,
+      "cases": 5867,
+      "subjects": 5620
+    }
+  },
+  "verifiedAt": "2026-09-10",
+  "scope": "Official API inventory, independently joined to PhysioNet clinical_data.csv; waveform presence is not a signal-quality audit.",
+  "sameCasesForBothEegChannels": true,
+  "metadataFiles": [
+    {
+      "name": "vitaldb-trks.csv",
+      "sha256": "6bfda7ac524f2f219673b893e7d62e526c45e8f2daa02c47fc4442e613efd0bd"
+    },
+    {
+      "name": "vitaldb-clinical.csv",
+      "sha256": "7d6edb471e5eee3fde75e417084240c97bdbf6eff41cbd61e5dace44f1585ecf"
+    },
+    {
+      "name": "vitaldb-track-names.csv",
+      "sha256": "31c431642f91153461724375c05309d251ea63f206f3aeaed782ea4b9817400c"
+    }
+  ],
+  "adhdMirror": {
+    "dataset_id": "EEG-0053",
+    "state": "COMPLETE",
+    "started_at": "2026-09-10T07:46:26.030492+00:00",
+    "source": "https://github.com/Ojesh-Mundale/AI-based-ADHD-detection",
+    "commit": "994b10f0293b355a1ab7e0e4e9707c8efde3aac8",
+    "official_source": "s3://ieee-dataport/open/28547/",
+    "official_source_status": "HTTP_403",
+    "expected_mat_files": 121,
+    "destination": "/gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/datasets/02_Biometrics_and_Disease/Mental_and_Developmental_Disorders/EEG_Data_for_ADHD",
+    "source_note": "Public third-party mirror. Git object identity is verified; byte identity with the inaccessible IEEE S3 originals cannot be confirmed.",
+    "finished_at": "2026-09-10T07:46:29.875571+00:00",
+    "downloaded_files": 121,
+    "failed_files": 0,
+    "downloaded_bytes": 33110477,
+    "subjects": 121,
+    "groups": {
+      "ADHD": 61,
+      "Control": 60
+    },
+    "samples": 2166383,
+    "hours": 4.701351996527777,
+    "official_byte_identity_verified": false,
+    "missing_official_metadata": [
+      "Channel_Labels.docx",
+      "Standard-10-20-Cap19new.ced"
+    ],
+    "inventorySha256": "2bd10de4c5ffa8759e24365ec51739025d7fabede8ec55593c8a52fa5b783b86"
+  },
+  "vitaldbDownload": {
+    "dataset_id": "EEG-0609",
+    "state": "COMPLETE",
+    "started_at": "2026-09-10T07:42:32.680169+00:00",
+    "destination": "/gpfs/projects/ChenyuYouGroup/EEG-dataset-collection/datasets/03_Consciousness_and_State/Anesthesia/VitalDB",
+    "source": "https://physionet-open.s3.amazonaws.com/vitaldb/1.0.0/",
+    "job_id": "2162561",
+    "downloaded_files": 6395,
+    "downloaded_bytes": 102456727132,
+    "failed_files": 0,
+    "expected_files": 6395,
+    "expected_vital_files": 6388,
+    "updated_at": "2026-09-10T07:57:21.616960+00:00",
+    "finished_at": "2026-09-10T07:57:21.624101+00:00",
+    "signal_file_count": 6388,
+    "signal_file_bytes": 102434479613,
+    "inventorySha256": "01a90a8eb4dc8536a002ea4cd9bc958878a20ff642e005f66ba018f9b231edf2",
+    "publisher_manifest_sha256": "874732d0548b5ba4de2efe851375c4f25f45488a2a19c771e2f9ab0288a5de1d"
+  }
+}

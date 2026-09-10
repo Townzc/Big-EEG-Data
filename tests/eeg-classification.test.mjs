@@ -16,11 +16,14 @@ test('current EEG catalog applies exclusions, aliases, taxonomy and source-packa
     const byId = (id) => eeg.find((row) => row.id === id);
 
     assert.equal(original.catalogRows.length, 563, 'historical evidence snapshot remains immutable');
-    assert.equal(eegCatalogRows.length, 563, 'one non-EEG exclusion and one evidence-layer supplemental row balance');
+    assert.equal(eegCatalogRows.length, 563, 'two exclusions and two evidence-layer supplemental rows balance');
     assert.equal(eegDownloadChecklistRows.length, 145);
     assert.equal(eeg.length, 568);
     assert.equal(new Set(eeg.map((row) => row.id)).size, eeg.length);
     assert.ok(!eeg.some((row) => row.id === 'EEG-0050'));
+    assert.ok(!eeg.some((row) => row.id === 'EEG-0007'));
+    assert.ok(!eegDownloadChecklistRows.some((row) => row.id === 'EEG-0007'));
+    assert.equal(eegExcludedRows.find((row) => row.id === 'EEG-0007').disposition, 'EXCLUDED_UNRECOVERABLE_RAW_EEG');
     assert.equal(eegExcludedRows[0].id, 'EEG-0050');
     assert.equal(eegExcludedRows[0].auditEvidence.eegChannels, 0);
     assert.ok(!eeg.some((row) => row.id === 'EEG-0488'));
@@ -36,7 +39,7 @@ test('current EEG catalog applies exclusions, aliases, taxonomy and source-packa
     assert.equal(heedb.hours, 3_300_000);
     assert.equal(eegDownloadChecklistRows.find((row) => row.id === heedb.id).focusType, '睡眠');
     assert.equal(eegCategoryStats.reduce((sum, category) => sum + category.count, 0), eegCatalogRows.length);
-    assert.deepEqual(eegProgress.categories.map((category) => category.units), [4, 98, 64, 142, 59, 135, 43, 23]);
+    assert.deepEqual(eegProgress.categories.map((category) => category.units), [4, 97, 65, 142, 59, 135, 43, 23]);
 
     const morgothIds = new Set(['EEG-0020','EEG-0021','EEG-0022','EEG-0023','EEG-0024','EEG-0025','EEG-0026','EEG-0027','EEG-0028','EEG-0103','EEG-0104','EEG-0105','EEG-0131','EEG-0132','EEG-0133','EEG-0134']);
     const morgoth = eeg.filter((row) => morgothIds.has(row.id));
@@ -44,7 +47,7 @@ test('current EEG catalog applies exclusions, aliases, taxonomy and source-packa
     assert.deepEqual([...new Set(morgoth.map((row) => row.sourcePackageId))], ['BDSP:morgoth1:v1.0.0']);
 
     assert.equal(eegDurationSummary.catalog.preservedOriginalUnits, 563);
-    assert.equal(eegDurationSummary.catalog.retainedOriginalUnits, 562);
+    assert.equal(eegDurationSummary.catalog.retainedOriginalUnits, 561);
   } finally {
     await server.close();
   }
@@ -60,29 +63,29 @@ test('current EEG metrics are relation-aware and preprocessing totals use the st
     assert.equal(catalog.acquisitionPackages, 553);
     assert.equal(catalog.includedAfterRelationDedup, 558);
     assert.equal(catalog.subjectIncludedAfterRelationDedup, 558);
-    assert.equal(catalog.subjectKnownAfterRelationDedup, 531);
-    assert.equal(catalog.subjectMissingAfterRelationDedup, 27);
-    assert.equal(catalog.subjectsAfterRelationDedup, 223_167);
-    assert.equal(catalog.rawSubjectKnownUnits, 541);
-    assert.equal(catalog.rawSubjectEntrySum, 261_018);
+    assert.equal(catalog.subjectKnownAfterRelationDedup, 532);
+    assert.equal(catalog.subjectMissingAfterRelationDedup, 26);
+    assert.equal(catalog.subjectsAfterRelationDedup, 228_790);
+    assert.equal(catalog.rawSubjectKnownUnits, 542);
+    assert.equal(catalog.rawSubjectEntrySum, 266_641);
     assert.equal(catalog.durationKnownAfterRelationDedup, 267);
     assert.equal(catalog.durationMissingAfterRelationDedup, 291);
-    assert.ok(approx(catalog.hoursAfterRelationDedup, 3_841_983.5865503983));
+    assert.ok(approx(catalog.hoursAfterRelationDedup, 3_841_899.399013502));
     assert.equal(catalog.rawDurationKnownUnits, 274);
-    assert.ok(approx(catalog.rawDurationRowSum, 3_845_506.5699559534));
+    assert.ok(approx(catalog.rawDurationRowSum, 3_845_422.3824190614));
     assert.equal(catalog.publicUnits, 420);
 
     assert.equal(acquisition.focusExecutionUnits, 145);
-    assert.equal(acquisition.focusServerCompletedUnits, 80);
-    assert.equal(acquisition.focusIndependentRawUnits, 74);
-    assert.equal(acquisition.focusExactDurationAuditUnits, 61);
-    assert.ok(approx(acquisition.focusExactDurationAuditHours, 46_893.44359662001));
-    assert.equal(acquisition.focusRelationAwareExactDurationAuditUnits, 56);
-    assert.ok(approx(acquisition.focusRelationAwareExactDurationAuditHours, 43_474.54665217556));
+    assert.equal(acquisition.focusServerCompletedUnits, 81);
+    assert.equal(acquisition.focusIndependentRawUnits, 76);
+    assert.equal(acquisition.focusExactDurationAuditUnits, 62);
+    assert.ok(approx(acquisition.focusExactDurationAuditHours, 46_898.14494861653));
+    assert.equal(acquisition.focusRelationAwareExactDurationAuditUnits, 57);
+    assert.ok(approx(acquisition.focusRelationAwareExactDurationAuditHours, 43_479.248004172085));
     assert.equal(acquisition.focusAppliedWaitingUnits, 19);
     assert.equal(acquisition.focusAppliedWaitingWorkflowsApprox, 3);
     assert.equal(acquisition.focusNotYetAppliedUnits, 22);
-    assert.equal(acquisition.gpfsFreeBytes, 1_979_141_062_656);
+    assert.equal(acquisition.gpfsFreeBytes, 1_528_505_040_896);
     assert.equal(acquisition.retainedFailedStagingApproxGB, 119.1);
 
     assert.equal(preprocessing.metricScope, 'strict_raw_continuous_canonical_targets');
@@ -118,6 +121,8 @@ test('new local and official evidence preserves release scopes and production ga
     assert.ok(eeg0047.sources.some((source) => source.url.includes('NS_4x_File_Formats')));
 
     const eeg0077 = detail('EEG-0077');
+    assert.equal(eeg0077.item.category, '认知与情感');
+    assert.equal(eeg0077.item.subcategory, 'Attention_and_ERP');
     assert.equal(eeg0077.item.subjects, 14);
     assert.ok(approx(eeg0077.item.hours, 8.848888888888888));
     assert.equal(eeg0077.item.localFiles, 16);
@@ -172,6 +177,38 @@ test('new local and official evidence preserves release scopes and production ga
     assert.equal(upenn.subjects, 12);
     assert.equal(upenn.records, 58837);
     assert.match(upenn.acquisitionNote, /Mixed species/i);
+    for (const id of ['EEG-0006', 'EEG-0018']) {
+      const entry = detail(id);
+      assert.equal(entry.original.physicalUnit, 'μV');
+      assert.match(entry.original.physicalUnitStatus, /user_confirmed/);
+      assert.match(entry.original.reference, /单极/);
+      assert.match(entry.original.rereference, /Bipolar.*CAR/);
+      assert.ok(!/unknown unit\/reference|unit and reference remain unresolved/i.test(entry.notes.join(' ')));
+    }
+    assert.match(detail('EEG-0058').notes.join(' '), /已邮件询问.*等待作者回复/);
+    const adhd = detail('EEG-0053');
+    assert.equal(adhd.item.subjects, 121);
+    assert.equal(adhd.item.localFiles, 121);
+    assert.equal(adhd.item.localBytes, 33_110_477);
+    assert.ok(approx(adhd.item.hours, 2_166_383 / 128 / 3600));
+    assert.match(adhd.item.acquisitionStatus, /MIRROR_RAW_SIGNAL/);
+    assert.match(adhd.item.acquisitionNote, /403/);
+    assert.match(adhd.notes.join(' '), /Channel_Labels|通道标签/);
+    const vital = detail('EEG-0609');
+    assert.equal(vital.item.category, '意识与状态');
+    assert.equal(vital.item.subcategory, 'Anesthesia');
+    assert.equal(vital.item.channels, 2);
+    assert.equal(vital.item.sampling, 128);
+    assert.equal(vital.item.subjects, 5623);
+    assert.equal(vital.item.records, 5871);
+    assert.equal(vital.item.localFiles, 6395);
+    assert.equal(vital.item.localBytes, 102456727132);
+    assert.match(vital.item.acquisitionStatus, /DOWNLOAD_COMPLETE_SHA256_VERIFIED/);
+    assert.equal(vital.item.hours, null, 'case counts must not be converted to EEG hours');
+    assert.equal(vital.item.evidence, 'unavailable');
+    assert.match(vital.item.subjectScope, /6,090.*6,388/);
+    assert.match(vital.notes.join(' '), /BIS\/BIS.*派生/);
+    assert.match(vital.notes.join(' '), /Nyquist.*64 Hz/);
     const schizophrenia = detail('EEG-0060').item;
     assert.equal(schizophrenia.subjects, 40);
     assert.equal(schizophrenia.records, 11527);

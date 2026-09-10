@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "version": "daa9fcf0047b",
-  "reviewDate": "2026-09-08",
+  "version": "d44e21c5bfbc",
+  "reviewDate": "2026-09-10",
   "reconciliation": {
     "historicalEegSnapshotRows": 563,
     "aliases": [
@@ -29,6 +29,17 @@
           "signalType": "eye_tracking_and_pupillometry",
           "eegChannels": 0,
           "auditBatch": "EEG-data-process batch85"
+        }
+      },
+      {
+        "id": "EEG-0007",
+        "disposition": "EXCLUDED_UNRECOVERABLE_RAW_EEG",
+        "dataPresence": "PROCESSED_FEATURES_ONLY",
+        "reason": "2026-09-10 项目负责人确认：BEED 无法恢复 EEG 波形，从当前 EEG 目录、下载清单及统计中删除；保留历史审计证据。",
+        "auditEvidence": {
+          "signalType": "processed_features_only",
+          "recoverableRawEeg": false,
+          "auditBatch": "team review 2026-09-10"
         }
       }
     ],
@@ -68,15 +79,15 @@
       "acquisitionPackages": 553,
       "included": 558,
       "subjectIncluded": 558,
-      "subjects": 223167,
-      "hours": 3841983.586550394,
-      "knownSubjects": 531,
+      "subjects": 228790,
+      "hours": 3841899.399013502,
+      "knownSubjects": 532,
       "knownHours": 267,
-      "missingSubjects": 27,
+      "missingSubjects": 26,
       "missingHours": 291,
       "estimatedHours": 15385.970000000001,
-      "reportedHours": 3807828.5405555535,
-      "calculatedHours": 18769.075994842213,
+      "reportedHours": 3807739.6516666645,
+      "calculatedHours": 18773.777346838742,
       "partialHours": 10,
       "public": 420,
       "suppressed": [
@@ -96,10 +107,10 @@
         "EEG-0604"
       ],
       "rawRows": {
-        "knownSubjects": 541,
-        "subjects": 261018,
+        "knownSubjects": 542,
+        "subjects": 266641,
         "knownHours": 274,
-        "hours": 3845506.5699559534
+        "hours": 3845422.3824190614
       },
       "categories": [
         {
@@ -114,18 +125,18 @@
         {
           "code": "02",
           "label": "医疗与疾病",
-          "units": 98,
+          "units": 97,
           "subjectKnownUnits": 91,
           "subjectEntries": 86433,
           "durationKnownUnits": 73,
-          "hours": 329985.99929456454
+          "hours": 329901.81175767217
         },
         {
           "code": "03",
           "label": "意识与状态",
-          "units": 64,
-          "subjectKnownUnits": 59,
-          "subjectEntries": 137707,
+          "units": 65,
+          "subjectKnownUnits": 60,
+          "subjectEntries": 143330,
           "durationKnownUnits": 28,
           "hours": 3472504.5633333335
         },
@@ -180,21 +191,21 @@
         "acquisitionPackages": 553,
         "legacyCatalogUnitsWithCompletionEvidence": 273,
         "focusExecutionUnits": 145,
-        "focusServerCompletedUnits": 80,
-        "focusIndependentRawUnits": 74,
-        "focusExactDurationAuditUnits": 61,
-        "focusExactDurationAuditHours": 46893.44359662,
-        "focusRelationAwareExactDurationAuditUnits": 56,
-        "focusRelationAwareExactDurationAuditHours": 43474.54665217556,
+        "focusServerCompletedUnits": 81,
+        "focusIndependentRawUnits": 76,
+        "focusExactDurationAuditUnits": 62,
+        "focusExactDurationAuditHours": 46898.14494861653,
+        "focusRelationAwareExactDurationAuditUnits": 57,
+        "focusRelationAwareExactDurationAuditHours": 43479.248004172085,
         "focusAppliedWaitingUnits": 19,
         "focusAppliedWaitingWorkflowsApprox": 3,
         "focusNotYetAppliedUnits": 22,
         "focusDirectDownloadUnits": 12,
         "focusLoginDownloadUnits": 2,
         "focusManualReviewUnits": 4,
-        "focusDiscardedUnits": 4,
-        "gpfsFreeBytes": 1979141062656,
-        "gpfsFreeTiB": 1.800018310546875,
+        "focusDiscardedUnits": 3,
+        "gpfsFreeBytes": 1528505040896,
+        "gpfsFreeTiB": 1.390167236328125,
         "retainedFailedStagingApproxGB": 119.1,
         "activeTasks": [
           {
@@ -218,7 +229,7 @@
           {
             "ids": "EEG-0006 / EEG-0014 / EEG-0018 / EEG-0060",
             "name": "4 个 Kaggle 项目",
-            "status": "4 项全量信号审计均完成：AES 7 subjects / 8,002 signal MAT / 1,333.6667 h，HMS 1,950 / 17,301 / 390.16 h，UPenn 12 / 58,837 / 16.3502 h；三者保持生产门禁。Schizophrenia 的 11,527-output processed-trial scope 已通过 batch91 终端生产验证",
+            "status": "4 项全量信号审计均完成：AES 7 subjects / 8,002 signal MAT / 1,333.6667 h，HMS 1,950 / 17,301 / 390.16 h，UPenn 12 / 58,837 / 16.3502 h；三者保持生产门禁。Schizophrenia 的 11,527-output processed-trial scope 已通过 batch91 终端生产验证 2026-09-10 AES/UPenn 的 μV/单极参考及 Bipolar/CAR 建议已由项目负责人确认登记，尚未执行新预处理。",
             "sourcePackageId": "Kaggle:four-project-batch"
           },
           {
@@ -226,6 +237,24 @@
             "name": "TDBRAIN",
             "status": "3 个授权归档已全部解包（10,306 files / 21,521,819,132 B）；1,464 个 BDF 记录、120.5164 h 已审计，adapter provenance 门禁仍保留",
             "sourcePackageId": "TDBRAIN:DUA-release"
+          },
+          {
+            "ids": "EEG-0053",
+            "name": "EEG Data for ADHD",
+            "status": "公开镜像 121 MAT / 33,110,477 bytes / 4.701352 h 下载及信号审计完成；官方 S3 403，通道 DOCX/CED 未取得",
+            "sourcePackageId": "IEEE:28547:ADHD"
+          },
+          {
+            "ids": "EEG-0609",
+            "name": "VitalDB",
+            "status": "2026-09-10 全量下载完成：6,388 个 .vital，加元数据和 SHA256SUMS 共 6,395 个源文件 / 102,456,727,132 bytes（95.420 GiB）。全部发布者 SHA-256 校验通过，失败 0；逐记录有效 EEG 小时与预处理尚未审计。Slurm 2162561。",
+            "sourcePackageId": "PhysioNet:vitaldb:1.0.0"
+          },
+          {
+            "ids": "EEG-0058",
+            "name": "MODMA",
+            "status": "数据已下载；项目负责人已发邮件询问单位/参考细节，等待作者回复",
+            "sourcePackageId": "MODMA"
           }
         ],
         "note": "The 273 value is a retained historical completion-evidence audit. Current focus counts are recomputed from the reconciled checklist; a download marker is not a signal audit or preprocessing completion result. The 19 applied/waiting rows correspond to about three access workflows (one BDSP credential/application covers HEEDB plus 16 MORGOTH logical rows, plus MESA and CAUEEG). Exact-audit workload retains five TUEG child rows; relation-aware totals exclude them."

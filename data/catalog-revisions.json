@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewDate": "2026-09-06",
+  "reviewDate": "2026-09-10",
   "entries": [
     {
       "id": "EEG-NEW-0002",
@@ -822,6 +822,7 @@
       "modality": "eeg",
       "patch": {},
       "notes": [
+        "2026-09-10：公开镜像 121/121 个 MAT 已取得并完成信号审计；官方 IEEE S3 对象仍返回 403。",
         "2026-09-06 再查来源：未获得可对应当前发布范围的整库记录小时，保留未知。"
       ]
     },
@@ -1263,6 +1264,57 @@
       ],
       "notes": [
         "数据入口从个人账户设置页修正为实际发布页。官网未给出精确整库小时；保留未知。"
+      ]
+    },
+    {
+      "id": "EEG-0609",
+      "modality": "eeg",
+      "patch": {
+        "family": "VitalDB",
+        "sourcePackageId": "PhysioNet:vitaldb:1.0.0",
+        "aliases": [
+          "VitalDB",
+          "SNUH VitalDB"
+        ],
+        "release": "PhysioNet 1.0.0; API track inventory verified 2026-09-10",
+        "sizeGb": 102.456727132,
+        "diseases": [],
+        "sites": "单中心",
+        "verified": "2026-09-10"
+      },
+      "datasetDois": [
+        "10.13026/czw8-9p62"
+      ],
+      "paperDois": [
+        "10.1038/s41597-022-01411-5"
+      ],
+      "license": "CC BY 4.0 (PhysioNet release)",
+      "metrics": [
+        {
+          "label": "整库手术病例 / 独立患者",
+          "value": "6,388 cases / 6,090 patients",
+          "source": "https://physionet.org/content/vitaldb/1.0.0/"
+        },
+        {
+          "label": "官方 API EEG 波形范围（2026-09-10）",
+          "value": "5,871 cases / 5,623 patients; 2 channels / 128 Hz / μV",
+          "source": "https://api.vitaldb.net/trks"
+        },
+        {
+          "label": "整库多模态容量",
+          "value": "约 95.4 GB；不是 EEG-only 文件体积",
+          "source": "https://physionet.org/content/vitaldb/1.0.0/"
+        },
+        {
+          "label": "本地全量源文件实测容量",
+          "value": "102,456,727,132 bytes = 102.457 GB = 95.420 GiB；全部 SHA-256 校验通过",
+          "source": "https://physionet.org/files/vitaldb/1.0.0/SHA256SUMS.txt"
+        }
+      ],
+      "notes": [
+        "Seoul National University Hospital，韩国首尔；围术期/麻醉 EEG，归意识与状态 / Anesthesia，保留临床人群属性。",
+        "早期约 5,566 EEG/BIS cases 不作为当前 API 的准确计数；2026-09-10 核对为 EEG1/EEG2 各 5,871 病例。API 计数与 PhysioNet 静态文件版本的逐文件核验分开记录。",
+        "目录 sizeGb 采用已下载源文件的十进制 GB；官网约 95.4 GB 的显示与本地约 95.4 GiB 对应，两个单位口径分开保留。"
       ]
     }
   ],

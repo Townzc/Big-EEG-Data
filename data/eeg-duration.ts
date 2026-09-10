@@ -23,6 +23,7 @@ type AuditedCatalogRow = {
   sourcePackageId?: string; aliases?: string[]; acquisitionStatus?: string; acquisitionNote?: string;
   localFiles?: number; localBytes?: number; sourceSubjects?: number; localObservedSubjects?: number;
   localObservedRecords?: number; reference?: string; physicalUnitStatus?: string;
+  physicalUnit?: string; rereference?: string; preprocessingNotes?: string;
   preprocessingStatus?: string; validatedBatch?: string; outputRecords?: number; eventRows?: number;
   additionalSources?: { label: string; url: string; note?: string }[];
   subjectScope?: string; population?: string;
@@ -128,6 +129,7 @@ const auditedOriginalRows = reconciledOriginalRows.map((row): AuditedCatalogRow 
 export const eegCatalogRows: AuditedCatalogRow[] = [
   ...auditedOriginalRows.map(applyCatalogClassification),
   neurotechSupplementalCatalogRow,
+  ...reconciliation.supplementalRows as AuditedCatalogRow[],
 ];
 
 const normalizeCatalogCategory = (value: string) =>
@@ -156,7 +158,7 @@ type ChecklistRow = Omit<(typeof catalog.downloadChecklist.rows)[number], "audit
 };
 const focusRowPatches = reconciliation.focusRowPatches as Record<string, Record<string, unknown>>;
 const hasOwn = (value: object, key: string) => Object.prototype.hasOwnProperty.call(value, key);
-export const eegDownloadChecklistRows = catalog.downloadChecklist.rows
+export const eegDownloadChecklistRows = [...catalog.downloadChecklist.rows, ...reconciliation.supplementalChecklistRows]
   .filter((row) => !excludedIds.has(row.id) && row.id !== "EEG-0064")
   .map((row): ChecklistRow => {
     const focusPatch = focusRowPatches[row.id] ?? {};
@@ -183,8 +185,9 @@ export const eegDownloadChecklistRows = catalog.downloadChecklist.rows
       documentedHours,
       physicalSizeGB: catalogPatch.localBytes == null ? row.physicalSizeGB : catalogPatch.localBytes / 1e9,
       access: catalogPatch.access ?? row.access,
-      accessLabel: catalogPatch.access === "DOWNLOAD_PUBLIC" ? "公开/登录后下载" : row.accessLabel,
-      downloadMethod: row.id === "EEG-0106" ? "NEMAR CLI：nemar dataset download nm000181" : row.downloadMethod,
+      accessLabel: (focusPatch.accessLabel as string | undefined) ?? (catalogPatch.access === "DOWNLOAD_PUBLIC" ? "公开/登录后下载" : row.accessLabel),
+      downloadMethod: (focusPatch.downloadMethod as string | undefined) ?? (row.id === "EEG-0106" ? "NEMAR CLI：nemar dataset download nm000181" : row.downloadMethod),
+      serverReason: (focusPatch.serverReason as string | undefined) ?? row.serverReason,
       nextAction,
     };
   })
@@ -233,7 +236,7 @@ export const eegDurationSummary = {
     // layer, hence 562 retained original rows.
     preservedOriginalUnits: catalog.catalogRows.length,
     retainedOriginalUnits: reconciledOriginalRows.length,
-    supplementalUnits: independentDurationAudit.supplementalRows.length,
+    supplementalUnits: independentDurationAudit.supplementalRows.length + reconciliation.supplementalRows.length,
     rowLevelKnownUnits,
     rowLevelMissingUnits: eegCatalogRows.length - rowLevelKnownUnits,
     rowLevelHours,

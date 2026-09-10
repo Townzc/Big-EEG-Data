@@ -1,6 +1,16 @@
 # BIG DATA · EEG + fMRI
 
-## 当前检索网站：2026-09-08 reconciliation 更新
+## 当前更新：2026-09-10
+
+VitalDB 新增为 **EEG-0609**，归入“意识与状态 / Anesthesia”；全量 **6,388 个 vital 文件及配套元数据已下载并通过发布者 SHA-256**。官方 API 当前 EEG 范围为 5,871 病例 / 5,623 患者、2 通道 / 128 Hz；整库 6,388 次手术 / 6,090 患者另列，EEG 有效小时仍待审计。
+
+**EEG-0053 的 121 个 MAT 已从公开镜像下载并校验**（61 ADHD / 60 Control，19 通道，4.701352 h）。官方 S3 本次仍返回 403；通道标签 DOCX/坐标 CED 未取得，镜像与官方源的字节一致性尚不能确认。
+
+**BEED（EEG-0007）从当前目录和统计删除**，历史排除证据保留；**EEG-0077 确认归 cognitive**。AES、UPenn 的 μV、单极采集参考及 Bipolar/CAR 建议依据项目负责人提供的信息登记；MODMA 标注“已邮件询问，等待作者回复”。
+
+当前仍为 **568 EEG / 784 fMRI**，八大 EEG 类别为 `4 / 97 / 65 / 142 / 59 / 135 / 43 / 23`。重点下载清单 145 行：81 有完成证据，76 取得独立 raw，62 个完成精确时长审计。网站、CSV/JSON、当前 Excel 已同步；详情与验证见 [本次更新记录](CATALOG_UPDATE_20260910.zh-CN.md)。以下较早日期小节为历史快照。
+
+## 2026-09-08 reconciliation 历史快照
 
 当前主目录为 **568 条 EEG / 784 条 fMRI**。EEG 由不可变的历史 563 行证据快照出发：排除非 EEG 的 EEG-0050，将 EEG-0488 合并为 EEG-0064 alias，纳入 1 个 evidence-layer supplemental release 和 6 个后续 revision entry。设计、证据和后续核查清单见 [更新报告](CATALOG_IMPROVEMENTS_20260906.zh-CN.md)；较早日期的小节是历史快照，不能覆盖本节的当前口径。
 

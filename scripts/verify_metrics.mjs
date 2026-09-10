@@ -27,34 +27,34 @@ try {
   assert.equal(summary.acquisitionPackages, 553);
   assert.equal(summary.included, 558);
   assert.equal(summary.subjectIncluded, 558);
-  assert.equal(summary.subjects, 223_167);
-  assert.equal(summary.knownSubjects, 531);
-  assert.equal(summary.missingSubjects, 27);
-  assert.ok(approx(summary.hours, 3_841_983.586550394));
+  assert.equal(summary.subjects, 228_790);
+  assert.equal(summary.knownSubjects, 532);
+  assert.equal(summary.missingSubjects, 26);
+  assert.ok(approx(summary.hours, 3_841_899.399013502));
   assert.equal(summary.knownHours, 267);
   assert.equal(summary.missingHours, 291);
   assert.equal(summary.public, 420);
-  assert.deepEqual(eegProgress.categories.map((category) => category.units), [4, 98, 64, 142, 59, 135, 43, 23]);
-  assert.equal(eegProgress.catalog.rawSubjectKnownUnits, 541);
-  assert.equal(eegProgress.catalog.rawSubjectEntrySum, 261_018);
+  assert.deepEqual(eegProgress.categories.map((category) => category.units), [4, 97, 65, 142, 59, 135, 43, 23]);
+  assert.equal(eegProgress.catalog.rawSubjectKnownUnits, 542);
+  assert.equal(eegProgress.catalog.rawSubjectEntrySum, 266_641);
   assert.equal(eegProgress.catalog.rawDurationKnownUnits, 274);
-  assert.ok(approx(eegProgress.catalog.rawDurationRowSum, 3_845_506.5699559534));
+  assert.ok(approx(eegProgress.catalog.rawDurationRowSum, 3_845_422.3824190614));
   assert.equal(eegDownloadChecklistRows.length, 145);
-  assert.equal(eegProgress.acquisition.focusExactDurationAuditUnits, 61);
-  assert.equal(eegProgress.acquisition.focusRelationAwareExactDurationAuditUnits, 56);
+  assert.equal(eegProgress.acquisition.focusExactDurationAuditUnits, 62);
+  assert.equal(eegProgress.acquisition.focusRelationAwareExactDurationAuditUnits, 57);
   assert.equal(eegProgress.preprocessing.strictCompleteTargets, 62);
   assert.equal(eegProgress.preprocessing.effectiveTargets, 99);
   assert.equal(eegProgress.preprocessing.outputs, 136_214);
   assert.equal(aliases['EEG-0488'], 'EEG-0064');
   assert.equal(aliases['EEG-0072'], 'EEG-0071');
   assert.equal(aliases['EEG-0088'], 'EEG-0073');
-  assert.equal(excluded.rows.length, 1);
+  assert.equal(excluded.rows.length, 2);
   assert.equal(excluded.rows[0].id, 'EEG-0050');
   assert.equal(manifest.version, workbook.version);
   assert.equal(manifest.version, excluded.version);
   assert.equal(manifest.modalities.eeg.count, eeg.length);
   assert.equal(workbook.counts.eeg, eeg.length);
-  assert.equal(manifest.reviewDate, '2026-09-08');
+  assert.equal(manifest.reviewDate, '2026-09-10');
 
   console.log(JSON.stringify({
     status: 'PASS',
