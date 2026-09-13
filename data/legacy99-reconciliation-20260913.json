@@ -1,0 +1,52 @@
+{
+  "created_utc": "2026-09-13T15:21:18.453058+00:00",
+  "fixed_historical_targets": 99,
+  "historical_processed": 62,
+  "historical_local_pending": 14,
+  "historical_not_acquired": 23,
+  "current_time_domain_outputs_targets": 76,
+  "current_not_acquired": 22,
+  "excluded_non_time_domain": 1,
+  "downloaded_completely_unprocessed_targets": 0,
+  "local14_with_time_domain_outputs": 13,
+  "local14_excluded_beed": 1,
+  "newly_acquired_from_missing23": [
+    "EEG-0053"
+  ],
+  "processed_outside_legacy99": [
+    "EEG-0060"
+  ],
+  "legacy99_processed_current_disease": 61,
+  "legacy99_processed_other_categories": 15,
+  "current_disease_audit_targets": 62,
+  "pending_ids": [
+    "EEG-0011",
+    "EEG-0012",
+    "EEG-0020",
+    "EEG-0021",
+    "EEG-0022",
+    "EEG-0023",
+    "EEG-0024",
+    "EEG-0025",
+    "EEG-0026",
+    "EEG-0027",
+    "EEG-0028",
+    "EEG-0051",
+    "EEG-0066",
+    "EEG-0076",
+    "EEG-0086",
+    "EEG-0091",
+    "EEG-0096",
+    "EEG-0102",
+    "EEG-0103",
+    "EEG-0104",
+    "EEG-0105",
+    "EEG-0519"
+  ],
+  "sources": {
+    "registry_sha256": "b422fe5032813b9570f342521252d2bd449536a191d61d571b17c569c9a39711",
+    "remaining37_report_sha256": "f6590d887dc6d808f90228d3243256a9663fc1b39b8f1c4f60dfeb7cc2df677c",
+    "scope_sha256": "58d31c0c356ececd6ef4bf51f668c1d1fccdc613839062ed784919fbeb80a4af"
+  },
+  "note": "Processed means materialized and audited time-domain signals; native calibration and other QC reviews remain explicit. The historical 99-item universe is frozen for reconciliation, not the current taxonomy denominator."
+}
