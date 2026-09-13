@@ -1,35 +1,37 @@
 {
-  "created_utc": "2026-09-13T06:51:53.157331+00:00",
+  "created_utc": "2026-09-13T20:59:20.032547+00:00",
   "full_scan_passed": true,
   "all_audited": {
-    "catalog_targets": 77,
-    "signal_groups": 83,
-    "outputs": 255471,
-    "human_dataset_subject_entries": 29862,
-    "stored_dataset_subject_identifiers": 29951,
-    "unverified_named_subject_identifiers": 80,
+    "catalog_targets": 82,
+    "signal_groups": 89,
+    "outputs": 256134,
+    "human_dataset_subject_entries": 30324,
+    "stored_dataset_subject_identifiers": 30479,
+    "unverified_named_subject_identifiers": 146,
     "subject_id_status_output_counts": {
       "documented": 135522,
       "verified_from_file": 37217,
       "publisher_session_index_not_proven_subject": 159,
-      "derived_from_documented_filename": 82073,
-      "unavailable": 500
+      "derived_from_documented_filename": 82664,
+      "unavailable": 500,
+      "session_identifier_only_unresolved_ON_OFF_pairing": 24,
+      "unknown_file_to_person_mapping": 48
     },
-    "dataset_subject_entries_all_species": 29871,
-    "adapter_subject_entries": 30392,
-    "identity_namespace_entries": 25970,
+    "dataset_subject_entries_all_species": 30333,
+    "adapter_subject_entries": 30854,
+    "identity_namespace_entries": 26432,
     "identity_entries_by_species": {
-      "human": 25961,
+      "human": 26423,
       "canine": 9
     },
-    "outputs_without_reliable_subject_id": 659,
-    "duration_seconds": 173222974.27491966,
-    "duration_hours": 48117.49285414435,
-    "reader_input_duration_seconds": 173222832.41910577,
-    "output_bytes": 1973104651662,
-    "events": 4136971,
-    "full_one_second_patches": 173217048,
-    "remainder_samples": 1185255,
+    "outputs_without_reliable_subject_id": 731,
+    "duration_seconds": 177670487.0449194,
+    "duration_hours": 49352.913068033165,
+    "reader_input_duration_seconds": 177670345.1891055,
+    "output_bytes": 2000321896578,
+    "events": 4513715,
+    "full_one_second_patches": 177664374,
+    "remainder_samples": 1222609,
     "channel_counts": [
       1,
       2,
@@ -219,13 +221,13 @@
       20000.0
     ],
     "array_label_record_counts": {
-      "": 71509,
+      "": 71660,
       "abnormal": 2392,
       "acute_mild_tbi": 366,
       "adhd": 479,
       "adult_burn_icu_patient": 51,
       "als": 459,
-      "alzheimer_disease": 540,
+      "alzheimer_disease": 564,
       "amyotrophic_lateral_sclerosis": 1312,
       "autism_spectrum_disorder": 1216,
       "background": 7043,
@@ -253,7 +255,8 @@
       "generalized_ied": 573,
       "hanoi_0": 51,
       "has_any_axis_i_diagnosis_or_condition": 261,
-      "healthy_control": 10801,
+      "healthy_adolescent": 39,
+      "healthy_control": 10974,
       "healthy_elder_control": 2,
       "healthy_eyes_closed": 100,
       "healthy_eyes_open": 100,
@@ -295,7 +298,9 @@
       "normal_infant_first_year": 130,
       "occipital_ied": 417,
       "paranoid_schizophrenia": 14,
-      "parkinson_disease": 418,
+      "parkinson_disease": 525,
+      "parkinson_with_freezing_of_gait": 15,
+      "parkinson_without_freezing_of_gait": 16,
       "parkinsons_disease": 14,
       "participant_level_diagnosis_or_response_not_deposited": 3148,
       "pediatric_epilepsy": 30,
@@ -313,6 +318,8 @@
       "rest_0": 51,
       "right_motor_attempt": 600,
       "schizophrenia": 4350,
+      "schizophrenia_or_schizoaffective": 93,
+      "schizophrenia_symptoms_adolescent": 45,
       "seizure": 1097,
       "stroke": 419,
       "stroopeasy_0": 51,
@@ -364,8 +371,8 @@
       "yes": 998
     },
     "unit_status_output_counts": {
-      "verified_from_file": 113236,
-      "documented": 105668,
+      "verified_from_file": 113581,
+      "documented": 105752,
       "unknown": 1379,
       "high_confidence_inferred_from_same_EGI_source_and_official_NEMAR_conversion_not_encoded_in_legacy_MAT": 1515,
       "high_confidence_inferred_from_EEGLAB_export_convention_not_encoded_in_MAT": 53,
@@ -377,22 +384,25 @@
       "high_confidence_inferred_from_amplifier_range_and_exact_tenth_quantization_not_publisher_declared": 1991,
       "inferred_from_numeric_range": 2751,
       "inferred_from_numeric_range_and_primary_paper_amplitudes": 25449,
-      "inferred_from_numeric_range_and_nexus_dc_amplifier_export_not_publisher_declared": 16
+      "inferred_from_numeric_range_and_nexus_dc_amplifier_export_not_publisher_declared": 16,
+      "inferred_EEGLAB_convention_not_encoded": 186,
+      "inferred_voltage_scale_not_encoded": 48
     },
     "qc_flag_counts": {
       "postprocess_sustained_high_amplitude": 16006,
-      "channel_order_not_verified": 30905,
-      "unit_not_verified": 36567,
+      "channel_order_not_verified": 30953,
+      "unit_not_verified": 36801,
       "postprocess_extreme_peak": 731,
-      "subject_id_not_verified": 659,
+      "subject_id_not_verified": 731,
       "flatline_ge_5s": 398,
       "near_constant_channel": 152,
       "source_header_wider_physical_range": 14,
-      "implausible_amplitude_or_unit": 48,
+      "implausible_amplitude_or_unit": 49,
       "source_exceeds_documented_device_range": 61,
       "all_zero_channel": 23,
       "source_near_edf_physical_limit": 21,
-      "source_p99_near_documented_device_range": 13
+      "source_p99_near_documented_device_range": 13,
+      "participant_demographics_missing": 2
     },
     "reference_type_output_counts": {
       "average_reference": 71282,
@@ -428,7 +438,7 @@
       "linked-ear reference encoded as LE in the 19 scalp-channel labels": 181,
       "left earlobe": 919,
       "EPOC Flex two reference electrodes behind the ears": 1989,
-      "native_acquisition_reference_preserved": 121,
+      "native_acquisition_reference_preserved": 633,
       "software average of EARL and EARR applied to the publisher CMS-referenced signal": 245,
       "original BIDS says TP9 but derived FIF postprocessing reference is not recorded": 726,
       "publisher BIDS EEGReference AFz; deposited channel labels are bipolar derivations ending in Fz and are retained without rereferencing": 437,
@@ -452,7 +462,8 @@
       "Mastoid": 86,
       "electrode_between_Fz_and_Cz": 28,
       "average_reference_after_Cz_vertex_acquisition_reference": 9,
-      "not_declared": 1
+      "not_declared": 1,
+      "native_mastoid_referential_pairs": 151
     },
     "reference_status_output_counts": {
       "documented_from_tuh_montage_directory_and_edf_labels": 84880,
@@ -509,64 +520,72 @@
       "documented_in_publisher_metadata": 28,
       "documented_from_every_bids_eeg_json_as_Mastoide_derecha": 44,
       "documented_from_zenodo_and_primary_paper": 9,
-      "publisher_does_not_declare_reference_no_rereference_applied": 1
+      "publisher_does_not_declare_reference_no_rereference_applied": 1,
+      "EDF named F4-M1 C4-M1 O2-M1 C3-M2": 151,
+      "Pz acquisition reference documented in publisher Step1 script; not added as synthetic channel": 44,
+      "Pz acquisition reference in original paper DOI 10.1038/s41531-021-00158-x": 150,
+      "EEGLAB ref=common; acquisition electrode not specified in file; preserved": 186,
+      "Linked mandible reference and forehead ground reported for parent AD source in PLOS 2020": 48,
+      "Native reference preserved; electrode not specified by MSU publisher": 84
     },
     "split_output_counts": {
-      "test": 27029,
-      "train": 204404,
-      "validation": 23538,
-      "unassigned": 500
+      "test": 27092,
+      "train": 204877,
+      "validation": 23593,
+      "unassigned": 572
     },
     "raw_or_processed_output_counts": {
-      "raw": 112588,
-      "processed": 131544,
-      "partially_filtered": 10920,
+      "raw": 113052,
+      "processed": 131592,
+      "partially_filtered": 11071,
       "publisher_preprocessed_ica_pruned": 419
     },
     "array_error_outputs": 0,
     "outside_event_outputs": 1609,
     "outside_event_rows": 1620,
-    "values_read": 532287289199,
+    "values_read": 539593674711,
     "nonfinite_values": 0,
-    "sample_weighted_mean_model": 0.0032551465036101206,
-    "sample_weighted_std_model": 67.73843532034762,
+    "sample_weighted_mean_model": 0.0034463065130054724,
+    "sample_weighted_std_model": 67.30510751573789,
     "min_model": -925772.625,
     "max_model": 919889.0,
     "tail_fraction": {
-      "1": 0.04150810858220566,
-      "5": 0.009543344906176924,
-      "10": 0.006317568850949593,
-      "100": 0.00014667821979647355
+      "1": 0.04138425159627761,
+      "5": 0.009480107356224572,
+      "10": 0.0062599177701797865,
+      "100": 0.00014931706166339446
     }
   },
   "disease_human": {
-    "catalog_targets": 62,
-    "signal_groups": 65,
-    "outputs": 189256,
-    "human_dataset_subject_entries": 28451,
-    "stored_dataset_subject_identifiers": 28531,
-    "unverified_named_subject_identifiers": 80,
+    "catalog_targets": 67,
+    "signal_groups": 71,
+    "outputs": 189919,
+    "human_dataset_subject_entries": 28913,
+    "stored_dataset_subject_identifiers": 29059,
+    "unverified_named_subject_identifiers": 146,
     "subject_id_status_output_counts": {
       "documented": 117696,
       "verified_from_file": 28722,
       "publisher_session_index_not_proven_subject": 159,
-      "derived_from_documented_filename": 42179,
-      "unavailable": 500
+      "derived_from_documented_filename": 42770,
+      "unavailable": 500,
+      "session_identifier_only_unresolved_ON_OFF_pairing": 24,
+      "unknown_file_to_person_mapping": 48
     },
-    "dataset_subject_entries_all_species": 28451,
-    "adapter_subject_entries": 28574,
-    "identity_namespace_entries": 25007,
+    "dataset_subject_entries_all_species": 28913,
+    "adapter_subject_entries": 29036,
+    "identity_namespace_entries": 25469,
     "identity_entries_by_species": {
-      "human": 25007
+      "human": 25469
     },
-    "outputs_without_reliable_subject_id": 659,
-    "duration_seconds": 158683990.43499318,
-    "duration_hours": 44078.886231942546,
-    "reader_input_duration_seconds": 158683978.17068952,
-    "output_bytes": 1712286968763,
-    "events": 2643092,
-    "full_one_second_patches": 158681404,
-    "remainder_samples": 517287,
+    "outputs_without_reliable_subject_id": 731,
+    "duration_seconds": 163131503.20499292,
+    "duration_hours": 45314.30644583137,
+    "reader_input_duration_seconds": 163131490.94068927,
+    "output_bytes": 1739504213679,
+    "events": 3019836,
+    "full_one_second_patches": 163128730,
+    "remainder_samples": 554641,
     "channel_counts": [
       1,
       2,
@@ -706,13 +725,13 @@
       20000.0
     ],
     "array_label_record_counts": {
-      "": 61113,
+      "": 61264,
       "abnormal": 2392,
       "acute_mild_tbi": 366,
       "adhd": 479,
       "adult_burn_icu_patient": 51,
       "als": 459,
-      "alzheimer_disease": 540,
+      "alzheimer_disease": 564,
       "amyotrophic_lateral_sclerosis": 8,
       "autism_spectrum_disorder": 1216,
       "background": 7043,
@@ -733,7 +752,8 @@
       "frontal_ied": 458,
       "frontotemporal_dementia": 46,
       "generalized_ied": 573,
-      "healthy_control": 10749,
+      "healthy_adolescent": 39,
+      "healthy_control": 10922,
       "healthy_elder_control": 2,
       "healthy_eyes_closed": 100,
       "healthy_eyes_open": 100,
@@ -761,7 +781,9 @@
       "normal_abnormal_mapping_not_present_in_bids_export": 2417,
       "occipital_ied": 417,
       "paranoid_schizophrenia": 14,
-      "parkinson_disease": 418,
+      "parkinson_disease": 525,
+      "parkinson_with_freezing_of_gait": 15,
+      "parkinson_without_freezing_of_gait": 16,
       "parkinsons_disease": 14,
       "participant_level_diagnosis_or_response_not_deposited": 3148,
       "pediatric_epilepsy": 30,
@@ -776,6 +798,8 @@
       "recording_contains_publisher_annotated_seizure": 41,
       "right_motor_attempt": 600,
       "schizophrenia": 4350,
+      "schizophrenia_or_schizoaffective": 93,
+      "schizophrenia_symptoms_adolescent": 45,
       "seizure": 1097,
       "stroke": 419,
       "subjective_cognitive_decline": 3,
@@ -786,8 +810,8 @@
       "unanimous_no_neonatal_seizure": 22
     },
     "unit_status_output_counts": {
-      "verified_from_file": 91339,
-      "documented": 65775,
+      "verified_from_file": 91684,
+      "documented": 65859,
       "unknown": 1379,
       "high_confidence_inferred_from_EEGLAB_export_convention_not_encoded_in_MAT": 53,
       "inferred_from_integer_range_and_publisher_export_code_not_formally_documented": 51,
@@ -796,21 +820,24 @@
       "corrected_from_mislabeled_edf_header": 1989,
       "inferred_from_numeric_range": 2751,
       "inferred_from_numeric_range_and_primary_paper_amplitudes": 25449,
-      "inferred_from_numeric_range_and_nexus_dc_amplifier_export_not_publisher_declared": 16
+      "inferred_from_numeric_range_and_nexus_dc_amplifier_export_not_publisher_declared": 16,
+      "inferred_EEGLAB_convention_not_encoded": 186,
+      "inferred_voltage_scale_not_encoded": 48
     },
     "qc_flag_counts": {
       "postprocess_sustained_high_amplitude": 14945,
-      "channel_order_not_verified": 30774,
-      "unit_not_verified": 32142,
+      "channel_order_not_verified": 30822,
+      "unit_not_verified": 32376,
       "postprocess_extreme_peak": 501,
-      "subject_id_not_verified": 659,
+      "subject_id_not_verified": 731,
       "flatline_ge_5s": 365,
       "near_constant_channel": 124,
-      "implausible_amplitude_or_unit": 27,
+      "implausible_amplitude_or_unit": 28,
       "source_exceeds_documented_device_range": 61,
       "all_zero_channel": 23,
       "source_near_edf_physical_limit": 21,
-      "source_p99_near_documented_device_range": 13
+      "source_p99_near_documented_device_range": 13,
+      "participant_demographics_missing": 2
     },
     "reference_type_output_counts": {
       "average_reference": 61559,
@@ -839,7 +866,7 @@
       "referential_storage_unspecified_reference": 17089,
       "linked-ear reference encoded as LE in the 19 scalp-channel labels": 181,
       "EPOC Flex two reference electrodes behind the ears": 1989,
-      "native_acquisition_reference_preserved": 121,
+      "native_acquisition_reference_preserved": 633,
       "original BIDS says TP9 but derived FIF postprocessing reference is not recorded": 726,
       "publisher BIDS EEGReference AFz; deposited channel labels are bipolar derivations ending in Fz and are retained without rereferencing": 437,
       "offline_average_earlobes": 11527,
@@ -858,7 +885,8 @@
       "Mastoid": 86,
       "electrode_between_Fz_and_Cz": 28,
       "right_mastoid": 44,
-      "average_reference_after_Cz_vertex_acquisition_reference": 9
+      "average_reference_after_Cz_vertex_acquisition_reference": 9,
+      "native_mastoid_referential_pairs": 151
     },
     "reference_status_output_counts": {
       "documented_from_tuh_montage_directory_and_edf_labels": 74484,
@@ -906,34 +934,40 @@
       "not_documented_in_bids_or_brainvision_header": 94,
       "documented_in_publisher_metadata": 28,
       "documented_from_every_bids_eeg_json_as_Mastoide_derecha": 44,
-      "documented_from_zenodo_and_primary_paper": 9
+      "documented_from_zenodo_and_primary_paper": 9,
+      "EDF named F4-M1 C4-M1 O2-M1 C3-M2": 151,
+      "Pz acquisition reference documented in publisher Step1 script; not added as synthetic channel": 44,
+      "Pz acquisition reference in original paper DOI 10.1038/s41531-021-00158-x": 150,
+      "EEGLAB ref=common; acquisition electrode not specified in file; preserved": 186,
+      "Linked mandible reference and forehead ground reported for parent AD source in PLOS 2020": 48,
+      "Native reference preserved; electrode not specified by MSU publisher": 84
     },
     "split_output_counts": {
-      "test": 20173,
-      "train": 148749,
-      "validation": 19834,
-      "unassigned": 500
+      "test": 20236,
+      "train": 149222,
+      "validation": 19889,
+      "unassigned": 572
     },
     "raw_or_processed_output_counts": {
-      "raw": 92496,
-      "partially_filtered": 284,
-      "processed": 96057,
+      "raw": 92960,
+      "partially_filtered": 435,
+      "processed": 96105,
       "publisher_preprocessed_ica_pruned": 419
     },
     "array_error_outputs": 0,
     "outside_event_outputs": 424,
     "outside_event_rows": 433,
-    "values_read": 462065892278,
+    "values_read": 469372277790,
     "nonfinite_values": 0,
-    "sample_weighted_mean_model": 0.003999528501816867,
-    "sample_weighted_std_model": 72.61605876702284,
+    "sample_weighted_mean_model": 0.0042077001274194595,
+    "sample_weighted_std_model": 72.07747581045028,
     "min_model": -925772.625,
     "max_model": 919889.0,
     "tail_fraction": {
-      "1": 0.04236700128955195,
-      "5": 0.010257477474984069,
-      "10": 0.006823017677104808,
-      "100": 0.0001387013628814676
+      "1": 0.04221124465272395,
+      "5": 0.010173662746943203,
+      "10": 0.006748873625249047,
+      "100": 0.0001418591641447355
     }
   },
   "disease_canine": {
@@ -5844,6 +5878,157 @@
         "100": 1.292607232609297e-08
       }
     },
+    "EEG-0125": {
+      "name": "HMC clinical sleep EEG",
+      "subcategory": "Clinical_Sleep_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 151,
+      "human_dataset_subject_entries": 151,
+      "stored_dataset_subject_identifiers": 151,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 151
+      },
+      "dataset_subject_entries_all_species": 151,
+      "adapter_subject_entries": 151,
+      "identity_namespace_entries": 151,
+      "identity_entries_by_species": {
+        "human": 151
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 4119188.0,
+      "duration_hours": 1144.2188888888888,
+      "reader_input_duration_seconds": 4119188.0,
+      "output_bytes": 12271390507,
+      "events": 137545,
+      "full_one_second_patches": 4119188,
+      "remainder_samples": 0,
+      "channel_counts": [
+        4
+      ],
+      "source_sampling_rates": [
+        256.0
+      ],
+      "array_label_record_counts": {
+        "": 151
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 151
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "native_mastoid_referential_pairs": 151
+      },
+      "reference_status_output_counts": {
+        "EDF named F4-M1 C4-M1 O2-M1 C3-M2": 151
+      },
+      "split_output_counts": {
+        "train": 122,
+        "test": 13,
+        "validation": 16
+      },
+      "raw_or_processed_output_counts": {
+        "partially_filtered": 151
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 3295350400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0007013194324886632,
+      "sample_weighted_std_model": 0.5351635608359296,
+      "min_model": -16.21454429626465,
+      "max_model": 16.96018409729004,
+      "tail_fraction": {
+        "1": 0.02367506047308353,
+        "5": 0.0029094129109911953,
+        "10": 1.436266079625402e-06,
+        "100": 0.0
+      }
+    },
+    "EEG-0493": {
+      "name": "ADSZ (Alzheimer / MSU schizophrenia)",
+      "subcategory": "Neurodegenerative_and_Psychiatric_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 2,
+      "outputs": 132,
+      "human_dataset_subject_entries": 84,
+      "stored_dataset_subject_identifiers": 132,
+      "unverified_named_subject_identifiers": 48,
+      "subject_id_status_output_counts": {
+        "unknown_file_to_person_mapping": 48,
+        "derived_from_documented_filename": 84
+      },
+      "dataset_subject_entries_all_species": 84,
+      "adapter_subject_entries": 84,
+      "identity_namespace_entries": 84,
+      "identity_entries_by_species": {
+        "human": 84
+      },
+      "outputs_without_reliable_subject_id": 48,
+      "duration_seconds": 5448.0,
+      "duration_hours": 1.5133333333333334,
+      "reader_input_duration_seconds": 5448.0,
+      "output_bytes": 66492410,
+      "events": 132,
+      "full_one_second_patches": 5448,
+      "remainder_samples": 0,
+      "channel_counts": [
+        16,
+        19
+      ],
+      "source_sampling_rates": [
+        128.0
+      ],
+      "array_label_record_counts": {
+        "alzheimer_disease": 24,
+        "healthy_adolescent": 39,
+        "healthy_control": 24,
+        "schizophrenia_symptoms_adolescent": 45
+      },
+      "unit_status_output_counts": {
+        "inferred_voltage_scale_not_encoded": 48,
+        "documented": 84
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 48,
+        "subject_id_not_verified": 48,
+        "unit_not_verified": 48
+      },
+      "reference_type_output_counts": {
+        "native_acquisition_reference_preserved": 132
+      },
+      "reference_status_output_counts": {
+        "Linked mandible reference and forehead ground reported for parent AD source in PLOS 2020": 48,
+        "Native reference preserved; electrode not specified by MSU publisher": 84
+      },
+      "split_output_counts": {
+        "unassigned": 48,
+        "test": 9,
+        "train": 68,
+        "validation": 7
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 48,
+        "raw": 84
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 17678400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.01823364824024598,
+      "sample_weighted_std_model": 4.010931189097622,
+      "min_model": -50.30650329589844,
+      "max_model": 42.86051940917969,
+      "tail_fraction": {
+        "1": 0.6756162888044167,
+        "5": 0.17682561770295954,
+        "10": 0.02709905873834736,
+        "100": 0.0
+      }
+    },
     "EEG-0523": {
       "name": "SFARI_EEG multi-paradigm dataset",
       "subcategory": "Development_and_Lifespan",
@@ -5999,6 +6184,225 @@
         "10": 0.007532687286952164,
         "100": 5.640183203492071e-07
       }
+    },
+    "EEG-0583": {
+      "name": "Albrecht2019 schizophrenia modified Simon continuous EEG",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 186,
+      "human_dataset_subject_entries": 77,
+      "stored_dataset_subject_identifiers": 77,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 186
+      },
+      "dataset_subject_entries_all_species": 77,
+      "adapter_subject_entries": 77,
+      "identity_namespace_entries": 77,
+      "identity_entries_by_species": {
+        "human": 77
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 124817.64999999997,
+      "duration_hours": 34.67156944444444,
+      "reader_input_duration_seconds": 124817.64999999997,
+      "output_bytes": 5582914486,
+      "events": 114377,
+      "full_one_second_patches": 124726,
+      "remainder_samples": 18330,
+      "channel_counts": [
+        60
+      ],
+      "source_sampling_rates": [
+        1000.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 93,
+        "schizophrenia_or_schizoaffective": 93
+      },
+      "unit_status_output_counts": {
+        "inferred_EEGLAB_convention_not_encoded": 186
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 186,
+        "implausible_amplitude_or_unit": 1,
+        "participant_demographics_missing": 2
+      },
+      "reference_type_output_counts": {
+        "native_acquisition_reference_preserved": 186
+      },
+      "reference_status_output_counts": {
+        "EEGLAB ref=common; acquisition electrode not specified in file; preserved": 186
+      },
+      "split_output_counts": {
+        "train": 151,
+        "validation": 15,
+        "test": 20
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 186
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1497811800,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.08263218996152225,
+      "sample_weighted_std_model": 35.071190168984664,
+      "min_model": -6261.74169921875,
+      "max_model": 8832.888671875,
+      "tail_fraction": {
+        "1": 0.06675651707377389,
+        "5": 0.012608832431417619,
+        "10": 0.008591102032979043,
+        "100": 0.0014974304515427105
+      }
+    },
+    "EEG-0585": {
+      "name": "Singh2020 Parkinson pedaling raw EEG",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 44,
+      "human_dataset_subject_entries": 39,
+      "stored_dataset_subject_identifiers": 39,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 44
+      },
+      "dataset_subject_entries_all_species": 39,
+      "adapter_subject_entries": 39,
+      "identity_namespace_entries": 39,
+      "identity_entries_by_species": {
+        "human": 39
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 11954.759999999997,
+      "duration_hours": 3.3207666666666658,
+      "reader_input_duration_seconds": 11954.759999999997,
+      "output_bytes": 560430458,
+      "events": 4292,
+      "full_one_second_patches": 11935,
+      "remainder_samples": 3952,
+      "channel_counts": [
+        63
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 13,
+        "parkinson_with_freezing_of_gait": 15,
+        "parkinson_without_freezing_of_gait": 16
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 44
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "native_acquisition_reference_preserved": 44
+      },
+      "reference_status_output_counts": {
+        "Pz acquisition reference documented in publisher Step1 script; not added as synthetic channel": 44
+      },
+      "split_output_counts": {
+        "train": 34,
+        "test": 5,
+        "validation": 5
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 44
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 150629976,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0029741486212586815,
+      "sample_weighted_std_model": 0.45230353931957384,
+      "min_model": -21.592098236083984,
+      "max_model": 82.27371978759766,
+      "tail_fraction": {
+        "1": 0.012250211073524966,
+        "5": 0.000804248949757517,
+        "10": 0.0003184425920641453,
+        "100": 0.0
+      }
+    },
+    "EEG-0586": {
+      "name": "Singh2021 Parkinson interval timing raw EEG",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 150,
+      "human_dataset_subject_entries": 111,
+      "stored_dataset_subject_identifiers": 129,
+      "unverified_named_subject_identifiers": 18,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 126,
+        "session_identifier_only_unresolved_ON_OFF_pairing": 24
+      },
+      "dataset_subject_entries_all_species": 111,
+      "adapter_subject_entries": 111,
+      "identity_namespace_entries": 111,
+      "identity_entries_by_species": {
+        "human": 111
+      },
+      "outputs_without_reliable_subject_id": 24,
+      "duration_seconds": 186104.36000000004,
+      "duration_hours": 51.69565555555557,
+      "reader_input_duration_seconds": 186104.36000000004,
+      "output_bytes": 8736017055,
+      "events": 120398,
+      "full_one_second_patches": 186029,
+      "remainder_samples": 15072,
+      "channel_counts": [
+        63
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 43,
+        "parkinson_disease": 107
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 150
+      },
+      "qc_flag_counts": {
+        "subject_id_not_verified": 24
+      },
+      "reference_type_output_counts": {
+        "native_acquisition_reference_preserved": 150
+      },
+      "reference_status_output_counts": {
+        "Pz acquisition reference in original paper DOI 10.1038/s41531-021-00158-x": 150
+      },
+      "split_output_counts": {
+        "train": 98,
+        "test": 16,
+        "validation": 12,
+        "unassigned": 24
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 150
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 2344914936,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0003104038038596578,
+      "sample_weighted_std_model": 6.715469623451966,
+      "min_model": -4694.80859375,
+      "max_model": 4800.712890625,
+      "tail_fraction": {
+        "1": 0.019039673173031468,
+        "5": 0.0016565394080461434,
+        "10": 0.0007039969657986775,
+        "100": 0.00010777405871749712
+      }
     }
   },
   "known_identity_rules": {
@@ -6014,15 +6418,19 @@
     "Identity namespace entries are not a guarantee of globally unique people across anonymous releases.",
     "Stored-signal hours sum recording/trial duration, never multiply channels; cross-release partial overlaps may remain.",
     "Raw source bytes were not all reread; every selected NPZ was reread and signal-hashed.",
-    "Dataset full-scale correctness is not established solely by a passing file-format/hash validator."
+    "Dataset full-scale correctness is not established solely by a passing file-format/hash validator.",
+    "UCDDB native ADC outputs are complete as quarantine derivatives but remain outside physical-scale disease totals.",
+    "New Albrecht and ADSZ AD branches use explicitly inferred microvolt conventions and are excluded from the confirmed-unit pool.",
+    "ADSZ AD file-to-person mapping and 18 Singh2021 ON/OFF sessions remain unresolved; they are not reported as independently verified people.",
+    "Possible shared Iowa participants are conservatively grouped for splitting without claiming a confirmed global person merge."
   ],
   "unit_confirmed_joint": {
-    "outputs": 155729,
-    "duration_hours": 43375.604023609674,
-    "identity_namespace_entries": 24024,
-    "catalog_targets": 43,
-    "exact_unique_outputs": 154311,
-    "exact_unique_hours": 43159.82121805491,
+    "outputs": 156134,
+    "duration_hours": 44569.53412916521,
+    "identity_namespace_entries": 24409,
+    "catalog_targets": 47,
+    "exact_unique_outputs": 154716,
+    "exact_unique_hours": 44353.751323610464,
     "note": "documented/header-verified physical unit plus traceable identity; QC flags and missing diagnostic labels remain explicit"
   },
   "modma_native": {
@@ -6047,25 +6455,27 @@
   },
   "joint_validation": {
     "passed": true,
-    "rows": 189256,
-    "split_moved_rows": 1209,
+    "rows": 189919,
+    "split_moved_rows": 1267,
     "final_cross_split_counts": {
       "canonical_subject_id": 0,
       "signal_sha256": 0
     },
     "exact_signal_duplicate_groups": 1319,
     "exact_signal_duplicate_extra_outputs": 1444,
-    "distinct_exact_signal_hours": 43853.76682638703,
-    "manifest_sha256": "975193063f1df5bb166a2c61a007f1965bf92eb31f4bf9fbad70b6f20561764e",
+    "distinct_exact_signal_hours": 45089.18704027585,
+    "manifest_sha256": "7956972a422806f3dff7d0ece44267e8f191a8b0e72a90babf8f12a06d995120",
     "signal_and_branch_metadata_files_modified": 0,
     "preexisting_cross_split_identity_count": 75,
-    "preexisting_cross_split_exact_signal_count": 9
+    "preexisting_cross_split_exact_signal_count": 9,
+    "candidateOverlapGroups": 96
   },
   "integrity_evidence": {
-    "scan_manifest_sha256": "6060c2a8acd66baec8e6d79958cef0bb4d106e70b4c7288bd0b76c9e788f14bc",
-    "script_sha256": "da9f47e45e5e1ec1b7c647eed43ddc232a1d724cde135ac3a6b36d0cc326c604",
+    "scan_manifest_sha256": "ae254b4b7ed3329ac308a708caa870e41734409ef455886b98ffff2b6e951c16",
+    "script_sha256": "c4249979178d800b79755858893a119f270e9034c650e0afe8be7091aa0b1a60",
     "missing_outputs": 0,
     "unreferenced_npz_in_selected_directories": 0,
-    "source_array_scope": 255471
+    "source_array_scope": 256134,
+    "scan_method": "Incremental composition: previous 255471 full-array scans reused by immutable part SHA256; every new array fully reread, finite-scanned and signal-hashed; new source bytes independently checksum-verified"
   }
 }

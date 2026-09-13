@@ -5,6 +5,45 @@ import { createServer } from 'vite';
 
 const approx = (actual, expected, tolerance = 1e-8) => Math.abs(actual - expected) <= tolerance;
 
+test('six acquired disease sources retain physical-unit and person-identity gates', async () => {
+  const batch = JSON.parse(fs.readFileSync(new URL('../data/pending-six-preprocessing-20260913.json', import.meta.url), 'utf8'));
+  const audit = JSON.parse(fs.readFileSync(new URL('../data/disease-preprocessing-audit-20260913.json', import.meta.url), 'utf8'));
+  assert.equal(batch.passed, true);
+  assert.equal(batch.entries.length, 6);
+  assert.equal(batch.standardProcessedEntries, 67);
+  assert.equal(batch.downloadedCalibrationBlockedEntries, 1);
+  assert.equal(batch.notDownloadedEntries, 29);
+  assert.equal(batch.standardProcessedEntries + batch.downloadedCalibrationBlockedEntries + batch.notDownloadedEntries, 97);
+  const entry = id => batch.entries.find(row => row.id === id);
+  const ucddb = entry('EEG-0606');
+  assert.equal(ucddb.outputUnit, 'native_ADC_count');
+  assert.equal(ucddb.outputs, 25);
+  assert.equal(ucddb.verifiedSubjectEntries, 25);
+  assert.equal(audit.datasets[ucddb.id], undefined, 'uncalibrated ADC counts cannot enter microvolt totals');
+  assert.equal(entry('EEG-0583').verifiedSubjectEntries, 77);
+  assert.equal(entry('EEG-0583').unitReviewOutputs, entry('EEG-0583').outputs);
+  assert.equal(entry('EEG-0493').verifiedSubjectEntries, 84);
+  assert.equal(entry('EEG-0493').outputsWithoutVerifiedSubject, 48);
+  assert.equal(entry('EEG-0493').unitReviewOutputs, 48);
+  assert.equal(entry('EEG-0586').verifiedSubjectEntries, 111);
+  assert.ok(entry('EEG-0586').outputsWithoutVerifiedSubject >= 18);
+  const standard = batch.entries.filter(row => row.id !== ucddb.id);
+  assert.equal(standard.reduce((sum, row) => sum + row.outputs, 0), batch.standardOutputsAdded);
+  assert.ok(approx(standard.reduce((sum, row) => sum + row.hours, 0), batch.standardHoursAdded));
+  const server = await createServer({ configFile: false, server: { middlewareMode: true }, appType: 'custom' });
+  try {
+    const { currentCatalog } = await server.ssrLoadModule('/data/current-catalog.ts');
+    for (const row of batch.entries) {
+      const detail = currentCatalog.find(d => d.item.modality === 'eeg' && d.item.id === row.id);
+      assert.equal(detail.item.category, '医疗与疾病');
+      assert.equal(detail.item.acquisitionStatus, row.status);
+      assert.equal(detail.item.verified, '2026-09-13');
+    }
+  } finally {
+    await server.close();
+  }
+});
+
 test('current EEG catalog applies exclusions, aliases, taxonomy and source-package reconciliation', async () => {
   const server = await createServer({ configFile: false, server: { middlewareMode: true }, appType: 'custom' });
   try {
@@ -90,18 +129,18 @@ test('current EEG metrics distinguish source scope and fully audited human disea
 
     const audit = JSON.parse(fs.readFileSync(new URL('../data/disease-preprocessing-audit-20260913.json', import.meta.url), 'utf8'));
     assert.equal(preprocessing.metricScope, 'current_disease_human_materialized_outputs');
-    assert.equal(preprocessing.auditedTargets, 62);
-    assert.equal(preprocessing.outputs, 189_256);
-    assert.equal(preprocessing.subjectEntries, 28_451);
-    assert.equal(preprocessing.traceableIdentities, 25_007);
-    assert.equal(preprocessing.outputsWithoutReliableSubject, 659);
-    assert.ok(approx(preprocessing.signalHours, 44_078.886231942546));
-    assert.equal(preprocessing.eventRows, 2_643_092);
-    assert.equal(preprocessing.derivativeBytes, 1_712_286_968_763);
-    assert.equal(preprocessing.unitReviewTargets, 18);
-    assert.equal(preprocessing.unitConfirmedTargets, 43);
-    assert.equal(preprocessing.unitReviewOutputs, 32_142);
-    assert.equal(preprocessing.unitConfirmedOutputs, 155_729);
+    assert.equal(preprocessing.auditedTargets, 67);
+    assert.equal(preprocessing.outputs, 189_919);
+    assert.equal(preprocessing.subjectEntries, 28_913);
+    assert.equal(preprocessing.traceableIdentities, 25_469);
+    assert.equal(preprocessing.outputsWithoutReliableSubject, 731);
+    assert.ok(approx(preprocessing.signalHours, 45_314.30644583137));
+    assert.equal(preprocessing.eventRows, 3_019_836);
+    assert.equal(preprocessing.derivativeBytes, 1_739_504_213_679);
+    assert.equal(preprocessing.unitReviewTargets, 20);
+    assert.equal(preprocessing.unitConfirmedTargets, 47);
+    assert.equal(preprocessing.unitReviewOutputs, 32_376);
+    assert.equal(preprocessing.unitConfirmedOutputs, 156_134);
     const datasets = Object.values(audit.datasets);
     assert.equal(datasets.length, preprocessing.auditedTargets);
     assert.equal(datasets.reduce((sum, d) => sum + d.outputs, 0), preprocessing.outputs);

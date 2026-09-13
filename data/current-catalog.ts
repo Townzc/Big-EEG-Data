@@ -2,6 +2,7 @@ import { eegCatalogRows, eegReconciliation } from './eeg-duration';
 import { fmriDatasets } from './fmri-catalog';
 import revisions from './catalog-revisions.json';
 import diseaseAudit from './disease-preprocessing-audit-20260913.json';
+import pendingSix from './pending-six-preprocessing-20260913.json';
 import { diseaseTags, doiList, type CatalogItem, type CatalogDetail, type Modality } from '../lib/catalog';
 
 const categoryNames: Record<string,string> = { '01':'信号可靠性','02':'医疗与疾病','03':'意识与状态','04':'认知与情感','05':'自然刺激解码','06':'运动与交互','07':'通用与多范式','08':'健康与人群' };
@@ -142,5 +143,22 @@ for (const [id, audit] of Object.entries(diseaseAudit.datasets)) {
     { label: '输出格式', value: 'NPZ float32 [channel,time] + JSON · 200 Hz', note: '单位有依据时为 μV/100；联合训练必须采用新清单 split。MODMA 三通道 native int64 分支单独隔离。' },
     { label: '处理后单位待核记录', value: String(unitReview), note: '含推断或未知单位；文件完整性通过不替代单位、参考和标签证据。' },
   );
+}
+// New acquisition results also cover revision-only catalog rows. Apply this
+// after source revisions so old acquisition prose cannot hide current status.
+for (const entry of pendingSix.entries) {
+  const detail = details.find(d => d.item.modality === 'eeg' && d.item.id === entry.id);
+  if (!detail) throw new Error(`Processed source missing from catalog: ${entry.id}`);
+  detail.item.acquisitionStatus = entry.status;
+  detail.item.acquisitionNote = entry.note;
+  detail.item.verified = '2026-09-13';
+  detail.notes.unshift(entry.note);
+  detail.sources.unshift({ label: '本轮六项处理结果与限制', url: 'https://github.com/Townzc/Big-EEG-Data/blob/main/PREPROCESSING_SIX_20260913.zh-CN.md' });
+  if (entry.outputUnit === 'native_ADC_count') {
+    detail.metrics.unshift(
+      { label: '原始计数隔离产物', value: `${entry.outputs} 份 / ${entry.hours.toFixed(6)} h`, note: '200 Hz float32 [channel,time]；NV 与微伏之间的校准未确认，不计入标准微伏汇总。' },
+      { label: '待补证据', value: '物理校准、睡眠分期起点', note: '呼吸事件按 PSG 时钟对齐；原始睡眠分期序列完整保留，未臆造 epoch 对齐。' },
+    );
+  }
 }
 export const currentCatalog = details;

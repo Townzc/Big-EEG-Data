@@ -1176,6 +1176,48 @@
           "url": "https://github.com/Townzc/Big-EEG-Data/blob/main/DISEASE_AUDIT_20260913.zh-CN.md"
         }
       ]
+    },
+    "EEG-0125": {
+      "preprocessingStatus": "COMPLETE_200HZ_UV100_FULLY_VALIDATED",
+      "preprocessingNotes": "保留 F4-M1、C4-M1、O2-M1、C3-M2 四路 EEG；去除 EMG/EOG/ECG。EDF 微伏增益逐文件独立复核，原生参考保留。保留 0.2 Hz 采集高通，补低通与 50 Hz notch，256→200 Hz；原 LP 35/128 Hz 的差异逐文件标记。W/N1/N2/N3/R 及开关灯事件按原秒数保留；没有逐人疾病诊断。151 个匿名 PSG 记录身份不宣称与其他来源全局唯一。",
+      "acquisitionStatus": "已下载，统一格式产物全量验证通过",
+      "acquisitionNote": "保留 F4-M1、C4-M1、O2-M1、C3-M2 四路 EEG；去除 EMG/EOG/ECG。EDF 微伏增益逐文件独立复核，原生参考保留。保留 0.2 Hz 采集高通，补低通与 50 Hz notch，256→200 Hz；原 LP 35/128 Hz 的差异逐文件标记。W/N1/N2/N3/R 及开关灯事件按原秒数保留；没有逐人疾病诊断。151 个匿名 PSG 记录身份不宣称与其他来源全局唯一。",
+      "validatedBatch": "batch117"
+    },
+    "EEG-0493": {
+      "preprocessingStatus": "OUTPUTS_FULLY_VALIDATED_UNIT_REVIEW_REMAINS",
+      "preprocessingNotes": "48 个 AD/老年对照片段，实际 41 段 8 s、3 段 10 s、3 段 12 s、1 段 14 s，19 通道、128→200 Hz；保留所有原始点，不统一截成论文概述的 8 s。按父来源已带限 1–30 Hz 的数据仅重采样，不再次滤波。微伏数值尺度、列顺序为明确推断；AD 文件与独立人物的映射未公开，全部 split=unassigned，不能把 48 个文件直接报成 48 个已核实人物。 84 个 MSU 少年样本（45 有精神分裂症症状、39 健康），16 通道、每段 60 s。原发布者明确 mkV、128 Hz 和每通道连续 7680 点的排列；保留文件身份与疾病分组，0.1–62.72 Hz + 50 Hz notch、200 Hz、μV/100。",
+      "acquisitionStatus": "已下载，统一格式产物全量验证通过",
+      "acquisitionNote": "48 个 AD/老年对照片段，实际 41 段 8 s、3 段 10 s、3 段 12 s、1 段 14 s，19 通道、128→200 Hz；保留所有原始点，不统一截成论文概述的 8 s。按父来源已带限 1–30 Hz 的数据仅重采样，不再次滤波。微伏数值尺度、列顺序为明确推断；AD 文件与独立人物的映射未公开，全部 split=unassigned，不能把 48 个文件直接报成 48 个已核实人物。 84 个 MSU 少年样本（45 有精神分裂症症状、39 健康），16 通道、每段 60 s。原发布者明确 mkV、128 Hz 和每通道连续 7680 点的排列；保留文件身份与疾病分组，0.1–62.72 Hz + 50 Hz notch、200 Hz、μV/100。",
+      "validatedBatch": "batch117"
+    },
+    "EEG-0583": {
+      "preprocessingStatus": "OUTPUTS_FULLY_VALIDATED_UNIT_REVIEW_REMAINS",
+      "preprocessingNotes": "实际 77 个 EEG MAT：46 个患者组 P、31 个对照组 N；其中 1 个 P 文件缺人口学表行，保留文件组别并标记证据限制，不补猜人口学或个人诊断细节。文件为连续 1000 Hz、单 trial、空 ICA、无 CSD 的导出，与镜像 README 的概括不一致；按文件处理，移除作者指定的四路眼电后保留 60 路。按 EEGLAB 合并边界拆段并保留全部源样点；0.1–75 Hz + 60 Hz notch，降至 200 Hz。MAT 无单位/增益字段，微伏仅为显式推断，排除确认单位训练池。原 ref=common 保留；1 个连续段触发幅值异常 QC，保留原值和标记，未作裁剪。",
+      "acquisitionStatus": "已下载，统一格式产物全量验证通过",
+      "acquisitionNote": "实际 77 个 EEG MAT：46 个患者组 P、31 个对照组 N；其中 1 个 P 文件缺人口学表行，保留文件组别并标记证据限制，不补猜人口学或个人诊断细节。文件为连续 1000 Hz、单 trial、空 ICA、无 CSD 的导出，与镜像 README 的概括不一致；按文件处理，移除作者指定的四路眼电后保留 60 路。按 EEGLAB 合并边界拆段并保留全部源样点；0.1–75 Hz + 60 Hz notch，降至 200 Hz。MAT 无单位/增益字段，微伏仅为显式推断，排除确认单位训练池。原 ref=common 保留；1 个连续段触发幅值异常 QC，保留原值和标记，未作裁剪。",
+      "validatedBatch": "batch117"
+    },
+    "EEG-0585": {
+      "preprocessingStatus": "COMPLETE_200HZ_UV100_FULLY_VALIDATED",
+      "preprocessingNotes": "39 名受试者：13 健康对照、13 PD 无冻结步态、13 PD 有冻结步态。读取原始 VHDR/EEG/VMRK，应用头文件 µV 分辨率一次，保留 63 路 EEG、去除 X/Y/Z 加速度；原 Pz 参考不合成额外通道。500→200 Hz、0.1–75 Hz + 60 Hz notch。分组、MOCA/FoG/UPDRS、S1 提示及 S2 GO 按作者工作簿/代码保留；原生分段边界不跨越。",
+      "acquisitionStatus": "已下载，统一格式产物全量验证通过",
+      "acquisitionNote": "39 名受试者：13 健康对照、13 PD 无冻结步态、13 PD 有冻结步态。读取原始 VHDR/EEG/VMRK，应用头文件 µV 分辨率一次，保留 63 路 EEG、去除 X/Y/Z 加速度；原 Pz 参考不合成额外通道。500→200 Hz、0.1–75 Hz + 60 Hz notch。分组、MOCA/FoG/UPDRS、S1 提示及 S2 GO 按作者工作簿/代码保留；原生分段边界不跨越。",
+      "validatedBatch": "batch117"
+    },
+    "EEG-0586": {
+      "preprocessingStatus": "COMPLETE_200HZ_UV100_FULLY_VALIDATED",
+      "preprocessingNotes": "129 组原始会话；111 个身份可由工作簿核对（74 PD、37 对照），另 18 组 ON/OFF 会话（对应 24 个连续段）缺正式人物配对，不能报为 18 个独立新增人，也不使用镜像的推测配对/药物状态。保留 63 路 EEG，去除 Resp 或 X/Y/Z 辅助通道；保留 Iz/I1/I2 等实际导联名和 Pz 参考，不插值。500→200 Hz、0.1–75 Hz + 60 Hz notch。原始触发码保留，推測的语义不冒充已确认标签。",
+      "acquisitionStatus": "已下载，统一格式产物全量验证通过",
+      "acquisitionNote": "129 组原始会话；111 个身份可由工作簿核对（74 PD、37 对照），另 18 组 ON/OFF 会话（对应 24 个连续段）缺正式人物配对，不能报为 18 个独立新增人，也不使用镜像的推测配对/药物状态。保留 63 路 EEG，去除 Resp 或 X/Y/Z 辅助通道；保留 Iz/I1/I2 等实际导联名和 Pz 参考，不插值。500→200 Hz、0.1–75 Hz + 60 Hz notch。原始触发码保留，推測的语义不冒充已确认标签。",
+      "validatedBatch": "batch117"
+    },
+    "EEG-0606": {
+      "preprocessingStatus": "NATIVE_COUNTS_VALIDATED_PHYSICAL_CALIBRATION_BLOCKED",
+      "preprocessingNotes": "25 人、25 个 PSG REC，另 25 个 Lifecard 文件是 ECG，未混入 EEG。只保留 C3-A2/C4-A1，128→200 Hz。EDF 标为 NV、物理范围 0..1，缺少可核实的 counts→μV 换算；生成 float32 native_ADC_count 隔离产物，不除 100，不加入统一微伏训练池。保留 AHI、人口学、按 PSG 时钟对齐的呼吸事件；原始睡眠分期序列完整保留，但 30 s epoch 的起点缺乏明确时间戳，不臆造对齐。两份分期文件共 15 个未在发布说明中定义的代码 8 原样保留并标记，不猜成睡眠阶段。",
+      "acquisitionStatus": "已下载，原始计数隔离完成，待物理校准",
+      "acquisitionNote": "25 人、25 个 PSG REC，另 25 个 Lifecard 文件是 ECG，未混入 EEG。只保留 C3-A2/C4-A1，128→200 Hz。EDF 标为 NV、物理范围 0..1，缺少可核实的 counts→μV 换算；生成 float32 native_ADC_count 隔离产物，不除 100，不加入统一微伏训练池。保留 AHI、人口学、按 PSG 时钟对齐的呼吸事件；原始睡眠分期序列完整保留，但 30 s epoch 的起点缺乏明确时间戳，不臆造对齐。两份分期文件共 15 个未在发布说明中定义的代码 8 原样保留并标记，不猜成睡眠阶段。",
+      "validatedBatch": "batch117"
     }
   },
   "focusRowPatches": {
@@ -1353,22 +1395,22 @@
   "preprocessing": {
     "metricScope": "current_disease_human_materialized_outputs",
     "auditDate": "2026-09-13",
-    "auditedTargets": 62,
-    "outputs": 189256,
-    "subjectEntries": 28451,
-    "traceableIdentities": 25007,
-    "outputsWithoutReliableSubject": 659,
-    "signalHours": 44078.886231942546,
-    "eventRows": 2643092,
-    "derivativeBytes": 1712286968763,
-    "unitReviewOutputs": 32142,
-    "unitReviewTargets": 18,
-    "unitConfirmedTargets": 43,
-    "unitConfirmedOutputs": 155729,
-    "unitConfirmedHours": 43375.604023609674,
-    "unitConfirmedIdentities": 24024,
+    "auditedTargets": 67,
+    "outputs": 189919,
+    "subjectEntries": 28913,
+    "traceableIdentities": 25469,
+    "outputsWithoutReliableSubject": 731,
+    "signalHours": 45314.30644583137,
+    "eventRows": 3019836,
+    "derivativeBytes": 1739504213679,
+    "unitReviewOutputs": 32376,
+    "unitReviewTargets": 20,
+    "unitConfirmedTargets": 47,
+    "unitConfirmedOutputs": 156134,
+    "unitConfirmedHours": 44569.53412916521,
+    "unitConfirmedIdentities": 24409,
     "reportUrl": "https://github.com/Townzc/Big-EEG-Data/blob/main/DISEASE_AUDIT_20260913.zh-CN.md",
-    "deduplicationNote": "人数包含患者和对照；25,007 为按已知同源关系合并的可追踪身份，不能保证跨所有匿名库唯一。时长为文件累计、不乘通道数；完全相同数组去重后为 43,853.766826 h，仍可能含部分时间重叠。犬类、VitalDB、其他分类及可选 TUEG 重叠分支不计入本疾病人类汇总。"
+    "deduplicationNote": "人数含对照；25,469 个按有证据关系合并的身份，不保证跨匿名库全球唯一。时长不乘通道数；UCDDB 原始计数隔离、犬、VitalDB、其他类别与可选 TUEG 重叠支单列。候选 Iowa 人物只合并 split，不宣称身份已确认。"
   },
   "supplementalRows": [
     {
@@ -1581,5 +1623,25 @@
     "EEG-0107": {},
     "EEG-0523": {},
     "EEG-0582": {}
+  },
+  "historicalPreprocessingBeforeBatch117": {
+    "metricScope": "current_disease_human_materialized_outputs",
+    "auditDate": "2026-09-13",
+    "auditedTargets": 62,
+    "outputs": 189256,
+    "subjectEntries": 28451,
+    "traceableIdentities": 25007,
+    "outputsWithoutReliableSubject": 659,
+    "signalHours": 44078.886231942546,
+    "eventRows": 2643092,
+    "derivativeBytes": 1712286968763,
+    "unitReviewOutputs": 32142,
+    "unitReviewTargets": 18,
+    "unitConfirmedTargets": 43,
+    "unitConfirmedOutputs": 155729,
+    "unitConfirmedHours": 43375.604023609674,
+    "unitConfirmedIdentities": 24024,
+    "reportUrl": "https://github.com/Townzc/Big-EEG-Data/blob/main/DISEASE_AUDIT_20260913.zh-CN.md",
+    "deduplicationNote": "人数包含患者和对照；25,007 为按已知同源关系合并的可追踪身份，不能保证跨所有匿名库唯一。时长为文件累计、不乘通道数；完全相同数组去重后为 43,853.766826 h，仍可能含部分时间重叠。犬类、VitalDB、其他分类及可选 TUEG 重叠分支不计入本疾病人类汇总。"
   }
 }

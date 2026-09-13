@@ -43,10 +43,10 @@ try {
   assert.equal(eegProgress.acquisition.focusExactDurationAuditUnits, 62);
   assert.equal(eegProgress.acquisition.focusRelationAwareExactDurationAuditUnits, 57);
   assert.equal(eegProgress.preprocessing.metricScope, 'current_disease_human_materialized_outputs');
-  assert.equal(eegProgress.preprocessing.auditedTargets, 62);
-  assert.equal(eegProgress.preprocessing.outputs, 189_256);
-  assert.equal(eegProgress.preprocessing.traceableIdentities, 25_007);
-  assert.equal(eegProgress.preprocessing.unitReviewTargets, 18);
+  assert.equal(eegProgress.preprocessing.auditedTargets, 67);
+  assert.equal(eegProgress.preprocessing.outputs, 189_919);
+  assert.equal(eegProgress.preprocessing.traceableIdentities, 25_469);
+  assert.equal(eegProgress.preprocessing.unitReviewTargets, 20);
   assert.equal(aliases['EEG-0488'], 'EEG-0064');
   assert.equal(aliases['EEG-0072'], 'EEG-0071');
   assert.equal(aliases['EEG-0088'], 'EEG-0073');

@@ -17,9 +17,12 @@ test("server-renders the current EEG research workflow", async () => {
   assert.match(html,/<title>Big Data of EEG<\/title>/i);
   assert.match(html,/查找 EEG 数据集/);assert.match(html,/疾病主题/);assert.match(html,/研究人群/);
   assert.match(html,/采集记录与数据预处理复核/);assert.match(html,/brain-data-catalog-current\.xlsx/);
-  assert.match(html,/疾病类全量复核结果/);assert.match(html,/189,256/);assert.match(html,/25,007/);
+  const { preprocessing } = JSON.parse(fs.readFileSync(new URL('../data/eeg-catalog-reconciliation.json', import.meta.url), 'utf8'));
+  assert.match(html,/疾病类全量复核结果/);
+  for (const value of [preprocessing.outputs, preprocessing.traceableIdentities, preprocessing.unitReviewOutputs]) assert.ok(html.includes(value.toLocaleString('en-US')));
   assert.match(html,/disease-preprocessing-summary-20260913\.csv/);
-  assert.match(html,/32,142/);assert.match(html,/匿名来源仍可能有人物重叠/);
+  assert.match(html,/匿名来源仍可能有人物重叠/);
+  assert.match(html,/67 个有统一格式产物/);assert.match(html,/UCDDB 已完成原始计数隔离、待微伏校准/);assert.match(html,/29 个未下载/);
   assert.match(html,/EEG_catalog_20260906\.xlsx/);assert.match(html,/lang="zh-CN"/);
   assert.doesNotMatch(html,/Your site is taking shape|Building your site/);
 });
