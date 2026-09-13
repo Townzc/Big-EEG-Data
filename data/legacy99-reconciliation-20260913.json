@@ -48,5 +48,15 @@
     "remaining37_report_sha256": "f6590d887dc6d808f90228d3243256a9663fc1b39b8f1c4f60dfeb7cc2df677c",
     "scope_sha256": "58d31c0c356ececd6ef4bf51f668c1d1fccdc613839062ed784919fbeb80a4af"
   },
-  "note": "Processed means materialized and audited time-domain signals; native calibration and other QC reviews remain explicit. The historical 99-item universe is frozen for reconciliation, not the current taxonomy denominator."
+  "note": "Processed means materialized and audited time-domain signals; native calibration and other QC reviews remain explicit. The historical 99-item universe is frozen for reconciliation, not the current taxonomy denominator.",
+  "legacy99_current_disease_targets": 76,
+  "legacy99_current_disease_processed": 61,
+  "legacy99_current_disease_not_acquired": 15,
+  "legacy99_other_category_targets": 22,
+  "legacy99_other_category_processed": 15,
+  "legacy99_other_category_not_acquired": 7,
+  "full_current_catalog_disease_entries": 97,
+  "full_current_catalog_disease_entries_outside_legacy99": 21,
+  "catalog_version": "933e72511ea6",
+  "catalog_index_sha256": "eaa98b50ce1f7a2f64d9f97ccfc04f3f893677b1af0ee64d4b756168e5d6a616"
 }
