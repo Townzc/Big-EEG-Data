@@ -51,3 +51,5 @@
 因此，原 14 项中是 **9 个当前疾病目标 + 4 个其他分类的已处理目标 + 1 个排除项**。没有“14 个已下载却完全没处理”的积压；已有产物仍可能有单位、参考或标签待核，MODMA 三通道也仍不能作为已校准微伏数据使用。
 
 原始依据：`results/remaining37_download_reconciliation_20260909.md`、`results/local14_preprocessing_summary_20260909.md`、本次 `results/disease_audit_20260913/scope.json`。完整 [99 行对应清单](data/legacy99-crosswalk-20260913.csv) 与 [机器可读统计](data/legacy99-reconciliation-20260913.json) 已同步本仓库。
+
+网站全部 97 项的下载状态另已逐项核实：**62 已处理、6 已下载未统一预处理、29 未下载**。这 6 项在旧 99 之外；详见[当前 97 项状态](DISEASE97_STATUS_20260913.zh-CN.md)。

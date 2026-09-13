@@ -1,0 +1,98 @@
+id,name,category,status,local_dataset_relative_path,local_non_partial_files,local_non_partial_bytes,audited_outputs,evidence
+EEG-0005,A dataset of neonatal EEG recordings with seizure annotations,医疗与疾病,processed_and_audited,,,,79,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0006,American Epilepsy Society Seizure Prediction Challenge,医疗与疾病,processed_and_audited,,,,473,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0008,Bonn EEG Seizure Dataset,医疗与疾病,processed_and_audited,,,,500,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0009,CHB-MIT,医疗与疾病,processed_and_audited,,,,686,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0010,Criteria for defining interictal epileptiform discharges in EEG: a clinical validation study,医疗与疾病,processed_and_audited,,,,100,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0011,EPILEPSIAE European Epilepsy Database,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0013,HFO (High-Frequency Oscillations),医疗与疾病,processed_and_audited,,,,30,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0014,HMS Harmful Brain Activity Classification,医疗与疾病,processed_and_audited,,,,17089,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0015,HUP iEEG Epilepsy Dataset,医疗与疾病,processed_and_audited,,,,348,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0016,vEpiSet (Interictal Epileptiform Discharge EEG Dataset),医疗与疾病,processed_and_audited,,,,25449,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0017,Intracranial entrainment reveals statistical learning across levels of abstraction,医疗与疾病,processed_and_audited,,,,30,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0018,Kaggle UPenn and Mayo Clinic Seizure Detection,医疗与疾病,processed_and_audited,,,,34993,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0020,MORGOTH HEP,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0021,MORGOTH IIIC-Test,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0022,MORGOTH IIIC-Train,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0023,MORGOTH MoE-External,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0024,MORGOTH MoE-Internal,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0025,MORGOTH ON,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0026,MORGOTH SAI,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0027,MORGOTH SN2-Test,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0028,MORGOTH SN2-Train,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0030,OpenNeuro ds003029 Epilepsy iEEG Multicenter,医疗与疾病,processed_and_audited,,,,102,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0031,SeizeIT2,医疗与疾病,processed_and_audited,,,,2850,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0032,Siena Scalp EEG,医疗与疾病,processed_and_audited,,,,41,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0033,TUEP (TUH Epilepsy),医疗与疾病,processed_and_audited,,,,2808,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0034,TUEV (TUH Events),医疗与疾病,processed_and_audited,,,,518,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0035,TUSL (TUH Slowing),医疗与疾病,processed_and_audited,,,,112,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0036,TUSZ (TUH Seizure),医疗与疾病,processed_and_audited,,,,8140,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0039,AD-Auditory,医疗与疾病,processed_and_audited,,,,35,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0040,AD65 (Alzheimer/FTD),医疗与疾病,processed_and_audited,,,,88,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0041,Alzheimer Risk Classification Sample-enrichment EEG,医疗与疾病,processed_and_audited,,,,44,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0042,APAVA,医疗与疾病,processed_and_audited,,,,663,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0043,CAUEEG,医疗与疾病,processed_and_audited,,,,1379,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0044,Dementia Photo-stimulation Open-eyes EEG,医疗与疾病,processed_and_audited,,,,88,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0045,"EEG p-adic quantum potential accurately identifies depression, schizophrenia and cognitive decline",医疗与疾病,processed_and_audited,,,,249,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0047,"Resting-state high-density EEG using EGI GES 300 for healthy elders, SCD, MCI and Alzheimer's disease",医疗与疾病,processed_and_audited,,,,9,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0048,Adult ADHD EEG,医疗与疾病,processed_and_audited,,,,880,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0051,B-SNIP1,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0052,Depression resting (BDI),医疗与疾病,processed_and_audited,,,,243,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0053,EEG Data for ADHD,医疗与疾病,processed_and_audited,,,,121,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0054,EEG in schizophrenia,医疗与疾病,processed_and_audited,,,,28,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0055,FEPCR,医疗与疾病,processed_and_audited,,,,143,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0056,Fribourg Ultimatum Game in Schizophrenia Study,医疗与疾病,processed_and_audited,,,,86,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0057,MDD (Mumtaz),医疗与疾病,processed_and_audited,,,,181,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0058,MODMA,医疗与疾病,processed_and_audited,,,,106,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0059,Power Spectral Density-Based Resting-State EEG Classification of First-Episode Psychosis,医疗与疾病,processed_and_audited,,,,726,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0060,Schizophrenia-81,医疗与疾病,processed_and_audited,,,,11527,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0061,TDBRAIN,医疗与疾病,processed_and_audited,,,,3268,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0062,Acute Mild TBI DPX Cognitive-control EEG,医疗与疾病,processed_and_audited,,,,223,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0063,Clinical BCI Challenge WCCI 2020 (Stroke Motor Attempt),医疗与疾病,processed_and_audited,,,,1200,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0065,ALS-Spelling (EEG-ET),医疗与疾病,processed_and_audited,,,,1989,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0070,BNCI 006-2014 (SCP training in stroke),医疗与疾病,processed_and_audited,,,,16,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0071,"BNCI 008-2014 (P300 speller, ALS)",医疗与疾病,processed_and_audited,,,,8,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0074,CCEP ECoG Dataset across age 4-51,医疗与疾病,processed_and_audited,,,,117,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0075,"Dataset of electrophysiological signals (EEG, ECG, EMG) during Music therapy with adult burn patients in the Intensive Care Unit.",医疗与疾病,processed_and_audited,,,,51,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0078,EEG: 3-Stim Auditory Oddball and Rest in Parkinson’s,医疗与疾病,processed_and_audited,,,,75,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0079,EEG: Reinforcement Learning in Parkinson’s,医疗与疾病,processed_and_audited,,,,84,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0080,EEG: Simon Conflict in Parkinson's,医疗与疾病,processed_and_audited,,,,84,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0081,EEG: Three-Stim Auditory Oddball and Rest in Acute and Chronic TBI,医疗与疾病,processed_and_audited,,,,421,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0083,Intraoperative Medianus-tibialis Stimulation EEG,医疗与疾病,processed_and_audited,,,,437,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0084,Liu2024,医疗与疾病,processed_and_audited,,,,50,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0085,Lower-Limb-MI (stroke),医疗与疾病,processed_and_audited,,,,419,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0087,Ultra High-Density EEG of Interictal Migraine and Controls,医疗与疾病,processed_and_audited,,,,117,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0089,Mu and Beta Oscillatory Changes during a motor task following Rehabilitation in Chronic MCA Stroke: Insights from EEG,医疗与疾病,processed_and_audited,,,,27,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0092,PD-EEG Resting-State & Walking EEG,医疗与疾病,processed_and_audited,,,,277,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0093,EEG Mortality Dataset in Parkinson's Disease,医疗与疾病,processed_and_audited,,,,94,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0094,PD31 (Parkinson),医疗与疾病,processed_and_audited,,,,46,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0098,Tinnitus Acoustic Therapy EEG Database,医疗与疾病,processed_and_audited,,,,877,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0100,UNMDataset,医疗与疾病,processed_and_audited,,,,28,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0102,BrainLat (Latin American EEG),医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0103,MORGOTH HEEDB-Pretrain,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0104,MORGOTH HEEDB-Test,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0105,MORGOTH HEEDB-Train,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0106,NMT Scalp EEG Dataset,医疗与疾病,processed_and_audited,,,,2417,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0107,TUAB (TUH Abnormal),医疗与疾病,processed_and_audited,,,,2993,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0125,HMC (Haaglanden),医疗与疾病,downloaded_not_preprocessed,02_Biometrics_and_Disease/Clinical_Sleep_Disorders/HMC_Haaglanden,462,16888536540,0,151 个 EEG/PSG EDF + 151 个评分 EDF；RECORDS 全齐，文件长度与 EDF 头一致；残留 8.81 GB ZIP .part 不计成功载荷
+EEG-0150,I-CARE,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0493,ADSZ,医疗与疾病,downloaded_not_preprocessed,03_Consciousness_and_State/Resting_State/ADSZ,1,18277631,0,"18,277,631-byte ZIP，132 个内部文件；CRC 与保留的源 SHA-256 均通过；尚未接入统一读取器"
+EEG-0523,SFARI_EEG multi-paradigm dataset,医疗与疾病,processed_and_audited,,,,2563,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0582,TUEG (TUH EEG Corpus),医疗与疾病,processed_and_audited,,,,60431,已有当前统一格式产物；单位、参考、标签、QC 问题按分支保留
+EEG-0583,Albrecht2019,医疗与疾病,downloaded_not_preprocessed,02_Biometrics_and_Disease/Mental_and_Developmental_Disorders/Albrecht2019,378,28914297378,0,77 个 CC_EEG MAT 信号文件，MATLAB 文件头有效；另有行为数据与代码；单位/参考/来源完整性待适配审计
+EEG-0585,Singh2020,医疗与疾病,downloaded_not_preprocessed,02_Biometrics_and_Disease/Neurological_Disorders/Singh2020,1124,4068828665,0,39 组原始 BrainVision 文件；VHDR 指向 EEG/VMRK 均存在，无 Git LFS 占位符；发布者处理文件不算本项目已处理
+EEG-0586,Singh2021,医疗与疾病,downloaded_not_preprocessed,02_Biometrics_and_Disease/Neurological_Disorders/Singh2021,392,23488664219,0,129 组原始 BrainVision 文件；VHDR 指向 EEG/VMRK 均存在，无 Git LFS 占位符
+EEG-0591,Mignot Nature Communications (MNC),医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0592,Comprehensive Polysomnography (CPS),医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0593,LOFT-HF,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0602,SeizeIT1,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0603,DCSM Sleep Staging Dataset,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0604,George B. Moody PhysioNet Challenge 2026 (PN2026),医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0605,STAGES,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-0606,UCDDB Sleep Apnea Database,医疗与疾病,downloaded_not_preprocessed,02_Biometrics_and_Disease/Sleep_Disordered_Breathing/UCDDB,106,1368708310,0,25 个 PSG REC + 25 个 Lifecard EDF；RECORDS 全齐，文件长度与 EDF 头一致；ECG 与 EEG 不混计
+EEG-0608,Dreem Open Dataset – Obstructive (DOD-O),医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-NEW-0001,Neurotech EEG Dataset,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-NEW-0002,Resting-State EEG in Parkinson's Disease and Healthy Controls,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-NEW-0003,ValidPain2 - Performance of the Nociception Level Index and the PainSensor to predict and detect responsiveness to nociceptive procedures in critical care patients,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-NEW-0004,A Comprehensive Multimodal Dataset for Investigating Cognitive Impairment in Obstructive Sleep Apnea,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
+EEG-NEW-0005,EEG: Probabilistic Selection and Depression,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
