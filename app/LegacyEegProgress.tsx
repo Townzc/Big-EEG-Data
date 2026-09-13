@@ -94,13 +94,13 @@ export default function LegacyEegProgress() {
 
     <section className="progress-section" id="progress" aria-labelledby="progress-title">
       <div className="section-heading">
-        <div><p className="eyebrow">DATA PREPROCESSING</p><h2 id="progress-title">严格 raw-continuous 预处理进度</h2></div>
-        <p>进度分母只覆盖 canonical raw-continuous targets；processed-only、非 EEG、确认重复项和未通过 terminal validator 的部分输出均不计完成。</p>
+        <div><p className="eyebrow">DATA PREPROCESSING · 2026-09-13</p><h2 id="progress-title">疾病类预处理全量复核</h2></div>
+        <p>统计当前疾病类的人类完整记录、trial 和连续段；犬类、麻醉与其他分类另列。文件通过校验后仍保留单位、参考、标签和幅值问题。</p>
       </div>
       <div className="progress-lenses">
         <article><span>01 · 当前目录</span><strong>{catalog.units}</strong><h3>可检索 EEG 行</h3><p>{catalog.families} 个 family；{catalog.acquisitionPackages} 个 acquisition package。目录行数不是预处理分母。</p></article>
-        <article><span>02 · 严格生产完成</span><strong>{preprocessing.strictCompleteTargets}/{preprocessing.effectiveTargets}</strong><h3>{number(preprocessing.completionPercent)}% canonical targets</h3><p>已剔除 batch80 重复和不属于 raw-continuous KPI 的目标。</p></article>
-        <article><span>03 · 已验证产物</span><strong>{number(preprocessing.outputs, 0)}</strong><h3>outputs</h3><p>{number(preprocessing.signalHours)} signal-hours · {number(preprocessing.subjectEntries, 0)} adapter subject entries。</p></article>
+        <article><span>02 · 疾病类已处理</span><strong>{preprocessing.auditedTargets}</strong><h3>已全量复核的目标</h3><p>其中 {preprocessing.unitConfirmedTargets} 个目标进入单位有依据且身份可追踪的联合清单；{preprocessing.unitReviewTargets} 个目标含单位待核分支。</p></article>
+        <article><span>03 · 已验证产物</span><strong>{number(preprocessing.outputs, 0)}</strong><h3>完整记录 / trial / 段</h3><p>{number(preprocessing.signalHours)} h · {number(preprocessing.traceableIdentities, 0)} 个按已知关系合并的身份，含健康对照。</p></article>
       </div>
       <div className="progress-table-card">
         <h3>八大类别原始行规模</h3>
@@ -116,7 +116,7 @@ export default function LegacyEegProgress() {
       <div className="method-strip" aria-label="疾病与临床数据预处理方法摘要">
         {eegProgress.methodology.map((item, index) => <article key={item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item}</p></article>)}
       </div>
-      <p className="source-note">快照：{eegProgress.snapshotDate}。严格累计 {number(preprocessing.outputs, 0)} outputs、{number(preprocessing.subjectEntries, 0)} adapter subject entries、{number(preprocessing.signalHours)} signal-hours、{number(preprocessing.eventRows, 0)} event rows、{number(preprocessing.derivativeBytes, 0)} derivative bytes（约 {number(preprocessing.derivativeTiB, 2)} TiB）。{preprocessing.deduplicationNote}</p>
+      <p className="source-note">复核：{preprocessing.auditDate}。各库已核实人数相加 {number(preprocessing.subjectEntries, 0)}，按已知身份合并后 {number(preprocessing.traceableIdentities, 0)}；另有 {preprocessing.outputsWithoutReliableSubject} 份缺可靠人物映射。{number(preprocessing.eventRows, 0)} 行事件，{number(preprocessing.derivativeBytes, 0)} bytes（{number(preprocessing.derivativeTiB, 2)} TiB）。{preprocessing.deduplicationNote} <a href={preprocessing.reportUrl}>完整复核报告</a> · <a href="/disease-preprocessing-summary-20260913.csv" download>62 项明细 CSV</a></p>
     </section>
   </div>;
 }

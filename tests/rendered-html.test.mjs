@@ -16,7 +16,10 @@ test("server-renders the current EEG research workflow", async () => {
   const response=await render();assert.equal(response.status,200);const html=(await response.text()).replace(/<!--.*?-->/gs,'');
   assert.match(html,/<title>Big Data of EEG<\/title>/i);
   assert.match(html,/查找 EEG 数据集/);assert.match(html,/疾病主题/);assert.match(html,/研究人群/);
-  assert.match(html,/历史采集记录与数据预处理方法/);assert.match(html,/brain-data-catalog-current\.xlsx/);
+  assert.match(html,/采集记录与数据预处理复核/);assert.match(html,/brain-data-catalog-current\.xlsx/);
+  assert.match(html,/疾病类全量复核结果/);assert.match(html,/189,256/);assert.match(html,/25,007/);
+  assert.match(html,/disease-preprocessing-summary-20260913\.csv/);
+  assert.match(html,/32,142/);assert.match(html,/匿名来源仍可能有人物重叠/);
   assert.match(html,/EEG_catalog_20260906\.xlsx/);assert.match(html,/lang="zh-CN"/);
   assert.doesNotMatch(html,/Your site is taking shape|Building your site/);
 });

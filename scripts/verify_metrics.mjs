@@ -42,9 +42,11 @@ try {
   assert.equal(eegDownloadChecklistRows.length, 145);
   assert.equal(eegProgress.acquisition.focusExactDurationAuditUnits, 62);
   assert.equal(eegProgress.acquisition.focusRelationAwareExactDurationAuditUnits, 57);
-  assert.equal(eegProgress.preprocessing.strictCompleteTargets, 62);
-  assert.equal(eegProgress.preprocessing.effectiveTargets, 99);
-  assert.equal(eegProgress.preprocessing.outputs, 136_214);
+  assert.equal(eegProgress.preprocessing.metricScope, 'current_disease_human_materialized_outputs');
+  assert.equal(eegProgress.preprocessing.auditedTargets, 62);
+  assert.equal(eegProgress.preprocessing.outputs, 189_256);
+  assert.equal(eegProgress.preprocessing.traceableIdentities, 25_007);
+  assert.equal(eegProgress.preprocessing.unitReviewTargets, 18);
   assert.equal(aliases['EEG-0488'], 'EEG-0064');
   assert.equal(aliases['EEG-0072'], 'EEG-0071');
   assert.equal(aliases['EEG-0088'], 'EEG-0073');
@@ -54,7 +56,7 @@ try {
   assert.equal(manifest.version, excluded.version);
   assert.equal(manifest.modalities.eeg.count, eeg.length);
   assert.equal(workbook.counts.eeg, eeg.length);
-  assert.equal(manifest.reviewDate, '2026-09-10');
+  assert.equal(manifest.reviewDate, '2026-09-13');
 
   console.log(JSON.stringify({
     status: 'PASS',

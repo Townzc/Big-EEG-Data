@@ -53,7 +53,7 @@ test('current EEG catalog applies exclusions, aliases, taxonomy and source-packa
   }
 });
 
-test('current EEG metrics are relation-aware and preprocessing totals use the strict canonical scope', async () => {
+test('current EEG metrics distinguish source scope and fully audited human disease outputs', async () => {
   const server = await createServer({ configFile: false, server: { middlewareMode: true }, appType: 'custom' });
   try {
     const { eegProgress } = await server.ssrLoadModule('/data/eeg-progress.ts');
@@ -88,15 +88,35 @@ test('current EEG metrics are relation-aware and preprocessing totals use the st
     assert.equal(acquisition.gpfsFreeBytes, 1_528_505_040_896);
     assert.equal(acquisition.retainedFailedStagingApproxGB, 119.1);
 
-    assert.equal(preprocessing.metricScope, 'strict_raw_continuous_canonical_targets');
-    assert.equal(preprocessing.strictCompleteTargets, 62);
-    assert.equal(preprocessing.effectiveTargets, 99);
-    assert.equal(preprocessing.outputs, 136_214);
-    assert.equal(preprocessing.subjectEntries, 21_777);
-    assert.ok(approx(preprocessing.signalHours, 43_182.68243472222));
-    assert.equal(preprocessing.eventRows, 3_464_162);
-    assert.equal(preprocessing.derivativeBytes, 1_686_520_768_213);
-    assert.match(preprocessing.deduplicationNote, /batch80/);
+    const audit = JSON.parse(fs.readFileSync(new URL('../data/disease-preprocessing-audit-20260913.json', import.meta.url), 'utf8'));
+    assert.equal(preprocessing.metricScope, 'current_disease_human_materialized_outputs');
+    assert.equal(preprocessing.auditedTargets, 62);
+    assert.equal(preprocessing.outputs, 189_256);
+    assert.equal(preprocessing.subjectEntries, 28_451);
+    assert.equal(preprocessing.traceableIdentities, 25_007);
+    assert.equal(preprocessing.outputsWithoutReliableSubject, 659);
+    assert.ok(approx(preprocessing.signalHours, 44_078.886231942546));
+    assert.equal(preprocessing.eventRows, 2_643_092);
+    assert.equal(preprocessing.derivativeBytes, 1_712_286_968_763);
+    assert.equal(preprocessing.unitReviewTargets, 18);
+    assert.equal(preprocessing.unitConfirmedTargets, 43);
+    assert.equal(preprocessing.unitReviewOutputs, 32_142);
+    assert.equal(preprocessing.unitConfirmedOutputs, 155_729);
+    const datasets = Object.values(audit.datasets);
+    assert.equal(datasets.length, preprocessing.auditedTargets);
+    assert.equal(datasets.reduce((sum, d) => sum + d.outputs, 0), preprocessing.outputs);
+    assert.equal(datasets.reduce((sum, d) => sum + d.human_dataset_subject_entries, 0), preprocessing.subjectEntries);
+    assert.ok(approx(datasets.reduce((sum, d) => sum + d.duration_hours, 0), preprocessing.signalHours));
+    assert.equal(audit.disease_human.outputs + audit.disease_canine.outputs + audit.other_categories.outputs + audit.optional_tueg_overlap.outputs, audit.all_audited.outputs);
+    for (const id of ['EEG-0007','EEG-0077','EEG-0609']) assert.equal(audit.datasets[id], undefined);
+    assert.equal(audit.full_scan_passed, true);
+    assert.equal(audit.modma_native.passed, true);
+    assert.equal(audit.modma_native.old_corrupted_outputs, 7);
+    assert.equal(audit.modma_native.old_corrupted_values, 1_703_972);
+    assert.match(audit.modma_native.format, /int64/);
+    assert.deepEqual(audit.joint_validation.final_cross_split_counts, { canonical_subject_id: 0, signal_sha256: 0 });
+    assert.match(preprocessing.deduplicationNote, /匿名/);
+    assert.equal(preprocessing.completionPercent, undefined, 'source catalog rows are not a preprocessing denominator');
   } finally {
     await server.close();
   }
@@ -115,7 +135,7 @@ test('new local and official evidence preserves release scopes and production ga
     assert.equal(eeg0047.item.evidence, 'calculated');
     assert.equal(eeg0047.item.localFiles, 4);
     assert.equal(eeg0047.item.access, '公开下载');
-    assert.match(eeg0047.item.acquisitionStatus, /AUDIT_COMPLETE_PRODUCTION_GATED/);
+    assert.match(eeg0047.item.acquisitionStatus, /PREPROCESSING_AUDITED/);
     assert.match(eeg0047.item.subjectScope, /来源研究总体 230/);
     assert.ok(eeg0047.sources.some((source) => source.url.includes('PMC7349850')));
     assert.ok(eeg0047.sources.some((source) => source.url.includes('NS_4x_File_Formats')));
@@ -184,6 +204,8 @@ test('new local and official evidence preserves release scopes and production ga
       assert.match(entry.original.reference, /单极/);
       assert.match(entry.original.rereference, /Bipolar.*CAR/);
       assert.ok(!/unknown unit\/reference|unit and reference remain unresolved/i.test(entry.notes.join(' ')));
+      assert.equal(entry.original.preprocessingStatus, 'COMPLETE_200HZ_UV100_FULLY_VALIDATED');
+      assert.ok(!/preprocessing remains pending|does not mark preprocessing complete/i.test(entry.notes.join(' ')));
     }
     assert.match(detail('EEG-0058').notes.join(' '), /已邮件询问.*等待作者回复/);
     const adhd = detail('EEG-0053');
@@ -194,6 +216,10 @@ test('new local and official evidence preserves release scopes and production ga
     assert.match(adhd.item.acquisitionStatus, /MIRROR_RAW_SIGNAL/);
     assert.match(adhd.item.acquisitionNote, /403/);
     assert.match(adhd.notes.join(' '), /Channel_Labels|通道标签/);
+    assert.equal(adhd.original.physicalUnit, 'μV');
+    assert.equal(adhd.original.preprocessingStatus, 'COMPLETE_200HZ_UV100_FULLY_VALIDATED');
+    assert.match(adhd.notes.join(' '), /μV\/100/);
+    assert.ok(adhd.metrics.some(metric => metric.label === '处理范围可追踪身份' && metric.value === '121'));
     const vital = detail('EEG-0609');
     assert.equal(vital.item.category, '意识与状态');
     assert.equal(vital.item.subcategory, 'Anesthesia');
@@ -209,6 +235,8 @@ test('new local and official evidence preserves release scopes and production ga
     assert.match(vital.item.subjectScope, /6,090.*6,388/);
     assert.match(vital.notes.join(' '), /BIS\/BIS.*派生/);
     assert.match(vital.notes.join(' '), /Nyquist.*64 Hz/);
+    assert.match(vital.notes.join(' '), /5,344.*16,785.*18,097/);
+    assert.equal(vital.original.preprocessingStatus, 'COMPLETE_WITH_ONE_NATIVE_CLOCK_QUARANTINE');
     const schizophrenia = detail('EEG-0060').item;
     assert.equal(schizophrenia.subjects, 40);
     assert.equal(schizophrenia.records, 11527);

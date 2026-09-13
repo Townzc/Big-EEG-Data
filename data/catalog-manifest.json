@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "version": "d44e21c5bfbc",
-  "reviewDate": "2026-09-10",
+  "version": "933e72511ea6",
+  "reviewDate": "2026-09-13",
   "reconciliation": {
     "historicalEegSnapshotRows": 563,
     "aliases": [
@@ -211,7 +211,7 @@
           {
             "ids": "EEG-0106",
             "name": "NMT",
-            "status": "下载完成；9,676 files / 14,819,739,145 B，待信号与时长审计",
+            "status": "2026-09-13 全量产物复核：人类分支 2,417 个已核实身份、2,417 份完整记录/trial/段、488.966944 h；200 Hz float32 [channel,time] NPZ + JSON。0 份单位仍待核/推断。该处理范围与原始发布/下载规模分别统计，其他 QC、参考和标签证据见本次报告。",
             "sourcePackageId": "NEMAR:nm000181"
           },
           {
@@ -229,49 +229,57 @@
           {
             "ids": "EEG-0006 / EEG-0014 / EEG-0018 / EEG-0060",
             "name": "4 个 Kaggle 项目",
-            "status": "4 项全量信号审计均完成：AES 7 subjects / 8,002 signal MAT / 1,333.6667 h，HMS 1,950 / 17,301 / 390.16 h，UPenn 12 / 58,837 / 16.3502 h；三者保持生产门禁。Schizophrenia 的 11,527-output processed-trial scope 已通过 batch91 终端生产验证 2026-09-10 AES/UPenn 的 μV/单极参考及 Bipolar/CAR 建议已由项目负责人确认登记，尚未执行新预处理。",
+            "status": "2026-09-13 全量产物复核：人类分支 2 个已核实身份、473 份完整记录/trial/段、78.833333 h；200 Hz float32 [channel,time] NPZ + JSON。0 份单位仍待核/推断。该处理范围与原始发布/下载规模分别统计，其他 QC、参考和标签证据见本次报告。 犬类独立统计。负责人确认 μV/颅外或颅骨固定单极参考，原数组已除 100，本次只落实元数据，不重复增益或缩放；基线保留原参考，Bipolar/CAR 仅为建议。 2026-09-13 全量产物复核：人类分支 1,950 个已核实身份、17,089 份完整记录/trial/段、380.280000 h；200 Hz float32 [channel,time] NPZ + JSON。0 份单位仍待核/推断。该处理范围与原始发布/下载规模分别统计，其他 QC、参考和标签证据见本次报告。 2026-09-13 全量产物复核：人类分支 8 个已核实身份、34,993 份完整记录/trial/段、9.723367 h；200 Hz float32 [channel,time] NPZ + JSON。0 份单位仍待核/推断。该处理范围与原始发布/下载规模分别统计，其他 QC、参考和标签证据见本次报告。 犬类独立统计。负责人确认 μV/颅外或颅骨固定单极参考，原数组已除 100，本次只落实元数据，不重复增益或缩放；基线保留原参考，Bipolar/CAR 仅为建议。 2026-09-13 全量产物复核：人类分支 40 个已核实身份、11,527 份完整记录/trial/段、9.605833 h；200 Hz float32 [channel,time] NPZ + JSON。0 份单位仍待核/推断。该处理范围与原始发布/下载规模分别统计，其他 QC、参考和标签证据见本次报告。",
             "sourcePackageId": "Kaggle:four-project-batch"
           },
           {
             "ids": "EEG-0061",
             "name": "TDBRAIN",
-            "status": "3 个授权归档已全部解包（10,306 files / 21,521,819,132 B）；1,464 个 BDF 记录、120.5164 h 已审计，adapter provenance 门禁仍保留",
+            "status": "2026-09-13 全量产物复核：人类分支 1,464 个已核实身份、3,268 份完整记录/trial/段、120.516389 h；200 Hz float32 [channel,time] NPZ + JSON。0 份单位仍待核/推断。该处理范围与原始发布/下载规模分别统计，其他 QC、参考和标签证据见本次报告。",
             "sourcePackageId": "TDBRAIN:DUA-release"
           },
           {
             "ids": "EEG-0053",
             "name": "EEG Data for ADHD",
-            "status": "公开镜像 121 MAT / 33,110,477 bytes / 4.701352 h 下载及信号审计完成；官方 S3 403，通道 DOCX/CED 未取得",
+            "status": "2026-09-13 全量产物复核：人类分支 121 个已核实身份、121 份完整记录/trial/段、4.701360 h；200 Hz float32 [channel,time] NPZ + JSON。0 份单位仍待核/推断。该处理范围与原始发布/下载规模分别统计，其他 QC、参考和标签证据见本次报告。 负责人已确认 μV，已从原 MAT 重跑 μV/100；61 ADHD / 60 Control，19 通道，128→200 Hz，0.1–62.72 Hz + 50 Hz notch，98/7/16 划分。Channel_Labels.docx 已恢复；CED 坐标和确切 A1/A2 组合未取得。",
             "sourcePackageId": "IEEE:28547:ADHD"
           },
           {
             "ids": "EEG-0609",
             "name": "VitalDB",
-            "status": "2026-09-10 全量下载完成：6,388 个 .vital，加元数据和 SHA256SUMS 共 6,395 个源文件 / 102,456,727,132 bytes（95.420 GiB）。全部发布者 SHA-256 校验通过，失败 0；逐记录有效 EEG 小时与预处理尚未审计。Slurm 2162561。",
+            "status": "PhysioNet 1.0.0 静态文件全部 6,388 病例已核验：5,566 例 / 5,345 患者有原始 EEG；5,565 例 / 5,344 患者生成 16,785 个连续段、18,097.513249 h，96,852,696,463 bytes，全部校验通过。128→200 Hz、0.1–62.72 Hz、60 Hz notch、μV/100；BIS/BIS 是派生指标，不替代 EEG。原始 Nyquist 64 Hz，保留 BIS 原生参考。病例 4552 包时钟歧义另存原始包、未进入标准分支。API 的 5,871 例 / 5,623 患者为另一快照；不可与本地静态包混用。",
             "sourcePackageId": "PhysioNet:vitaldb:1.0.0"
           },
           {
             "ids": "EEG-0058",
             "name": "MODMA",
-            "status": "数据已下载；项目负责人已发邮件询问单位/参考细节，等待作者回复",
+            "status": "2026-09-13 全量产物复核：人类分支 53 个已核实身份、106 份完整记录/trial/段、16.629376 h；200 Hz float32 [channel,time] NPZ + JSON。53 份单位仍待核/推断。该处理范围与原始发布/下载规模分别统计，其他 QC、参考和标签证据见本次报告。 128 通道 53 人 / 106 份：53 份 dot-probe 有单位证据，53 份 rest 仍为推断。3 通道 55 人另存 250 Hz native int64 [time,3]；已修复旧 int32 的 7 文件 / 1,703,972 值溢出，55 份逐值核验通过。项目负责人已邮件询问单位/参考/编码，等待作者回复；不猜测电压换算。两个分支身份重叠，整库 55 人不相加。",
             "sourcePackageId": "MODMA"
           }
         ],
         "note": "The 273 value is a retained historical completion-evidence audit. Current focus counts are recomputed from the reconciled checklist; a download marker is not a signal audit or preprocessing completion result. The 19 applied/waiting rows correspond to about three access workflows (one BDSP credential/application covers HEEDB plus 16 MORGOTH logical rows, plus MESA and CAUEEG). Exact-audit workload retains five TUEG child rows; relation-aware totals exclude them."
       },
       "preprocessing": {
-        "metricScope": "strict_raw_continuous_canonical_targets",
-        "strictCompleteTargets": 62,
-        "effectiveTargets": 99,
-        "outputs": 136214,
-        "subjectEntries": 21777,
-        "signalHours": 43182.68243472222,
-        "eventRows": 3464162,
-        "derivativeBytes": 1686520768213,
-        "deduplicationNote": "Validated production totals include batches through EEG-0098 batch89 and EEG-0521 batch90, and exclude duplicate EEG-0072 batch80. The denominator also excludes confirmed duplicate/non-EEG/processed-only targets from the raw-continuous KPI.",
-        "completionPercent": 62.62626262626263,
-        "derivativeTiB": 1.5338817031197323,
-        "note": "Subject entries are adapter-level entries, not globally unique people. Strict totals exclude smoke outputs, partial shards, confirmed duplicate batch80 and processed-only/non-EEG targets from the raw-continuous KPI."
+        "metricScope": "current_disease_human_materialized_outputs",
+        "auditDate": "2026-09-13",
+        "auditedTargets": 62,
+        "outputs": 189256,
+        "subjectEntries": 28451,
+        "traceableIdentities": 25007,
+        "outputsWithoutReliableSubject": 659,
+        "signalHours": 44078.886231942546,
+        "eventRows": 2643092,
+        "derivativeBytes": 1712286968763,
+        "unitReviewOutputs": 32142,
+        "unitReviewTargets": 18,
+        "unitConfirmedTargets": 43,
+        "unitConfirmedOutputs": 155729,
+        "unitConfirmedHours": 43375.604023609674,
+        "unitConfirmedIdentities": 24024,
+        "reportUrl": "https://github.com/Townzc/Big-EEG-Data/blob/main/DISEASE_AUDIT_20260913.zh-CN.md",
+        "deduplicationNote": "人数包含患者和对照；25,007 为按已知同源关系合并的可追踪身份，不能保证跨所有匿名库唯一。时长为文件累计、不乘通道数；完全相同数组去重后为 43,853.766826 h，仍可能含部分时间重叠。犬类、VitalDB、其他分类及可选 TUEG 重叠分支不计入本疾病人类汇总。",
+        "derivativeTiB": 1.557315926004776,
+        "note": "Current disease-category human outputs, including continuous records and publisher trials. Counts include controls. Known shared identities are merged; anonymous cross-corpus overlap may remain. The unit-confirmed view also requires traceable identity and excludes the repeated processed FEP subset. Historical strict raw-only KPIs are not the denominator of this inventory."
       }
     },
     "fmri": {

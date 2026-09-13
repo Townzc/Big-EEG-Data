@@ -1,6 +1,7 @@
 import { eegCatalogRows, eegReconciliation } from './eeg-duration';
 import { fmriDatasets } from './fmri-catalog';
 import revisions from './catalog-revisions.json';
+import diseaseAudit from './disease-preprocessing-audit-20260913.json';
 import { diseaseTags, doiList, type CatalogItem, type CatalogDetail, type Modality } from '../lib/catalog';
 
 const categoryNames: Record<string,string> = { '01':'信号可靠性','02':'医疗与疾病','03':'意识与状态','04':'认知与情感','05':'自然刺激解码','06':'运动与交互','07':'通用与多范式','08':'健康与人群' };
@@ -126,5 +127,20 @@ for (const sourcePackage of eegReconciliation.sourcePackages) {
 for (const detail of details) {
   const other = details.find(x=>x.item.modality!==detail.item.modality&&x.item.family===detail.item.family);
   if(other) detail.item.relations.push({id:other.item.id,kind:'multimodal',note:`同一来源另有 ${other.item.modality.toUpperCase()} 入口；不据此推断同步采集。`,source:other.item.url});
+}
+// Derivative statistics have their own scope. Source-release subjects, files,
+// sampling rate and duration above remain source metrics, not output metrics.
+for (const [id, audit] of Object.entries(diseaseAudit.datasets)) {
+  const detail = details.find(entry => entry.item.id === id && entry.item.modality === 'eeg');
+  if (!detail) throw new Error(`Audited disease dataset missing from current catalog: ${id}`);
+  if (detail.item.category !== '医疗与疾病') throw new Error(`Audit taxonomy is stale for ${id}`);
+  const unitReview = Object.entries(audit.unit_status_output_counts)
+    .reduce((sum, [status, count]) => sum + (['documented', 'verified_from_file'].includes(status) ? 0 : count), 0);
+  detail.metrics.unshift(
+    { label: '2026-09-13 · 已复核人类产物', value: `${audit.outputs.toLocaleString('en-US')} 份 / ${audit.duration_hours.toFixed(6)} h`, note: '完整记录、trial 或连续段；时长不乘通道数，与原始发布范围分别统计。' },
+    { label: '处理范围可追踪身份', value: String(audit.human_dataset_subject_entries), note: '包含健康对照；0 表示无可追踪人物 ID，不代表没有参与者。不同数据集仍可共享身份。' },
+    { label: '输出格式', value: 'NPZ float32 [channel,time] + JSON · 200 Hz', note: '单位有依据时为 μV/100；联合训练必须采用新清单 split。MODMA 三通道 native int64 分支单独隔离。' },
+    { label: '处理后单位待核记录', value: String(unitReview), note: '含推断或未知单位；文件完整性通过不替代单位、参考和标签证据。' },
+  );
 }
 export const currentCatalog = details;

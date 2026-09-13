@@ -98,14 +98,13 @@ export const eegProgress = {
   },
   preprocessing: {
     ...preprocessing,
-    completionPercent: preprocessing.strictCompleteTargets / preprocessing.effectiveTargets * 100,
     derivativeTiB: preprocessing.derivativeBytes / 2 ** 40,
-    note: "Subject entries are adapter-level entries, not globally unique people. Strict totals exclude smoke outputs, partial shards, confirmed duplicate batch80 and processed-only/non-EEG targets from the raw-continuous KPI.",
+    note: "Current disease-category human outputs, including continuous records and publisher trials. Counts include controls. Known shared identities are merged; anonymous cross-corpus overlap may remain. The unit-confirmed view also requires traceable identity and excludes the repeated processed FEP subset. Historical strict raw-only KPIs are not the denominator of this inventory.",
   },
   methodology: [
     "先核对数据身份、来源完整性、物理单位、参考、通道、事件和精确重复项；证据不足时保持门禁，不猜单位或标签。",
     "只对真正的 raw continuous EEG 做有依据的 0.1–75 Hz 滤波和 50/60 Hz notch；已处理或分段数据保留发布者 provenance，不重复整套滤波。",
-    "统一为物理微伏并重采样到 200 Hz，以 float32 x_uV/100 保存；同时保留信号、事件、哈希、划分和来源 JSON。",
-    "按 subject 划分并隔离重复数据；临床异常振幅只标记、不删除。训练时再切成 1 秒、200 点 patch。",
+    "统一输出 200 Hz float32 [channel,time]；单位有证据时采用 μV/100，待核单位保留状态。MODMA 三通道另存未经校准的 250 Hz int64 源整数。",
+    "联合使用新清单的人物身份和 split，避免已知跨库泄漏；临床异常振幅只标记。加载时切 1 秒、200 点窗口，并避开记录及内部断点。",
   ],
 } as const;

@@ -1,0 +1,6071 @@
+{
+  "created_utc": "2026-09-13T06:51:53.157331+00:00",
+  "full_scan_passed": true,
+  "all_audited": {
+    "catalog_targets": 77,
+    "signal_groups": 83,
+    "outputs": 255471,
+    "human_dataset_subject_entries": 29862,
+    "stored_dataset_subject_identifiers": 29951,
+    "unverified_named_subject_identifiers": 80,
+    "subject_id_status_output_counts": {
+      "documented": 135522,
+      "verified_from_file": 37217,
+      "publisher_session_index_not_proven_subject": 159,
+      "derived_from_documented_filename": 82073,
+      "unavailable": 500
+    },
+    "dataset_subject_entries_all_species": 29871,
+    "adapter_subject_entries": 30392,
+    "identity_namespace_entries": 25970,
+    "identity_entries_by_species": {
+      "human": 25961,
+      "canine": 9
+    },
+    "outputs_without_reliable_subject_id": 659,
+    "duration_seconds": 173222974.27491966,
+    "duration_hours": 48117.49285414435,
+    "reader_input_duration_seconds": 173222832.41910577,
+    "output_bytes": 1973104651662,
+    "events": 4136971,
+    "full_one_second_patches": 173217048,
+    "remainder_samples": 1185255,
+    "channel_counts": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      10,
+      12,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      29,
+      30,
+      32,
+      33,
+      36,
+      40,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      68,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      92,
+      93,
+      94,
+      96,
+      97,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      120,
+      122,
+      125,
+      126,
+      128,
+      136,
+      148,
+      149,
+      156,
+      159,
+      161,
+      164,
+      168,
+      169,
+      172,
+      176,
+      181,
+      184,
+      185,
+      188,
+      191,
+      195,
+      223,
+      256
+    ],
+    "source_sampling_rates": [
+      128.0,
+      173.61,
+      200.0,
+      249.8750624687656,
+      250.0,
+      250.02933780385584,
+      256.0,
+      256.00004522469607,
+      256.00004960640416,
+      256.0000579103764,
+      256.00005870719417,
+      256.00006037203326,
+      256.00006152923214,
+      256.000065968772,
+      256.00007259581656,
+      256.00007397509813,
+      256.0000766323896,
+      256.0000775610915,
+      256.00008099666394,
+      256.00008203487505,
+      256.00008239793436,
+      256.0000825640258,
+      256.00008676866054,
+      256.00008694547637,
+      256.0000879536484,
+      256.00008886963377,
+      256.0000896869156,
+      256.00009044741086,
+      256.00009140820043,
+      256.00009240629606,
+      256.0000930697907,
+      256.0000936228914,
+      256.00009366571,
+      256.00009466146327,
+      256.00009694678226,
+      256.0000983717175,
+      256.00010076264726,
+      256.00010131094785,
+      256.00010663894057,
+      256.00010844590247,
+      256.0001098418278,
+      256.0001109005733,
+      256.00011324306917,
+      256.0001141647201,
+      256.00011633064076,
+      256.00011666197287,
+      256.0001184842897,
+      256.00011860780387,
+      256.0001196052653,
+      256.00012071918457,
+      256.0001218685495,
+      256.0001237687188,
+      256.00012796007644,
+      399.609756097561,
+      400.0,
+      499.7501249375312,
+      499.906994,
+      500.0,
+      512.0,
+      1000.0,
+      1001.001001001001,
+      1024.0,
+      2004.0080160320642,
+      2048.0,
+      2048.0002097152214,
+      3000.0003000000297,
+      4096.0,
+      5000.0,
+      10000.0,
+      20000.0
+    ],
+    "array_label_record_counts": {
+      "": 71509,
+      "abnormal": 2392,
+      "acute_mild_tbi": 366,
+      "adhd": 479,
+      "adult_burn_icu_patient": 51,
+      "als": 459,
+      "alzheimer_disease": 540,
+      "amyotrophic_lateral_sclerosis": 1312,
+      "autism_spectrum_disorder": 1216,
+      "background": 7043,
+      "centro_parietal_ied": 366,
+      "chronic_mca_stroke": 19,
+      "chronic_stroke": 16,
+      "chronic_tbi": 25,
+      "cobot-task-1": 41,
+      "cobot-task-2": 40,
+      "cobot-task-3": 39,
+      "cobot-task-4": 38,
+      "cobot-task-5": 33,
+      "control": 110,
+      "deceased": 22,
+      "diagnosis_not_provided": 9363,
+      "drug_resistant_focal_epilepsy": 348,
+      "epilepsy": 2298,
+      "epilepsy_ictal_ieeg": 102,
+      "epilepsy_intracranial_monitoring": 30,
+      "epilepsy_surgery_patient": 117,
+      "first_episode_psychosis": 524,
+      "focal_epilepsy": 2850,
+      "frontal_ied": 458,
+      "frontotemporal_dementia": 46,
+      "generalized_ied": 573,
+      "hanoi_0": 51,
+      "has_any_axis_i_diagnosis_or_condition": 261,
+      "healthy_control": 10801,
+      "healthy_elder_control": 2,
+      "healthy_eyes_closed": 100,
+      "healthy_eyes_open": 100,
+      "healthy_older_adult": 1182,
+      "healthy_participant": 2506,
+      "high_bdi_13_to_30": 92,
+      "ictal": 2477,
+      "ictal_seizure": 100,
+      "interictal": 27211,
+      "interictal_set_F": 100,
+      "interictal_set_N": 100,
+      "left_motor_attempt": 600,
+      "living": 72,
+      "low_bdi_0_to_7": 149,
+      "major_depressive_disorder": 171,
+      "major_depressive_disorder_cohort": 120,
+      "manual-task-1": 41,
+      "manual-task-2": 42,
+      "manual-task-3": 42,
+      "manual-task-4": 42,
+      "manual-task-5": 41,
+      "mat_0": 50,
+      "meditation_0": 50,
+      "migraine": 53,
+      "mild_cognitive_impairment": 42,
+      "n-back_0": 51,
+      "neonatal_seizure_expert_disagreement": 18,
+      "neonatal_seizure_unanimous_consensus": 39,
+      "no": 993,
+      "no_annotated_seizure_in_recording": 545,
+      "no_axis_i_diagnosis_or_condition": 1254,
+      "no_epilepsy": 564,
+      "no_record_wide_label_window_labels_in_events": 17089,
+      "non_als": 5676,
+      "non_ied": 22933,
+      "nonepileptic_paroxysmal_event": 46,
+      "normal": 1980,
+      "normal_abnormal_mapping_not_present_in_bids_export": 2417,
+      "normal_infant_first_year": 130,
+      "occipital_ied": 417,
+      "paranoid_schizophrenia": 14,
+      "parkinson_disease": 418,
+      "parkinsons_disease": 14,
+      "participant_level_diagnosis_or_response_not_deposited": 3148,
+      "pediatric_epilepsy": 30,
+      "preictal": 301,
+      "psychosis_episode_patient": 38,
+      "publisher_group_CTR": 1,
+      "publisher_group_G1": 27,
+      "publisher_group_G2": 16,
+      "publisher_invalid_unstable_bdi": 2,
+      "publisher_test_label_hidden": 36850,
+      "recording_contains_annotated_seizure": 141,
+      "recording_contains_publisher_annotated_seizure": 41,
+      "rest-1": 42,
+      "rest-2": 42,
+      "rest_0": 51,
+      "right_motor_attempt": 600,
+      "schizophrenia": 4350,
+      "seizure": 1097,
+      "stroke": 419,
+      "stroopeasy_0": 51,
+      "stroophard_0": 51,
+      "subjective_cognitive_decline": 3,
+      "target_character_1": 8,
+      "target_character_2": 10,
+      "target_character_3": 8,
+      "target_character_4": 6,
+      "target_character_5": 6,
+      "target_character_6": 6,
+      "target_character_7": 6,
+      "target_character_8": 6,
+      "target_character_9": 8,
+      "target_character_A": 7,
+      "target_character_B": 7,
+      "target_character_C": 4,
+      "target_character_D": 5,
+      "target_character_E": 7,
+      "target_character_F": 4,
+      "target_character_G": 8,
+      "target_character_H": 9,
+      "target_character_I": 7,
+      "target_character_J": 6,
+      "target_character_K": 9,
+      "target_character_L": 3,
+      "target_character_M": 7,
+      "target_character_N": 8,
+      "target_character_O": 7,
+      "target_character_P": 8,
+      "target_character_Q": 7,
+      "target_character_R": 8,
+      "target_character_S": 8,
+      "target_character_T": 7,
+      "target_character_U": 5,
+      "target_character_V": 7,
+      "target_character_W": 8,
+      "target_character_X": 9,
+      "target_character_Y": 7,
+      "target_character_Z": 7,
+      "target_character__": 2,
+      "temporal_ied": 702,
+      "tinnitus": 754,
+      "typically_developing": 784,
+      "unaffected_asd_sibling": 563,
+      "unanimous_no_neonatal_seizure": 22,
+      "vr-job-sim_0": 32,
+      "vr-plank_0": 49,
+      "yes": 998
+    },
+    "unit_status_output_counts": {
+      "verified_from_file": 113236,
+      "documented": 105668,
+      "unknown": 1379,
+      "high_confidence_inferred_from_same_EGI_source_and_official_NEMAR_conversion_not_encoded_in_legacy_MAT": 1515,
+      "high_confidence_inferred_from_EEGLAB_export_convention_not_encoded_in_MAT": 53,
+      "inferred_from_integer_range_and_publisher_export_code_not_formally_documented": 51,
+      "format_reader_inferred_microvolts": 419,
+      "inferred_from_eeglab_numeric_scale": 35,
+      "inferred_from_numeric_range_and_publisher_filtered_signals": 919,
+      "corrected_from_mislabeled_edf_header": 1989,
+      "high_confidence_inferred_from_amplifier_range_and_exact_tenth_quantization_not_publisher_declared": 1991,
+      "inferred_from_numeric_range": 2751,
+      "inferred_from_numeric_range_and_primary_paper_amplitudes": 25449,
+      "inferred_from_numeric_range_and_nexus_dc_amplifier_export_not_publisher_declared": 16
+    },
+    "qc_flag_counts": {
+      "postprocess_sustained_high_amplitude": 16006,
+      "channel_order_not_verified": 30905,
+      "unit_not_verified": 36567,
+      "postprocess_extreme_peak": 731,
+      "subject_id_not_verified": 659,
+      "flatline_ge_5s": 398,
+      "near_constant_channel": 152,
+      "source_header_wider_physical_range": 14,
+      "implausible_amplitude_or_unit": 48,
+      "source_exceeds_documented_device_range": 61,
+      "all_zero_channel": 23,
+      "source_near_edf_physical_limit": 21,
+      "source_p99_near_documented_device_range": 13
+    },
+    "reference_type_output_counts": {
+      "average_reference": 71282,
+      "publisher_recorded_bipolar_and_mixed_clinical_derivations_retained_per_file": 686,
+      "G2": 30,
+      "publisher BIDS iEEGReference is probably mastoid; deposited patient-specific contacts are retained without rereferencing": 117,
+      "publisher EEGReference is n/a; the two deposited channels are device-derived behind-the-ear/cross-head signals": 2850,
+      "CPz": 2119,
+      "average_left_and_right_mastoid": 52,
+      "publisher_reports_n/a": 2563,
+      "explicit_common_average_output": 1515,
+      "publisher iEEGReference is n/a; deposited ECoG/SEEG channels are retained without an invented rereference": 348,
+      "linked_ears": 13598,
+      "online_Cz_removed_zero_reference_row": 53,
+      "mixed_average_or_linked_ears_referential": 518,
+      "between_Cz_and_CPz": 243,
+      "scalp_EEG_right_mastoid_RM": 393,
+      "unknown": 30566,
+      "linked_mastoids_TP9_TP10": 2469,
+      "publisher_average_reference_encoded_by_all_EEG_channel_labels": 1379,
+      "TP9": 143,
+      "publisher iEEGReference is n/a; deposited contacts are retained without an invented rereference": 102,
+      "common": 1007,
+      "publisher conflict, eeg.json says A1 A2 while README says the shared referential montage used Cz": 176,
+      "native_monopolar_extracranial_or_skull_fixed_reference": 66839,
+      "not_reported": 120,
+      "publisher conflict; README says Cz and derived eeg.json says FCz": 51,
+      "linked_mastoids_A1_A2": 3268,
+      "publisher BIDS field is n/a; BioSemi acquisition reference is not asserted as a model-space reference": 46,
+      "average": 454,
+      "publisher_reference_not_declared_in_retained_readme_or_data_dictionary": 6980,
+      "referential_storage_unspecified_reference": 17089,
+      "linked-ear reference encoded as LE in the 19 scalp-channel labels": 181,
+      "left earlobe": 919,
+      "EPOC Flex two reference electrodes behind the ears": 1989,
+      "native_acquisition_reference_preserved": 121,
+      "software average of EARL and EARR applied to the publisher CMS-referenced signal": 245,
+      "original BIDS says TP9 but derived FIF postprocessing reference is not recorded": 726,
+      "publisher BIDS EEGReference AFz; deposited channel labels are bipolar derivations ending in Fz and are retained without rereferencing": 437,
+      "vertex_Cz": 8400,
+      "offline_average_earlobes": 11527,
+      "right_mastoid": 2035,
+      "average reference across 16 listed channels": 663,
+      "dataset-specific intracranial/scalp single-channel segments": 500,
+      "EXG1_left_ear_and_EXG2_right_ear_electrodes_present_but_offline_reference_operation_not_declared": 12,
+      "online_Cz": 53,
+      "software average of the M1 and M2 mastoids applied to the publisher BioSemi CMS/DRL-referenced signal": 117,
+      "recorded_against_publisher_documented_midline_reference_exact_electrode_unspecified": 79,
+      "publisher EEGReference is n/a; deposited contacts are retained without an invented rereference": 30,
+      "publisher_recorded_referential_scalp_channels_exact_reference_not_published": 41,
+      "EDF labels identify a common Ref but retained sources do not name the reference electrode": 100,
+      "BioSemi_CMS_DRL_acquisition_reference": 37,
+      "A1_online_acquisition_reference_present_as_recorded_channel": 27,
+      "right earlobe; ground at left mastoid": 8,
+      "Pz": 28,
+      "linked_mastoids_in_deposited_X": 16,
+      "Mastoid": 86,
+      "electrode_between_Fz_and_Cz": 28,
+      "average_reference_after_Cz_vertex_acquisition_reference": 9,
+      "not_declared": 1
+    },
+    "reference_status_output_counts": {
+      "documented_from_tuh_montage_directory_and_edf_labels": 84880,
+      "documented_from_edf_and_case_summary_channel_labels": 686,
+      "documented_from_inherited_bids_task_eeg_json_reference_not_materialized": 30,
+      "documented_probabilistic_publisher_reference": 117,
+      "unknown_in_retained_source_metadata": 3476,
+      "documented_from_every_bids_eeg_json_reference_channel_not_materialized": 243,
+      "documented_from_bids_eeg_json": 588,
+      "documented_from_every_bids_eeg_json_reference_not_materialized_in_standard_layout": 644,
+      "not_documented_no_rereference_applied": 2563,
+      "output_established_by_this_pipeline_source_common_reference_unspecified": 1515,
+      "documented_in_publisher_dataset_description_and_verified_zero_129th_row": 53,
+      "documented_dataset_specific_but_not_encoded_in_pruned_path": 518,
+      "documented_from_every_bids_eeg_json": 1555,
+      "unknown": 9309,
+      "not_documented_in_bids_or_edf_header": 2417,
+      "documented_in_every_bids_eeg_sidecar": 2506,
+      "documented_from_publisher_signal_header_and_EDF_labels": 1379,
+      "literal_set_header_common_no_rereference_applied": 877,
+      "conflicting_publisher_bids_sidecar_and_readme": 176,
+      "bids_eeg_json_n_a": 277,
+      "documented_by_project_owner_exact_electrode_not_encoded": 66839,
+      "documented_unavailable_no_rereference_applied": 120,
+      "conflicting_publisher_readme_and_derived_sidecars": 51,
+      "documented_in_dataset_description_and_eeg_sidecars": 3268,
+      "documented_in_set_and_publisher_code_no_rereference_applied": 419,
+      "not_encoded_in_parquet_official_figures_show_derived_bipolar_montage": 17089,
+      "documented_in_bids_eeg_sidecar": 85,
+      "documented_in_primary_study_and_edf_channel_labels": 181,
+      "documented_in_publisher_readme": 919,
+      "documented_in_primary_data_descriptor": 1989,
+      "earlobe_A1_A2_reported_in_literature_exact_combination_not_encoded": 121,
+      "documented_recommendation_in_publisher_readme": 245,
+      "unknown_in_derived_fif": 726,
+      "documented_bids_reference_with_unresolved_label_reference_discrepancy": 437,
+      "documented_no_rereference_applied": 8400,
+      "documented_in_publisher_dataset_description_and_primary_paper": 11527,
+      "documented_from_dataset_description": 1991,
+      "unknown_in_primary_article_and_materialized_arrays": 25449,
+      "verified_from_mat_cfg": 663,
+      "documented_dataset_specific": 500,
+      "bids_eeg_json_reports_n_a_no_rereference_applied": 12,
+      "documented_in_publisher_dataset_description": 53,
+      "documented_in_primary_peer_reviewed_paper": 117,
+      "documented_scheme_exact_electrode_unknown": 79,
+      "unknown_not_published": 41,
+      "documented_from_common_recorded_montage": 27,
+      "documented_in_official_bnci_description": 8,
+      "documented_in_all_28_BrainVision_headers_no_rereference_applied": 28,
+      "documented_in_official_data_file_description": 16,
+      "verified_from_every_brainvision_channel_row": 86,
+      "not_documented_in_bids_or_brainvision_header": 94,
+      "documented_in_publisher_metadata": 28,
+      "documented_from_every_bids_eeg_json_as_Mastoide_derecha": 44,
+      "documented_from_zenodo_and_primary_paper": 9,
+      "publisher_does_not_declare_reference_no_rereference_applied": 1
+    },
+    "split_output_counts": {
+      "test": 27029,
+      "train": 204404,
+      "validation": 23538,
+      "unassigned": 500
+    },
+    "raw_or_processed_output_counts": {
+      "raw": 112588,
+      "processed": 131544,
+      "partially_filtered": 10920,
+      "publisher_preprocessed_ica_pruned": 419
+    },
+    "array_error_outputs": 0,
+    "outside_event_outputs": 1609,
+    "outside_event_rows": 1620,
+    "values_read": 532287289199,
+    "nonfinite_values": 0,
+    "sample_weighted_mean_model": 0.0032551465036101206,
+    "sample_weighted_std_model": 67.73843532034762,
+    "min_model": -925772.625,
+    "max_model": 919889.0,
+    "tail_fraction": {
+      "1": 0.04150810858220566,
+      "5": 0.009543344906176924,
+      "10": 0.006317568850949593,
+      "100": 0.00014667821979647355
+    }
+  },
+  "disease_human": {
+    "catalog_targets": 62,
+    "signal_groups": 65,
+    "outputs": 189256,
+    "human_dataset_subject_entries": 28451,
+    "stored_dataset_subject_identifiers": 28531,
+    "unverified_named_subject_identifiers": 80,
+    "subject_id_status_output_counts": {
+      "documented": 117696,
+      "verified_from_file": 28722,
+      "publisher_session_index_not_proven_subject": 159,
+      "derived_from_documented_filename": 42179,
+      "unavailable": 500
+    },
+    "dataset_subject_entries_all_species": 28451,
+    "adapter_subject_entries": 28574,
+    "identity_namespace_entries": 25007,
+    "identity_entries_by_species": {
+      "human": 25007
+    },
+    "outputs_without_reliable_subject_id": 659,
+    "duration_seconds": 158683990.43499318,
+    "duration_hours": 44078.886231942546,
+    "reader_input_duration_seconds": 158683978.17068952,
+    "output_bytes": 1712286968763,
+    "events": 2643092,
+    "full_one_second_patches": 158681404,
+    "remainder_samples": 517287,
+    "channel_counts": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      10,
+      12,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      29,
+      30,
+      32,
+      36,
+      40,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      68,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      92,
+      93,
+      94,
+      96,
+      97,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      120,
+      122,
+      125,
+      126,
+      128,
+      136,
+      148,
+      149,
+      156,
+      159,
+      161,
+      164,
+      168,
+      169,
+      172,
+      176,
+      181,
+      184,
+      185,
+      188,
+      191,
+      195,
+      223,
+      256
+    ],
+    "source_sampling_rates": [
+      128.0,
+      173.61,
+      200.0,
+      249.8750624687656,
+      250.0,
+      256.0,
+      400.0,
+      499.7501249375312,
+      499.906994,
+      500.0,
+      512.0,
+      1000.0,
+      1001.001001001001,
+      1024.0,
+      2004.0080160320642,
+      2048.0,
+      2048.0002097152214,
+      3000.0003000000297,
+      4096.0,
+      5000.0,
+      20000.0
+    ],
+    "array_label_record_counts": {
+      "": 61113,
+      "abnormal": 2392,
+      "acute_mild_tbi": 366,
+      "adhd": 479,
+      "adult_burn_icu_patient": 51,
+      "als": 459,
+      "alzheimer_disease": 540,
+      "amyotrophic_lateral_sclerosis": 8,
+      "autism_spectrum_disorder": 1216,
+      "background": 7043,
+      "centro_parietal_ied": 366,
+      "chronic_mca_stroke": 19,
+      "chronic_stroke": 16,
+      "chronic_tbi": 25,
+      "control": 110,
+      "deceased": 22,
+      "diagnosis_not_provided": 437,
+      "drug_resistant_focal_epilepsy": 348,
+      "epilepsy": 2298,
+      "epilepsy_ictal_ieeg": 102,
+      "epilepsy_intracranial_monitoring": 30,
+      "epilepsy_surgery_patient": 117,
+      "first_episode_psychosis": 524,
+      "focal_epilepsy": 2850,
+      "frontal_ied": 458,
+      "frontotemporal_dementia": 46,
+      "generalized_ied": 573,
+      "healthy_control": 10749,
+      "healthy_elder_control": 2,
+      "healthy_eyes_closed": 100,
+      "healthy_eyes_open": 100,
+      "high_bdi_13_to_30": 92,
+      "ictal": 1390,
+      "ictal_seizure": 100,
+      "interictal": 14421,
+      "interictal_set_F": 100,
+      "interictal_set_N": 100,
+      "left_motor_attempt": 600,
+      "living": 72,
+      "low_bdi_0_to_7": 149,
+      "major_depressive_disorder": 171,
+      "major_depressive_disorder_cohort": 120,
+      "migraine": 53,
+      "mild_cognitive_impairment": 42,
+      "neonatal_seizure_expert_disagreement": 18,
+      "neonatal_seizure_unanimous_consensus": 39,
+      "no_annotated_seizure_in_recording": 545,
+      "no_epilepsy": 564,
+      "no_record_wide_label_window_labels_in_events": 17089,
+      "non_ied": 22933,
+      "nonepileptic_paroxysmal_event": 46,
+      "normal": 1980,
+      "normal_abnormal_mapping_not_present_in_bids_export": 2417,
+      "occipital_ied": 417,
+      "paranoid_schizophrenia": 14,
+      "parkinson_disease": 418,
+      "parkinsons_disease": 14,
+      "participant_level_diagnosis_or_response_not_deposited": 3148,
+      "pediatric_epilepsy": 30,
+      "preictal": 36,
+      "psychosis_episode_patient": 38,
+      "publisher_group_CTR": 1,
+      "publisher_group_G1": 27,
+      "publisher_group_G2": 16,
+      "publisher_invalid_unstable_bdi": 2,
+      "publisher_test_label_hidden": 19619,
+      "recording_contains_annotated_seizure": 141,
+      "recording_contains_publisher_annotated_seizure": 41,
+      "right_motor_attempt": 600,
+      "schizophrenia": 4350,
+      "seizure": 1097,
+      "stroke": 419,
+      "subjective_cognitive_decline": 3,
+      "temporal_ied": 702,
+      "tinnitus": 754,
+      "typically_developing": 784,
+      "unaffected_asd_sibling": 563,
+      "unanimous_no_neonatal_seizure": 22
+    },
+    "unit_status_output_counts": {
+      "verified_from_file": 91339,
+      "documented": 65775,
+      "unknown": 1379,
+      "high_confidence_inferred_from_EEGLAB_export_convention_not_encoded_in_MAT": 53,
+      "inferred_from_integer_range_and_publisher_export_code_not_formally_documented": 51,
+      "format_reader_inferred_microvolts": 419,
+      "inferred_from_eeglab_numeric_scale": 35,
+      "corrected_from_mislabeled_edf_header": 1989,
+      "inferred_from_numeric_range": 2751,
+      "inferred_from_numeric_range_and_primary_paper_amplitudes": 25449,
+      "inferred_from_numeric_range_and_nexus_dc_amplifier_export_not_publisher_declared": 16
+    },
+    "qc_flag_counts": {
+      "postprocess_sustained_high_amplitude": 14945,
+      "channel_order_not_verified": 30774,
+      "unit_not_verified": 32142,
+      "postprocess_extreme_peak": 501,
+      "subject_id_not_verified": 659,
+      "flatline_ge_5s": 365,
+      "near_constant_channel": 124,
+      "implausible_amplitude_or_unit": 27,
+      "source_exceeds_documented_device_range": 61,
+      "all_zero_channel": 23,
+      "source_near_edf_physical_limit": 21,
+      "source_p99_near_documented_device_range": 13
+    },
+    "reference_type_output_counts": {
+      "average_reference": 61559,
+      "publisher_recorded_bipolar_and_mixed_clinical_derivations_retained_per_file": 686,
+      "G2": 30,
+      "publisher BIDS iEEGReference is probably mastoid; deposited patient-specific contacts are retained without rereferencing": 117,
+      "publisher EEGReference is n/a; the two deposited channels are device-derived behind-the-ear/cross-head signals": 2850,
+      "CPz": 937,
+      "publisher_reports_n/a": 2563,
+      "publisher iEEGReference is n/a; deposited ECoG/SEEG channels are retained without an invented rereference": 348,
+      "linked_ears": 12925,
+      "online_Cz_removed_zero_reference_row": 53,
+      "mixed_average_or_linked_ears_referential": 518,
+      "between_Cz_and_CPz": 243,
+      "unknown": 30566,
+      "publisher_average_reference_encoded_by_all_EEG_channel_labels": 1379,
+      "TP9": 143,
+      "publisher iEEGReference is n/a; deposited contacts are retained without an invented rereference": 102,
+      "common": 877,
+      "publisher conflict, eeg.json says A1 A2 while README says the shared referential montage used Cz": 176,
+      "native_monopolar_extracranial_or_skull_fixed_reference": 35466,
+      "publisher conflict; README says Cz and derived eeg.json says FCz": 51,
+      "linked_mastoids_A1_A2": 3268,
+      "publisher BIDS field is n/a; BioSemi acquisition reference is not asserted as a model-space reference": 46,
+      "average": 454,
+      "referential_storage_unspecified_reference": 17089,
+      "linked-ear reference encoded as LE in the 19 scalp-channel labels": 181,
+      "EPOC Flex two reference electrodes behind the ears": 1989,
+      "native_acquisition_reference_preserved": 121,
+      "original BIDS says TP9 but derived FIF postprocessing reference is not recorded": 726,
+      "publisher BIDS EEGReference AFz; deposited channel labels are bipolar derivations ending in Fz and are retained without rereferencing": 437,
+      "offline_average_earlobes": 11527,
+      "average reference across 16 listed channels": 663,
+      "dataset-specific intracranial/scalp single-channel segments": 500,
+      "online_Cz": 53,
+      "software average of the M1 and M2 mastoids applied to the publisher BioSemi CMS/DRL-referenced signal": 117,
+      "recorded_against_publisher_documented_midline_reference_exact_electrode_unspecified": 79,
+      "publisher EEGReference is n/a; deposited contacts are retained without an invented rereference": 30,
+      "publisher_recorded_referential_scalp_channels_exact_reference_not_published": 41,
+      "EDF labels identify a common Ref but retained sources do not name the reference electrode": 100,
+      "A1_online_acquisition_reference_present_as_recorded_channel": 27,
+      "right earlobe; ground at left mastoid": 8,
+      "Pz": 28,
+      "linked_mastoids_in_deposited_X": 16,
+      "Mastoid": 86,
+      "electrode_between_Fz_and_Cz": 28,
+      "right_mastoid": 44,
+      "average_reference_after_Cz_vertex_acquisition_reference": 9
+    },
+    "reference_status_output_counts": {
+      "documented_from_tuh_montage_directory_and_edf_labels": 74484,
+      "documented_from_edf_and_case_summary_channel_labels": 686,
+      "documented_from_inherited_bids_task_eeg_json_reference_not_materialized": 30,
+      "documented_probabilistic_publisher_reference": 117,
+      "unknown_in_retained_source_metadata": 3476,
+      "documented_from_every_bids_eeg_json_reference_channel_not_materialized": 243,
+      "documented_from_every_bids_eeg_json_reference_not_materialized_in_standard_layout": 644,
+      "not_documented_no_rereference_applied": 2563,
+      "documented_in_publisher_dataset_description_and_verified_zero_129th_row": 53,
+      "documented_dataset_specific_but_not_encoded_in_pruned_path": 518,
+      "documented_from_every_bids_eeg_json": 243,
+      "unknown": 2329,
+      "not_documented_in_bids_or_edf_header": 2417,
+      "documented_from_publisher_signal_header_and_EDF_labels": 1379,
+      "documented_from_bids_eeg_json": 143,
+      "literal_set_header_common_no_rereference_applied": 877,
+      "conflicting_publisher_bids_sidecar_and_readme": 176,
+      "bids_eeg_json_n_a": 277,
+      "documented_by_project_owner_exact_electrode_not_encoded": 35466,
+      "conflicting_publisher_readme_and_derived_sidecars": 51,
+      "documented_in_dataset_description_and_eeg_sidecars": 3268,
+      "documented_in_set_and_publisher_code_no_rereference_applied": 419,
+      "not_encoded_in_parquet_official_figures_show_derived_bipolar_montage": 17089,
+      "documented_in_bids_eeg_sidecar": 85,
+      "documented_in_primary_study_and_edf_channel_labels": 181,
+      "documented_in_primary_data_descriptor": 1989,
+      "earlobe_A1_A2_reported_in_literature_exact_combination_not_encoded": 121,
+      "unknown_in_derived_fif": 726,
+      "documented_bids_reference_with_unresolved_label_reference_discrepancy": 437,
+      "documented_in_publisher_dataset_description_and_primary_paper": 11527,
+      "unknown_in_primary_article_and_materialized_arrays": 25449,
+      "verified_from_mat_cfg": 663,
+      "documented_dataset_specific": 500,
+      "documented_in_publisher_dataset_description": 53,
+      "documented_in_primary_peer_reviewed_paper": 117,
+      "documented_scheme_exact_electrode_unknown": 79,
+      "unknown_not_published": 41,
+      "documented_from_common_recorded_montage": 27,
+      "documented_in_official_bnci_description": 8,
+      "documented_in_all_28_BrainVision_headers_no_rereference_applied": 28,
+      "documented_in_official_data_file_description": 16,
+      "verified_from_every_brainvision_channel_row": 86,
+      "not_documented_in_bids_or_brainvision_header": 94,
+      "documented_in_publisher_metadata": 28,
+      "documented_from_every_bids_eeg_json_as_Mastoide_derecha": 44,
+      "documented_from_zenodo_and_primary_paper": 9
+    },
+    "split_output_counts": {
+      "test": 20173,
+      "train": 148749,
+      "validation": 19834,
+      "unassigned": 500
+    },
+    "raw_or_processed_output_counts": {
+      "raw": 92496,
+      "partially_filtered": 284,
+      "processed": 96057,
+      "publisher_preprocessed_ica_pruned": 419
+    },
+    "array_error_outputs": 0,
+    "outside_event_outputs": 424,
+    "outside_event_rows": 433,
+    "values_read": 462065892278,
+    "nonfinite_values": 0,
+    "sample_weighted_mean_model": 0.003999528501816867,
+    "sample_weighted_std_model": 72.61605876702284,
+    "min_model": -925772.625,
+    "max_model": 919889.0,
+    "tail_fraction": {
+      "1": 0.04236700128955195,
+      "5": 0.010257477474984069,
+      "10": 0.006823017677104808,
+      "100": 0.0001387013628814676
+    }
+  },
+  "disease_canine": {
+    "catalog_targets": 2,
+    "signal_groups": 2,
+    "outputs": 31373,
+    "human_dataset_subject_entries": 0,
+    "stored_dataset_subject_identifiers": 9,
+    "unverified_named_subject_identifiers": 0,
+    "subject_id_status_output_counts": {
+      "derived_from_documented_filename": 31373
+    },
+    "dataset_subject_entries_all_species": 9,
+    "adapter_subject_entries": 9,
+    "identity_namespace_entries": 9,
+    "identity_entries_by_species": {
+      "canine": 9
+    },
+    "outputs_without_reliable_subject_id": 0,
+    "duration_seconds": 4541400.864997324,
+    "duration_hours": 1261.5002402770344,
+    "reader_input_duration_seconds": 4541270.042358398,
+    "output_bytes": 53949514031,
+    "events": 31373,
+    "full_one_second_patches": 4541244,
+    "remainder_samples": 31373,
+    "channel_counts": [
+      15,
+      16
+    ],
+    "source_sampling_rates": [
+      399.609756097561
+    ],
+    "array_label_record_counts": {
+      "ictal": 1087,
+      "interictal": 12790,
+      "preictal": 265,
+      "publisher_test_label_hidden": 17231
+    },
+    "unit_status_output_counts": {
+      "documented": 31373
+    },
+    "qc_flag_counts": {},
+    "reference_type_output_counts": {
+      "native_monopolar_extracranial_or_skull_fixed_reference": 31373
+    },
+    "reference_status_output_counts": {
+      "documented_by_project_owner_exact_electrode_not_encoded": 31373
+    },
+    "split_output_counts": {
+      "test": 2548,
+      "train": 28825
+    },
+    "raw_or_processed_output_counts": {
+      "processed": 31373
+    },
+    "array_error_outputs": 0,
+    "outside_event_outputs": 0,
+    "outside_event_rows": 0,
+    "values_read": 14451962097,
+    "nonfinite_values": 0,
+    "sample_weighted_mean_model": -5.28624703358893e-05,
+    "sample_weighted_std_model": 0.612300406689766,
+    "min_model": -33.31186294555664,
+    "max_model": 28.41774559020996,
+    "tail_fraction": {
+      "1": 0.06575006124581867,
+      "5": 0.0011040747196058745,
+      "10": 7.960192479599747e-05,
+      "100": 0.0
+    }
+  },
+  "other_categories": {
+    "catalog_targets": 15,
+    "signal_groups": 15,
+    "outputs": 24446,
+    "human_dataset_subject_entries": 954,
+    "stored_dataset_subject_identifiers": 954,
+    "unverified_named_subject_identifiers": 0,
+    "subject_id_status_output_counts": {
+      "documented": 7430,
+      "verified_from_file": 8495,
+      "derived_from_documented_filename": 8521
+    },
+    "dataset_subject_entries_all_species": 954,
+    "adapter_subject_entries": 954,
+    "identity_namespace_entries": 954,
+    "identity_entries_by_species": {
+      "human": 954
+    },
+    "outputs_without_reliable_subject_id": 0,
+    "duration_seconds": 2780445.974999872,
+    "duration_hours": 772.3461041666311,
+    "reader_input_duration_seconds": 2780447.2060552044,
+    "output_bytes": 115633563971,
+    "events": 1462506,
+    "full_one_second_patches": 2777263,
+    "remainder_samples": 636595,
+    "channel_counts": [
+      12,
+      16,
+      19,
+      32,
+      33,
+      64,
+      111,
+      120,
+      128
+    ],
+    "source_sampling_rates": [
+      200.0,
+      250.0,
+      250.02933780385584,
+      256.0,
+      256.00004522469607,
+      256.00004960640416,
+      256.0000579103764,
+      256.00005870719417,
+      256.00006037203326,
+      256.00006152923214,
+      256.000065968772,
+      256.00007259581656,
+      256.00007397509813,
+      256.0000766323896,
+      256.0000775610915,
+      256.00008099666394,
+      256.00008203487505,
+      256.00008239793436,
+      256.0000825640258,
+      256.00008676866054,
+      256.00008694547637,
+      256.0000879536484,
+      256.00008886963377,
+      256.0000896869156,
+      256.00009044741086,
+      256.00009140820043,
+      256.00009240629606,
+      256.0000930697907,
+      256.0000936228914,
+      256.00009366571,
+      256.00009466146327,
+      256.00009694678226,
+      256.0000983717175,
+      256.00010076264726,
+      256.00010131094785,
+      256.00010663894057,
+      256.00010844590247,
+      256.0001098418278,
+      256.0001109005733,
+      256.00011324306917,
+      256.0001141647201,
+      256.00011633064076,
+      256.00011666197287,
+      256.0001184842897,
+      256.00011860780387,
+      256.0001196052653,
+      256.00012071918457,
+      256.0001218685495,
+      256.0001237687188,
+      256.00012796007644,
+      500.0,
+      512.0,
+      1000.0,
+      2048.0,
+      10000.0
+    ],
+    "array_label_record_counts": {
+      "amyotrophic_lateral_sclerosis": 1304,
+      "cobot-task-1": 41,
+      "cobot-task-2": 40,
+      "cobot-task-3": 39,
+      "cobot-task-4": 38,
+      "cobot-task-5": 33,
+      "diagnosis_not_provided": 8926,
+      "hanoi_0": 51,
+      "has_any_axis_i_diagnosis_or_condition": 261,
+      "healthy_control": 52,
+      "healthy_older_adult": 1182,
+      "healthy_participant": 2506,
+      "manual-task-1": 41,
+      "manual-task-2": 42,
+      "manual-task-3": 42,
+      "manual-task-4": 42,
+      "manual-task-5": 41,
+      "mat_0": 50,
+      "meditation_0": 50,
+      "n-back_0": 51,
+      "no": 993,
+      "no_axis_i_diagnosis_or_condition": 1254,
+      "non_als": 5676,
+      "normal_infant_first_year": 130,
+      "rest-1": 42,
+      "rest-2": 42,
+      "rest_0": 51,
+      "stroopeasy_0": 51,
+      "stroophard_0": 51,
+      "target_character_1": 8,
+      "target_character_2": 10,
+      "target_character_3": 8,
+      "target_character_4": 6,
+      "target_character_5": 6,
+      "target_character_6": 6,
+      "target_character_7": 6,
+      "target_character_8": 6,
+      "target_character_9": 8,
+      "target_character_A": 7,
+      "target_character_B": 7,
+      "target_character_C": 4,
+      "target_character_D": 5,
+      "target_character_E": 7,
+      "target_character_F": 4,
+      "target_character_G": 8,
+      "target_character_H": 9,
+      "target_character_I": 7,
+      "target_character_J": 6,
+      "target_character_K": 9,
+      "target_character_L": 3,
+      "target_character_M": 7,
+      "target_character_N": 8,
+      "target_character_O": 7,
+      "target_character_P": 8,
+      "target_character_Q": 7,
+      "target_character_R": 8,
+      "target_character_S": 8,
+      "target_character_T": 7,
+      "target_character_U": 5,
+      "target_character_V": 7,
+      "target_character_W": 8,
+      "target_character_X": 9,
+      "target_character_Y": 7,
+      "target_character_Z": 7,
+      "target_character__": 2,
+      "vr-job-sim_0": 32,
+      "vr-plank_0": 49,
+      "yes": 998
+    },
+    "unit_status_output_counts": {
+      "verified_from_file": 11501,
+      "high_confidence_inferred_from_same_EGI_source_and_official_NEMAR_conversion_not_encoded_in_legacy_MAT": 1515,
+      "documented": 8520,
+      "inferred_from_numeric_range_and_publisher_filtered_signals": 919,
+      "high_confidence_inferred_from_amplifier_range_and_exact_tenth_quantization_not_publisher_declared": 1991
+    },
+    "qc_flag_counts": {
+      "postprocess_sustained_high_amplitude": 555,
+      "unit_not_verified": 4425,
+      "channel_order_not_verified": 131,
+      "flatline_ge_5s": 29,
+      "postprocess_extreme_peak": 230,
+      "source_header_wider_physical_range": 14,
+      "near_constant_channel": 25,
+      "implausible_amplitude_or_unit": 21
+    },
+    "reference_type_output_counts": {
+      "average_left_and_right_mastoid": 52,
+      "explicit_common_average_output": 1515,
+      "scalp_EEG_right_mastoid_RM": 393,
+      "CPz": 1182,
+      "linked_mastoids_TP9_TP10": 2469,
+      "not_reported": 120,
+      "common": 130,
+      "publisher_reference_not_declared_in_retained_readme_or_data_dictionary": 6980,
+      "left earlobe": 919,
+      "software average of EARL and EARR applied to the publisher CMS-referenced signal": 245,
+      "vertex_Cz": 8400,
+      "right_mastoid": 1991,
+      "EXG1_left_ear_and_EXG2_right_ear_electrodes_present_but_offline_reference_operation_not_declared": 12,
+      "BioSemi_CMS_DRL_acquisition_reference": 37,
+      "not_declared": 1
+    },
+    "reference_status_output_counts": {
+      "documented_from_bids_eeg_json": 445,
+      "output_established_by_this_pipeline_source_common_reference_unspecified": 1515,
+      "documented_from_every_bids_eeg_json": 1312,
+      "documented_in_every_bids_eeg_sidecar": 2506,
+      "documented_unavailable_no_rereference_applied": 120,
+      "unknown": 6980,
+      "documented_in_publisher_readme": 919,
+      "documented_recommendation_in_publisher_readme": 245,
+      "documented_no_rereference_applied": 8400,
+      "documented_from_dataset_description": 1991,
+      "bids_eeg_json_reports_n_a_no_rereference_applied": 12,
+      "publisher_does_not_declare_reference_no_rereference_applied": 1
+    },
+    "split_output_counts": {
+      "train": 20002,
+      "test": 2562,
+      "validation": 1882
+    },
+    "raw_or_processed_output_counts": {
+      "raw": 9696,
+      "processed": 4114,
+      "partially_filtered": 10636
+    },
+    "array_error_outputs": 0,
+    "outside_event_outputs": 1185,
+    "outside_event_rows": 1187,
+    "values_read": 31231169024,
+    "nonfinite_values": 0,
+    "sample_weighted_mean_model": -0.0016207622800471617,
+    "sample_weighted_std_model": 13.429842764460851,
+    "min_model": -5050.13525390625,
+    "max_model": 4299.06298828125,
+    "tail_fraction": {
+      "1": 0.026395378967931392,
+      "5": 0.003481373909393114,
+      "10": 0.0018945552423775963,
+      "100": 0.0004466862572220569
+    }
+  },
+  "optional_tueg_overlap": {
+    "catalog_targets": 1,
+    "signal_groups": 1,
+    "outputs": 10396,
+    "human_dataset_subject_entries": 855,
+    "stored_dataset_subject_identifiers": 855,
+    "unverified_named_subject_identifiers": 0,
+    "subject_id_status_output_counts": {
+      "documented": 10396
+    },
+    "dataset_subject_entries_all_species": 855,
+    "adapter_subject_entries": 855,
+    "identity_namespace_entries": 855,
+    "identity_entries_by_species": {
+      "human": 855
+    },
+    "outputs_without_reliable_subject_id": 0,
+    "duration_seconds": 7217137.0,
+    "duration_hours": 2004.7602777777777,
+    "reader_input_duration_seconds": 7217137.0,
+    "output_bytes": 91234604897,
+    "events": 0,
+    "full_one_second_patches": 7217137,
+    "remainder_samples": 0,
+    "channel_counts": [
+      17
+    ],
+    "source_sampling_rates": [
+      250.0,
+      256.0,
+      400.0,
+      512.0,
+      1000.0
+    ],
+    "array_label_record_counts": {
+      "": 10396
+    },
+    "unit_status_output_counts": {
+      "verified_from_file": 10396
+    },
+    "qc_flag_counts": {
+      "postprocess_sustained_high_amplitude": 506,
+      "flatline_ge_5s": 4,
+      "near_constant_channel": 3
+    },
+    "reference_type_output_counts": {
+      "average_reference": 9723,
+      "linked_ears": 673
+    },
+    "reference_status_output_counts": {
+      "documented_from_tuh_montage_directory_and_edf_labels": 10396
+    },
+    "split_output_counts": {
+      "train": 6828,
+      "validation": 1822,
+      "test": 1746
+    },
+    "raw_or_processed_output_counts": {
+      "raw": 10396
+    },
+    "array_error_outputs": 0,
+    "outside_event_outputs": 0,
+    "outside_event_rows": 0,
+    "values_read": 24538265800,
+    "nonfinite_values": 0,
+    "sample_weighted_mean_model": -0.0026077772129089174,
+    "sample_weighted_std_model": 3.1510550809572884,
+    "min_model": -136.33834838867188,
+    "max_model": 135.1004638671875,
+    "tail_fraction": {
+      "1": 0.030292132869471158,
+      "5": 0.008781683545053131,
+      "10": 0.00610305020006752,
+      "100": 1.4364910824301201e-06
+    }
+  },
+  "datasets": {
+    "EEG-0005": {
+      "name": "A dataset of neonatal EEG recordings with seizure annotations",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 79,
+      "human_dataset_subject_entries": 79,
+      "stored_dataset_subject_identifiers": 79,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 79
+      },
+      "dataset_subject_entries_all_species": 79,
+      "adapter_subject_entries": 79,
+      "identity_namespace_entries": 79,
+      "identity_entries_by_species": {
+        "human": 79
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 402825.0,
+      "duration_hours": 111.89583333333333,
+      "reader_input_duration_seconds": 402825.0,
+      "output_bytes": 5676528188,
+      "events": 1801,
+      "full_one_second_patches": 402825,
+      "remainder_samples": 0,
+      "channel_counts": [
+        19
+      ],
+      "source_sampling_rates": [
+        256.0
+      ],
+      "array_label_record_counts": {
+        "neonatal_seizure_expert_disagreement": 18,
+        "neonatal_seizure_unanimous_consensus": 39,
+        "unanimous_no_neonatal_seizure": 22
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 79
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 79
+      },
+      "reference_type_output_counts": {
+        "recorded_against_publisher_documented_midline_reference_exact_electrode_unspecified": 79
+      },
+      "reference_status_output_counts": {
+        "documented_scheme_exact_electrode_unknown": 79
+      },
+      "split_output_counts": {
+        "train": 63,
+        "validation": 8,
+        "test": 8
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 79
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1530735000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.0003219047239785449,
+      "sample_weighted_std_model": 0.7226329629111011,
+      "min_model": -101.39319610595703,
+      "max_model": 92.62736511230469,
+      "tail_fraction": {
+        "1": 0.02872988858293565,
+        "5": 0.0015508262370691204,
+        "10": 0.0004550310798407301,
+        "100": 6.532809402019292e-10
+      }
+    },
+    "EEG-0006": {
+      "name": "American Epilepsy Society Seizure Prediction Challenge",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 473,
+      "human_dataset_subject_entries": 2,
+      "stored_dataset_subject_identifiers": 2,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 473
+      },
+      "dataset_subject_entries_all_species": 2,
+      "adapter_subject_entries": 2,
+      "identity_namespace_entries": 2,
+      "identity_entries_by_species": {
+        "human": 2
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 283800.0,
+      "duration_hours": 78.83333333333333,
+      "reader_input_duration_seconds": 283800.0,
+      "output_bytes": 3900529943,
+      "events": 473,
+      "full_one_second_patches": 283800,
+      "remainder_samples": 0,
+      "channel_counts": [
+        15,
+        24
+      ],
+      "source_sampling_rates": [
+        5000.0
+      ],
+      "array_label_record_counts": {
+        "interictal": 92,
+        "preictal": 36,
+        "publisher_test_label_hidden": 345
+      },
+      "unit_status_output_counts": {
+        "documented": 473
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "native_monopolar_extracranial_or_skull_fixed_reference": 473
+      },
+      "reference_status_output_counts": {
+        "documented_by_project_owner_exact_electrode_not_encoded": 473
+      },
+      "split_output_counts": {
+        "train": 473
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 473
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1078200000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -1.7231047277137017e-05,
+      "sample_weighted_std_model": 32.14691961921866,
+      "min_model": -1730.9000244140625,
+      "max_model": 1779.7552490234375,
+      "tail_fraction": {
+        "1": 0.535756150064923,
+        "5": 0.09551149044704137,
+        "10": 0.03814393618994621,
+        "100": 0.008922771285475794
+      }
+    },
+    "EEG-0008": {
+      "name": "Bonn EEG Seizure Dataset",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 500,
+      "human_dataset_subject_entries": 0,
+      "stored_dataset_subject_identifiers": 0,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "unavailable": 500
+      },
+      "dataset_subject_entries_all_species": 0,
+      "adapter_subject_entries": 0,
+      "identity_namespace_entries": 0,
+      "identity_entries_by_species": {},
+      "outputs_without_reliable_subject_id": 500,
+      "duration_seconds": 11800.000000000107,
+      "duration_hours": 3.2777777777778074,
+      "reader_input_duration_seconds": 11799.435516387342,
+      "output_bytes": 10816002,
+      "events": 500,
+      "full_one_second_patches": 11500,
+      "remainder_samples": 60000,
+      "channel_counts": [
+        1
+      ],
+      "source_sampling_rates": [
+        173.61
+      ],
+      "array_label_record_counts": {
+        "healthy_eyes_closed": 100,
+        "healthy_eyes_open": 100,
+        "ictal_seizure": 100,
+        "interictal_set_F": 100,
+        "interictal_set_N": 100
+      },
+      "unit_status_output_counts": {
+        "documented": 500
+      },
+      "qc_flag_counts": {
+        "subject_id_not_verified": 500
+      },
+      "reference_type_output_counts": {
+        "dataset-specific intracranial/scalp single-channel segments": 500
+      },
+      "reference_status_output_counts": {
+        "documented_dataset_specific": 500
+      },
+      "split_output_counts": {
+        "unassigned": 500
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 500
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 2360000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.07721279243441223,
+      "sample_weighted_std_model": 1.6468611355419986,
+      "min_model": -19.305511474609375,
+      "max_model": 20.926225662231445,
+      "tail_fraction": {
+        "1": 0.22087542372881355,
+        "5": 0.024397881355932204,
+        "10": 0.0035245762711864407,
+        "100": 0.0
+      }
+    },
+    "EEG-0009": {
+      "name": "CHB-MIT",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 686,
+      "human_dataset_subject_entries": 23,
+      "stored_dataset_subject_identifiers": 23,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 686
+      },
+      "dataset_subject_entries_all_species": 23,
+      "adapter_subject_entries": 23,
+      "identity_namespace_entries": 23,
+      "identity_entries_by_species": {
+        "human": 23
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 3538567.0,
+      "duration_hours": 982.9352777777777,
+      "reader_input_duration_seconds": 3538567.0,
+      "output_bytes": 58794978509,
+      "events": 884,
+      "full_one_second_patches": 3538567,
+      "remainder_samples": 0,
+      "channel_counts": [
+        18,
+        22,
+        23,
+        24,
+        26,
+        32
+      ],
+      "source_sampling_rates": [
+        256.0
+      ],
+      "array_label_record_counts": {
+        "no_annotated_seizure_in_recording": 545,
+        "recording_contains_annotated_seizure": 141
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 686
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 686
+      },
+      "reference_type_output_counts": {
+        "publisher_recorded_bipolar_and_mixed_clinical_derivations_retained_per_file": 686
+      },
+      "reference_status_output_counts": {
+        "documented_from_edf_and_case_summary_channel_labels": 686
+      },
+      "split_output_counts": {
+        "train": 542,
+        "test": 79,
+        "validation": 65
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 686
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 15787928400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 8.953616960577831e-06,
+      "sample_weighted_std_model": 0.6556852121002913,
+      "min_model": -59.101463317871094,
+      "max_model": 49.733726501464844,
+      "tail_fraction": {
+        "1": 0.06718859245649987,
+        "5": 0.0018770715352370107,
+        "10": 0.00017618967666460915,
+        "100": 0.0
+      }
+    },
+    "EEG-0010": {
+      "name": "Criteria for defining interictal epileptiform discharges in EEG: a clinical validation study",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 100,
+      "human_dataset_subject_entries": 100,
+      "stored_dataset_subject_identifiers": 100,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 100
+      },
+      "dataset_subject_entries_all_species": 100,
+      "adapter_subject_entries": 100,
+      "identity_namespace_entries": 100,
+      "identity_entries_by_species": {
+        "human": 100
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 1263.0,
+      "duration_hours": 0.35083333333333333,
+      "reader_input_duration_seconds": 1263.0,
+      "output_bytes": 24222612,
+      "events": 212,
+      "full_one_second_patches": 1263,
+      "remainder_samples": 0,
+      "channel_counts": [
+        19,
+        25
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "epilepsy": 54,
+        "nonepileptic_paroxysmal_event": 46
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 100
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "EDF labels identify a common Ref but retained sources do not name the reference electrode": 100
+      },
+      "reference_status_output_counts": {
+        "unknown_in_retained_source_metadata": 100
+      },
+      "split_output_counts": {
+        "train": 76,
+        "validation": 14,
+        "test": 10
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 100
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 6269400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.0003554226764477622,
+      "sample_weighted_std_model": 0.21627826685135546,
+      "min_model": -6.417628765106201,
+      "max_model": 8.222602844238281,
+      "tail_fraction": {
+        "1": 0.005803266660286471,
+        "5": 2.8710881424059718e-06,
+        "10": 0.0,
+        "100": 0.0
+      }
+    },
+    "EEG-0013": {
+      "name": "HFO (High-Frequency Oscillations)",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 30,
+      "human_dataset_subject_entries": 30,
+      "stored_dataset_subject_identifiers": 30,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 30
+      },
+      "dataset_subject_entries_all_species": 30,
+      "adapter_subject_entries": 30,
+      "identity_namespace_entries": 30,
+      "identity_entries_by_species": {
+        "human": 30
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 320425.0,
+      "duration_hours": 89.00694444444444,
+      "reader_input_duration_seconds": 320425.0,
+      "output_bytes": 5502823566,
+      "events": 30,
+      "full_one_second_patches": 320425,
+      "remainder_samples": 0,
+      "channel_counts": [
+        23,
+        24
+      ],
+      "source_sampling_rates": [
+        1024.0,
+        2048.0
+      ],
+      "array_label_record_counts": {
+        "pediatric_epilepsy": 30
+      },
+      "unit_status_output_counts": {
+        "documented": 30
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "G2": 30
+      },
+      "reference_status_output_counts": {
+        "documented_from_inherited_bids_task_eeg_json_reference_not_materialized": 30
+      },
+      "split_output_counts": {
+        "train": 24,
+        "validation": 3,
+        "test": 3
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 30
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1480435000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0002105959643497887,
+      "sample_weighted_std_model": 0.9026002335096762,
+      "min_model": -42.91215896606445,
+      "max_model": 41.63998031616211,
+      "tail_fraction": {
+        "1": 0.13871927642888746,
+        "5": 0.0027715509292876757,
+        "10": 0.0003462137817600908,
+        "100": 0.0
+      }
+    },
+    "EEG-0014": {
+      "name": "HMS Harmful Brain Activity Classification",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 17089,
+      "human_dataset_subject_entries": 1950,
+      "stored_dataset_subject_identifiers": 1950,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "verified_from_file": 17089
+      },
+      "dataset_subject_entries_all_species": 1950,
+      "adapter_subject_entries": 1950,
+      "identity_namespace_entries": 1950,
+      "identity_entries_by_species": {
+        "human": 1950
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 1369008.0,
+      "duration_hours": 380.28,
+      "reader_input_duration_seconds": 1369008.0,
+      "output_bytes": 13847214297,
+      "events": 106800,
+      "full_one_second_patches": 1369008,
+      "remainder_samples": 0,
+      "channel_counts": [
+        19
+      ],
+      "source_sampling_rates": [
+        200.0
+      ],
+      "array_label_record_counts": {
+        "no_record_wide_label_window_labels_in_events": 17089
+      },
+      "unit_status_output_counts": {
+        "documented": 17089
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 3146,
+        "flatline_ge_5s": 200,
+        "near_constant_channel": 1
+      },
+      "reference_type_output_counts": {
+        "referential_storage_unspecified_reference": 17089
+      },
+      "reference_status_output_counts": {
+        "not_encoded_in_parquet_official_figures_show_derived_bipolar_montage": 17089
+      },
+      "split_output_counts": {
+        "train": 13838,
+        "test": 1568,
+        "validation": 1683
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 17089
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 5202230400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.400034113230871,
+      "sample_weighted_std_model": 12.909387048060477,
+      "min_model": -449.8789978027344,
+      "max_model": 514.0510864257812,
+      "tail_fraction": {
+        "1": 0.18232703188232494,
+        "5": 0.04931297660326617,
+        "10": 0.028115638438466702,
+        "100": 0.002242596175671112
+      }
+    },
+    "EEG-0015": {
+      "name": "HUP iEEG Epilepsy Dataset",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 348,
+      "human_dataset_subject_entries": 58,
+      "stored_dataset_subject_identifiers": 58,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 348
+      },
+      "dataset_subject_entries_all_species": 58,
+      "adapter_subject_entries": 58,
+      "identity_namespace_entries": 58,
+      "identity_entries_by_species": {
+        "human": 58
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 179170.0,
+      "duration_hours": 49.769444444444446,
+      "reader_input_duration_seconds": 179170.0,
+      "output_bytes": 15137131968,
+      "events": 426,
+      "full_one_second_patches": 179170,
+      "remainder_samples": 0,
+      "channel_counts": [
+        36,
+        49,
+        50,
+        54,
+        55,
+        63,
+        64,
+        71,
+        73,
+        77,
+        83,
+        84,
+        86,
+        87,
+        89,
+        92,
+        94,
+        96,
+        100,
+        101,
+        102,
+        106,
+        108,
+        111,
+        113,
+        114,
+        115,
+        117,
+        118,
+        120,
+        122,
+        125,
+        126,
+        136,
+        148,
+        149,
+        156,
+        159,
+        161,
+        164,
+        169,
+        172,
+        176,
+        185,
+        195
+      ],
+      "source_sampling_rates": [
+        256.0,
+        500.0,
+        512.0,
+        1024.0
+      ],
+      "array_label_record_counts": {
+        "drug_resistant_focal_epilepsy": 348
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 348
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 348,
+        "flatline_ge_5s": 5,
+        "near_constant_channel": 5,
+        "postprocess_sustained_high_amplitude": 1
+      },
+      "reference_type_output_counts": {
+        "publisher iEEGReference is n/a; deposited ECoG/SEEG channels are retained without an invented rereference": 348
+      },
+      "reference_status_output_counts": {
+        "unknown_in_retained_source_metadata": 348
+      },
+      "split_output_counts": {
+        "train": 279,
+        "test": 25,
+        "validation": 44
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 348
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 13,
+      "outside_event_rows": 13,
+      "values_read": 4076561400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0007276765481732237,
+      "sample_weighted_std_model": 1.9905560275338696,
+      "min_model": -466.6708068847656,
+      "max_model": 467.52740478515625,
+      "tail_fraction": {
+        "1": 0.18935406762179519,
+        "5": 0.0077988627866613265,
+        "10": 0.0021498113581706387,
+        "100": 4.4376861342012414e-05
+      }
+    },
+    "EEG-0016": {
+      "name": "vEpiSet (Interictal Epileptiform Discharge EEG Dataset)",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 25449,
+      "human_dataset_subject_entries": 84,
+      "stored_dataset_subject_identifiers": 84,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 25449
+      },
+      "dataset_subject_entries_all_species": 84,
+      "adapter_subject_entries": 84,
+      "identity_namespace_entries": 84,
+      "identity_entries_by_species": {
+        "human": 84
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 101670.0,
+      "duration_hours": 28.241666666666667,
+      "reader_input_duration_seconds": 101670.0,
+      "output_bytes": 1915696587,
+      "events": 25449,
+      "full_one_second_patches": 101670,
+      "remainder_samples": 0,
+      "channel_counts": [
+        23
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "centro_parietal_ied": 366,
+        "frontal_ied": 458,
+        "generalized_ied": 573,
+        "non_ied": 22933,
+        "occipital_ied": 417,
+        "temporal_ied": 702
+      },
+      "unit_status_output_counts": {
+        "inferred_from_numeric_range_and_primary_paper_amplitudes": 25449
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 25449,
+        "unit_not_verified": 25449,
+        "postprocess_sustained_high_amplitude": 1603
+      },
+      "reference_type_output_counts": {
+        "unknown": 25449
+      },
+      "reference_status_output_counts": {
+        "unknown_in_primary_article_and_materialized_arrays": 25449
+      },
+      "split_output_counts": {
+        "train": 19633,
+        "validation": 2779,
+        "test": 3037
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 25449
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 467682000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 9.38011433285361e-05,
+      "sample_weighted_std_model": 1.7554644266102997,
+      "min_model": -112.62982940673828,
+      "max_model": 107.68946838378906,
+      "tail_fraction": {
+        "1": 0.16497748897755313,
+        "5": 0.013779551062474074,
+        "10": 0.0034349344212520473,
+        "100": 2.2023511702396072e-07
+      }
+    },
+    "EEG-0017": {
+      "name": "Intracranial entrainment reveals statistical learning across levels of abstraction",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 30,
+      "human_dataset_subject_entries": 8,
+      "stored_dataset_subject_identifiers": 8,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 30
+      },
+      "dataset_subject_entries_all_species": 8,
+      "adapter_subject_entries": 8,
+      "identity_namespace_entries": 8,
+      "identity_entries_by_species": {
+        "human": 8
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 4414.85,
+      "duration_hours": 1.2263472222222223,
+      "reader_input_duration_seconds": 4414.859375,
+      "output_bytes": 551788522,
+      "events": 4,
+      "full_one_second_patches": 4402,
+      "remainder_samples": 2570,
+      "channel_counts": [
+        116,
+        125,
+        168,
+        181,
+        188,
+        191,
+        223
+      ],
+      "source_sampling_rates": [
+        4096.0
+      ],
+      "array_label_record_counts": {
+        "epilepsy_intracranial_monitoring": 30
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 30
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 30
+      },
+      "reference_type_output_counts": {
+        "publisher EEGReference is n/a; deposited contacts are retained without an invented rereference": 30
+      },
+      "reference_status_output_counts": {
+        "unknown_in_retained_source_metadata": 30
+      },
+      "split_output_counts": {
+        "train": 30
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 30
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 148330765,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0002684841335805228,
+      "sample_weighted_std_model": 1.0054260684434833,
+      "min_model": -127.91400146484375,
+      "max_model": 124.71166229248047,
+      "tail_fraction": {
+        "1": 0.0737065840656859,
+        "5": 0.00165815230576071,
+        "10": 0.0005799740869670564,
+        "100": 9.101281180610104e-07
+      }
+    },
+    "EEG-0018": {
+      "name": "Kaggle UPenn and Mayo Clinic Seizure Detection",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 34993,
+      "human_dataset_subject_entries": 8,
+      "stored_dataset_subject_identifiers": 8,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 34993
+      },
+      "dataset_subject_entries_all_species": 8,
+      "adapter_subject_entries": 8,
+      "identity_namespace_entries": 8,
+      "identity_entries_by_species": {
+        "human": 8
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 35004.12000000032,
+      "duration_hours": 9.723366666666756,
+      "reader_input_duration_seconds": 34993.413767654456,
+      "output_bytes": 1254490500,
+      "events": 34993,
+      "full_one_second_patches": 34993,
+      "remainder_samples": 2224,
+      "channel_counts": [
+        16,
+        30,
+        36,
+        55,
+        64,
+        68,
+        72
+      ],
+      "source_sampling_rates": [
+        499.906994,
+        5000.0
+      ],
+      "array_label_record_counts": {
+        "ictal": 1390,
+        "interictal": 14329,
+        "publisher_test_label_hidden": 19274
+      },
+      "unit_status_output_counts": {
+        "documented": 34993
+      },
+      "qc_flag_counts": {
+        "all_zero_channel": 20,
+        "near_constant_channel": 20,
+        "implausible_amplitude_or_unit": 5,
+        "postprocess_sustained_high_amplitude": 5
+      },
+      "reference_type_output_counts": {
+        "native_monopolar_extracranial_or_skull_fixed_reference": 34993
+      },
+      "reference_status_output_counts": {
+        "documented_by_project_owner_exact_electrode_not_encoded": 34993
+      },
+      "split_output_counts": {
+        "validation": 4565,
+        "train": 28106,
+        "test": 2322
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 34993
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 262092432,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.00017402042976295042,
+      "sample_weighted_std_model": 11.56657839821756,
+      "min_model": -1923.37109375,
+      "max_model": 2021.4007568359375,
+      "tail_fraction": {
+        "1": 0.2397115724425038,
+        "5": 0.01185223081908752,
+        "10": 0.004121744347047762,
+        "100": 0.0010555169330490244
+      }
+    },
+    "EEG-0030": {
+      "name": "OpenNeuro ds003029 Epilepsy iEEG Multicenter",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 102,
+      "human_dataset_subject_entries": 31,
+      "stored_dataset_subject_identifiers": 31,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 102
+      },
+      "dataset_subject_entries_all_species": 31,
+      "adapter_subject_entries": 31,
+      "identity_namespace_entries": 31,
+      "identity_entries_by_species": {
+        "human": 31
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 28644.795000000013,
+      "duration_hours": 7.956887500000003,
+      "reader_input_duration_seconds": 28644.833229000007,
+      "output_bytes": 1551599341,
+      "events": 1683,
+      "full_one_second_patches": 28615,
+      "remainder_samples": 5959,
+      "channel_counts": [
+        30,
+        44,
+        45,
+        46,
+        48,
+        49,
+        50,
+        52,
+        54,
+        55,
+        59,
+        62,
+        70,
+        71,
+        72,
+        76,
+        78,
+        80,
+        84,
+        85,
+        87,
+        88,
+        94,
+        97,
+        107,
+        113,
+        117,
+        136,
+        184
+      ],
+      "source_sampling_rates": [
+        249.8750624687656,
+        499.7501249375312,
+        1000.0,
+        1001.001001001001,
+        2004.0080160320642
+      ],
+      "array_label_record_counts": {
+        "epilepsy_ictal_ieeg": 102
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 102
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 102,
+        "postprocess_sustained_high_amplitude": 2
+      },
+      "reference_type_output_counts": {
+        "publisher iEEGReference is n/a; deposited contacts are retained without an invented rereference": 102
+      },
+      "reference_status_output_counts": {
+        "unknown_in_retained_source_metadata": 102
+      },
+      "split_output_counts": {
+        "train": 76,
+        "test": 13,
+        "validation": 13
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 102
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 417260463,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.01667216416762291,
+      "sample_weighted_std_model": 5.024221010331069,
+      "min_model": -186.4510955810547,
+      "max_model": 179.3319549560547,
+      "tail_fraction": {
+        "1": 0.44489233095636,
+        "5": 0.09470287866693951,
+        "10": 0.03947720539245052,
+        "100": 4.645539589500959e-05
+      }
+    },
+    "EEG-0031": {
+      "name": "SeizeIT2",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 2850,
+      "human_dataset_subject_entries": 125,
+      "stored_dataset_subject_identifiers": 125,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 2850
+      },
+      "dataset_subject_entries_all_species": 125,
+      "adapter_subject_entries": 125,
+      "identity_namespace_entries": 125,
+      "identity_entries_by_species": {
+        "human": 125
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 41854496.0,
+      "duration_hours": 11626.24888888889,
+      "reader_input_duration_seconds": 41854496.0,
+      "output_bytes": 62015634693,
+      "events": 3660,
+      "full_one_second_patches": 41854496,
+      "remainder_samples": 0,
+      "channel_counts": [
+        2
+      ],
+      "source_sampling_rates": [
+        256.0
+      ],
+      "array_label_record_counts": {
+        "focal_epilepsy": 2850
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 2850
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 2850,
+        "postprocess_sustained_high_amplitude": 405,
+        "flatline_ge_5s": 1
+      },
+      "reference_type_output_counts": {
+        "publisher EEGReference is n/a; the two deposited channels are device-derived behind-the-ear/cross-head signals": 2850
+      },
+      "reference_status_output_counts": {
+        "unknown_in_retained_source_metadata": 2850
+      },
+      "split_output_counts": {
+        "train": 2081,
+        "test": 281,
+        "validation": 488
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 2850
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 16741798400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0001456628864399437,
+      "sample_weighted_std_model": 1.7333489386700176,
+      "min_model": -81.52427673339844,
+      "max_model": 76.14974975585938,
+      "tail_fraction": {
+        "1": 0.07799776802950871,
+        "5": 0.014023000898159185,
+        "10": 0.005550273081773581,
+        "100": 0.0
+      }
+    },
+    "EEG-0032": {
+      "name": "Siena Scalp EEG",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 41,
+      "human_dataset_subject_entries": 14,
+      "stored_dataset_subject_identifiers": 14,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 41
+      },
+      "dataset_subject_entries_all_species": 14,
+      "adapter_subject_entries": 14,
+      "identity_namespace_entries": 14,
+      "identity_entries_by_species": {
+        "human": 14
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 507674.0,
+      "duration_hours": 141.02055555555555,
+      "reader_input_duration_seconds": 507674.0,
+      "output_bytes": 10370039060,
+      "events": 90,
+      "full_one_second_patches": 507674,
+      "remainder_samples": 0,
+      "channel_counts": [
+        19,
+        29
+      ],
+      "source_sampling_rates": [
+        512.0
+      ],
+      "array_label_record_counts": {
+        "recording_contains_publisher_annotated_seizure": 41
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 41
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 41,
+        "postprocess_sustained_high_amplitude": 1,
+        "flatline_ge_5s": 3
+      },
+      "reference_type_output_counts": {
+        "publisher_recorded_referential_scalp_channels_exact_reference_not_published": 41
+      },
+      "reference_status_output_counts": {
+        "unknown_not_published": 41
+      },
+      "split_output_counts": {
+        "train": 24,
+        "validation": 9,
+        "test": 8
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 41
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 2809675200,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.011131869084505234,
+      "sample_weighted_std_model": 1.3324866727050515,
+      "min_model": -53.082908630371094,
+      "max_model": 56.46894836425781,
+      "tail_fraction": {
+        "1": 0.0511458413413764,
+        "5": 0.008171350553259678,
+        "10": 0.003061147067817661,
+        "100": 0.0
+      }
+    },
+    "EEG-0033": {
+      "name": "TUEP (TUH Epilepsy)",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 2808,
+      "human_dataset_subject_entries": 200,
+      "stored_dataset_subject_identifiers": 200,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 2808
+      },
+      "dataset_subject_entries_all_species": 200,
+      "adapter_subject_entries": 200,
+      "identity_namespace_entries": 200,
+      "identity_entries_by_species": {
+        "human": 200
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 2256359.0,
+      "duration_hours": 626.7663888888889,
+      "reader_input_duration_seconds": 2256359.0,
+      "output_bytes": 28544274945,
+      "events": 19189,
+      "full_one_second_patches": 2256359,
+      "remainder_samples": 0,
+      "channel_counts": [
+        17
+      ],
+      "source_sampling_rates": [
+        250.0,
+        256.0,
+        400.0,
+        512.0,
+        1000.0
+      ],
+      "array_label_record_counts": {
+        "epilepsy": 2244,
+        "no_epilepsy": 564
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 2808
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 166
+      },
+      "reference_type_output_counts": {
+        "average_reference": 2656,
+        "linked_ears": 152
+      },
+      "reference_status_output_counts": {
+        "documented_from_tuh_montage_directory_and_edf_labels": 2808
+      },
+      "split_output_counts": {
+        "train": 2248,
+        "validation": 229,
+        "test": 331
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 2808
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 7671620600,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.003431650760871389,
+      "sample_weighted_std_model": 2.8559261941027945,
+      "min_model": -136.33834838867188,
+      "max_model": 132.29330444335938,
+      "tail_fraction": {
+        "1": 0.036531227834702876,
+        "5": 0.009799530101892683,
+        "10": 0.005841814570444216,
+        "100": 9.415220559786286e-07
+      }
+    },
+    "EEG-0034": {
+      "name": "TUEV (TUH Events)",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 518,
+      "human_dataset_subject_entries": 290,
+      "stored_dataset_subject_identifiers": 370,
+      "unverified_named_subject_identifiers": 80,
+      "subject_id_status_output_counts": {
+        "documented": 359,
+        "publisher_session_index_not_proven_subject": 159
+      },
+      "dataset_subject_entries_all_species": 290,
+      "adapter_subject_entries": 290,
+      "identity_namespace_entries": 290,
+      "identity_entries_by_species": {
+        "human": 290
+      },
+      "outputs_without_reliable_subject_id": 159,
+      "duration_seconds": 535481.0,
+      "duration_hours": 148.7447222222222,
+      "reader_input_duration_seconds": 535481.0,
+      "output_bytes": 8418679066,
+      "events": 113353,
+      "full_one_second_patches": 535481,
+      "remainder_samples": 0,
+      "channel_counts": [
+        21
+      ],
+      "source_sampling_rates": [
+        250.0
+      ],
+      "array_label_record_counts": {
+        "": 518
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 518
+      },
+      "qc_flag_counts": {
+        "subject_id_not_verified": 159,
+        "postprocess_sustained_high_amplitude": 15
+      },
+      "reference_type_output_counts": {
+        "mixed_average_or_linked_ears_referential": 518
+      },
+      "reference_status_output_counts": {
+        "documented_dataset_specific_but_not_encoded_in_pruned_path": 518
+      },
+      "split_output_counts": {
+        "train": 293,
+        "test": 182,
+        "validation": 43
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 518
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 2249020200,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.006190468007139506,
+      "sample_weighted_std_model": 1.7394496290760468,
+      "min_model": -128.13626098632812,
+      "max_model": 129.10357666015625,
+      "tail_fraction": {
+        "1": 0.023329870492048047,
+        "5": 0.005026640489934239,
+        "10": 0.003089275054087998,
+        "100": 3.939493295791652e-07
+      }
+    },
+    "EEG-0035": {
+      "name": "TUSL (TUH Slowing)",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 112,
+      "human_dataset_subject_entries": 38,
+      "stored_dataset_subject_identifiers": 38,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 112
+      },
+      "dataset_subject_entries_all_species": 38,
+      "adapter_subject_entries": 38,
+      "identity_namespace_entries": 38,
+      "identity_entries_by_species": {
+        "human": 38
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 99347.0,
+      "duration_hours": 27.59638888888889,
+      "reader_input_duration_seconds": 99347.0,
+      "output_bytes": 1550470271,
+      "events": 300,
+      "full_one_second_patches": 99347,
+      "remainder_samples": 0,
+      "channel_counts": [
+        21
+      ],
+      "source_sampling_rates": [
+        250.0,
+        256.0,
+        400.0,
+        512.0
+      ],
+      "array_label_record_counts": {
+        "": 112
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 112
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 3
+      },
+      "reference_type_output_counts": {
+        "average_reference": 88,
+        "linked_ears": 24
+      },
+      "reference_status_output_counts": {
+        "documented_from_tuh_montage_directory_and_edf_labels": 112
+      },
+      "split_output_counts": {
+        "train": 95,
+        "validation": 5,
+        "test": 12
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 112
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 417257400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.007924178527163898,
+      "sample_weighted_std_model": 2.227333524656533,
+      "min_model": -102.32714080810547,
+      "max_model": 97.20752716064453,
+      "tail_fraction": {
+        "1": 0.031283342128863384,
+        "5": 0.005873424893123525,
+        "10": 0.004059441486238471,
+        "100": 1.4379613159646779e-08
+      }
+    },
+    "EEG-0036": {
+      "name": "TUSZ (TUH Seizure)",
+      "subcategory": "Epilepsy_and_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 8140,
+      "human_dataset_subject_entries": 675,
+      "stored_dataset_subject_identifiers": 675,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 8140
+      },
+      "dataset_subject_entries_all_species": 675,
+      "adapter_subject_entries": 675,
+      "identity_namespace_entries": 675,
+      "identity_entries_by_species": {
+        "human": 675
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 5309234.0,
+      "duration_hours": 1474.7872222222222,
+      "reader_input_duration_seconds": 5309234.0,
+      "output_bytes": 67163246393,
+      "events": 70790,
+      "full_one_second_patches": 5309234,
+      "remainder_samples": 0,
+      "channel_counts": [
+        17
+      ],
+      "source_sampling_rates": [
+        250.0,
+        256.0,
+        400.0,
+        512.0,
+        1000.0
+      ],
+      "array_label_record_counts": {
+        "background": 7043,
+        "seizure": 1097
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 8140
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 359,
+        "flatline_ge_5s": 4,
+        "near_constant_channel": 3
+      },
+      "reference_type_output_counts": {
+        "average_reference": 7567,
+        "linked_ears": 573
+      },
+      "reference_status_output_counts": {
+        "documented_from_tuh_montage_directory_and_edf_labels": 8140
+      },
+      "split_output_counts": {
+        "test": 1415,
+        "validation": 1703,
+        "train": 5022
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 8140
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 18051395600,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.002418622208500155,
+      "sample_weighted_std_model": 3.225837139423855,
+      "min_model": -132.15452575683594,
+      "max_model": 135.1004638671875,
+      "tail_fraction": {
+        "1": 0.028572021544971293,
+        "5": 0.008230504127891364,
+        "10": 0.00606680333347744,
+        "100": 1.6169386925407584e-06
+      }
+    },
+    "EEG-0039": {
+      "name": "AD-Auditory",
+      "subcategory": "Neurodegenerative_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 35,
+      "human_dataset_subject_entries": 35,
+      "stored_dataset_subject_identifiers": 35,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 35
+      },
+      "dataset_subject_entries_all_species": 35,
+      "adapter_subject_entries": 35,
+      "identity_namespace_entries": 35,
+      "identity_entries_by_species": {
+        "human": 35
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 18730.0,
+      "duration_hours": 5.2027777777777775,
+      "reader_input_duration_seconds": 18730.0,
+      "output_bytes": 264733530,
+      "events": 636,
+      "full_one_second_patches": 18730,
+      "remainder_samples": 0,
+      "channel_counts": [
+        19
+      ],
+      "source_sampling_rates": [
+        250.0
+      ],
+      "array_label_record_counts": {
+        "": 2,
+        "alzheimer_disease": 17,
+        "healthy_control": 10,
+        "mild_cognitive_impairment": 6
+      },
+      "unit_status_output_counts": {
+        "inferred_from_eeglab_numeric_scale": 35
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 35
+      },
+      "reference_type_output_counts": {
+        "average": 35
+      },
+      "reference_status_output_counts": {
+        "documented_in_bids_eeg_sidecar": 35
+      },
+      "split_output_counts": {
+        "validation": 3,
+        "train": 27,
+        "test": 5
+      },
+      "raw_or_processed_output_counts": {
+        "partially_filtered": 35
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 71174000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -1.7505588330311846e-13,
+      "sample_weighted_std_model": 0.05881476743217333,
+      "min_model": -1.0418941974639893,
+      "max_model": 1.1971808671951294,
+      "tail_fraction": {
+        "1": 8.4300446792368e-08,
+        "5": 0.0,
+        "10": 0.0,
+        "100": 0.0
+      }
+    },
+    "EEG-0040": {
+      "name": "AD65 (Alzheimer/FTD)",
+      "subcategory": "Neurodegenerative_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 88,
+      "human_dataset_subject_entries": 88,
+      "stored_dataset_subject_identifiers": 88,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 88
+      },
+      "dataset_subject_entries_all_species": 88,
+      "adapter_subject_entries": 88,
+      "identity_namespace_entries": 88,
+      "identity_entries_by_species": {
+        "human": 88
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 70590.29999999999,
+      "duration_hours": 19.608416666666663,
+      "reader_input_duration_seconds": 70590.29999999999,
+      "output_bytes": 971129942,
+      "events": 88,
+      "full_one_second_patches": 70561,
+      "remainder_samples": 5860,
+      "channel_counts": [
+        19
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "alzheimer_disease": 36,
+        "frontotemporal_dementia": 23,
+        "healthy_control": 29
+      },
+      "unit_status_output_counts": {
+        "documented": 88
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 24
+      },
+      "reference_type_output_counts": {
+        "publisher conflict, eeg.json says A1 A2 while README says the shared referential montage used Cz": 88
+      },
+      "reference_status_output_counts": {
+        "conflicting_publisher_bids_sidecar_and_readme": 88
+      },
+      "split_output_counts": {
+        "train": 70,
+        "test": 9,
+        "validation": 9
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 88
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 268243140,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.08130765916254482,
+      "sample_weighted_std_model": 3.14503878192594,
+      "min_model": -56.58720779418945,
+      "max_model": 65.96640014648438,
+      "tail_fraction": {
+        "1": 0.4286515547051828,
+        "5": 0.03507169279333667,
+        "10": 0.012996556034946503,
+        "100": 0.0
+      }
+    },
+    "EEG-0041": {
+      "name": "Alzheimer Risk Classification Sample-enrichment EEG",
+      "subcategory": "Neurodegenerative_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 44,
+      "human_dataset_subject_entries": 44,
+      "stored_dataset_subject_identifiers": 44,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 44
+      },
+      "dataset_subject_entries_all_species": 44,
+      "adapter_subject_entries": 44,
+      "identity_namespace_entries": 44,
+      "identity_entries_by_species": {
+        "human": 44
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 14081.6,
+      "duration_hours": 3.9115555555555557,
+      "reader_input_duration_seconds": 14081.6,
+      "output_bytes": 606572889,
+      "events": 44,
+      "full_one_second_patches": 14060,
+      "remainder_samples": 4320,
+      "channel_counts": [
+        58
+      ],
+      "source_sampling_rates": [
+        1000.0
+      ],
+      "array_label_record_counts": {
+        "publisher_group_CTR": 1,
+        "publisher_group_G1": 27,
+        "publisher_group_G2": 16
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 44
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "right_mastoid": 44
+      },
+      "reference_status_output_counts": {
+        "documented_from_every_bids_eeg_json_as_Mastoide_derecha": 44
+      },
+      "split_output_counts": {
+        "train": 36,
+        "validation": 4,
+        "test": 4
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 44
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 163346560,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0008111999159978056,
+      "sample_weighted_std_model": 0.3353261472448918,
+      "min_model": -17.918487548828125,
+      "max_model": 10.476778984069824,
+      "tail_fraction": {
+        "1": 0.008409335341987,
+        "5": 0.0006481985295558107,
+        "10": 0.0001742185449145669,
+        "100": 0.0
+      }
+    },
+    "EEG-0042": {
+      "name": "APAVA",
+      "subcategory": "Neurodegenerative_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 663,
+      "human_dataset_subject_entries": 23,
+      "stored_dataset_subject_identifiers": 23,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 663
+      },
+      "dataset_subject_entries_all_species": 23,
+      "adapter_subject_entries": 23,
+      "identity_namespace_entries": 23,
+      "identity_entries_by_species": {
+        "human": 23
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 3315.0,
+      "duration_hours": 0.9208333333333333,
+      "reader_input_duration_seconds": 3315.0,
+      "output_bytes": 41918134,
+      "events": 663,
+      "full_one_second_patches": 3315,
+      "remainder_samples": 0,
+      "channel_counts": [
+        16
+      ],
+      "source_sampling_rates": [
+        256.0
+      ],
+      "array_label_record_counts": {
+        "alzheimer_disease": 400,
+        "healthy_control": 263
+      },
+      "unit_status_output_counts": {
+        "inferred_from_numeric_range": 663
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 663
+      },
+      "reference_type_output_counts": {
+        "average reference across 16 listed channels": 663
+      },
+      "reference_status_output_counts": {
+        "verified_from_mat_cfg": 663
+      },
+      "split_output_counts": {
+        "train": 585,
+        "validation": 43,
+        "test": 35
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 663
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 10608000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -3.3163426782668403e-12,
+      "sample_weighted_std_model": 0.78091263037929,
+      "min_model": -10.24176025390625,
+      "max_model": 55.88645553588867,
+      "tail_fraction": {
+        "1": 0.09923171191553544,
+        "5": 0.0043138197586727,
+        "10": 2.7055052790346907e-05,
+        "100": 0.0
+      }
+    },
+    "EEG-0043": {
+      "name": "CAUEEG",
+      "subcategory": "Neurodegenerative_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 1379,
+      "human_dataset_subject_entries": 1379,
+      "stored_dataset_subject_identifiers": 1379,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 1379
+      },
+      "dataset_subject_entries_all_species": 1379,
+      "adapter_subject_entries": 1379,
+      "identity_namespace_entries": 1379,
+      "identity_entries_by_species": {
+        "human": 1379
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 1107974.0,
+      "duration_hours": 307.7705555555556,
+      "reader_input_duration_seconds": 1107974.0,
+      "output_bytes": 15655494856,
+      "events": 61702,
+      "full_one_second_patches": 1107974,
+      "remainder_samples": 0,
+      "channel_counts": [
+        19
+      ],
+      "source_sampling_rates": [
+        200.0
+      ],
+      "array_label_record_counts": {
+        "abnormal": 920,
+        "normal": 459
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 1379
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "publisher_average_reference_encoded_by_all_EEG_channel_labels": 1379
+      },
+      "reference_status_output_counts": {
+        "documented_from_publisher_signal_header_and_EDF_labels": 1379
+      },
+      "split_output_counts": {
+        "validation": 146,
+        "test": 128,
+        "train": 1105
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 1379
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 4210301200,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 1.0392820237633485e-05,
+      "sample_weighted_std_model": 0.43799766257028183,
+      "min_model": -58.1970100402832,
+      "max_model": 62.469322204589844,
+      "tail_fraction": {
+        "1": 0.013672201409248345,
+        "5": 0.0009320022044978634,
+        "10": 0.00026734571863884705,
+        "100": 0.0
+      }
+    },
+    "EEG-0044": {
+      "name": "Dementia Photo-stimulation Open-eyes EEG",
+      "subcategory": "Neurodegenerative_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 88,
+      "human_dataset_subject_entries": 88,
+      "stored_dataset_subject_identifiers": 88,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 88
+      },
+      "dataset_subject_entries_all_species": 88,
+      "adapter_subject_entries": 88,
+      "identity_namespace_entries": 88,
+      "identity_entries_by_species": {
+        "human": 88
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 27779.999999999993,
+      "duration_hours": 7.716666666666665,
+      "reader_input_duration_seconds": 27779.999999999993,
+      "output_bytes": 389335346,
+      "events": 51939,
+      "full_one_second_patches": 27739,
+      "remainder_samples": 8200,
+      "channel_counts": [
+        19
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "alzheimer_disease": 36,
+        "frontotemporal_dementia": 23,
+        "healthy_control": 29
+      },
+      "unit_status_output_counts": {
+        "documented": 88
+      },
+      "qc_flag_counts": {
+        "flatline_ge_5s": 57,
+        "postprocess_sustained_high_amplitude": 12
+      },
+      "reference_type_output_counts": {
+        "publisher conflict, eeg.json says A1 A2 while README says the shared referential montage used Cz": 88
+      },
+      "reference_status_output_counts": {
+        "conflicting_publisher_bids_sidecar_and_readme": 88
+      },
+      "split_output_counts": {
+        "train": 70,
+        "test": 9,
+        "validation": 9
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 88
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 105564000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.20069388900214627,
+      "sample_weighted_std_model": 2.836059846651808,
+      "min_model": -73.90410614013672,
+      "max_model": 75.38656616210938,
+      "tail_fraction": {
+        "1": 0.3784434087378273,
+        "5": 0.023963121897616613,
+        "10": 0.008407108483952862,
+        "100": 0.0
+      }
+    },
+    "EEG-0045": {
+      "name": "EEG p-adic quantum potential accurately identifies depression, schizophrenia and cognitive decline",
+      "subcategory": "Neurodegenerative_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 249,
+      "human_dataset_subject_entries": 236,
+      "stored_dataset_subject_identifiers": 236,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 249
+      },
+      "dataset_subject_entries_all_species": 236,
+      "adapter_subject_entries": 236,
+      "identity_namespace_entries": 236,
+      "identity_entries_by_species": {
+        "human": 236
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 303479.2600000007,
+      "duration_hours": 84.29979444444464,
+      "reader_input_duration_seconds": 303479.0539999995,
+      "output_bytes": 4283377535,
+      "events": 249,
+      "full_one_second_patches": 303446,
+      "remainder_samples": 6652,
+      "channel_counts": [
+        19
+      ],
+      "source_sampling_rates": [
+        200.0,
+        500.0
+      ],
+      "array_label_record_counts": {
+        "alzheimer_disease": 49,
+        "control": 96,
+        "major_depressive_disorder": 28,
+        "mild_cognitive_impairment": 34,
+        "schizophrenia": 42
+      },
+      "unit_status_output_counts": {
+        "unknown": 249
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 249,
+        "unit_not_verified": 249
+      },
+      "reference_type_output_counts": {
+        "unknown": 249
+      },
+      "reference_status_output_counts": {
+        "unknown": 249
+      },
+      "split_output_counts": {
+        "train": 198,
+        "test": 25,
+        "validation": 26
+      },
+      "raw_or_processed_output_counts": {
+        "partially_filtered": 249
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1153221188,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -2.1188531251386015e-07,
+      "sample_weighted_std_model": 0.14881412359900942,
+      "min_model": -50.873043060302734,
+      "max_model": 48.428226470947266,
+      "tail_fraction": {
+        "1": 0.0016331905965640305,
+        "5": 9.034780238533044e-05,
+        "10": 1.1201667238184667e-05,
+        "100": 0.0
+      }
+    },
+    "EEG-0047": {
+      "name": "Resting-state high-density EEG using EGI GES 300 for healthy elders, SCD, MCI and Alzheimer's disease",
+      "subcategory": "Neurodegenerative_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 9,
+      "human_dataset_subject_entries": 4,
+      "stored_dataset_subject_identifiers": 4,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 9
+      },
+      "dataset_subject_entries_all_species": 4,
+      "adapter_subject_entries": 4,
+      "identity_namespace_entries": 4,
+      "identity_entries_by_species": {
+        "human": 4
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 5400.0,
+      "duration_hours": 1.5,
+      "reader_input_duration_seconds": 5400.0,
+      "output_bytes": 983122101,
+      "events": 9,
+      "full_one_second_patches": 5400,
+      "remainder_samples": 0,
+      "channel_counts": [
+        256
+      ],
+      "source_sampling_rates": [
+        250.0
+      ],
+      "array_label_record_counts": {
+        "alzheimer_disease": 2,
+        "healthy_elder_control": 2,
+        "mild_cognitive_impairment": 2,
+        "subjective_cognitive_decline": 3
+      },
+      "unit_status_output_counts": {
+        "documented": 9
+      },
+      "qc_flag_counts": {
+        "near_constant_channel": 4,
+        "postprocess_extreme_peak": 6,
+        "postprocess_sustained_high_amplitude": 1
+      },
+      "reference_type_output_counts": {
+        "average_reference_after_Cz_vertex_acquisition_reference": 9
+      },
+      "reference_status_output_counts": {
+        "documented_from_zenodo_and_primary_paper": 9
+      },
+      "split_output_counts": {
+        "validation": 2,
+        "test": 2,
+        "train": 5
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 9
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 276480000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.05322830233016175,
+      "sample_weighted_std_model": 4.027266763305673,
+      "min_model": -592.1779174804688,
+      "max_model": 982.6964721679688,
+      "tail_fraction": {
+        "1": 0.11362209924768518,
+        "5": 0.015652133969907406,
+        "10": 0.006888093171296296,
+        "100": 0.00012489149305555555
+      }
+    },
+    "EEG-0048": {
+      "name": "Adult ADHD EEG",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 880,
+      "human_dataset_subject_entries": 80,
+      "stored_dataset_subject_identifiers": 80,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 880
+      },
+      "dataset_subject_entries_all_species": 80,
+      "adapter_subject_entries": 80,
+      "identity_namespace_entries": 80,
+      "identity_entries_by_species": {
+        "human": 80
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 25600.0,
+      "duration_hours": 7.111111111111111,
+      "reader_input_duration_seconds": 25600.0,
+      "output_bytes": 41815562,
+      "events": 880,
+      "full_one_second_patches": 25600,
+      "remainder_samples": 0,
+      "channel_counts": [
+        2
+      ],
+      "source_sampling_rates": [
+        256.0
+      ],
+      "array_label_record_counts": {
+        "adhd": 418,
+        "healthy_control": 462
+      },
+      "unit_status_output_counts": {
+        "inferred_from_numeric_range": 880
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 880
+      },
+      "reference_type_output_counts": {
+        "unknown": 880
+      },
+      "reference_status_output_counts": {
+        "unknown": 880
+      },
+      "split_output_counts": {
+        "train": 660,
+        "test": 132,
+        "validation": 88
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 880
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 10240000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.00019231477233701866,
+      "sample_weighted_std_model": 0.23278291330714893,
+      "min_model": -5.239445209503174,
+      "max_model": 5.237053394317627,
+      "tail_fraction": {
+        "1": 0.00674248046875,
+        "5": 1.5625e-06,
+        "10": 0.0,
+        "100": 0.0
+      }
+    },
+    "EEG-0052": {
+      "name": "Depression resting (BDI)",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 243,
+      "human_dataset_subject_entries": 122,
+      "stored_dataset_subject_identifiers": 122,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 243
+      },
+      "dataset_subject_entries_all_species": 122,
+      "adapter_subject_entries": 122,
+      "identity_namespace_entries": 122,
+      "identity_entries_by_species": {
+        "human": 122
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 84094.77999999997,
+      "duration_hours": 23.3596611111111,
+      "reader_input_duration_seconds": 84094.76799999998,
+      "output_bytes": 4033053441,
+      "events": 149094,
+      "full_one_second_patches": 83974,
+      "remainder_samples": 24156,
+      "channel_counts": [
+        64
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "high_bdi_13_to_30": 92,
+        "low_bdi_0_to_7": 149,
+        "publisher_invalid_unstable_bdi": 2
+      },
+      "unit_status_output_counts": {
+        "unknown": 243
+      },
+      "qc_flag_counts": {
+        "postprocess_extreme_peak": 114,
+        "unit_not_verified": 243,
+        "postprocess_sustained_high_amplitude": 100,
+        "implausible_amplitude_or_unit": 2
+      },
+      "reference_type_output_counts": {
+        "between_Cz_and_CPz": 243
+      },
+      "reference_status_output_counts": {
+        "documented_from_every_bids_eeg_json": 243
+      },
+      "split_output_counts": {
+        "validation": 24,
+        "train": 195,
+        "test": 24
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 243
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1076413184,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 1.6925870567673686,
+      "sample_weighted_std_model": 1494.1728893024622,
+      "min_model": -925772.625,
+      "max_model": 919889.0,
+      "tail_fraction": {
+        "1": 0.02964292566672985,
+        "5": 0.012608924901462374,
+        "10": 0.010028922128103551,
+        "100": 0.004198293988937244
+      }
+    },
+    "EEG-0053": {
+      "name": "EEG Data for ADHD",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 121,
+      "human_dataset_subject_entries": 121,
+      "stored_dataset_subject_identifiers": 121,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 121
+      },
+      "dataset_subject_entries_all_species": 121,
+      "adapter_subject_entries": 121,
+      "identity_namespace_entries": 121,
+      "identity_entries_by_species": {
+        "human": 121
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 16924.894999999997,
+      "duration_hours": 4.701359722222222,
+      "reader_input_duration_seconds": 16924.8671875,
+      "output_bytes": 240053337,
+      "events": 121,
+      "full_one_second_patches": 16870,
+      "remainder_samples": 10979,
+      "channel_counts": [
+        19
+      ],
+      "source_sampling_rates": [
+        128.0
+      ],
+      "array_label_record_counts": {
+        "adhd": 61,
+        "healthy_control": 60
+      },
+      "unit_status_output_counts": {
+        "documented": 121
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "native_acquisition_reference_preserved": 121
+      },
+      "reference_status_output_counts": {
+        "earlobe_A1_A2_reported_in_literature_exact_combination_not_encoded": 121
+      },
+      "split_output_counts": {
+        "validation": 7,
+        "train": 98,
+        "test": 16
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 121
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 64314601,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.012566649414155385,
+      "sample_weighted_std_model": 2.2894123919291505,
+      "min_model": -125.44803619384766,
+      "max_model": 132.8714599609375,
+      "tail_fraction": {
+        "1": 0.446723038832193,
+        "5": 0.028032048274698927,
+        "10": 0.007297954005809661,
+        "100": 9.32914129405856e-08
+      }
+    },
+    "EEG-0054": {
+      "name": "EEG in schizophrenia",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 28,
+      "human_dataset_subject_entries": 28,
+      "stored_dataset_subject_identifiers": 28,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 28
+      },
+      "dataset_subject_entries_all_species": 28,
+      "adapter_subject_entries": 28,
+      "identity_namespace_entries": 28,
+      "identity_entries_by_species": {
+        "human": 28
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 28863.0,
+      "duration_hours": 8.0175,
+      "reader_input_duration_seconds": 28863.0,
+      "output_bytes": 408214901,
+      "events": 28,
+      "full_one_second_patches": 28863,
+      "remainder_samples": 0,
+      "channel_counts": [
+        19
+      ],
+      "source_sampling_rates": [
+        250.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 14,
+        "paranoid_schizophrenia": 14
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 28
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 28
+      },
+      "reference_type_output_counts": {
+        "electrode_between_Fz_and_Cz": 28
+      },
+      "reference_status_output_counts": {
+        "documented_in_publisher_metadata": 28
+      },
+      "split_output_counts": {
+        "validation": 4,
+        "test": 4,
+        "train": 20
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 28
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 109679400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -5.0379396537133194e-05,
+      "sample_weighted_std_model": 0.23941547263254578,
+      "min_model": -76.39073181152344,
+      "max_model": 65.35404968261719,
+      "tail_fraction": {
+        "1": 0.001202741809309679,
+        "5": 0.0001262497789010516,
+        "10": 5.389343851261039e-05,
+        "100": 0.0
+      }
+    },
+    "EEG-0055": {
+      "name": "FEPCR",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 2,
+      "outputs": 143,
+      "human_dataset_subject_entries": 143,
+      "stored_dataset_subject_identifiers": 143,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 143
+      },
+      "dataset_subject_entries_all_species": 143,
+      "adapter_subject_entries": 143,
+      "identity_namespace_entries": 143,
+      "identity_entries_by_species": {
+        "human": 143
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 44155.0,
+      "duration_hours": 12.265277777777778,
+      "reader_input_duration_seconds": 44154.99828739999,
+      "output_bytes": 2003202988,
+      "events": 143,
+      "full_one_second_patches": 44141,
+      "remainder_samples": 2800,
+      "channel_counts": [
+        61
+      ],
+      "source_sampling_rates": [
+        1000.0,
+        3000.0003000000297
+      ],
+      "array_label_record_counts": {
+        "first_episode_psychosis": 81,
+        "healthy_control": 62
+      },
+      "unit_status_output_counts": {
+        "documented": 143
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 143
+      },
+      "reference_type_output_counts": {
+        "TP9": 143
+      },
+      "reference_status_output_counts": {
+        "documented_from_bids_eeg_json": 143
+      },
+      "split_output_counts": {
+        "train": 112,
+        "validation": 17,
+        "test": 14
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 143
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 538691000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.00030416480844487284,
+      "sample_weighted_std_model": 0.3742068542144307,
+      "min_model": -16.85346221923828,
+      "max_model": 16.419754028320312,
+      "tail_fraction": {
+        "1": 0.014928749505746337,
+        "5": 0.0008560473443959524,
+        "10": 7.874273006231773e-05,
+        "100": 0.0
+      }
+    },
+    "EEG-0056": {
+      "name": "Fribourg Ultimatum Game in Schizophrenia Study",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 86,
+      "human_dataset_subject_entries": 43,
+      "stored_dataset_subject_identifiers": 43,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 86
+      },
+      "dataset_subject_entries_all_species": 43,
+      "adapter_subject_entries": 43,
+      "identity_namespace_entries": 43,
+      "identity_entries_by_species": {
+        "human": 43
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 44406.0,
+      "duration_hours": 12.335,
+      "reader_input_duration_seconds": 44406.0,
+      "output_bytes": 4235990103,
+      "events": 65137,
+      "full_one_second_patches": 44406,
+      "remainder_samples": 0,
+      "channel_counts": [
+        128
+      ],
+      "source_sampling_rates": [
+        2048.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 48,
+        "psychosis_episode_patient": 38
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 86
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "Mastoid": 86
+      },
+      "reference_status_output_counts": {
+        "verified_from_every_brainvision_channel_row": 86
+      },
+      "split_output_counts": {
+        "train": 70,
+        "test": 8,
+        "validation": 8
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 86
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1136793600,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.00046911359595244224,
+      "sample_weighted_std_model": 0.1190631913256317,
+      "min_model": -9.125897407531738,
+      "max_model": 9.153801918029785,
+      "tail_fraction": {
+        "1": 0.000493316464835833,
+        "5": 5.682649867135072e-07,
+        "10": 0.0,
+        "100": 0.0
+      }
+    },
+    "EEG-0057": {
+      "name": "MDD (Mumtaz)",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 181,
+      "human_dataset_subject_entries": 64,
+      "stored_dataset_subject_identifiers": 64,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 181
+      },
+      "dataset_subject_entries_all_species": 64,
+      "adapter_subject_entries": 64,
+      "identity_namespace_entries": 64,
+      "identity_entries_by_species": {
+        "human": 64
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 74001.0,
+      "duration_hours": 20.555833333333332,
+      "reader_input_duration_seconds": 74001.0,
+      "output_bytes": 1046091960,
+      "events": 181,
+      "full_one_second_patches": 74001,
+      "remainder_samples": 0,
+      "channel_counts": [
+        19
+      ],
+      "source_sampling_rates": [
+        256.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 86,
+        "major_depressive_disorder": 95
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 181
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "linked-ear reference encoded as LE in the 19 scalp-channel labels": 181
+      },
+      "reference_status_output_counts": {
+        "documented_in_primary_study_and_edf_channel_labels": 181
+      },
+      "split_output_counts": {
+        "test": 19,
+        "train": 142,
+        "validation": 20
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 181
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 281203800,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0004358309525540625,
+      "sample_weighted_std_model": 0.2650965903349295,
+      "min_model": -42.804264068603516,
+      "max_model": 43.13051223754883,
+      "tail_fraction": {
+        "1": 0.0037830996593929385,
+        "5": 0.0003028373016296366,
+        "10": 8.943335758620617e-05,
+        "100": 0.0
+      }
+    },
+    "EEG-0058": {
+      "name": "MODMA",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 2,
+      "outputs": 106,
+      "human_dataset_subject_entries": 53,
+      "stored_dataset_subject_identifiers": 53,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "verified_from_file": 106
+      },
+      "dataset_subject_entries_all_species": 53,
+      "adapter_subject_entries": 106,
+      "identity_namespace_entries": 53,
+      "identity_entries_by_species": {
+        "human": 53
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 59865.75499999999,
+      "duration_hours": 16.629376388888886,
+      "reader_input_duration_seconds": 59865.76399999998,
+      "output_bytes": 5707168542,
+      "events": 127306,
+      "full_one_second_patches": 59814,
+      "remainder_samples": 10351,
+      "channel_counts": [
+        128
+      ],
+      "source_sampling_rates": [
+        250.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 58,
+        "major_depressive_disorder": 48
+      },
+      "unit_status_output_counts": {
+        "high_confidence_inferred_from_EEGLAB_export_convention_not_encoded_in_MAT": 53,
+        "verified_from_file": 53
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 53,
+        "flatline_ge_5s": 1,
+        "near_constant_channel": 1,
+        "postprocess_extreme_peak": 1
+      },
+      "reference_type_output_counts": {
+        "online_Cz_removed_zero_reference_row": 53,
+        "online_Cz": 53
+      },
+      "reference_status_output_counts": {
+        "documented_in_publisher_dataset_description_and_verified_zero_129th_row": 53,
+        "documented_in_publisher_dataset_description": 53
+      },
+      "split_output_counts": {
+        "validation": 8,
+        "train": 82,
+        "test": 16
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 106
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1532563328,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.0021459521197335117,
+      "sample_weighted_std_model": 2.0523247981503303,
+      "min_model": -1409.9718017578125,
+      "max_model": 1657.9083251953125,
+      "tail_fraction": {
+        "1": 0.07191517373956112,
+        "5": 0.004794166000036248,
+        "10": 0.0009848271666330775,
+        "100": 1.192316145515913e-05
+      }
+    },
+    "EEG-0059": {
+      "name": "Power Spectral Density-Based Resting-State EEG Classification of First-Episode Psychosis",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 726,
+      "human_dataset_subject_entries": 72,
+      "stored_dataset_subject_identifiers": 72,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 726
+      },
+      "dataset_subject_entries_all_species": 72,
+      "adapter_subject_entries": 72,
+      "identity_namespace_entries": 72,
+      "identity_entries_by_species": {
+        "human": 72
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 21780.0,
+      "duration_hours": 6.05,
+      "reader_input_duration_seconds": 21780.0,
+      "output_bytes": 977807773,
+      "events": 726,
+      "full_one_second_patches": 21780,
+      "remainder_samples": 0,
+      "channel_counts": [
+        60
+      ],
+      "source_sampling_rates": [
+        1000.0
+      ],
+      "array_label_record_counts": {
+        "first_episode_psychosis": 443,
+        "healthy_control": 283
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 726
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 726,
+        "flatline_ge_5s": 2
+      },
+      "reference_type_output_counts": {
+        "original BIDS says TP9 but derived FIF postprocessing reference is not recorded": 726
+      },
+      "reference_status_output_counts": {
+        "unknown_in_derived_fif": 726
+      },
+      "split_output_counts": {
+        "train": 586,
+        "validation": 70,
+        "test": 70
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 726
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 261360000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -4.9976545165764044e-06,
+      "sample_weighted_std_model": 0.22034017550194024,
+      "min_model": -16.74578285217285,
+      "max_model": 16.886119842529297,
+      "tail_fraction": {
+        "1": 0.002858780991735537,
+        "5": 0.0003662687480869299,
+        "10": 4.252754820936639e-05,
+        "100": 0.0
+      }
+    },
+    "EEG-0060": {
+      "name": "Schizophrenia-81",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 11527,
+      "human_dataset_subject_entries": 40,
+      "stored_dataset_subject_identifiers": 40,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "verified_from_file": 11527
+      },
+      "dataset_subject_entries_all_species": 40,
+      "adapter_subject_entries": 40,
+      "identity_namespace_entries": 40,
+      "identity_entries_by_species": {
+        "human": 40
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 34581.0,
+      "duration_hours": 9.605833333333333,
+      "reader_input_duration_seconds": 34581.0,
+      "output_bytes": 1753531217,
+      "events": 23054,
+      "full_one_second_patches": 34581,
+      "remainder_samples": 0,
+      "channel_counts": [
+        64
+      ],
+      "source_sampling_rates": [
+        1024.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 7219,
+        "schizophrenia": 4308
+      },
+      "unit_status_output_counts": {
+        "documented": 11527
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 57
+      },
+      "reference_type_output_counts": {
+        "offline_average_earlobes": 11527
+      },
+      "reference_status_output_counts": {
+        "documented_in_publisher_dataset_description_and_primary_paper": 11527
+      },
+      "split_output_counts": {
+        "train": 9547,
+        "test": 1128,
+        "validation": 852
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 11527
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 442636800,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.006875801288958216,
+      "sample_weighted_std_model": 0.15337433640959852,
+      "min_model": -6.384378910064697,
+      "max_model": 6.2807111740112305,
+      "tail_fraction": {
+        "1": 0.0015290888602122552,
+        "5": 7.184219658193806e-07,
+        "10": 0.0,
+        "100": 0.0
+      }
+    },
+    "EEG-0061": {
+      "name": "TDBRAIN",
+      "subcategory": "Mental_and_Developmental_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 3268,
+      "human_dataset_subject_entries": 1464,
+      "stored_dataset_subject_identifiers": 1464,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 3268
+      },
+      "dataset_subject_entries_all_species": 1464,
+      "adapter_subject_entries": 1464,
+      "identity_namespace_entries": 1464,
+      "identity_entries_by_species": {
+        "human": 1464
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 433859.0,
+      "duration_hours": 120.51638888888888,
+      "reader_input_duration_seconds": 433859.0,
+      "output_bytes": 8439617957,
+      "events": 67747,
+      "full_one_second_patches": 433859,
+      "remainder_samples": 0,
+      "channel_counts": [
+        26
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "major_depressive_disorder_cohort": 120,
+        "participant_level_diagnosis_or_response_not_deposited": 3148
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 3268
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 3053,
+        "postprocess_extreme_peak": 17
+      },
+      "reference_type_output_counts": {
+        "linked_mastoids_A1_A2": 3268
+      },
+      "reference_status_output_counts": {
+        "documented_in_dataset_description_and_eeg_sidecars": 3268
+      },
+      "split_output_counts": {
+        "train": 2571,
+        "validation": 328,
+        "test": 369
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 3268
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 2256066800,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.27999287899816927,
+      "sample_weighted_std_model": 8.518618325186527,
+      "min_model": -1295.9771728515625,
+      "max_model": 1429.4835205078125,
+      "tail_fraction": {
+        "1": 0.07953270000693242,
+        "5": 0.035702676002324046,
+        "10": 0.024694523672791957,
+        "100": 0.0016162079066098574
+      }
+    },
+    "EEG-0062": {
+      "name": "Acute Mild TBI DPX Cognitive-control EEG",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 223,
+      "human_dataset_subject_entries": 90,
+      "stored_dataset_subject_identifiers": 90,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 223
+      },
+      "dataset_subject_entries_all_species": 90,
+      "adapter_subject_entries": 90,
+      "identity_namespace_entries": 90,
+      "identity_entries_by_species": {
+        "human": 90
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 452524.76499999996,
+      "duration_hours": 125.70132361111109,
+      "reader_input_duration_seconds": 452524.762,
+      "output_bytes": 21186981715,
+      "events": 237693,
+      "full_one_second_patches": 452421,
+      "remainder_samples": 20753,
+      "channel_counts": [
+        62,
+        63
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "acute_mild_tbi": 132,
+        "healthy_control": 91
+      },
+      "unit_status_output_counts": {
+        "unknown": 223
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 223,
+        "postprocess_extreme_peak": 56,
+        "postprocess_sustained_high_amplitude": 13
+      },
+      "reference_type_output_counts": {
+        "CPz": 223
+      },
+      "reference_status_output_counts": {
+        "documented_from_every_bids_eeg_json_reference_not_materialized_in_standard_layout": 223
+      },
+      "split_output_counts": {
+        "train": 177,
+        "validation": 23,
+        "test": 23
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 223
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 5699354059,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.0004907142896605155,
+      "sample_weighted_std_model": 19.564641472777762,
+      "min_model": -4669.77294921875,
+      "max_model": 8607.5703125,
+      "tail_fraction": {
+        "1": 0.028935308158225797,
+        "5": 0.005020091698781053,
+        "10": 0.002791156126698182,
+        "100": 0.0005780063785996841
+      }
+    },
+    "EEG-0063": {
+      "name": "Clinical BCI Challenge WCCI 2020 (Stroke Motor Attempt)",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 1200,
+      "human_dataset_subject_entries": 10,
+      "stored_dataset_subject_identifiers": 10,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 1200
+      },
+      "dataset_subject_entries_all_species": 10,
+      "adapter_subject_entries": 10,
+      "identity_namespace_entries": 10,
+      "identity_entries_by_species": {
+        "human": 10
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 9600.0,
+      "duration_hours": 2.6666666666666665,
+      "reader_input_duration_seconds": 9600.0,
+      "output_bytes": 90319565,
+      "events": 1200,
+      "full_one_second_patches": 9600,
+      "remainder_samples": 0,
+      "channel_counts": [
+        12
+      ],
+      "source_sampling_rates": [
+        512.0
+      ],
+      "array_label_record_counts": {
+        "left_motor_attempt": 600,
+        "right_motor_attempt": 600
+      },
+      "unit_status_output_counts": {
+        "inferred_from_numeric_range": 1200
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 1200
+      },
+      "reference_type_output_counts": {
+        "unknown": 1200
+      },
+      "reference_status_output_counts": {
+        "unknown": 1200
+      },
+      "split_output_counts": {
+        "train": 960,
+        "validation": 120,
+        "test": 120
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 1200
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 23040000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -1.629591226518025e-05,
+      "sample_weighted_std_model": 0.46874949633041185,
+      "min_model": -157.3217315673828,
+      "max_model": 250.0366973876953,
+      "tail_fraction": {
+        "1": 0.020913628472222223,
+        "5": 0.000390234375,
+        "10": 9.830729166666667e-05,
+        "100": 9.114583333333333e-07
+      }
+    },
+    "EEG-0065": {
+      "name": "ALS-Spelling (EEG-ET)",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 1989,
+      "human_dataset_subject_entries": 176,
+      "stored_dataset_subject_identifiers": 176,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 1989
+      },
+      "dataset_subject_entries_all_species": 176,
+      "adapter_subject_entries": 176,
+      "identity_namespace_entries": 176,
+      "identity_entries_by_species": {
+        "human": 176
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 238763.0,
+      "duration_hours": 66.32305555555556,
+      "reader_input_duration_seconds": 238763.0,
+      "output_bytes": 5622315944,
+      "events": 21067,
+      "full_one_second_patches": 238763,
+      "remainder_samples": 0,
+      "channel_counts": [
+        32
+      ],
+      "source_sampling_rates": [
+        128.0
+      ],
+      "array_label_record_counts": {
+        "als": 459,
+        "healthy_control": 1530
+      },
+      "unit_status_output_counts": {
+        "corrected_from_mislabeled_edf_header": 1989
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 1989,
+        "source_exceeds_documented_device_range": 61,
+        "source_near_edf_physical_limit": 21,
+        "source_p99_near_documented_device_range": 13
+      },
+      "reference_type_output_counts": {
+        "EPOC Flex two reference electrodes behind the ears": 1989
+      },
+      "reference_status_output_counts": {
+        "documented_in_primary_data_descriptor": 1989
+      },
+      "split_output_counts": {
+        "train": 1593,
+        "validation": 225,
+        "test": 171
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 1989
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1528083200,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.04760190194178307,
+      "sample_weighted_std_model": 2.917937641186033,
+      "min_model": -50.03605270385742,
+      "max_model": 56.26192855834961,
+      "tail_fraction": {
+        "1": 0.26405013418117546,
+        "5": 0.05372284244732224,
+        "10": 0.016538938455707124,
+        "100": 0.0
+      }
+    },
+    "EEG-0070": {
+      "name": "BNCI 006-2014 (SCP training in stroke)",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 16,
+      "human_dataset_subject_entries": 2,
+      "stored_dataset_subject_identifiers": 2,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 16
+      },
+      "dataset_subject_entries_all_species": 2,
+      "adapter_subject_entries": 2,
+      "identity_namespace_entries": 2,
+      "identity_entries_by_species": {
+        "human": 2
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 78752.0,
+      "duration_hours": 21.875555555555554,
+      "reader_input_duration_seconds": 78752.0,
+      "output_bytes": 47099670,
+      "events": 8000,
+      "full_one_second_patches": 78752,
+      "remainder_samples": 0,
+      "channel_counts": [
+        1
+      ],
+      "source_sampling_rates": [
+        256.0
+      ],
+      "array_label_record_counts": {
+        "chronic_stroke": 16
+      },
+      "unit_status_output_counts": {
+        "inferred_from_numeric_range_and_nexus_dc_amplifier_export_not_publisher_declared": 16
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 16,
+        "unit_not_verified": 16
+      },
+      "reference_type_output_counts": {
+        "linked_mastoids_in_deposited_X": 16
+      },
+      "reference_status_output_counts": {
+        "documented_in_official_data_file_description": 16
+      },
+      "split_output_counts": {
+        "train": 16
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 16
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 15750400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.06775364743671186,
+      "sample_weighted_std_model": 0.10675161067124907,
+      "min_model": -0.15757977962493896,
+      "max_model": 0.3076246380805969,
+      "tail_fraction": {
+        "1": 0.0,
+        "5": 0.0,
+        "10": 0.0,
+        "100": 0.0
+      }
+    },
+    "EEG-0071": {
+      "name": "BNCI 008-2014 (P300 speller, ALS)",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 8,
+      "human_dataset_subject_entries": 8,
+      "stored_dataset_subject_identifiers": 8,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 8
+      },
+      "dataset_subject_entries_all_species": 8,
+      "adapter_subject_entries": 8,
+      "identity_namespace_entries": 8,
+      "identity_entries_by_species": {
+        "human": 8
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 10865.76,
+      "duration_hours": 3.018266666666667,
+      "reader_input_duration_seconds": 10865.75,
+      "output_bytes": 74903782,
+      "events": 33600,
+      "full_one_second_patches": 10864,
+      "remainder_samples": 352,
+      "channel_counts": [
+        8
+      ],
+      "source_sampling_rates": [
+        256.0
+      ],
+      "array_label_record_counts": {
+        "amyotrophic_lateral_sclerosis": 8
+      },
+      "unit_status_output_counts": {
+        "inferred_from_numeric_range": 8
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 8
+      },
+      "reference_type_output_counts": {
+        "right earlobe; ground at left mastoid": 8
+      },
+      "reference_status_output_counts": {
+        "documented_in_official_bnci_description": 8
+      },
+      "split_output_counts": {
+        "train": 6,
+        "validation": 1,
+        "test": 1
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 8
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 17385216,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 3.1929320271671007e-06,
+      "sample_weighted_std_model": 0.1003632087149046,
+      "min_model": -2.283693313598633,
+      "max_model": 4.463875770568848,
+      "tail_fraction": {
+        "1": 6.131646566830115e-05,
+        "5": 0.0,
+        "10": 0.0,
+        "100": 0.0
+      }
+    },
+    "EEG-0074": {
+      "name": "CCEP ECoG Dataset across age 4-51",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 117,
+      "human_dataset_subject_entries": 74,
+      "stored_dataset_subject_identifiers": 74,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 117
+      },
+      "dataset_subject_entries_all_species": 74,
+      "adapter_subject_entries": 74,
+      "identity_namespace_entries": 74,
+      "identity_entries_by_species": {
+        "human": 74
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 321807.63000000006,
+      "duration_hours": 89.39100833333335,
+      "reader_input_duration_seconds": 321807.67626449326,
+      "output_bytes": 17914351161,
+      "events": 53168,
+      "full_one_second_patches": 321763,
+      "remainder_samples": 8926,
+      "channel_counts": [
+        40,
+        44,
+        45,
+        46,
+        47,
+        48,
+        51,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        70,
+        71,
+        72,
+        74,
+        75,
+        77,
+        80,
+        81,
+        82,
+        84,
+        86,
+        88,
+        89,
+        90,
+        93,
+        94,
+        96,
+        101,
+        102,
+        103,
+        104,
+        105,
+        111,
+        112,
+        115
+      ],
+      "source_sampling_rates": [
+        512.0,
+        2048.0002097152214
+      ],
+      "array_label_record_counts": {
+        "epilepsy_surgery_patient": 117
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 117
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "publisher BIDS iEEGReference is probably mastoid; deposited patient-specific contacts are retained without rereferencing": 117
+      },
+      "reference_status_output_counts": {
+        "documented_probabilistic_publisher_reference": 117
+      },
+      "split_output_counts": {
+        "train": 104,
+        "test": 12,
+        "validation": 1
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 117
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 4816520742,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.000584952831008846,
+      "sample_weighted_std_model": 4.1403954210342615,
+      "min_model": -72.88147735595703,
+      "max_model": 69.18502807617188,
+      "tail_fraction": {
+        "1": 0.2932327623307472,
+        "5": 0.03433869505798549,
+        "10": 0.022710094040741077,
+        "100": 0.0
+      }
+    },
+    "EEG-0075": {
+      "name": "Dataset of electrophysiological signals (EEG, ECG, EMG) during Music therapy with adult burn patients in the Intensive Care Unit.",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 51,
+      "human_dataset_subject_entries": 9,
+      "stored_dataset_subject_identifiers": 9,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 51
+      },
+      "dataset_subject_entries_all_species": 9,
+      "adapter_subject_entries": 9,
+      "identity_namespace_entries": 9,
+      "identity_entries_by_species": {
+        "human": 9
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 39377.94,
+      "duration_hours": 10.938316666666667,
+      "reader_input_duration_seconds": 39377.90625,
+      "output_bytes": 232775494,
+      "events": 51,
+      "full_one_second_patches": 39369,
+      "remainder_samples": 1788,
+      "channel_counts": [
+        8
+      ],
+      "source_sampling_rates": [
+        256.0,
+        512.0,
+        1024.0
+      ],
+      "array_label_record_counts": {
+        "adult_burn_icu_patient": 51
+      },
+      "unit_status_output_counts": {
+        "inferred_from_integer_range_and_publisher_export_code_not_formally_documented": 51
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 51,
+        "postprocess_sustained_high_amplitude": 4
+      },
+      "reference_type_output_counts": {
+        "publisher conflict; README says Cz and derived eeg.json says FCz": 51
+      },
+      "reference_status_output_counts": {
+        "conflicting_publisher_readme_and_derived_sidecars": 51
+      },
+      "split_output_counts": {
+        "train": 42,
+        "test": 3,
+        "validation": 6
+      },
+      "raw_or_processed_output_counts": {
+        "processed": 51
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 63004704,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.059414359105104994,
+      "sample_weighted_std_model": 1.8067578564932396,
+      "min_model": -42.67780685424805,
+      "max_model": 46.69289016723633,
+      "tail_fraction": {
+        "1": 0.1646036937178532,
+        "5": 0.030091292866005686,
+        "10": 0.011195100607091179,
+        "100": 0.0
+      }
+    },
+    "EEG-0078": {
+      "name": "EEG: 3-Stim Auditory Oddball and Rest in Parkinson’s",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 75,
+      "human_dataset_subject_entries": 50,
+      "stored_dataset_subject_identifiers": 50,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 75
+      },
+      "dataset_subject_entries_all_species": 50,
+      "adapter_subject_entries": 50,
+      "identity_namespace_entries": 50,
+      "identity_entries_by_species": {
+        "human": 50
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 45935.70000000001,
+      "duration_hours": 12.759916666666669,
+      "reader_input_duration_seconds": 45935.70000000001,
+      "output_bytes": 2153441432,
+      "events": 23768,
+      "full_one_second_patches": 45900,
+      "remainder_samples": 7140,
+      "channel_counts": [
+        63
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 25,
+        "parkinson_disease": 50
+      },
+      "unit_status_output_counts": {
+        "unknown": 75
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 75,
+        "postprocess_extreme_peak": 5,
+        "postprocess_sustained_high_amplitude": 2
+      },
+      "reference_type_output_counts": {
+        "CPz": 75
+      },
+      "reference_status_output_counts": {
+        "documented_from_every_bids_eeg_json_reference_channel_not_materialized": 75
+      },
+      "split_output_counts": {
+        "validation": 8,
+        "train": 59,
+        "test": 8
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 75
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 578789820,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.00021075134622439677,
+      "sample_weighted_std_model": 16.68336804129704,
+      "min_model": -6914.232421875,
+      "max_model": 2809.4853515625,
+      "tail_fraction": {
+        "1": 0.014089625833432937,
+        "5": 0.0016730650169348175,
+        "10": 0.0009997065947013374,
+        "100": 0.00023487800804789552
+      }
+    },
+    "EEG-0079": {
+      "name": "EEG: Reinforcement Learning in Parkinson’s",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 84,
+      "human_dataset_subject_entries": 56,
+      "stored_dataset_subject_identifiers": 56,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 84
+      },
+      "dataset_subject_entries_all_species": 56,
+      "adapter_subject_entries": 56,
+      "identity_namespace_entries": 56,
+      "identity_entries_by_species": {
+        "human": 56
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 127372.59999999996,
+      "duration_hours": 35.38127777777777,
+      "reader_input_duration_seconds": 127372.59999999996,
+      "output_bytes": 5967762130,
+      "events": 66284,
+      "full_one_second_patches": 127332,
+      "remainder_samples": 8120,
+      "channel_counts": [
+        63
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 28,
+        "parkinson_disease": 56
+      },
+      "unit_status_output_counts": {
+        "unknown": 84
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 84,
+        "postprocess_extreme_peak": 15,
+        "postprocess_sustained_high_amplitude": 8,
+        "implausible_amplitude_or_unit": 2
+      },
+      "reference_type_output_counts": {
+        "CPz": 84
+      },
+      "reference_status_output_counts": {
+        "documented_from_every_bids_eeg_json_reference_channel_not_materialized": 84
+      },
+      "split_output_counts": {
+        "train": 68,
+        "test": 8,
+        "validation": 8
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 84
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1604894760,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.007988489612573299,
+      "sample_weighted_std_model": 58.431302914386535,
+      "min_model": -10356.9921875,
+      "max_model": 10060.34765625,
+      "tail_fraction": {
+        "1": 0.017246104660470073,
+        "5": 0.0041837758882083955,
+        "10": 0.003109369613743396,
+        "100": 0.0012919819116363742
+      }
+    },
+    "EEG-0080": {
+      "name": "EEG: Simon Conflict in Parkinson's",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 84,
+      "human_dataset_subject_entries": 56,
+      "stored_dataset_subject_identifiers": 56,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 84
+      },
+      "dataset_subject_entries_all_species": 56,
+      "adapter_subject_entries": 56,
+      "identity_namespace_entries": 56,
+      "identity_entries_by_species": {
+        "human": 56
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 174725.50000000003,
+      "duration_hours": 48.53486111111112,
+      "reader_input_duration_seconds": 174725.50000000003,
+      "output_bytes": 8194220867,
+      "events": 121395,
+      "full_one_second_patches": 174687,
+      "remainder_samples": 7700,
+      "channel_counts": [
+        63
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 28,
+        "parkinson_disease": 56
+      },
+      "unit_status_output_counts": {
+        "unknown": 84
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 84,
+        "postprocess_extreme_peak": 7,
+        "postprocess_sustained_high_amplitude": 2
+      },
+      "reference_type_output_counts": {
+        "CPz": 84
+      },
+      "reference_status_output_counts": {
+        "documented_from_every_bids_eeg_json_reference_channel_not_materialized": 84
+      },
+      "split_output_counts": {
+        "train": 68,
+        "test": 8,
+        "validation": 8
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 84
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 2201541300,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0001033412714997117,
+      "sample_weighted_std_model": 4.761288808187199,
+      "min_model": -3397.981201171875,
+      "max_model": 6011.15234375,
+      "tail_fraction": {
+        "1": 0.016018927285170622,
+        "5": 0.0022797982486179114,
+        "10": 0.0011770526403479236,
+        "100": 7.940391579299466e-05
+      }
+    },
+    "EEG-0081": {
+      "name": "EEG: Three-Stim Auditory Oddball and Rest in Acute and Chronic TBI",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 2,
+      "outputs": 421,
+      "human_dataset_subject_entries": 115,
+      "stored_dataset_subject_identifiers": 115,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 421
+      },
+      "dataset_subject_entries_all_species": 115,
+      "adapter_subject_entries": 185,
+      "identity_namespace_entries": 115,
+      "identity_entries_by_species": {
+        "human": 115
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 509993.75999999995,
+      "duration_hours": 141.66493333333332,
+      "reader_input_duration_seconds": 509993.764,
+      "output_bytes": 23868637021,
+      "events": 211616,
+      "full_one_second_patches": 509799,
+      "remainder_samples": 38952,
+      "channel_counts": [
+        62,
+        63
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "acute_mild_tbi": 234,
+        "chronic_tbi": 25,
+        "healthy_control": 162
+      },
+      "unit_status_output_counts": {
+        "unknown": 421
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 421,
+        "postprocess_extreme_peak": 74,
+        "postprocess_sustained_high_amplitude": 28,
+        "implausible_amplitude_or_unit": 1
+      },
+      "reference_type_output_counts": {
+        "CPz": 421
+      },
+      "reference_status_output_counts": {
+        "documented_from_every_bids_eeg_json_reference_not_materialized_in_standard_layout": 421
+      },
+      "split_output_counts": {
+        "train": 334,
+        "test": 45,
+        "validation": 42
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 421
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 6423129576,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0006049034583593703,
+      "sample_weighted_std_model": 33.79481577344026,
+      "min_model": -9880.814453125,
+      "max_model": 10345.7568359375,
+      "tail_fraction": {
+        "1": 0.02525936696127458,
+        "5": 0.004752345821273215,
+        "10": 0.0027745577586647772,
+        "100": 0.0006479998497231002
+      }
+    },
+    "EEG-0083": {
+      "name": "Intraoperative Medianus-tibialis Stimulation EEG",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 437,
+      "human_dataset_subject_entries": 18,
+      "stored_dataset_subject_identifiers": 18,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 437
+      },
+      "dataset_subject_entries_all_species": 18,
+      "adapter_subject_entries": 18,
+      "identity_namespace_entries": 18,
+      "identity_entries_by_species": {
+        "human": 18
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 42347.0,
+      "duration_hours": 11.763055555555555,
+      "reader_input_duration_seconds": 42347.0,
+      "output_bytes": 157989988,
+      "events": 0,
+      "full_one_second_patches": 42347,
+      "remainder_samples": 0,
+      "channel_counts": [
+        4,
+        5,
+        7,
+        8,
+        10
+      ],
+      "source_sampling_rates": [
+        20000.0
+      ],
+      "array_label_record_counts": {
+        "diagnosis_not_provided": 437
+      },
+      "unit_status_output_counts": {
+        "documented": 437
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 1
+      },
+      "reference_type_output_counts": {
+        "publisher BIDS EEGReference AFz; deposited channel labels are bipolar derivations ending in Fz and are retained without rereferencing": 437
+      },
+      "reference_status_output_counts": {
+        "documented_bids_reference_with_unresolved_label_reference_discrepancy": 437
+      },
+      "split_output_counts": {
+        "train": 276,
+        "test": 122,
+        "validation": 39
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 437
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 41478000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0009311507046745218,
+      "sample_weighted_std_model": 0.6489588440233266,
+      "min_model": -59.279754638671875,
+      "max_model": 90.20008087158203,
+      "tail_fraction": {
+        "1": 0.062032233955349826,
+        "5": 0.0004055885047495058,
+        "10": 0.00017483967404407155,
+        "100": 0.0
+      }
+    },
+    "EEG-0084": {
+      "name": "Liu2024",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 50,
+      "human_dataset_subject_entries": 50,
+      "stored_dataset_subject_identifiers": 50,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 50
+      },
+      "dataset_subject_entries_all_species": 50,
+      "adapter_subject_entries": 50,
+      "identity_namespace_entries": 50,
+      "identity_entries_by_species": {
+        "human": 50
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 16000.0,
+      "duration_hours": 4.444444444444445,
+      "reader_input_duration_seconds": 16000.0,
+      "output_bytes": 347144330,
+      "events": 6000,
+      "full_one_second_patches": 16000,
+      "remainder_samples": 0,
+      "channel_counts": [
+        29
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "": 50
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 50
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "CPz": 50
+      },
+      "reference_status_output_counts": {
+        "documented_in_bids_eeg_sidecar": 50
+      },
+      "split_output_counts": {
+        "test": 5,
+        "train": 39,
+        "validation": 6
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 50
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 92800000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.00025542390989770006,
+      "sample_weighted_std_model": 0.4384536661403755,
+      "min_model": -370.5663757324219,
+      "max_model": 221.51844787597656,
+      "tail_fraction": {
+        "1": 0.02349102370689655,
+        "5": 0.0005336853448275862,
+        "10": 0.00012607758620689655,
+        "100": 5.172413793103448e-07
+      }
+    },
+    "EEG-0085": {
+      "name": "Lower-Limb-MI (stroke)",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 419,
+      "human_dataset_subject_entries": 27,
+      "stored_dataset_subject_identifiers": 27,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 419
+      },
+      "dataset_subject_entries_all_species": 27,
+      "adapter_subject_entries": 27,
+      "identity_namespace_entries": 27,
+      "identity_entries_by_species": {
+        "human": 27
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 83538.42000000027,
+      "duration_hours": 23.205116666666743,
+      "reader_input_duration_seconds": 83537.6360000004,
+      "output_bytes": 2505003250,
+      "events": 58730,
+      "full_one_second_patches": 83500,
+      "remainder_samples": 7684,
+      "channel_counts": [
+        40
+      ],
+      "source_sampling_rates": [
+        250.0
+      ],
+      "array_label_record_counts": {
+        "stroke": 419
+      },
+      "unit_status_output_counts": {
+        "format_reader_inferred_microvolts": 419
+      },
+      "qc_flag_counts": {
+        "unit_not_verified": 419
+      },
+      "reference_type_output_counts": {
+        "average": 419
+      },
+      "reference_status_output_counts": {
+        "documented_in_set_and_publisher_code_no_rereference_applied": 419
+      },
+      "split_output_counts": {
+        "test": 52,
+        "train": 280,
+        "validation": 87
+      },
+      "raw_or_processed_output_counts": {
+        "publisher_preprocessed_ica_pruned": 419
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 411,
+      "outside_event_rows": 420,
+      "values_read": 668307360,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 8.660610143854104e-07,
+      "sample_weighted_std_model": 0.05418977533027107,
+      "min_model": -82.69251251220703,
+      "max_model": 92.66270446777344,
+      "tail_fraction": {
+        "1": 1.2729172996089704e-05,
+        "5": 2.3162994942925663e-06,
+        "10": 1.4229979451370997e-06,
+        "100": 0.0
+      }
+    },
+    "EEG-0087": {
+      "name": "Ultra High-Density EEG of Interictal Migraine and Controls",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 117,
+      "human_dataset_subject_entries": 39,
+      "stored_dataset_subject_identifiers": 39,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 117
+      },
+      "dataset_subject_entries_all_species": 39,
+      "adapter_subject_entries": 39,
+      "identity_namespace_entries": 39,
+      "identity_entries_by_species": {
+        "human": 39
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 76436.0,
+      "duration_hours": 21.232222222222223,
+      "reader_input_duration_seconds": 76436.0,
+      "output_bytes": 7260861455,
+      "events": 17063,
+      "full_one_second_patches": 76436,
+      "remainder_samples": 0,
+      "channel_counts": [
+        128
+      ],
+      "source_sampling_rates": [
+        512.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 64,
+        "migraine": 53
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 117
+      },
+      "qc_flag_counts": {
+        "postprocess_extreme_peak": 16,
+        "postprocess_sustained_high_amplitude": 4
+      },
+      "reference_type_output_counts": {
+        "software average of the M1 and M2 mastoids applied to the publisher BioSemi CMS/DRL-referenced signal": 117
+      },
+      "reference_status_output_counts": {
+        "documented_in_primary_peer_reviewed_paper": 117
+      },
+      "split_output_counts": {
+        "train": 96,
+        "test": 6,
+        "validation": 15
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 117
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1956761600,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.009244393314877867,
+      "sample_weighted_std_model": 15.326450052358279,
+      "min_model": -4986.84814453125,
+      "max_model": 5374.50830078125,
+      "tail_fraction": {
+        "1": 0.030192639205511802,
+        "5": 0.010692977110752786,
+        "10": 0.009060370461072009,
+        "100": 0.0028312212381927365
+      }
+    },
+    "EEG-0089": {
+      "name": "Mu and Beta Oscillatory Changes during a motor task following Rehabilitation in Chronic MCA Stroke: Insights from EEG",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 27,
+      "human_dataset_subject_entries": 18,
+      "stored_dataset_subject_identifiers": 18,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 27
+      },
+      "dataset_subject_entries_all_species": 18,
+      "adapter_subject_entries": 18,
+      "identity_namespace_entries": 18,
+      "identity_entries_by_species": {
+        "human": 18
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 45968.97999999999,
+      "duration_hours": 12.769161111111108,
+      "reader_input_duration_seconds": 45968.97999999999,
+      "output_bytes": 1983563756,
+      "events": 7458,
+      "full_one_second_patches": 45955,
+      "remainder_samples": 2796,
+      "channel_counts": [
+        58
+      ],
+      "source_sampling_rates": [
+        1000.0
+      ],
+      "array_label_record_counts": {
+        "chronic_mca_stroke": 19,
+        "healthy_control": 8
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 27
+      },
+      "qc_flag_counts": {
+        "channel_order_not_verified": 27
+      },
+      "reference_type_output_counts": {
+        "A1_online_acquisition_reference_present_as_recorded_channel": 27
+      },
+      "reference_status_output_counts": {
+        "documented_from_common_recorded_montage": 27
+      },
+      "split_output_counts": {
+        "validation": 5,
+        "train": 18,
+        "test": 4
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 27
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 533240168,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.0001464422248100765,
+      "sample_weighted_std_model": 0.5103645098711552,
+      "min_model": -57.17760467529297,
+      "max_model": 67.86746978759766,
+      "tail_fraction": {
+        "1": 0.020517867288647317,
+        "5": 0.0010202644748997978,
+        "10": 0.0002902763319210416,
+        "100": 0.0
+      }
+    },
+    "EEG-0092": {
+      "name": "PD-EEG Resting-State & Walking EEG",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 277,
+      "human_dataset_subject_entries": 144,
+      "stored_dataset_subject_identifiers": 144,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 277
+      },
+      "dataset_subject_entries_all_species": 144,
+      "adapter_subject_entries": 144,
+      "identity_namespace_entries": 144,
+      "identity_entries_by_species": {
+        "human": 144
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 70159.29499999991,
+      "duration_hours": 19.48869305555553,
+      "reader_input_duration_seconds": 70159.26000000001,
+      "output_bytes": 3127534229,
+      "events": 11392,
+      "full_one_second_patches": 69950,
+      "remainder_samples": 41859,
+      "channel_counts": [
+        60
+      ],
+      "source_sampling_rates": [
+        250.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 51,
+        "parkinson_disease": 226
+      },
+      "unit_status_output_counts": {
+        "documented": 277
+      },
+      "qc_flag_counts": {
+        "postprocess_extreme_peak": 2,
+        "postprocess_sustained_high_amplitude": 10,
+        "flatline_ge_5s": 7,
+        "near_constant_channel": 7
+      },
+      "reference_type_output_counts": {
+        "unknown": 277
+      },
+      "reference_status_output_counts": {
+        "bids_eeg_json_n_a": 277
+      },
+      "split_output_counts": {
+        "train": 225,
+        "validation": 26,
+        "test": 26
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 277
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 841911540,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.0005334338488518823,
+      "sample_weighted_std_model": 13.550249558274999,
+      "min_model": -4632.05419921875,
+      "max_model": 6496.34912109375,
+      "tail_fraction": {
+        "1": 0.02580779329856911,
+        "5": 0.005322288372481508,
+        "10": 0.003299784915645651,
+        "100": 0.0003451098912363168
+      }
+    },
+    "EEG-0093": {
+      "name": "EEG Mortality Dataset in Parkinson's Disease",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 94,
+      "human_dataset_subject_entries": 94,
+      "stored_dataset_subject_identifiers": 94,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 94
+      },
+      "dataset_subject_entries_all_species": 94,
+      "adapter_subject_entries": 94,
+      "identity_namespace_entries": 94,
+      "identity_entries_by_species": {
+        "human": 94
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 14783.260000000002,
+      "duration_hours": 4.106461111111112,
+      "reader_input_duration_seconds": 14783.260000000002,
+      "output_bytes": 691839143,
+      "events": 94,
+      "full_one_second_patches": 14742,
+      "remainder_samples": 8252,
+      "channel_counts": [
+        63
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "deceased": 22,
+        "living": 72
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 94
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 3,
+        "postprocess_extreme_peak": 1
+      },
+      "reference_type_output_counts": {
+        "unknown": 94
+      },
+      "reference_status_output_counts": {
+        "not_documented_in_bids_or_brainvision_header": 94
+      },
+      "split_output_counts": {
+        "train": 70,
+        "test": 13,
+        "validation": 11
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 94
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 186269076,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.003529327555573617,
+      "sample_weighted_std_model": 4.24846670825738,
+      "min_model": -2188.609130859375,
+      "max_model": 968.7446899414062,
+      "tail_fraction": {
+        "1": 0.027247893794244193,
+        "5": 0.002474007011233577,
+        "10": 0.0011957271962845836,
+        "100": 9.878719750561279e-05
+      }
+    },
+    "EEG-0094": {
+      "name": "PD31 (Parkinson)",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 46,
+      "human_dataset_subject_entries": 31,
+      "stored_dataset_subject_identifiers": 31,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 46
+      },
+      "dataset_subject_entries_all_species": 31,
+      "adapter_subject_entries": 31,
+      "identity_namespace_entries": 31,
+      "identity_entries_by_species": {
+        "human": 31
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 9064.0,
+      "duration_hours": 2.517777777777778,
+      "reader_input_duration_seconds": 9064.0,
+      "output_bytes": 269338218,
+      "events": 90,
+      "full_one_second_patches": 9064,
+      "remainder_samples": 0,
+      "channel_counts": [
+        40
+      ],
+      "source_sampling_rates": [
+        512.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 16,
+        "parkinson_disease": 30
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 46
+      },
+      "qc_flag_counts": {
+        "postprocess_extreme_peak": 1,
+        "postprocess_sustained_high_amplitude": 1
+      },
+      "reference_type_output_counts": {
+        "publisher BIDS field is n/a; BioSemi acquisition reference is not asserted as a model-space reference": 46
+      },
+      "reference_status_output_counts": {
+        "unknown_in_retained_source_metadata": 46
+      },
+      "split_output_counts": {
+        "train": 39,
+        "validation": 3,
+        "test": 4
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 46
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 72512000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.05642127936670864,
+      "sample_weighted_std_model": 5.396753159258447,
+      "min_model": -304.1411437988281,
+      "max_model": 1598.0167236328125,
+      "tail_fraction": {
+        "1": 0.025944767762577228,
+        "5": 0.0019468088040600177,
+        "10": 0.000847114960282436,
+        "100": 0.00010687886142983231
+      }
+    },
+    "EEG-0098": {
+      "name": "Tinnitus Acoustic Therapy EEG Database",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 877,
+      "human_dataset_subject_entries": 103,
+      "stored_dataset_subject_identifiers": 103,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 877
+      },
+      "dataset_subject_entries_all_species": 103,
+      "adapter_subject_entries": 103,
+      "identity_namespace_entries": 103,
+      "identity_entries_by_species": {
+        "human": 103
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 361121.25,
+      "duration_hours": 100.31145833333333,
+      "reader_input_duration_seconds": 361121.25,
+      "output_bytes": 4390656151,
+      "events": 251186,
+      "full_one_second_patches": 360680,
+      "remainder_samples": 88250,
+      "channel_counts": [
+        16
+      ],
+      "source_sampling_rates": [
+        256.0,
+        512.0
+      ],
+      "array_label_record_counts": {
+        "healthy_control": 123,
+        "tinnitus": 754
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 877
+      },
+      "qc_flag_counts": {
+        "postprocess_extreme_peak": 11,
+        "postprocess_sustained_high_amplitude": 31
+      },
+      "reference_type_output_counts": {
+        "common": 877
+      },
+      "reference_status_output_counts": {
+        "literal_set_header_common_no_rereference_applied": 877
+      },
+      "split_output_counts": {
+        "train": 719,
+        "test": 95,
+        "validation": 63
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 877
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 1155588000,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.0001141665186047415,
+      "sample_weighted_std_model": 3.393188248225179,
+      "min_model": -2987.6123046875,
+      "max_model": 2394.517578125,
+      "tail_fraction": {
+        "1": 0.047296135820032746,
+        "5": 0.005944163490794297,
+        "10": 0.0020778356992284448,
+        "100": 0.00010325392787048671
+      }
+    },
+    "EEG-0100": {
+      "name": "UNMDataset",
+      "subcategory": "Neurological_Disorders",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 28,
+      "human_dataset_subject_entries": 28,
+      "stored_dataset_subject_identifiers": 28,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 28
+      },
+      "dataset_subject_entries_all_species": 28,
+      "adapter_subject_entries": 28,
+      "identity_namespace_entries": 28,
+      "identity_entries_by_species": {
+        "human": 28
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 5277.599999999999,
+      "duration_hours": 1.4659999999999997,
+      "reader_input_duration_seconds": 5277.599999999999,
+      "output_bytes": 246941295,
+      "events": 28,
+      "full_one_second_patches": 5263,
+      "remainder_samples": 2920,
+      "channel_counts": [
+        63
+      ],
+      "source_sampling_rates": [
+        500.0
+      ],
+      "array_label_record_counts": {
+        "control": 14,
+        "parkinsons_disease": 14
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 28
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "Pz": 28
+      },
+      "reference_status_output_counts": {
+        "documented_in_all_28_BrainVision_headers_no_rereference_applied": 28
+      },
+      "split_output_counts": {
+        "train": 19,
+        "test": 2,
+        "validation": 7
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 28
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 66497760,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.0015859237384227773,
+      "sample_weighted_std_model": 0.31911811340537716,
+      "min_model": -8.995612144470215,
+      "max_model": 26.235227584838867,
+      "tail_fraction": {
+        "1": 0.01842460558069926,
+        "5": 0.00019868338422226553,
+        "10": 2.2677455601511992e-05,
+        "100": 0.0
+      }
+    },
+    "EEG-0106": {
+      "name": "NMT Scalp EEG Dataset",
+      "subcategory": "Clinical_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 2417,
+      "human_dataset_subject_entries": 2417,
+      "stored_dataset_subject_identifiers": 2417,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 2417
+      },
+      "dataset_subject_entries_all_species": 2417,
+      "adapter_subject_entries": 2417,
+      "identity_namespace_entries": 2417,
+      "identity_entries_by_species": {
+        "human": 2417
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 1760281.0,
+      "duration_hours": 488.96694444444444,
+      "reader_input_duration_seconds": 1760281.0,
+      "output_bytes": 27513335202,
+      "events": 2,
+      "full_one_second_patches": 1760281,
+      "remainder_samples": 0,
+      "channel_counts": [
+        21
+      ],
+      "source_sampling_rates": [
+        200.0
+      ],
+      "array_label_record_counts": {
+        "normal_abnormal_mapping_not_present_in_bids_export": 2417
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 2417
+      },
+      "qc_flag_counts": {},
+      "reference_type_output_counts": {
+        "unknown": 2417
+      },
+      "reference_status_output_counts": {
+        "not_documented_in_bids_or_edf_header": 2417
+      },
+      "split_output_counts": {
+        "train": 1944,
+        "validation": 248,
+        "test": 225
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 2417
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 7393180200,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 7.372595698072968e-05,
+      "sample_weighted_std_model": 0.003086079599590554,
+      "min_model": -0.10956276953220367,
+      "max_model": 0.16645334661006927,
+      "tail_fraction": {
+        "1": 0.0,
+        "5": 0.0,
+        "10": 0.0,
+        "100": 0.0
+      }
+    },
+    "EEG-0107": {
+      "name": "TUAB (TUH Abnormal)",
+      "subcategory": "Clinical_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 2993,
+      "human_dataset_subject_entries": 2329,
+      "stored_dataset_subject_identifiers": 2329,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 2993
+      },
+      "dataset_subject_entries_all_species": 2329,
+      "adapter_subject_entries": 2329,
+      "identity_namespace_entries": 2329,
+      "identity_entries_by_species": {
+        "human": 2329
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 4107608.0,
+      "duration_hours": 1141.0022222222221,
+      "reader_input_duration_seconds": 4107608.0,
+      "output_bytes": 64105619491,
+      "events": 2993,
+      "full_one_second_patches": 4107608,
+      "remainder_samples": 0,
+      "channel_counts": [
+        21
+      ],
+      "source_sampling_rates": [
+        250.0,
+        256.0,
+        512.0
+      ],
+      "array_label_record_counts": {
+        "abnormal": 1472,
+        "normal": 1521
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 2993
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 32
+      },
+      "reference_type_output_counts": {
+        "average_reference": 2993
+      },
+      "reference_status_output_counts": {
+        "documented_from_tuh_montage_directory_and_edf_labels": 2993
+      },
+      "split_output_counts": {
+        "train": 2196,
+        "validation": 274,
+        "test": 523
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 2993
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 17251953600,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.010248564698947853,
+      "sample_weighted_std_model": 1.4269375486961966,
+      "min_model": -116.5916976928711,
+      "max_model": 122.46894836425781,
+      "tail_fraction": {
+        "1": 0.017171077135287448,
+        "5": 0.0027152745182435455,
+        "10": 0.0015950015655038627,
+        "100": 1.292607232609297e-08
+      }
+    },
+    "EEG-0523": {
+      "name": "SFARI_EEG multi-paradigm dataset",
+      "subcategory": "Development_and_Lifespan",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 2563,
+      "human_dataset_subject_entries": 135,
+      "stored_dataset_subject_identifiers": 135,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 2563
+      },
+      "dataset_subject_entries_all_species": 135,
+      "adapter_subject_entries": 135,
+      "identity_namespace_entries": 135,
+      "identity_entries_by_species": {
+        "human": 135
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 815517.6200000005,
+      "duration_hours": 226.53267222222235,
+      "reader_input_duration_seconds": 815517.6328125,
+      "output_bytes": 38887984113,
+      "events": 579830,
+      "full_one_second_patches": 814879,
+      "remainder_samples": 127724,
+      "channel_counts": [
+        64
+      ],
+      "source_sampling_rates": [
+        512.0
+      ],
+      "array_label_record_counts": {
+        "autism_spectrum_disorder": 1216,
+        "typically_developing": 784,
+        "unaffected_asd_sibling": 563
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 2563
+      },
+      "qc_flag_counts": {
+        "postprocess_extreme_peak": 175,
+        "postprocess_sustained_high_amplitude": 302,
+        "implausible_amplitude_or_unit": 17,
+        "all_zero_channel": 3,
+        "flatline_ge_5s": 3,
+        "near_constant_channel": 3
+      },
+      "reference_type_output_counts": {
+        "publisher_reports_n/a": 2563
+      },
+      "reference_status_output_counts": {
+        "not_documented_no_rereference_applied": 2563
+      },
+      "split_output_counts": {
+        "train": 2018,
+        "test": 274,
+        "validation": 271
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 2563
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 10438625536,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.00284279195207986,
+      "sample_weighted_std_model": 32.893825002539,
+      "min_model": -5301.57275390625,
+      "max_model": 5106.9052734375,
+      "tail_fraction": {
+        "1": 0.07702119567631169,
+        "5": 0.01192775280333612,
+        "10": 0.005694293448405198,
+        "100": 0.0017320130832979427
+      }
+    },
+    "EEG-0582": {
+      "name": "TUEG (TUH EEG Corpus)",
+      "subcategory": "Clinical_Abnormalities",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 60431,
+      "human_dataset_subject_entries": 14530,
+      "stored_dataset_subject_identifiers": 14530,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "documented": 60431
+      },
+      "dataset_subject_entries_all_species": 14530,
+      "adapter_subject_entries": 14530,
+      "identity_namespace_entries": 14530,
+      "identity_entries_by_species": {
+        "human": 14530
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 90007506.0,
+      "duration_hours": 25002.085,
+      "reader_input_duration_seconds": 90007506.0,
+      "output_bytes": 1137133952784,
+      "events": 0,
+      "full_one_second_patches": 90007506,
+      "remainder_samples": 0,
+      "channel_counts": [
+        17
+      ],
+      "source_sampling_rates": [
+        250.0,
+        256.0,
+        400.0,
+        512.0,
+        1000.0
+      ],
+      "array_label_record_counts": {
+        "": 60431
+      },
+      "unit_status_output_counts": {
+        "verified_from_file": 60431
+      },
+      "qc_flag_counts": {
+        "postprocess_sustained_high_amplitude": 5551,
+        "flatline_ge_5s": 82,
+        "near_constant_channel": 80
+      },
+      "reference_type_output_counts": {
+        "average_reference": 48255,
+        "linked_ears": 12176
+      },
+      "reference_status_output_counts": {
+        "documented_from_tuh_montage_directory_and_edf_labels": 60431
+      },
+      "split_output_counts": {
+        "test": 7112,
+        "train": 48301,
+        "validation": 5018
+      },
+      "raw_or_processed_output_counts": {
+        "raw": 60431
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 306025520400,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": -0.0035742621789102893,
+      "sample_weighted_std_model": 3.4053488481475016,
+      "min_model": -150.9928741455078,
+      "max_model": 135.77113342285156,
+      "tail_fraction": {
+        "1": 0.030146663562376545,
+        "5": 0.010185908194602975,
+        "10": 0.007532687286952164,
+        "100": 5.640183203492071e-07
+      }
+    }
+  },
+  "known_identity_rules": {
+    "chbmit": "chb21 and chb01 are the same person; PhysioNet v1.0.0 Methods",
+    "ahepa": "ds006036 README explicitly maps all 88 IDs to ds004504; demographics checked",
+    "fepcr": "Batch11 is a 72-person processed subset of ds003944 within Batch17; existing source audit",
+    "parkinson_tasks": "Original_ID in all three official participant tables; 50/56/56 with 50/56 shared identities; demographic agreement checked",
+    "iowa": "PD IDs normalized only within UNM-Iowa and PD-Mortality family; exact same signals independently corroborate overlap",
+    "existing": "TUH and TBI preserve their existing documented union identity namespaces"
+  },
+  "limits": [
+    "Counts include patients and controls; diagnostic patient totals cannot be inferred from arbitrary task labels.",
+    "Identity namespace entries are not a guarantee of globally unique people across anonymous releases.",
+    "Stored-signal hours sum recording/trial duration, never multiply channels; cross-release partial overlaps may remain.",
+    "Raw source bytes were not all reread; every selected NPZ was reread and signal-hashed.",
+    "Dataset full-scale correctness is not established solely by a passing file-format/hash validator."
+  ],
+  "unit_confirmed_joint": {
+    "outputs": 155729,
+    "duration_hours": 43375.604023609674,
+    "identity_namespace_entries": 24024,
+    "catalog_targets": 43,
+    "exact_unique_outputs": 154311,
+    "exact_unique_hours": 43159.82121805491,
+    "note": "documented/header-verified physical unit plus traceable identity; QC flags and missing diagnostic labels remain explicit"
+  },
+  "modma_native": {
+    "created_utc": "2026-09-13T07:04:36.498111+00:00",
+    "passed": true,
+    "outputs": 55,
+    "subjects": 55,
+    "values_compared_exactly_to_source": 50401506,
+    "source_hashes_recomputed": 55,
+    "duration_seconds": 67202.00800000002,
+    "output_bytes": 135371759,
+    "old_corrupted_outputs": 7,
+    "old_corrupted_values": 1703972,
+    "source_min": 0,
+    "source_max": 4294967295,
+    "format": "NPZ native_source_integers int64 [time,3]; sampling_rate_hz 250; no signed/unsigned reinterpretation, calibration or /100",
+    "status": "quarantined_calibration_and_integer_encoding_unresolved",
+    "labels": {
+      "major_depressive_disorder": 26,
+      "healthy_control": 29
+    }
+  },
+  "joint_validation": {
+    "passed": true,
+    "rows": 189256,
+    "split_moved_rows": 1209,
+    "final_cross_split_counts": {
+      "canonical_subject_id": 0,
+      "signal_sha256": 0
+    },
+    "exact_signal_duplicate_groups": 1319,
+    "exact_signal_duplicate_extra_outputs": 1444,
+    "distinct_exact_signal_hours": 43853.76682638703,
+    "manifest_sha256": "975193063f1df5bb166a2c61a007f1965bf92eb31f4bf9fbad70b6f20561764e",
+    "signal_and_branch_metadata_files_modified": 0,
+    "preexisting_cross_split_identity_count": 75,
+    "preexisting_cross_split_exact_signal_count": 9
+  },
+  "integrity_evidence": {
+    "scan_manifest_sha256": "6060c2a8acd66baec8e6d79958cef0bb4d106e70b4c7288bd0b76c9e788f14bc",
+    "script_sha256": "da9f47e45e5e1ec1b7c647eed43ddc232a1d724cde135ac3a6b36d0cc326c604",
+    "missing_outputs": 0,
+    "unreferenced_npz_in_selected_directories": 0,
+    "source_array_scope": 255471
+  }
+}
