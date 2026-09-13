@@ -1,13 +1,13 @@
 {
-  "createdUtc": "2026-09-13T21:01:57.503000+00:00",
+  "createdUtc": "2026-09-13T22:16:22.927752+00:00",
   "passed": true,
   "catalogEntries": 97,
-  "standardProcessedEntries": 67,
-  "downloadedCalibrationBlockedEntries": 1,
+  "standardProcessedEntries": 68,
+  "downloadedCalibrationBlockedEntries": 0,
   "notDownloadedEntries": 29,
   "runnableDownloadedEntries": 0,
-  "standardOutputsAdded": 663,
-  "standardHoursAdded": 1235.4202138888888,
+  "standardOutputsAdded": 688,
+  "standardHoursAdded": 1408.7807694444443,
   "sourceFilesHashed": 1141,
   "sourceBytesHashed": 71824900072,
   "entries": [
@@ -126,11 +126,24 @@
       "sourceRates": [
         128
       ],
-      "outputBytes": 927295923,
-      "unitReviewOutputs": 25,
-      "status": "已下载，原始计数隔离完成，待物理校准",
-      "outputUnit": "native_ADC_count",
-      "note": "25 人、25 个 PSG REC，另 25 个 Lifecard 文件是 ECG，未混入 EEG。只保留 C3-A2/C4-A1，128→200 Hz。EDF 标为 NV、物理范围 0..1，缺少可核实的 counts→μV 换算；生成 float32 native_ADC_count 隔离产物，不除 100，不加入统一微伏训练池。保留 AHI、人口学、按 PSG 时钟对齐的呼吸事件；原始睡眠分期序列完整保留，但 30 s epoch 的起点缺乏明确时间戳，不臆造对齐。两份分期文件共 15 个未在发布说明中定义的代码 8 原样保留并标记，不猜成睡眠阶段。"
+      "outputBytes": 875163573,
+      "unitReviewOutputs": 0,
+      "status": "已下载，μV/100 统一预处理全量验证通过；源头部量程矛盾保留 QC",
+      "outputUnit": "uV/100",
+      "note": "项目负责人于 2026-09-13 确认 EEG 物理单位为 μV。25 人、25 份 PSG，保留 C3-A2/C4-A1 两路 EEG；EDF 原 NV 标记保留在来源记录中，仅在读取时按确认单位解释。沿用文件头 physical 0..1、digital -2048..2047，先计算 x_uV=(ADC+2048)/4095，再经既定滤波/重采样后除 100；没有把 ADC 整数直接当微伏。128→200 Hz、float32 [channel,time] NPZ + JSON/CSV，保留原 0.3–35 Hz 采集带宽和参考，补低通与 50 Hz notch。物理头范围 0..1 μV 单列 QC，未按幅值外观猜测放大倍数。AHI、人口学及 3,428 条呼吸事件保留；睡眠分期起点仍待核，2 份文件共 15 个未定义代码 8 原样保留。旧原始计数产物留作历史比对，不重复计入训练或统计。 25 份实际 ADC 最大绝对值为 11,600–13,632，均超出头部声明的 -2048..2047，继续标记 source_exceeds_declared_edf_digital_range。读取与逐点核验仅证明按声明增益实现一致，不独立证明头部模拟增益正确；另有 2 份低变化/flatline QC，均未静默删除。",
+      "unitStatus": "documented",
+      "unitConfirmationSource": "project_owner",
+      "edfGainUvPerCount": 0.0002442002442002442,
+      "edfOffsetUv": 0.5001221001221001,
+      "calibrationEvidence": "owner-confirmed unit; header-declared gain; source digital bounds conflict unresolved",
+      "qcFlagCounts": {
+        "sleep_stage_time_alignment_unverified": 25,
+        "source_exceeds_declared_edf_digital_range": 25,
+        "source_header_physical_span_le_1uv": 25,
+        "sleep_stage_code_undocumented": 2,
+        "flatline_ge_5s": 2
+      }
     }
-  ]
+  ],
+  "latestBatch": 118
 }

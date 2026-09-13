@@ -89,7 +89,7 @@ EEG-0602,SeizeIT1,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection �
 EEG-0603,DCSM Sleep Staging Dataset,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
 EEG-0604,George B. Moody PhysioNet Challenge 2026 (PN2026),医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
 EEG-0605,STAGES,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
-EEG-0606,UCDDB Sleep Apnea Database,医疗与疾病,downloaded_calibration_blocked,02_Biometrics_and_Disease/Sleep_Disordered_Breathing/UCDDB,106,1368708310,25,25 source PSGs processed to 200 Hz native ADC quarantine; NV-to-uV calibration and sleep-stage epoch origin unverified; excluded from standard microvolt pool
+EEG-0606,UCDDB Sleep Apnea Database,医疗与疾病,processed_and_audited,02_Biometrics_and_Disease/Sleep_Disordered_Breathing/UCDDB,106,1368708310,25,Batch118: owner-confirmed uV; EDF gain/offset and single /100 scaling independently validated; 25 records complete; stage alignment and header-range QC retained
 EEG-0608,Dreem Open Dataset – Obstructive (DOD-O),医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
 EEG-NEW-0001,Neurotech EEG Dataset,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载
 EEG-NEW-0002,Resting-State EEG in Parkinson's Disease and Healthy Controls,医疗与疾病,not_downloaded,,,,0,在当前 EEG collection 的采集记录、实际数据目录及处理配置中未取得对应信号；网页链接、发现清单和元数据不算已下载

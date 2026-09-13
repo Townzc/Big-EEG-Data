@@ -154,10 +154,10 @@ for (const entry of pendingSix.entries) {
   detail.item.verified = '2026-09-13';
   detail.notes.unshift(entry.note);
   detail.sources.unshift({ label: '本轮六项处理结果与限制', url: 'https://github.com/Townzc/Big-EEG-Data/blob/main/PREPROCESSING_SIX_20260913.zh-CN.md' });
-  if (entry.outputUnit === 'native_ADC_count') {
+  if (entry.id === 'EEG-0606') {
     detail.metrics.unshift(
-      { label: '原始计数隔离产物', value: `${entry.outputs} 份 / ${entry.hours.toFixed(6)} h`, note: '200 Hz float32 [channel,time]；NV 与微伏之间的校准未确认，不计入标准微伏汇总。' },
-      { label: '待补证据', value: '物理校准、睡眠分期起点', note: '呼吸事件按 PSG 时钟对齐；原始睡眠分期序列完整保留，未臆造 epoch 对齐。' },
+      { label: '物理单位与换算', value: '负责人确认 μV · EDF 声明增益', note: 'x_uV=(ADC+2048)/4095；处理后 /100。原 NV 字段留作来源记录，25 份当前标准产物已计入汇总；旧计数副本不重复计数。' },
+      { label: '保留的源数据限制', value: '头部量程矛盾、睡眠分期对齐', note: '25 份实际 ADC 均超出声明范围，沿用头部增益但缺独立校准证据。呼吸事件按 PSG 时钟对齐；分期序列完整保留，起点和未定义代码仍待核。' },
     );
   }
 }

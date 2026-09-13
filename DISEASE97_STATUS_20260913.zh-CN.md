@@ -1,8 +1,8 @@
-# 当前 97 个疾病条目的获取与处理状态（2026-09-13，batch117 后）
+# 当前 97 个疾病条目的获取与处理状态（2026-09-13 / batch118）
 
-**67 个已有统一格式产物、1 个已下载且原始计数隔离完成但微伏校准受阻（UCDDB）、29 个未下载。** 已下载仍为 68 个。五项新增标准格式中，Albrecht 与 ADSZ AD 的单位推断等限制仍保留；标准格式通过不等于全部记录已经可确认物理校准。
+**68 个有统一格式产物，已下载尚未执行统一格式处理的为 0，29 个未下载。** UCDDB 已按负责人确认的 μV 完成 EDF 增益换算和 μV/100 全量预处理。其他库的单位推断、身份、标签与 QC 限制保留。
 
-[六项完整结果与全部疾病汇总](PREPROCESSING_SIX_20260913.zh-CN.md)。未下载来源等待用户取得权限后再下载和预处理。
+[当前六项结果与全部疾病汇总](PREPROCESSING_SIX_20260913.zh-CN.md) · [UCDDB 单位确认与换算](PREPROCESSING_UCDDB_UV_20260913.zh-CN.md)
 
 | ID | 数据集 | 状态 |
 |---|---|---|
@@ -96,7 +96,7 @@
 | EEG-0603 | DCSM Sleep Staging Dataset | 未下载 |
 | EEG-0604 | George B. Moody PhysioNet Challenge 2026 (PN2026) | 未下载 |
 | EEG-0605 | STAGES | 未下载 |
-| EEG-0606 | UCDDB Sleep Apnea Database | 原始计数隔离完成，待校准 |
+| EEG-0606 | UCDDB Sleep Apnea Database | 统一格式通过 |
 | EEG-0608 | Dreem Open Dataset – Obstructive (DOD-O) | 未下载 |
 | EEG-NEW-0001 | Neurotech EEG Dataset | 未下载 |
 | EEG-NEW-0002 | Resting-State EEG in Parkinson's Disease and Healthy Controls | 未下载 |

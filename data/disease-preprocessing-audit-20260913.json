@@ -1,36 +1,36 @@
 {
-  "created_utc": "2026-09-13T20:59:20.032547+00:00",
+  "created_utc": "2026-09-13T22:12:41.686697+00:00",
   "full_scan_passed": true,
   "all_audited": {
-    "catalog_targets": 82,
-    "signal_groups": 89,
-    "outputs": 256134,
-    "human_dataset_subject_entries": 30324,
-    "stored_dataset_subject_identifiers": 30479,
+    "catalog_targets": 83,
+    "signal_groups": 90,
+    "outputs": 256159,
+    "human_dataset_subject_entries": 30349,
+    "stored_dataset_subject_identifiers": 30504,
     "unverified_named_subject_identifiers": 146,
     "subject_id_status_output_counts": {
       "documented": 135522,
       "verified_from_file": 37217,
       "publisher_session_index_not_proven_subject": 159,
-      "derived_from_documented_filename": 82664,
+      "derived_from_documented_filename": 82689,
       "unavailable": 500,
       "session_identifier_only_unresolved_ON_OFF_pairing": 24,
       "unknown_file_to_person_mapping": 48
     },
-    "dataset_subject_entries_all_species": 30333,
-    "adapter_subject_entries": 30854,
-    "identity_namespace_entries": 26432,
+    "dataset_subject_entries_all_species": 30358,
+    "adapter_subject_entries": 30879,
+    "identity_namespace_entries": 26457,
     "identity_entries_by_species": {
-      "human": 26423,
+      "human": 26448,
       "canine": 9
     },
     "outputs_without_reliable_subject_id": 731,
-    "duration_seconds": 177670487.0449194,
-    "duration_hours": 49352.913068033165,
-    "reader_input_duration_seconds": 177670345.1891055,
-    "output_bytes": 2000321896578,
-    "events": 4513715,
-    "full_one_second_patches": 177664374,
+    "duration_seconds": 178294585.0449194,
+    "duration_hours": 49526.27362358872,
+    "reader_input_duration_seconds": 178294443.1891055,
+    "output_bytes": 2001197060151,
+    "events": 4517143,
+    "full_one_second_patches": 178288472,
     "remainder_samples": 1222609,
     "channel_counts": [
       1,
@@ -221,7 +221,7 @@
       20000.0
     ],
     "array_label_record_counts": {
-      "": 71660,
+      "": 71685,
       "abnormal": 2392,
       "acute_mild_tbi": 366,
       "adhd": 479,
@@ -372,7 +372,7 @@
     },
     "unit_status_output_counts": {
       "verified_from_file": 113581,
-      "documented": 105752,
+      "documented": 105777,
       "unknown": 1379,
       "high_confidence_inferred_from_same_EGI_source_and_official_NEMAR_conversion_not_encoded_in_legacy_MAT": 1515,
       "high_confidence_inferred_from_EEGLAB_export_convention_not_encoded_in_MAT": 53,
@@ -394,7 +394,7 @@
       "unit_not_verified": 36801,
       "postprocess_extreme_peak": 731,
       "subject_id_not_verified": 731,
-      "flatline_ge_5s": 398,
+      "flatline_ge_5s": 400,
       "near_constant_channel": 152,
       "source_header_wider_physical_range": 14,
       "implausible_amplitude_or_unit": 49,
@@ -402,7 +402,11 @@
       "all_zero_channel": 23,
       "source_near_edf_physical_limit": 21,
       "source_p99_near_documented_device_range": 13,
-      "participant_demographics_missing": 2
+      "participant_demographics_missing": 2,
+      "sleep_stage_time_alignment_unverified": 25,
+      "source_exceeds_declared_edf_digital_range": 25,
+      "source_header_physical_span_le_1uv": 25,
+      "sleep_stage_code_undocumented": 2
     },
     "reference_type_output_counts": {
       "average_reference": 71282,
@@ -463,7 +467,7 @@
       "electrode_between_Fz_and_Cz": 28,
       "average_reference_after_Cz_vertex_acquisition_reference": 9,
       "not_declared": 1,
-      "native_mastoid_referential_pairs": 151
+      "native_mastoid_referential_pairs": 176
     },
     "reference_status_output_counts": {
       "documented_from_tuh_montage_directory_and_edf_labels": 84880,
@@ -526,65 +530,66 @@
       "Pz acquisition reference in original paper DOI 10.1038/s41531-021-00158-x": 150,
       "EEGLAB ref=common; acquisition electrode not specified in file; preserved": 186,
       "Linked mandible reference and forehead ground reported for parent AD source in PLOS 2020": 48,
-      "Native reference preserved; electrode not specified by MSU publisher": 84
+      "Native reference preserved; electrode not specified by MSU publisher": 84,
+      "EDF C3A2 C4A1 / official PhysioNet C3-A2 C4-A1": 25
     },
     "split_output_counts": {
-      "test": 27092,
-      "train": 204877,
+      "test": 27099,
+      "train": 204895,
       "validation": 23593,
       "unassigned": 572
     },
     "raw_or_processed_output_counts": {
       "raw": 113052,
       "processed": 131592,
-      "partially_filtered": 11071,
+      "partially_filtered": 11096,
       "publisher_preprocessed_ica_pruned": 419
     },
     "array_error_outputs": 0,
     "outside_event_outputs": 1609,
     "outside_event_rows": 1620,
-    "values_read": 539593674711,
+    "values_read": 539843313911,
     "nonfinite_values": 0,
-    "sample_weighted_mean_model": 0.0034463065130054724,
-    "sample_weighted_std_model": 67.30510751573789,
+    "sample_weighted_mean_model": 0.0034472660091796757,
+    "sample_weighted_std_model": 67.28954379976535,
     "min_model": -925772.625,
     "max_model": 919889.0,
     "tail_fraction": {
-      "1": 0.04138425159627761,
-      "5": 0.009480107356224572,
-      "10": 0.0062599177701797865,
-      "100": 0.00014931706166339446
+      "1": 0.041365114318488154,
+      "5": 0.009475723479726823,
+      "10": 0.006257023002709403,
+      "100": 0.00014924801312493993
     }
   },
   "disease_human": {
-    "catalog_targets": 67,
-    "signal_groups": 71,
-    "outputs": 189919,
-    "human_dataset_subject_entries": 28913,
-    "stored_dataset_subject_identifiers": 29059,
+    "catalog_targets": 68,
+    "signal_groups": 72,
+    "outputs": 189944,
+    "human_dataset_subject_entries": 28938,
+    "stored_dataset_subject_identifiers": 29084,
     "unverified_named_subject_identifiers": 146,
     "subject_id_status_output_counts": {
       "documented": 117696,
       "verified_from_file": 28722,
       "publisher_session_index_not_proven_subject": 159,
-      "derived_from_documented_filename": 42770,
+      "derived_from_documented_filename": 42795,
       "unavailable": 500,
       "session_identifier_only_unresolved_ON_OFF_pairing": 24,
       "unknown_file_to_person_mapping": 48
     },
-    "dataset_subject_entries_all_species": 28913,
-    "adapter_subject_entries": 29036,
-    "identity_namespace_entries": 25469,
+    "dataset_subject_entries_all_species": 28938,
+    "adapter_subject_entries": 29061,
+    "identity_namespace_entries": 25494,
     "identity_entries_by_species": {
-      "human": 25469
+      "human": 25494
     },
     "outputs_without_reliable_subject_id": 731,
-    "duration_seconds": 163131503.20499292,
-    "duration_hours": 45314.30644583137,
-    "reader_input_duration_seconds": 163131490.94068927,
-    "output_bytes": 1739504213679,
-    "events": 3019836,
-    "full_one_second_patches": 163128730,
+    "duration_seconds": 163755601.20499292,
+    "duration_hours": 45487.66700138692,
+    "reader_input_duration_seconds": 163755588.94068927,
+    "output_bytes": 1740379377252,
+    "events": 3023264,
+    "full_one_second_patches": 163752828,
     "remainder_samples": 554641,
     "channel_counts": [
       1,
@@ -725,7 +730,7 @@
       20000.0
     ],
     "array_label_record_counts": {
-      "": 61264,
+      "": 61289,
       "abnormal": 2392,
       "acute_mild_tbi": 366,
       "adhd": 479,
@@ -811,7 +816,7 @@
     },
     "unit_status_output_counts": {
       "verified_from_file": 91684,
-      "documented": 65859,
+      "documented": 65884,
       "unknown": 1379,
       "high_confidence_inferred_from_EEGLAB_export_convention_not_encoded_in_MAT": 53,
       "inferred_from_integer_range_and_publisher_export_code_not_formally_documented": 51,
@@ -830,14 +835,18 @@
       "unit_not_verified": 32376,
       "postprocess_extreme_peak": 501,
       "subject_id_not_verified": 731,
-      "flatline_ge_5s": 365,
+      "flatline_ge_5s": 367,
       "near_constant_channel": 124,
       "implausible_amplitude_or_unit": 28,
       "source_exceeds_documented_device_range": 61,
       "all_zero_channel": 23,
       "source_near_edf_physical_limit": 21,
       "source_p99_near_documented_device_range": 13,
-      "participant_demographics_missing": 2
+      "participant_demographics_missing": 2,
+      "sleep_stage_time_alignment_unverified": 25,
+      "source_exceeds_declared_edf_digital_range": 25,
+      "source_header_physical_span_le_1uv": 25,
+      "sleep_stage_code_undocumented": 2
     },
     "reference_type_output_counts": {
       "average_reference": 61559,
@@ -886,7 +895,7 @@
       "electrode_between_Fz_and_Cz": 28,
       "right_mastoid": 44,
       "average_reference_after_Cz_vertex_acquisition_reference": 9,
-      "native_mastoid_referential_pairs": 151
+      "native_mastoid_referential_pairs": 176
     },
     "reference_status_output_counts": {
       "documented_from_tuh_montage_directory_and_edf_labels": 74484,
@@ -940,34 +949,35 @@
       "Pz acquisition reference in original paper DOI 10.1038/s41531-021-00158-x": 150,
       "EEGLAB ref=common; acquisition electrode not specified in file; preserved": 186,
       "Linked mandible reference and forehead ground reported for parent AD source in PLOS 2020": 48,
-      "Native reference preserved; electrode not specified by MSU publisher": 84
+      "Native reference preserved; electrode not specified by MSU publisher": 84,
+      "EDF C3A2 C4A1 / official PhysioNet C3-A2 C4-A1": 25
     },
     "split_output_counts": {
-      "test": 20236,
-      "train": 149222,
+      "test": 20243,
+      "train": 149240,
       "validation": 19889,
       "unassigned": 572
     },
     "raw_or_processed_output_counts": {
       "raw": 92960,
-      "partially_filtered": 435,
+      "partially_filtered": 460,
       "processed": 96105,
       "publisher_preprocessed_ica_pruned": 419
     },
     "array_error_outputs": 0,
     "outside_event_outputs": 424,
     "outside_event_rows": 433,
-    "values_read": 469372277790,
+    "values_read": 469621916990,
     "nonfinite_values": 0,
-    "sample_weighted_mean_model": 0.0042077001274194595,
-    "sample_weighted_std_model": 72.07747581045028,
+    "sample_weighted_mean_model": 0.004208398356973312,
+    "sample_weighted_std_model": 72.05831597725341,
     "min_model": -925772.625,
     "max_model": 919889.0,
     "tail_fraction": {
-      "1": 0.04221124465272395,
-      "5": 0.010173662746943203,
-      "10": 0.006748873625249047,
-      "100": 0.0001418591641447355
+      "1": 0.04218880621668662,
+      "5": 0.010168254683696294,
+      "10": 0.006745286093765196,
+      "100": 0.0001417837553808585
     }
   },
   "disease_canine": {
@@ -6403,6 +6413,80 @@
         "10": 0.0007039969657986775,
         "100": 0.00010777405871749712
       }
+    },
+    "EEG-0606": {
+      "name": "UCDDB sleep apnea",
+      "subcategory": "Sleep_Disordered_Breathing",
+      "catalog_targets": 1,
+      "signal_groups": 1,
+      "outputs": 25,
+      "human_dataset_subject_entries": 25,
+      "stored_dataset_subject_identifiers": 25,
+      "unverified_named_subject_identifiers": 0,
+      "subject_id_status_output_counts": {
+        "derived_from_documented_filename": 25
+      },
+      "dataset_subject_entries_all_species": 25,
+      "adapter_subject_entries": 25,
+      "identity_namespace_entries": 25,
+      "identity_entries_by_species": {
+        "human": 25
+      },
+      "outputs_without_reliable_subject_id": 0,
+      "duration_seconds": 624098.0,
+      "duration_hours": 173.36055555555555,
+      "reader_input_duration_seconds": 624098.0,
+      "output_bytes": 875163573,
+      "events": 3428,
+      "full_one_second_patches": 624098,
+      "remainder_samples": 0,
+      "channel_counts": [
+        2
+      ],
+      "source_sampling_rates": [
+        128.0
+      ],
+      "array_label_record_counts": {
+        "": 25
+      },
+      "unit_status_output_counts": {
+        "documented": 25
+      },
+      "qc_flag_counts": {
+        "sleep_stage_time_alignment_unverified": 25,
+        "source_exceeds_declared_edf_digital_range": 25,
+        "source_header_physical_span_le_1uv": 25,
+        "sleep_stage_code_undocumented": 2,
+        "flatline_ge_5s": 2
+      },
+      "reference_type_output_counts": {
+        "native_mastoid_referential_pairs": 25
+      },
+      "reference_status_output_counts": {
+        "EDF C3A2 C4A1 / official PhysioNet C3-A2 C4-A1": 25
+      },
+      "split_output_counts": {
+        "test": 7,
+        "train": 18
+      },
+      "raw_or_processed_output_counts": {
+        "partially_filtered": 25
+      },
+      "array_error_outputs": 0,
+      "outside_event_outputs": 0,
+      "outside_event_rows": 0,
+      "values_read": 249639200,
+      "nonfinite_values": 0,
+      "sample_weighted_mean_model": 0.005521211393194412,
+      "sample_weighted_std_model": 0.0035537425293789273,
+      "min_model": -0.041404008865356445,
+      "max_model": 0.05671311169862747,
+      "tail_fraction": {
+        "1": 0.0,
+        "5": 0.0,
+        "10": 0.0,
+        "100": 0.0
+      }
     }
   },
   "known_identity_rules": {
@@ -6419,18 +6503,19 @@
     "Stored-signal hours sum recording/trial duration, never multiply channels; cross-release partial overlaps may remain.",
     "Raw source bytes were not all reread; every selected NPZ was reread and signal-hashed.",
     "Dataset full-scale correctness is not established solely by a passing file-format/hash validator.",
-    "UCDDB native ADC outputs are complete as quarantine derivatives but remain outside physical-scale disease totals.",
-    "New Albrecht and ADSZ AD branches use explicitly inferred microvolt conventions and are excluded from the confirmed-unit pool.",
-    "ADSZ AD file-to-person mapping and 18 Singh2021 ON/OFF sessions remain unresolved; they are not reported as independently verified people.",
-    "Possible shared Iowa participants are conservatively grouped for splitting without claiming a confirmed global person merge."
+    "UCDDB physical unit is owner-confirmed uV; source NV spelling is overridden while EDF physical/digital ranges remain unchanged.",
+    "UCDDB EDF declares a 0..1 physical span. Its small microvolt scale is preserved and explicitly flagged; no one-uV-per-ADC-count assumption or amplitude-based multiplier is applied.",
+    "UCDDB sleep-stage time origin and 15 code-8 epochs remain unresolved; existing source sequences are retained.",
+    "Albrecht and ADSZ AD unit inference, unknown identities, existing QC flags and Iowa candidate split grouping remain unchanged.",
+    "All 25 UCDDB sources exceed the EDF-declared digital range (-2048..2047): source maximum absolute ADC values are 11600..13632. The declared gain is retained and flagged; reader agreement validates its implementation, not independent correctness of the analogue gain."
   ],
   "unit_confirmed_joint": {
-    "outputs": 156134,
-    "duration_hours": 44569.53412916521,
-    "identity_namespace_entries": 24409,
-    "catalog_targets": 47,
-    "exact_unique_outputs": 154716,
-    "exact_unique_hours": 44353.751323610464,
+    "outputs": 156159,
+    "duration_hours": 44742.89468472076,
+    "identity_namespace_entries": 24434,
+    "catalog_targets": 48,
+    "exact_unique_outputs": 154741,
+    "exact_unique_hours": 44527.11187916832,
     "note": "documented/header-verified physical unit plus traceable identity; QC flags and missing diagnostic labels remain explicit"
   },
   "modma_native": {
@@ -6455,7 +6540,7 @@
   },
   "joint_validation": {
     "passed": true,
-    "rows": 189919,
+    "rows": 189944,
     "split_moved_rows": 1267,
     "final_cross_split_counts": {
       "canonical_subject_id": 0,
@@ -6463,19 +6548,41 @@
     },
     "exact_signal_duplicate_groups": 1319,
     "exact_signal_duplicate_extra_outputs": 1444,
-    "distinct_exact_signal_hours": 45089.18704027585,
-    "manifest_sha256": "7956972a422806f3dff7d0ece44267e8f191a8b0e72a90babf8f12a06d995120",
+    "distinct_exact_signal_hours": 45262.547595831405,
+    "manifest_sha256": "baa2cb3a1e14fee573231e7bd8ac27e422cd9e026cf81c7c81f6adec77234aae",
     "signal_and_branch_metadata_files_modified": 0,
     "preexisting_cross_split_identity_count": 75,
     "preexisting_cross_split_exact_signal_count": 9,
     "candidateOverlapGroups": 96
   },
   "integrity_evidence": {
-    "scan_manifest_sha256": "ae254b4b7ed3329ac308a708caa870e41734409ef455886b98ffff2b6e951c16",
-    "script_sha256": "c4249979178d800b79755858893a119f270e9034c650e0afe8be7091aa0b1a60",
+    "scan_manifest_sha256": "ea98db9a5391a4219c6b73b777b4181a25416428a22b33a11ab792a013c50a85",
+    "script_sha256": "c9ad330d813571c6f3593eac2262e098655dbeb87ee3086c7f1f6cd2c6e00e23",
     "missing_outputs": 0,
     "unreferenced_npz_in_selected_directories": 0,
-    "source_array_scope": 256134,
-    "scan_method": "Incremental composition: previous 255471 full-array scans reused by immutable part SHA256; every new array fully reread, finite-scanned and signal-hashed; new source bytes independently checksum-verified"
+    "source_array_scope": 256159,
+    "scan_method": "Reuse 256134 previously scanned immutable audit rows by part SHA256; fully reread all 25 new UCDDB arrays, independently test EDF gain with corrected-unit temporary copies and affine scaling against retained native arrays"
+  },
+  "ucddb_unit_confirmation": {
+    "unit_confirmation": {
+      "dataset": "EEG-0606 UCDDB",
+      "unit": "uV",
+      "authority": "project_owner",
+      "date": "2026-09-13",
+      "statement": "EEG-0606 UCDDB  也是uv",
+      "scope": "Physical voltage unit; retain the EDF digital-to-physical gain and offset, not one microvolt per ADC count"
+    },
+    "edf_gain_uv_per_count": 0.0002442002442002442,
+    "edf_offset_uv": 0.5001221001221001,
+    "calibration_comparisons": 25,
+    "all_sample_affine_comparison_passed": true,
+    "qc_flag_counts": {
+      "sleep_stage_time_alignment_unverified": 25,
+      "source_exceeds_declared_edf_digital_range": 25,
+      "source_header_physical_span_le_1uv": 25,
+      "sleep_stage_code_undocumented": 2,
+      "flatline_ge_5s": 2
+    },
+    "calibration_limitation": "All 25 UCDDB sources exceed the EDF-declared digital range (-2048..2047): source maximum absolute ADC values are 11600..13632. The declared gain is retained and flagged; reader agreement validates its implementation, not independent correctness of the analogue gain."
   }
 }

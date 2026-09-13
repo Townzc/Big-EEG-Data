@@ -22,7 +22,8 @@ test("server-renders the current EEG research workflow", async () => {
   for (const value of [preprocessing.outputs, preprocessing.traceableIdentities, preprocessing.unitReviewOutputs]) assert.ok(html.includes(value.toLocaleString('en-US')));
   assert.match(html,/disease-preprocessing-summary-20260913\.csv/);
   assert.match(html,/匿名来源仍可能有人物重叠/);
-  assert.match(html,/67 个有统一格式产物/);assert.match(html,/UCDDB 已完成原始计数隔离、待微伏校准/);assert.match(html,/29 个未下载/);
+  assert.match(html,/68 个有统一格式产物/);assert.match(html,/0 个已下载尚未执行统一格式处理/);assert.match(html,/29 个未下载/);
+  assert.match(html,/UCDDB 已按负责人确认的 μV/);assert.match(html,/增益缺独立校准证据/);
   assert.match(html,/EEG_catalog_20260906\.xlsx/);assert.match(html,/lang="zh-CN"/);
   assert.doesNotMatch(html,/Your site is taking shape|Building your site/);
 });

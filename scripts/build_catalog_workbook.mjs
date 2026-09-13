@@ -107,7 +107,7 @@ const notes = [
   ['2026-09-10 更新', '新增 VitalDB（EEG-0609）：意识与状态 / Anesthesia，2 通道、128 Hz。EEG-0077 确认归 cognitive。AES、UPenn 的 μV/参考信息依据项目负责人确认登记；MODMA 等待作者邮件回复。EEG-0053 的 121 个原始 MAT 由公开镜像取得，官方 S3 仍为 403。'],
   ['时长证据', 'reported=来源报告；calculated=文件/协议计算；estimated=抽样或完成率假设估算；unavailable=未知。'],
   ['采集包', 'MORGOTH 的 16 个逻辑行保留检索，但只计一个 BDSP acquisition package。逻辑行、family、申请流程和物理下载包不是同一口径。'],
-  ['当前疾病预处理', `${preprocessingBatch.catalogEntries} 个疾病条目：${preprocessingBatch.standardProcessedEntries} 个有统一格式产物，${preprocessingBatch.downloadedCalibrationBlockedEntries} 个 UCDDB 原始计数隔离完成但微伏校准受阻，${preprocessingBatch.notDownloadedEntries} 个未下载。${preprocessing.outputs.toLocaleString('en-US')} 份标准产物 / ${preprocessing.signalHours.toFixed(6)} h；单位推断、人物映射与 QC 限制见本次完整报告。`],
+  ['当前疾病预处理', `${preprocessingBatch.catalogEntries} 个疾病条目：${preprocessingBatch.standardProcessedEntries} 个有统一格式产物，${preprocessingBatch.downloadedCalibrationBlockedEntries} 个已下载尚未执行统一格式处理，${preprocessingBatch.notDownloadedEntries} 个未下载。${preprocessing.outputs.toLocaleString('en-US')} 份标准产物 / ${preprocessing.signalHours.toFixed(6)} h。UCDDB 已纳入负责人确认 μV 的产物，EDF 头部量程矛盾及增益证据限制保留；其他单位推断、人物映射与 QC 限制见完整报告。`],
   ['历史预处理口径', '旧 raw-continuous 快照为 62/99 canonical targets，排除重复分支、non-EEG、processed-only 和未通过校验的部分输出；该 99 项跨分类清单与当前 97 个疾病条目不是同一分母。'],
   ['MIPDB', '本地 legacy MAT 118 participants / 1,515 records / 126.0211 h；NEMAR BIDS 111 participants。原 CMI 采集 Cz/vertex，NEMAR reference n/a，本地 MAT 最终参考未解。'],
   ['Kaggle', 'AES/HMS/UPenn/Schizophrenia 全量审计范围与 production gates 见 acquisitionStatus/acquisitionNote；下载完成不自动等于可训练。'],

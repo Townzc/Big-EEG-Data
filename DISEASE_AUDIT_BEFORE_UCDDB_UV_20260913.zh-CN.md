@@ -1,19 +1,19 @@
-# 六个已下载疾病类数据的当前处理结果（2026-09-13 / batch117 + batch118）
+# 六个已下载疾病类数据的处理结果（2026-09-13 / batch117）
 
-**六项均已生成统一格式产物。** UCDDB 已依据项目负责人本次 μV 确认重跑，25 份标准产物通过独立 EDF 增益和全量缩放校验。Albrecht 与 ADSZ AD 的单位推断，以及各库既有身份、参考、标签和 QC 限制继续保留。
+已对六项全部执行来源核验、适配、处理和产物校验。**五项生成统一格式，UCDDB 完成原始计数隔离处理，仍缺少微伏校准依据。** 因此不能将这六项都报为“物理单位问题已经解决”。
 
-当前网站 **97 个疾病条目 = 68 个有统一格式产物 + 29 个未下载**；已下载尚未执行统一格式处理的条目为 **0**。未下载来源按用户要求等待后续访问权限。
+当前网站 **97 个疾病条目 = 67 个有统一格式产物 + 1 个已下载、隔离处理完成但校准受阻（UCDDB）+ 29 个未下载**。可直接继续执行的已下载处理队列为 0；未下载的 29 项保持等待用户取得访问权限。本轮未申请或下载这些缺失来源。
 
-这六项合计 **688 份标准产物 / 1,408.780769 h**。人数含对照，按可追踪身份计；匿名库仍可能有共享人物。UCDDB 旧计数版本留作历史比对，不额外增加人数或时长。
+本轮标准分支新增 **663 份产物、1,235.420214 h、376,744 条事件**。另有 UCDDB **25 份 / 173.360556 h** 原始计数隔离数据，不加入微伏统计。人数包含患者与对照，按证据计数；下面的未知人物映射没有用文件数补齐。
 
-| ID / 数据集 | 可追踪身份条目 | 产物数 | 时长 h | EEG 通道 | 原始 Hz |
-|---|---:|---:|---:|---|---|
-| EEG-0125 HMC | 151 | 151 | 1144.218889 | 4 | 256.0 |
-| EEG-0493 ADSZ | 84；另 48 个片段人物映射待核 | 132 | 1.513333 | 16 / 19 | 128.0 |
-| EEG-0583 Albrecht2019 | 77 | 186 | 34.671569 | 60 | 1000.0 |
-| EEG-0585 Singh2020 | 39 | 44 | 3.320767 | 63 | 500.0 |
-| EEG-0586 Singh2021 | 111；另 18 会话配对待核 | 150 | 51.695656 | 63 | 500.0 |
-| EEG-0606 UCDDB | 25 | 25 | 173.360556 | 2 | 128 |
+| ID / 数据集 | 可追踪身份条目 | 产物数 | 信号时长 h | EEG 通道 | 原始 Hz | 结果 |
+|---|---:|---:|---:|---|---|---|
+| EEG-0125 HMC | 151 | 151 | 1144.218889 | 4 | 256.0 | 标准格式通过；详见单位/身份限制 |
+| EEG-0493 ADSZ | 84；另 48 个 AD 片段人物映射待核 | 132 | 1.513333 | 16 / 19 | 128.0 | 标准格式通过；详见单位/身份限制 |
+| EEG-0583 Albrecht2019 | 77 | 186 | 34.671569 | 60 | 1000.0 | 标准格式通过；详见单位/身份限制 |
+| EEG-0585 Singh2020 | 39 | 44 | 3.320767 | 63 | 500.0 | 标准格式通过；详见单位/身份限制 |
+| EEG-0586 Singh2021 | 111；另 18 会话配对待核 | 150 | 51.695656 | 63 | 500.0 | 标准格式通过；详见单位/身份限制 |
+| EEG-0606 UCDDB | 25 | 25 | 173.360556 | 2 | 128 | 原始计数隔离；待微伏校准 |
 
 **EEG-0125 HMC**：保留 F4-M1、C4-M1、O2-M1、C3-M2 四路 EEG；去除 EMG/EOG/ECG。EDF 微伏增益逐文件独立复核，原生参考保留。保留 0.2 Hz 采集高通，补低通与 50 Hz notch，256→200 Hz；原 LP 35/128 Hz 的差异逐文件标记。W/N1/N2/N3/R 及开关灯事件按原秒数保留；没有逐人疾病诊断。151 个匿名 PSG 记录身份不宣称与其他来源全局唯一。
 
@@ -25,44 +25,54 @@
 
 **EEG-0586 Singh2021**：129 组原始会话；111 个身份可由工作簿核对（74 PD、37 对照），另 18 组 ON/OFF 会话（对应 24 个连续段）缺正式人物配对，不能报为 18 个独立新增人，也不使用镜像的推测配对/药物状态。保留 63 路 EEG，去除 Resp 或 X/Y/Z 辅助通道；保留 Iz/I1/I2 等实际导联名和 Pz 参考，不插值。500→200 Hz、0.1–75 Hz + 60 Hz notch。原始触发码保留，推測的语义不冒充已确认标签。
 
-**EEG-0606 UCDDB**：项目负责人于 2026-09-13 确认 EEG 物理单位为 μV。25 人、25 份 PSG，保留 C3-A2/C4-A1 两路 EEG；EDF 原 NV 标记保留在来源记录中，仅在读取时按确认单位解释。沿用文件头 physical 0..1、digital -2048..2047，先计算 x_uV=(ADC+2048)/4095，再经既定滤波/重采样后除 100；没有把 ADC 整数直接当微伏。128→200 Hz、float32 [channel,time] NPZ + JSON/CSV，保留原 0.3–35 Hz 采集带宽和参考，补低通与 50 Hz notch。物理头范围 0..1 μV 单列 QC，未按幅值外观猜测放大倍数。AHI、人口学及 3,428 条呼吸事件保留；睡眠分期起点仍待核，2 份文件共 15 个未定义代码 8 原样保留。旧原始计数产物留作历史比对，不重复计入训练或统计。 25 份实际 ADC 最大绝对值为 11,600–13,632，均超出头部声明的 -2048..2047，继续标记 source_exceeds_declared_edf_digital_range。读取与逐点核验仅证明按声明增益实现一致，不独立证明头部模拟增益正确；另有 2 份低变化/flatline QC，均未静默删除。
+**EEG-0606 UCDDB**：25 人、25 个 PSG REC，另 25 个 Lifecard 文件是 ECG，未混入 EEG。只保留 C3-A2/C4-A1，128→200 Hz。EDF 标为 NV、物理范围 0..1，缺少可核实的 counts→μV 换算；生成 float32 native_ADC_count 隔离产物，不除 100，不加入统一微伏训练池。保留 AHI、人口学、按 PSG 时钟对齐的呼吸事件；原始睡眠分期序列完整保留，但 30 s epoch 的起点缺乏明确时间戳，不臆造对齐。两份分期文件共 15 个未在发布说明中定义的代码 8 原样保留并标记，不猜成睡眠阶段。
 
-**当前全部疾病标准产物**
+**当前全部疾病类汇总**
 
 | 指标 | 数值 |
 |---|---:|
-| 疾病目录条目 | 68 |
-| 完整记录 / trial / 连续段 | 189,944 |
-| 各库可追踪身份合计，含对照 | 28,938 |
-| 按有证据共享关系合并后 | 25,494 |
+| 有标准格式产物的疾病目录条目 | 67 |
+| 完整记录 / trial / 连续段 | 189,919 |
+| 各库可追踪身份合计，含对照 | 28,913 |
+| 合并有证据的共享身份后 | 25,469 |
 | 缺可靠人物映射的产物 | 731 |
-| 累计信号时长，不乘通道数 | 45,487.667001 h |
-| NPZ + JSON 字节 | 1,740,379,377,252 |
-| 事件行数 | 3,023,264 |
+| 累计时长，不乘通道数 | 45,314.306446 h |
+| NPZ + JSON 字节 | 1,739,504,213,679 |
+| 事件行数 | 3,019,836 |
 | 单位推断或待核的产物 | 32,376 |
-| 单位有依据且身份可追踪的联合视图 | 48 项 / 156,159 份 / 44,742.894685 h |
+| 单位有依据且身份可追踪的联合视图 | 47 项 / 156,134 份 / 44,569.534129 h |
 
-**格式、范围与验证**
+上述人数不是全球唯一患者数，时长也可能含跨发布版的部分重复时间。新发现的 Iowa 任务编号候选交集在 **96 个候选组**中保守使用同一 split；其中 28 对静息/计时编号的人口学字段一致，但缺少正式跨任务身份表，因此只防止可能的训练/测试泄漏，不把候选关系冒充已证明的人物合并。确认身份、完全相同数组、这些候选组复核后跨 split 均为 0。
 
-标准 NPZ 只有 `data`（float32，`[channel,time]`）、`channel_names`（Unicode）、`sfreq`（200 Hz）。单位有依据时 `data=x_uV/100`；单位推断分支显式标记并排除确认单位清单。每份同名 JSON 保存来源与信号哈希、单位依据、参考、导联顺序、人物/会话、事件、分段、QC 与处理步骤。连续段未预切小文件，加载时按 1 秒 / 200 点 patch；不跨原始段边界。未做 z-score、统计归一化、ICA、CAR、插值或幅值裁剪。
+**格式与处理规则**
 
-原始分支沿用 0.1–75 Hz 与已知 50/60 Hz notch，128 Hz 来源上限受 Nyquist 约束为 62.72 Hz；HMC/UCDDB 保留采集带宽，ADSZ AD 仅重采样。当前读取以 `results/disease_audit_20260913_batch118/` 的联合 CSV split 为准，分支 JSON 保留历史 split。96 个 Iowa 候选人物组继续保守共享 split，人物计数不据此作未经证实的合并。确认身份、重复数组及候选组跨 split 均为 0，原 67 项有效 split 全部保留。
+标准 NPZ 只有 `data`（float32，`[channel,time]`）、`channel_names`（Unicode）、`sfreq`（200 Hz）。单位有依据时 `data = x_uV / 100`，恢复微伏乘 100；单位推断分支有 `unit_not_verified`，默认不进入确认单位清单。UCDDB 的 `native_ADC_count` 没有微伏缩放，不能乘 100 当作微伏。
 
-前次已对六项来源中的 1,141 个文件 / 71,824,900,072 bytes 完成核验。本次重新核验 UCDDB 源 REC，并逐份比较独立 EDF 读取及全部样点缩放。当前验证集合共 256,159 份标准数组：复用此前 256,134 份的不可变审计 part 哈希，加上本次 25 份全量重读结果；没有宣称本次再次扫描全部旧 2 TB 波形。此前单列的 UCDDB 计数副本不计入该标准集合。所有新增事件有效区间检查通过；既有边界/删除期注释语义审查沿用原结果。
+每份同名 JSON 保存来源/信号哈希、原始与目标采样率、单位证据、参考、导联顺序、人物/会话、诊断/任务事件、分段边界、处理步骤、QC 和 split。CSV 包括逐产物清单、事件清单、分支汇总、重复信号关系。连续段未预切成小文件；加载时取 1 秒 / 200 点 patch，禁止跨原始段边界，尾部由加载器丢弃或带 mask 补齐。
 
-UCDDB 的 μV 来源是负责人确认，增益和偏移按源 EDF 头部；25 份均保留 0..1 μV 头部范围及实际 ADC 超声明量程 QC，头部模拟增益缺独立校准证据。另有 2 份低变化标记，睡眠分期起点和未定义代码继续待核。Albrecht 1 段幅值异常及人口学缺行、ADSZ AD 人物/导联映射、Singh2021 的 18 会话配对、MODMA 校准及其他既有 QC 限制继续保留。
+原始数据沿用 0.1–75 Hz 与已知 50/60 Hz notch，遵守原始 Nyquist；128 Hz 来源最多 62.72 Hz，不声称恢复 75 Hz 内容。HMC/UCDDB 保留更高的原采集高通和 35 Hz 带宽记录；ADSZ AD 仅重采样。未额外做 z-score、统计归一化、ICA、CAR、插值或幅值裁剪。
 
-[UCDDB 换算公式与核验详情](https://github.com/Townzc/Big-EEG-Data/blob/main/PREPROCESSING_UCDDB_UV_20260913.zh-CN.md) · [前次六项处理报告](https://github.com/Townzc/Big-EEG-Data/blob/main/DISEASE_AUDIT_BEFORE_UCDDB_UV_20260913.zh-CN.md) · [更早的全量问题与修复记录](https://github.com/Townzc/Big-EEG-Data/blob/main/DISEASE_AUDIT_BEFORE_BATCH117_20260913.zh-CN.md)
+**核验范围与剩余问题**
+
+源审计覆盖 1,141 个文件 / 71,824,900,072 bytes。HMC/UCDDB 发布者 SHA-256、ADSZ CRC、所有原始三联文件的长度和增益检查通过；对 HMC 和两套 Singh 共 319 个记录进行了直接二进制换算与 MNE 读取的独立数值比较。新产物全部重新读取，核对有限值、dtype、形状、通道、200 Hz、缩放元数据、SHA-256、patch、事件区间、源文件覆盖与分段不丢点。
+
+既有 255,471 份数组的全量审计通过记录按不可变 part 哈希复用，加上本轮新数组重新扫描，形成 256,134 份标准结构数组的当前验证集合；这不是在本轮重复读取全部旧 2 TB 信号。UCDDB 原始单位隔离另验。
+
+UCDDB 仍需来源方明确 NV/增益及分期起点；Albrecht MAT 的电压单位、ADSZ AD 的单位/列顺序/人物映射和 Singh2021 的 18 个 ON/OFF 会话配对仍待更强依据。既有 MODMA 校准、部分库标签/参考、平线与幅值 QC 限制保留；本轮没有把它们改成全部正常。[本轮前的完整问题与修复记录](https://github.com/Townzc/Big-EEG-Data/blob/main/DISEASE_AUDIT_BEFORE_BATCH117_20260913.zh-CN.md) 另存为历史报告。旧六项状态、旧 99 项分类对账均保留为历史证据；不能把旧 14 项当成这次六项。
+
+**当前联合清单与复现**
+
+项目根目录：`EEG-dataset-collection/EEG-data-process`。本轮标准分支位于 `results/disease_v1/batch117/<branch>/shards/.../data/`；UCDDB 位于 `results/quarantine_v1/batch117/ucddb/`。当前疾病汇总位于 `results/disease_audit_20260913_batch117/`，`results/current_disease_audit.json` 指向当前版本。联合使用以新 CSV 的 `split` 为准，分支 JSON 保留历史划分。
 
 ```python
 import csv
 from disease_manifest_loader114 import load_record
-with open('results/disease_audit_20260913_batch118/disease_unit_confirmed_joint_manifest.csv') as f:
+with open('results/disease_audit_20260913_batch117/disease_unit_confirmed_joint_manifest.csv') as f:
     row = next(csv.DictReader(f))
-data, metadata = load_record(row)  # 使用联合 split，不重复 /100
+data, metadata = load_record(row)  # 使用联合 split，校验单位门禁，不重复 /100
 ```
 
-原五项标准分支在 `results/disease_v1/batch117/`；UCDDB 当前分支在 `results/disease_v1/batch118/ucddb/`，历史计数副本在 `results/quarantine_v1/batch117/ucddb/`。当前报告/清单由 `results/current_disease_audit.json` 指向。
+适配代码 `eeg_preprocess_batch117.py`、七份 `configs/disease_v1_batch117_*.yaml`、`audit_sources_pending117.py`、`validate_pending_six117.py`、`consolidate_pending_six117.py`，以及 `provenance/pending_six117/` 的源证据、执行哈希和逐分支报告可复核。正式处理 Slurm 2173580；针对变长片段、未定义分期和缺人口学表行的补跑及最终全量验证为 2173587，已成功产物保留；合并审计见本地执行记录。
 
 **所有标准格式疾病条目明细**
 
@@ -135,6 +145,5 @@ data, metadata = load_record(row)  # 使用联合 split，不重复 /100
 | EEG-0583 Albrecht2019 schizophrenia modified Simon continuous EEG | 77 | 186 | 34.671569 | 60 | 186 |
 | EEG-0585 Singh2020 Parkinson pedaling raw EEG | 39 | 44 | 3.320767 | 63 | 0 |
 | EEG-0586 Singh2021 Parkinson interval timing raw EEG | 111 | 150 | 51.695656 | 63 | 0 |
-| EEG-0606 UCDDB sleep apnea | 25 | 25 | 173.360556 | 2 | 0 |
 
-源说明：[HMC](https://physionet.org/content/hmc-sleep-staging/1.1/)、[UCDDB](https://physionet.org/content/ucddb/1.0.0/)、[EDF 规范](https://www.edfplus.info/specs/edf.html)、[ADSZ](https://doi.org/10.6084/m9.figshare.19091771.v1)、[AD 父来源](https://doi.org/10.1371/journal.pone.0231169)、[MSU](http://brain.bio.msu.ru/eeg_schizophrenia.htm)、[Singh2021](https://doi.org/10.1038/s41531-021-00158-x)。原文件头、作者工作簿/代码及负责人单位确认的来源级记录保存在本地 provenance。
+源说明：[HMC](https://physionet.org/content/hmc-sleep-staging/1.1/)、[UCDDB](https://physionet.org/content/ucddb/1.0.0/)、[ADSZ 发布与论文](https://doi.org/10.6084/m9.figshare.19091771.v1)、[AD 父来源的选段/滤波/参考](https://doi.org/10.1371/journal.pone.0231169)、[MSU 原始单位与排列](http://brain.bio.msu.ru/eeg_schizophrenia.htm)、[Singh2021 原论文](https://doi.org/10.1038/s41531-021-00158-x)。Albrecht/Singh 的工作簿、原文件头及作者处理代码均来自已下载发布包；文件证据优先于镜像概括。

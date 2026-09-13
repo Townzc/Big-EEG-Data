@@ -1213,11 +1213,15 @@
       "validatedBatch": "batch117"
     },
     "EEG-0606": {
-      "preprocessingStatus": "NATIVE_COUNTS_VALIDATED_PHYSICAL_CALIBRATION_BLOCKED",
-      "preprocessingNotes": "25 人、25 个 PSG REC，另 25 个 Lifecard 文件是 ECG，未混入 EEG。只保留 C3-A2/C4-A1，128→200 Hz。EDF 标为 NV、物理范围 0..1，缺少可核实的 counts→μV 换算；生成 float32 native_ADC_count 隔离产物，不除 100，不加入统一微伏训练池。保留 AHI、人口学、按 PSG 时钟对齐的呼吸事件；原始睡眠分期序列完整保留，但 30 s epoch 的起点缺乏明确时间戳，不臆造对齐。两份分期文件共 15 个未在发布说明中定义的代码 8 原样保留并标记，不猜成睡眠阶段。",
-      "acquisitionStatus": "已下载，原始计数隔离完成，待物理校准",
-      "acquisitionNote": "25 人、25 个 PSG REC，另 25 个 Lifecard 文件是 ECG，未混入 EEG。只保留 C3-A2/C4-A1，128→200 Hz。EDF 标为 NV、物理范围 0..1，缺少可核实的 counts→μV 换算；生成 float32 native_ADC_count 隔离产物，不除 100，不加入统一微伏训练池。保留 AHI、人口学、按 PSG 时钟对齐的呼吸事件；原始睡眠分期序列完整保留，但 30 s epoch 的起点缺乏明确时间戳，不臆造对齐。两份分期文件共 15 个未在发布说明中定义的代码 8 原样保留并标记，不猜成睡眠阶段。",
-      "validatedBatch": "batch117"
+      "preprocessingStatus": "COMPLETE_200HZ_UV100_FULLY_VALIDATED",
+      "preprocessingNotes": "项目负责人于 2026-09-13 确认 EEG 物理单位为 μV。25 人、25 份 PSG，保留 C3-A2/C4-A1 两路 EEG；EDF 原 NV 标记保留在来源记录中，仅在读取时按确认单位解释。沿用文件头 physical 0..1、digital -2048..2047，先计算 x_uV=(ADC+2048)/4095，再经既定滤波/重采样后除 100；没有把 ADC 整数直接当微伏。128→200 Hz、float32 [channel,time] NPZ + JSON/CSV，保留原 0.3–35 Hz 采集带宽和参考，补低通与 50 Hz notch。物理头范围 0..1 μV 单列 QC，未按幅值外观猜测放大倍数。AHI、人口学及 3,428 条呼吸事件保留；睡眠分期起点仍待核，2 份文件共 15 个未定义代码 8 原样保留。旧原始计数产物留作历史比对，不重复计入训练或统计。 25 份实际 ADC 最大绝对值为 11,600–13,632，均超出头部声明的 -2048..2047，继续标记 source_exceeds_declared_edf_digital_range。读取与逐点核验仅证明按声明增益实现一致，不独立证明头部模拟增益正确；另有 2 份低变化/flatline QC，均未静默删除。",
+      "acquisitionStatus": "已下载，μV/100 统一预处理全量验证通过；源头部量程矛盾保留 QC",
+      "acquisitionNote": "项目负责人于 2026-09-13 确认 EEG 物理单位为 μV。25 人、25 份 PSG，保留 C3-A2/C4-A1 两路 EEG；EDF 原 NV 标记保留在来源记录中，仅在读取时按确认单位解释。沿用文件头 physical 0..1、digital -2048..2047，先计算 x_uV=(ADC+2048)/4095，再经既定滤波/重采样后除 100；没有把 ADC 整数直接当微伏。128→200 Hz、float32 [channel,time] NPZ + JSON/CSV，保留原 0.3–35 Hz 采集带宽和参考，补低通与 50 Hz notch。物理头范围 0..1 μV 单列 QC，未按幅值外观猜测放大倍数。AHI、人口学及 3,428 条呼吸事件保留；睡眠分期起点仍待核，2 份文件共 15 个未定义代码 8 原样保留。旧原始计数产物留作历史比对，不重复计入训练或统计。 25 份实际 ADC 最大绝对值为 11,600–13,632，均超出头部声明的 -2048..2047，继续标记 source_exceeds_declared_edf_digital_range。读取与逐点核验仅证明按声明增益实现一致，不独立证明头部模拟增益正确；另有 2 份低变化/flatline QC，均未静默删除。",
+      "validatedBatch": "batch118",
+      "physicalUnit": "μV",
+      "physicalUnitStatus": "user_confirmed_20260913; EDF gain and offset retained; NV source label preserved as provenance",
+      "outputRecords": 25,
+      "eventRows": 3428
     }
   },
   "focusRowPatches": {
@@ -1395,22 +1399,22 @@
   "preprocessing": {
     "metricScope": "current_disease_human_materialized_outputs",
     "auditDate": "2026-09-13",
-    "auditedTargets": 67,
-    "outputs": 189919,
-    "subjectEntries": 28913,
-    "traceableIdentities": 25469,
+    "auditedTargets": 68,
+    "outputs": 189944,
+    "subjectEntries": 28938,
+    "traceableIdentities": 25494,
     "outputsWithoutReliableSubject": 731,
-    "signalHours": 45314.30644583137,
-    "eventRows": 3019836,
-    "derivativeBytes": 1739504213679,
+    "signalHours": 45487.66700138692,
+    "eventRows": 3023264,
+    "derivativeBytes": 1740379377252,
     "unitReviewOutputs": 32376,
     "unitReviewTargets": 20,
-    "unitConfirmedTargets": 47,
-    "unitConfirmedOutputs": 156134,
-    "unitConfirmedHours": 44569.53412916521,
-    "unitConfirmedIdentities": 24409,
+    "unitConfirmedTargets": 48,
+    "unitConfirmedOutputs": 156159,
+    "unitConfirmedHours": 44742.89468472076,
+    "unitConfirmedIdentities": 24434,
     "reportUrl": "https://github.com/Townzc/Big-EEG-Data/blob/main/DISEASE_AUDIT_20260913.zh-CN.md",
-    "deduplicationNote": "人数含对照；25,469 个按有证据关系合并的身份，不保证跨匿名库全球唯一。时长不乘通道数；UCDDB 原始计数隔离、犬、VitalDB、其他类别与可选 TUEG 重叠支单列。候选 Iowa 人物只合并 split，不宣称身份已确认。"
+    "deduplicationNote": "人数含对照；25,494 个按有证据关系合并的可追踪身份，不保证跨匿名库全球唯一。时长不乘通道数；UCDDB 标准微伏产物已纳入，旧计数副本排除。犬、VitalDB、其他分类及可选 TUEG 重叠支单列。Iowa 候选人物只合并 split，不冒充确认身份。"
   },
   "supplementalRows": [
     {
@@ -1643,5 +1647,25 @@
     "unitConfirmedIdentities": 24024,
     "reportUrl": "https://github.com/Townzc/Big-EEG-Data/blob/main/DISEASE_AUDIT_20260913.zh-CN.md",
     "deduplicationNote": "人数包含患者和对照；25,007 为按已知同源关系合并的可追踪身份，不能保证跨所有匿名库唯一。时长为文件累计、不乘通道数；完全相同数组去重后为 43,853.766826 h，仍可能含部分时间重叠。犬类、VitalDB、其他分类及可选 TUEG 重叠分支不计入本疾病人类汇总。"
+  },
+  "historicalPreprocessingBeforeUCDDBUnitConfirmation": {
+    "metricScope": "current_disease_human_materialized_outputs",
+    "auditDate": "2026-09-13",
+    "auditedTargets": 67,
+    "outputs": 189919,
+    "subjectEntries": 28913,
+    "traceableIdentities": 25469,
+    "outputsWithoutReliableSubject": 731,
+    "signalHours": 45314.30644583137,
+    "eventRows": 3019836,
+    "derivativeBytes": 1739504213679,
+    "unitReviewOutputs": 32376,
+    "unitReviewTargets": 20,
+    "unitConfirmedTargets": 47,
+    "unitConfirmedOutputs": 156134,
+    "unitConfirmedHours": 44569.53412916521,
+    "unitConfirmedIdentities": 24409,
+    "reportUrl": "https://github.com/Townzc/Big-EEG-Data/blob/main/DISEASE_AUDIT_20260913.zh-CN.md",
+    "deduplicationNote": "人数含对照；25,469 个按有证据关系合并的身份，不保证跨匿名库全球唯一。时长不乘通道数；UCDDB 原始计数隔离、犬、VitalDB、其他类别与可选 TUEG 重叠支单列。候选 Iowa 人物只合并 split，不宣称身份已确认。"
   }
 }
